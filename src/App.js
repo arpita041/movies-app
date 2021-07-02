@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Alert, Carousel, Navbar,Nav,Form,FormControl } from 'react-bootstrap';
 import {Route, BrowserRouter as Router, Switch,Link} from 'react-router-dom'
 import Alertt from './alertt';
-import Forms from './components/forms';
 import getHttpEx from './components/getHttpEx';
 import postFroms from './components/postFroms';
 import filmsForm from './components/filmsForm';
@@ -27,7 +26,7 @@ function App() {
     <Nav className="mr-auto">
       <Nav.Link href="/forms">Add Film</Nav.Link>
       <Nav.Link href="/emp">Add Director</Nav.Link>
-      <Nav.Link href="/data">Update</Nav.Link>
+      <Nav.Link href="/sendData">Update</Nav.Link>
       {/* <Nav.Link href="/sendData">Data</Nav.Link> */}
     </Nav>
     <Form inline>

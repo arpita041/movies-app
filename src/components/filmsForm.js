@@ -53,9 +53,15 @@ validate()
         this.setState({boxOfficeError:"BoxOfficeCollection is required"})
         val=1;
     }
-    if(this.state.rating.trim()==='' || (rate>11 && rate<0))
+    if(this.state.rating.trim()==='')
     {
-        this.setState({ratingError:"Rating should range from 0 to 10"});
+     this.setState({ratingError:"Rating is required"});
+     val=1;
+  
+     }  
+      if(rate>10 || rate<0)
+     {
+        this.setState({ratingError:"Rating should range between 0 to 10"});
         val=1;
     }
     if(this.state.director.trim()==='')

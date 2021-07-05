@@ -131,7 +131,7 @@ if(isValid)
             </Form.Group>
             </div>
             <div className="App">
-                <Button variant="primary" type="submit">Submit</Button>{' '}
+                <Button variant="dark" type="submit">Submit</Button>{' '}
                 </div>
 			</form>
 </div>

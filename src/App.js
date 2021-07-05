@@ -1,11 +1,7 @@
-import logo from './logo.svg';
-import { ReactDOM } from 'react-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Alert, NavDropdown, Navbar, Nav, Form, FormControl } from 'react-bootstrap';
 import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom'
-import Alertt from './alertt';
-import getHttpEx from './components/getHttpEx';
 import postFroms from './components/postFroms';
 import filmsForm from './components/filmsForm';
 import addDirector from './components/addDirector';
@@ -18,14 +14,14 @@ function App() {
 
       <Router>
         <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="/"><Link to='/'>CinemaWall</Link></Navbar.Brand>
+          <Navbar.Brand href="/" style={{ color: '#3BB7C4 ' }}>CinemaWall</Navbar.Brand>
           <Nav className="mr-auto">
-            <Nav.Link href="/forms">Add Cinema</Nav.Link>
-            <Nav.Link href="/emp"><Link to='/addDirector'>Add Director</Link></Nav.Link>
+            <Nav.Link href="/forms"  style={{ color: '#3BB7C4 ' }}>Add Cinema</Nav.Link>
+            <Nav.Link href="/addDirector" style={{ color: '#3BB7C4 ' }}>Add Director</Nav.Link>
             {/* <Nav.Link href="/data"><Link to='/data'>Data</Link></Nav.Link> */}
-            <NavDropdown title="Other Options" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1"><Link to='/deleteMovie'>Delete a Movie</Link></NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2"><Link to='/update'>Update Data</Link></NavDropdown.Item>
+            <NavDropdown title="Other Options" id="collasible-nav-dropdown" style={{ color: '#3BB7C4 ' }}>
+              <NavDropdown.Item href="/deleteMovie" style={{ color: '#3BB7C4 ' }}>Delete a Movie</NavDropdown.Item>
+              <NavDropdown.Item href="/update" style={{ color: '#3BB7C4 ' }}>Update Data</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Form inline>
@@ -40,6 +36,8 @@ function App() {
           <Route path='/addDirector' component={addDirector}></Route>
           <Route path='/update' component={updateDetails}></Route>
           <Route path="/forms" component={filmsForm}></Route>
+          <Route path='/home' exact component={Home}></Route>
+
           {/* <Route path="/data" component={getHttpEx} ></Route> */}
           <Route path="/sendData" component={postFroms}></Route>
         </Switch>

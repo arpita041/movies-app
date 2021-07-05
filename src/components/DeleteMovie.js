@@ -19,7 +19,7 @@ class DeleteMovie extends Component {
     render() {
         return (
             <div className='container'>
-                <div className="jumbotron">
+                <div className="jumbotron my-5">
                     <div>
                     <Form.Group controlId="formBasicEmail">
                     <Form.Label>Movie Name</Form.Label>

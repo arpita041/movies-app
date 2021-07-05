@@ -55,7 +55,7 @@ class filmsForm extends Component {
             val = 1;
 
         }
-        if (rate > 10 || rate < 0) {
+        if (rate >= 10 || rate <= 0) {
             this.setState({ ratingError: "Rating should range between 0 to 10" });
             val = 1;
         }
@@ -89,45 +89,47 @@ class filmsForm extends Component {
         }
         return (
             <div>
-                <div className="jumbotron my-5" style={csss}>
-                    <div className="container ">
-                        <div className="mycard">
-                            <div className="row">
-                                <div className="col-md-12">
-                                    <div className="myleftctn">
-                                        <form onSubmit={this.handleSubmit}>
-                                            <div>
-                                                <Form.Group controlId="formBasicEmail">
-                                                    <Form.Label>Movie Name</Form.Label>
-                                                    <Form.Control type="text" placeholder="movie name" value={name} onChange={this.handlenameChange} />
-                                                    <small className="text-danger">{this.state.nameError}</small>
-                                                </Form.Group>
-                                            </div>
-                                            <div>
-                                                <Form.Group controlId="formBasicEmail">
-                                                    <Form.Label>Box Office Collection</Form.Label>
-                                                    <Form.Control type="text" placeholder="box office collection" value={boxOfficeCollection} onChange={this.handleBox} />
-                                                    <small className="text-danger">{this.state.boxOfficeError}</small>
-                                                </Form.Group>
-                                            </div>
-                                            <div>
-                                                <Form.Group controlId="formBasicEmail">
-                                                    <Form.Label>Rating</Form.Label>
-                                                    <Form.Control type="text" placeholder="rating" value={rating} onChange={this.handleRating} />
-                                                    <small className="text-danger">{this.state.ratingError}</small>
-                                                </Form.Group>
-                                            </div>
-                                            <div>
-                                                <Form.Group controlId="formBasicEmail">
-                                                    <Form.Label>Director Name</Form.Label>
-                                                    <Form.Control type="text" placeholder="Director" value={director} onChange={this.handleDirector} />
-                                                    <small className="text-danger">{this.state.directorError}</small>
-                                                </Form.Group>
-                                            </div>
-                                            <div className="App">
-                                                <Button variant="primary" type="submit">Submit</Button>{' '}
-                                            </div>
-                                        </form>
+                <div className='container'>
+                    <div className="jumbotron my-5" style={csss}>
+                        <div className="container ">
+                            <div className="mycard">
+                                <div className="row">
+                                    <div className="col-md-12">
+                                        <div className="myleftctn">
+                                            <form onSubmit={this.handleSubmit}>
+                                                <div>
+                                                    <Form.Group controlId="formBasicEmail">
+                                                        <Form.Label>Movie Name</Form.Label>
+                                                        <Form.Control type="text" placeholder="movie name" value={name} onChange={this.handlenameChange} />
+                                                        <small className="text-danger">{this.state.nameError}</small>
+                                                    </Form.Group>
+                                                </div>
+                                                <div>
+                                                    <Form.Group controlId="formBasicEmail">
+                                                        <Form.Label>Box Office Collection</Form.Label>
+                                                        <Form.Control type="text" placeholder="box office collection" value={boxOfficeCollection} onChange={this.handleBox} />
+                                                        <small className="text-danger">{this.state.boxOfficeError}</small>
+                                                    </Form.Group>
+                                                </div>
+                                                <div>
+                                                    <Form.Group controlId="formBasicEmail">
+                                                        <Form.Label>Rating</Form.Label>
+                                                        <Form.Control type="text" placeholder="rating" value={rating} onChange={this.handleRating} />
+                                                        <small className="text-danger">{this.state.ratingError}</small>
+                                                    </Form.Group>
+                                                </div>
+                                                <div>
+                                                    <Form.Group controlId="formBasicEmail">
+                                                        <Form.Label>Director Name</Form.Label>
+                                                        <Form.Control type="text" placeholder="Director" value={director} onChange={this.handleDirector} />
+                                                        <small className="text-danger">{this.state.directorError}</small>
+                                                    </Form.Group>
+                                                </div>
+                                                <div className="App">
+                                                    <Button variant="primary" type="submit">Submit</Button>{' '}
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

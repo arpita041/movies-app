@@ -8,41 +8,37 @@ import Alertt from './alertt';
 import getHttpEx from './components/getHttpEx';
 import postFroms from './components/postFroms';
 import filmsForm from './components/filmsForm';
+import Home from './components/Home';
 function App() {
   return (
     <div className="container-fluid" >
-{/* <>
-  <Button variant="primary">Primary</Button>
-</>
-<Alert variant="primary">
-    This is a primary alert with{' '}
-    <Alert.Link href="#">an example link</Alert.Link>. Give it a click if you
-    like.
-  </Alert> */}
+
 
  <Router>
   <Navbar bg="dark" variant="dark">
-    <Navbar.Brand href="/home">Home</Navbar.Brand>
-    <Nav className="mr-auto">
-      <Nav.Link href="/forms">Add Film</Nav.Link>
-      <Nav.Link href="/emp">Add Director</Nav.Link>
-      <Nav.Link href="/sendData">Update</Nav.Link>
-      {/* <Nav.Link href="/sendData">Data</Nav.Link> */}
-    </Nav>
+  <Navbar.Brand href="/"><Link to='/'>CinemaWall</Link></Navbar.Brand>
+              <Nav className="mr-auto">
+                <Nav.Link href="/forms"><Link to='/forms'>Add Cinema</Link></Nav.Link>
+                <Nav.Link href="/emp"><Link to='/emp'>Add Director</Link></Nav.Link>
+                <Nav.Link href="/data"><Link to='/data'>Data</Link></Nav.Link>
+                {/* <Nav.Link href="/sendData">Data</Nav.Link> */}
+              </Nav>
     <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2" />
       <Button variant="outline-info">Search</Button>
     </Form>
   </Navbar>
-  <br />     <Switch><Route path="/emp" component={Alertt}></Route>
+  <br />   
+    <Switch>
+    <Route path='/' exact component={Home}></Route>
+
+      <Route path="/emp" component={Alertt}></Route>
     <Route path="/forms" component={filmsForm}></Route>
     <Route path="/data" component={getHttpEx} ></Route>
     <Route path="/sendData" component={postFroms}></Route>
     </Switch>
     </Router>
  
-{/* 
-   <button id="trial">Click</button> */}
 
     </div>
   );

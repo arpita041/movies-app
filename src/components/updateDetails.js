@@ -1,8 +1,58 @@
 import React, { Component } from 'react'
 import {Route, BrowserRouter as Router, Switch,Link} from 'react-router-dom'
-import home from './home'
+import Home from './Home'
+
 class updateDetails extends Component {
+    constructor(props)
+    {
+        super(props);
+        this.state={
+            name:'',
+            age:'',
+            awardCount:'',
+            nameError:'',
+            ageError:'',
+            awardError:''
+        }
+    }
+    handleChange = e =>
+    {
+        this.setState({
+            [e.target.name]:e.target.value
+        })
+    }
+ validation()
+ {
+    let ageNum= parseInt(this.state.age);
+    let awardNum =parseInt(this.state.awardCount) ;
+    let val=0;
+    if(ageNum>=80 || ageNum<=18)
+    {
+        val=1;
+        this.setState({ageError:"Age should be from 18 to 80"})
+    }
+    if(awardNum>=100 || awardNum<=1)
+    {
+        val=1;
+        this.setState({awardError:"award can't be more than 100"})
+    }
+    if(val=1)
+    {
+        return false;
+    }
+    else{
+        return true;
+    }
+ }
+    handleSumbit = e =>
+    {
+        const valid= this.validation();
+        e.preventDefault();
+        console.log(this.state);
+        
+    }
     render() {
+        const {name,age,awardCount}= this.state;
         return (
             <div>
                 <div className="jumbotron my-5">
@@ -14,15 +64,15 @@ class updateDetails extends Component {
                         <div className="row">
                             <div className="col-md-6 border">
                                 <div className="myleftctn"></div>
-                   <form className="myform text-center">
-                                        <header className="text-center">Update Form</header>
+                   <form className="myform text-center" onSubmit={this.handleSumbit}>
+                                        <header className="text-center">Updation Form</header>
                 
                                         <div className="row">
                                             <div className="col-12">
                                                 <div className="form-group">
-                                                    <input type="text" name="name" required
+                                                    <input type="text" name="name" value={name} required
                                                          className="form-control" id="myinput"
-                                                        placeholder=" Name"/>
+                                                        placeholder=" Name" onChange={this.handleChange}/>
                                                 </div>
                                             </div>
                                         </div>
@@ -32,11 +82,12 @@ class updateDetails extends Component {
                                             <div className="col-12">
                                                 <div className="form-group">
                                                     <input type="number" required
-                                                         name="age" id="myinput"
-                                                        className="form-control"  placeholder="age"/>
-                                                    
+                                                         name="age" id="myinput" value={age}
+                                                        className="form-control"  placeholder="age" onChange={this.handleChange}/>
+                                                     <small className="text-danger">{this.state.ageError}</small>
                                                 </div>
                                             </div>
+                                           
                                         </div>
                 
                 
@@ -44,17 +95,18 @@ class updateDetails extends Component {
                                             <div className="col-12">
                                                 <div className="form-group">
                                                     <input type="number"name="awardCount"
-                                                        className="form-control" id="myinput" required
-                                                        placeholder="awardCount" />
-                                                    
+                                                        className="form-control" id="myinput" required value={awardCount}
+                                                        placeholder="awardCount" onChange={this.handleChange}/>
+                                                    <small class="text-danger">{this.state.awardError}</small>
                                                 </div>
+
                                             </div>
                                         </div>
                                         <button className="btn btn-dark " id="butt" >Update</button><br/><br/>
                                         <h5 id="demo"></h5>
                                         <Router>
                                         <h6>Go back to <a href="/home">Home</a></h6>   
-                                        <Switch><Route path="/home" component={home}></Route></Switch>
+                                        <Switch><Route path="/home" component={Home}></Route></Switch>
                                         </Router>
                         </form>
                         </div>

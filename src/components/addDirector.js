@@ -3,7 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Alert, Carousel,Form,Nav } from 'react-bootstrap';
 import {Route, BrowserRouter as Router, Switch,Link} from 'react-router-dom'
 import getHttpEx from './getHttpEx';
-import home from './home';
+import Home from './Home';
+
 class addDirector extends Component {
     constructor(props) {
 		super(props)
@@ -93,28 +94,28 @@ class addDirector extends Component {
                  <div>
              <Form.Group controlId="formBasicEmail">
           <Form.Label>Name</Form.Label>
-        <Form.Control type="text" placeholder="name" name="name"  value={name} onChange={this.handleChange}/>
+        <Form.Control type="text" placeholder="name" name="name"  value={name} onChange={this.handleChange} required/>
         <small className="text-danger">{this.state.nameError}</small>
          </Form.Group>
          </div>
              <div>
              <Form.Group controlId="formBasicEmail">
           <Form.Label>Age</Form.Label>
-        <Form.Control type="number" placeholder="age" name="age"  value={age} onChange={this.handleChange}/>
+        <Form.Control type="number" placeholder="age" name="age"  value={age} onChange={this.handleChange} required/>
         <small className="text-danger">{this.state.ageError}</small>
          </Form.Group>
          </div>
          <div>
              <Form.Group controlId="formBasicEmail">
           <Form.Label>Gender</Form.Label>
-        <Form.Control type="text" placeholder="gender" name="gender"  value={gender} onChange={this.handleChange}/>
+        <Form.Control type="text" placeholder="gender" name="gender"  value={gender} onChange={this.handleChange} required/>
         <small className="text-danger">{this.state.genderError}</small>
          </Form.Group>
          </div>
          <div>
              <Form.Group controlId="formBasicEmail">
           <Form.Label>award Count</Form.Label>
-        <Form.Control type="number" placeholder="awardCount"  name="awardCount" value={awardCount} onChange={this.handleChange}/>
+        <Form.Control type="number" placeholder="awardCount"  name="awardCount" value={awardCount} onChange={this.handleChange} required/>
         <small className="text-danger">{this.state.awardCountError}</small> 
          </Form.Group>
          </div>
@@ -125,7 +126,7 @@ class addDirector extends Component {
              <Router>
              <h6 className="App">Go back to<a href="/home"> home</a></h6>
              <Switch>
-                 <Route path="/home" component={home}></Route>
+                 <Route path="/home" component={Home}></Route>
              </Switch>
              </Router>
          </form>

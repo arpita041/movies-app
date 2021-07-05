@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
+
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Alert, Carousel, Form } from 'react-bootstrap';
+import { Button, Alert, Carousel,Form,Nav } from 'react-bootstrap';
+import {Route, BrowserRouter as Router, Switch,Link} from 'react-router-dom'
+import home from './home';
 class filmsForm extends Component {
     constructor(props) {
         super(props)
@@ -54,11 +57,13 @@ class filmsForm extends Component {
             this.setState({ ratingError: "Rating is required" });
             val = 1;
 
+
         }
-        if (rate > 10 || rate < 0) {
+        if (rate>=10 || rate <=0) {
             this.setState({ ratingError: "Rating should range between 0 to 10" });
             val = 1;
         }
+
         if (this.state.director.trim() === '') {
             this.setState({ directorError: "Director name is required" });
             val = 1;
@@ -71,8 +76,7 @@ class filmsForm extends Component {
         }
     }
     handleSubmit = event => {
-
-        //	alert(`${this.state.name} ${this.state.boxOfficeCollection} ${this.state.rating} ${this.state.director}`)
+      this.setState({nameError:'', boxOfficeError:'', ratingError:'', directorError:''})
         const isValid = this.validate();
 
         if (isValid) {
@@ -85,8 +89,9 @@ class filmsForm extends Component {
 
         const { name, boxOfficeCollection, rating, director } = this.state
         const csss = {
-            opacity: 0.7
+            opacity: 1
         }
+
         return (
             <div>
                 <div className="jumbotron my-5" style={csss}>
@@ -113,7 +118,7 @@ class filmsForm extends Component {
                                             <div>
                                                 <Form.Group controlId="formBasicEmail">
                                                     <Form.Label>Rating</Form.Label>
-                                                    <Form.Control type="text" placeholder="rating" value={rating} onChange={this.handleRating} />
+                                                    <Form.Control type="number" placeholder="rating" value={rating} onChange={this.handleRating} />
                                                     <small className="text-danger">{this.state.ratingError}</small>
                                                 </Form.Group>
                                             </div>
@@ -125,8 +130,15 @@ class filmsForm extends Component {
                                                 </Form.Group>
                                             </div>
                                             <div className="App">
-                                                <Button variant="primary" type="submit">Submit</Button>{' '}
+                                                <Button variant="dark" type="submit">Add Movie</Button>{' '}
                                             </div>
+                                            <br/>
+                                            <Router>
+             <h6 className="App">Go back to<a href="/home"> home</a></h6>
+             <Switch>
+                 <Route path="/home" component={home}></Route>
+             </Switch>
+             </Router>
                                         </form>
                                     </div>
                                 </div>

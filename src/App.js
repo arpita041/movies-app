@@ -9,6 +9,7 @@ import getHttpEx from './components/getHttpEx';
 import postFroms from './components/postFroms';
 import filmsForm from './components/filmsForm';
 import addDirector from './components/addDirector';
+import updateDetails from './components/updateDetails';
 function App() {
   return (
     <div className="container-fluid" >
@@ -27,7 +28,7 @@ function App() {
     <Nav className="mr-auto">
       <Nav.Link href="/film">Add Film</Nav.Link>
       <Nav.Link href="/director">Add Director</Nav.Link>
-      <Nav.Link href="/sendData">Update</Nav.Link>
+      <Nav.Link href="/update">Update</Nav.Link>
       {/* <Nav.Link href="/sendData">Data</Nav.Link> */}
     </Nav>
     <Form inline>
@@ -38,7 +39,9 @@ function App() {
   <br />     <Switch><Route path="/emp" component={Alertt}></Route>
     <Route path="/film" component={filmsForm}></Route>
     <Route path="/director" component={addDirector} ></Route>
-    <Route path="/sendData" component={postFroms}></Route>
+    <Route path="/update" component={updateDetails}></Route>
+    {/* <Route path="/home" component={home}></Route> */}
+
     </Switch>
     </Router>
  

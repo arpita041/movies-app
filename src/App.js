@@ -8,23 +8,24 @@ import Alertt from './alertt';
 import getHttpEx from './components/getHttpEx';
 import postFroms from './components/postFroms';
 import filmsForm from './components/filmsForm';
+import addDirector from './components/addDirector';
 import Home from './components/Home';
 import DeleteMovie from './components/DeleteMovie';
+import updateDetails from './components/updateDetails';
 function App() {
   return (
     <div className="container-fluid" >
-
 
       <Router>
         <Navbar bg="dark" variant="dark">
           <Navbar.Brand href="/"><Link to='/'>CinemaWall</Link></Navbar.Brand>
           <Nav className="mr-auto">
             <Nav.Link href="/forms">Add Cinema</Nav.Link>
-            <Nav.Link href="/emp"><Link to='/emp'>Add Director</Link></Nav.Link>
+            <Nav.Link href="/emp"><Link to='/addDirector'>Add Director</Link></Nav.Link>
             {/* <Nav.Link href="/data"><Link to='/data'>Data</Link></Nav.Link> */}
             <NavDropdown title="Other Options" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1"><Link to='/deleteMovie'>Delete a Movie</Link></NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2"><Link to=''>Update Data</Link></NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2"><Link to='/update'>Update Data</Link></NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Form inline>
@@ -35,8 +36,9 @@ function App() {
         <br />
         <Switch>
           <Route path='/' exact component={Home}></Route>
-          <Route path='/deleteMovie' component={DeleteMovie}></Route>
-          <Route path="/emp" component={Alertt}></Route>
+          <Route path='/deleteMovie' component={DeleteMovie}></Route> 
+          <Route path='/addDirector' component={addDirector}></Route>
+          <Route path='/update' component={updateDetails}></Route>
           <Route path="/forms" component={filmsForm}></Route>
           {/* <Route path="/data" component={getHttpEx} ></Route> */}
           <Route path="/sendData" component={postFroms}></Route>

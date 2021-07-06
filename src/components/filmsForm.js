@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Alert, Carousel,Form,Nav } from 'react-bootstrap';
+import { Button,Form} from 'react-bootstrap';
 import NavBarrr from './NavBarrr';
+import { BrowserRouter as Router} from 'react-router-dom'
 class filmsForm extends Component {
     constructor(props) {
         super(props)
@@ -134,6 +135,11 @@ class filmsForm extends Component {
                                                     <Button variant="dark" type="submit">Add Film</Button>{' '}
                                                 </div>
                                             </form>
+                                            <br/>
+                                            <Router>
+             <h6 className="App">Go back to<a href="/home"> home</a></h6>
+         
+             </Router>
                                         </div>
                                     </div>
                                 </div>

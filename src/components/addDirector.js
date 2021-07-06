@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Alert, Carousel, Form, Nav } from 'react-bootstrap';
-import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom'
-import Home from './Home';
+import { Button, Form } from 'react-bootstrap';
+import { BrowserRouter as Router} from 'react-router-dom'
 import NavBarrr from './NavBarrr';
 class addDirector extends Component {
     constructor(props) {

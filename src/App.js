@@ -1,14 +1,14 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Alert, NavDropdown, Navbar, Nav, Form, FormControl } from 'react-bootstrap';
-import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom'
+//import { Button, Alert, NavDropdown, Navbar, Nav, Form, FormControl } from 'react-bootstrap';
+import { Route, BrowserRouter as Router, Switch} from 'react-router-dom'
 import postFroms from './components/postFroms';
 import filmsForm from './components/filmsForm';
 import addDirector from './components/addDirector';
 import Home from './components/Home';
 import DeleteMovie from './components/DeleteMovie';
 import updateDetails from './components/updateDetails';
-import NavBarrr from './components/NavBarrr';
+//import NavBarrr from './components/NavBarrr';
 function App() {
   return (
     <div className="container-fluid" >

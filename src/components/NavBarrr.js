@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Alert, NavDropdown, Navbar, Nav, Form, FormControl } from 'react-bootstrap';
+import { Button, NavDropdown, Navbar, Nav, Form, FormControl } from 'react-bootstrap';
 
 class NavBarrr extends Component {
     render() {

@@ -92,7 +92,7 @@ class updateDetails extends Component {
                                                                     <input type="number" name="awardCount"
                                                                         className="form-control" id="myinput" required value={awardCount}
                                                                         placeholder="awardCount" onChange={this.handleChange} />
-                                                                    <small class="text-danger">{this.state.awardError}</small>
+                                                                    <small className="text-danger">{this.state.awardError}</small>
                                                                 </div>
 
                                                             </div>

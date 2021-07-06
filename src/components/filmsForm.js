@@ -134,6 +134,11 @@ class filmsForm extends Component {
                                                     <Button variant="dark" type="submit">Add Film</Button>{' '}
                                                 </div>
                                             </form>
+                                            <br/>
+                                            <Router>
+             <h6 className="App">Go back to<a href="/home"> home</a></h6>
+         
+             </Router>
                                         </div>
                                     </div>
                                 </div>

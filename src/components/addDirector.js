@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Alert, Carousel,Form,Nav } from 'react-bootstrap';
 import {Route, BrowserRouter as Router, Switch,Link} from 'react-router-dom'
 import getHttpEx from './getHttpEx';
-import Home from './Home';
+// import Home from './Home';
 
 class addDirector extends Component {
     constructor(props) {
@@ -125,9 +125,7 @@ class addDirector extends Component {
              <br/>
              <Router>
              <h6 className="App">Go back to<a href="/home"> home</a></h6>
-             <Switch>
-                 <Route path="/home" component={Home}></Route>
-             </Switch>
+           
              </Router>
          </form>
 </div>

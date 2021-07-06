@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import Home from './Home';
+import NavBarrr from './NavBarrr';
 class updateDetails extends Component {
     constructor(props) {
         super(props);
@@ -46,74 +47,77 @@ class updateDetails extends Component {
     render() {
         const { name, age, awardCount } = this.state;
         return (
-            <div className='container'>
-                <div className="jumbotron my-5">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-sm-12">
-                                <div className="container ">
-                                    <div className="mycard">
-                                        <div className="row">
-                                            <div className="col-md-6 border">
-                                                <div className="myleftctn"></div>
-                                                <form className="myform text-center" onSubmit={this.handleSumbit}>
-                                                    <header className="text-center">Updation Form</header>
+            <div>
+                <NavBarrr></NavBarrr>
+                <div className='container'>
+                    <div className="jumbotron my-5">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-sm-12">
+                                    <div className="container ">
+                                        <div className="mycard">
+                                            <div className="row">
+                                                <div className="col-md-6 border">
+                                                    <div className="myleftctn"></div>
+                                                    <form className="myform text-center" onSubmit={this.handleSumbit}>
+                                                        <header className="text-center">Updation Form</header>
 
-                                                    <div className="row">
-                                                        <div className="col-12">
-                                                            <div className="form-group">
-                                                                <input type="text" name="name" value={name} required
-                                                                    className="form-control" id="myinput"
-                                                                    placeholder=" Name" onChange={this.handleChange} />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-
-                                                    <div className="row">
-                                                        <div className="col-12">
-                                                            <div className="form-group">
-                                                                <input type="number" required
-                                                                    name="age" id="myinput" value={age}
-                                                                    className="form-control" placeholder="age" onChange={this.handleChange} />
-                                                                <small className="text-danger">{this.state.ageError}</small>
+                                                        <div className="row">
+                                                            <div className="col-12">
+                                                                <div className="form-group">
+                                                                    <input type="text" name="name" value={name} required
+                                                                        className="form-control" id="myinput"
+                                                                        placeholder=" Name" onChange={this.handleChange} />
+                                                                </div>
                                                             </div>
                                                         </div>
 
-                                                    </div>
 
-
-                                                    <div className="row">
-                                                        <div className="col-12">
-                                                            <div className="form-group">
-                                                                <input type="number" name="awardCount"
-                                                                    className="form-control" id="myinput" required value={awardCount}
-                                                                    placeholder="awardCount" onChange={this.handleChange} />
-                                                                <small class="text-danger">{this.state.awardError}</small>
+                                                        <div className="row">
+                                                            <div className="col-12">
+                                                                <div className="form-group">
+                                                                    <input type="number" required
+                                                                        name="age" id="myinput" value={age}
+                                                                        className="form-control" placeholder="age" onChange={this.handleChange} />
+                                                                    <small className="text-danger">{this.state.ageError}</small>
+                                                                </div>
                                                             </div>
 
                                                         </div>
-                                                    </div>
-                                                    <button className="btn btn-dark " id="butt" >Update</button><br /><br />
 
-                                                    <Router>
-                                                        <h6>Go back to <a href="/home">Home</a></h6>
-                                                        <Switch><Route path="/home" component={Home}></Route></Switch>
-                                                    </Router>
-                                                </form>
-                                            </div>
-                                            <div className="col-md-4 ml-5 border">
-                                                <div className="App">
-                                                    Updated details:</div>
-                                                <br />
-                                                Name: Rohini Singh
-                                                <br />
-                                                Age: 23
-                                                <br />
-                                                Award Count: 10
-                                                <br />
-                                                Gender: Female
 
+                                                        <div className="row">
+                                                            <div className="col-12">
+                                                                <div className="form-group">
+                                                                    <input type="number" name="awardCount"
+                                                                        className="form-control" id="myinput" required value={awardCount}
+                                                                        placeholder="awardCount" onChange={this.handleChange} />
+                                                                    <small class="text-danger">{this.state.awardError}</small>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <button className="btn btn-dark " id="butt" >Update</button><br /><br />
+
+                                                        <Router>
+                                                            <h6>Go back to <a href="/home">Home</a></h6>
+                                                            <Switch><Route path="/home" component={Home}></Route></Switch>
+                                                        </Router>
+                                                    </form>
+                                                </div>
+                                                <div className="col-md-4 ml-5 border">
+                                                    <div className="App">
+                                                        Updated details:</div>
+                                                    <br />
+                                                    Name: Rohini Singh
+                                                    <br />
+                                                    Age: 23
+                                                    <br />
+                                                    Award Count: 10
+                                                    <br />
+                                                    Gender: Female
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -123,6 +127,7 @@ class updateDetails extends Component {
                     </div>
                 </div>
             </div>
+
         )
     }
 }

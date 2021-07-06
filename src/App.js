@@ -8,28 +8,11 @@ import addDirector from './components/addDirector';
 import Home from './components/Home';
 import DeleteMovie from './components/DeleteMovie';
 import updateDetails from './components/updateDetails';
+import NavBarrr from './components/NavBarrr';
 function App() {
   return (
     <div className="container-fluid" >
-
       <Router>
-        <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="/" style={{ color: '#3BB7C4 ' }}>CinemaWall</Navbar.Brand>
-          <Nav className="mr-auto">
-            <Nav.Link href="/forms"  style={{ color: '#3BB7C4 ' }}>Add Cinema</Nav.Link>
-            <Nav.Link href="/addDirector" style={{ color: '#3BB7C4 ' }}>Add Director</Nav.Link>
-            {/* <Nav.Link href="/data"><Link to='/data'>Data</Link></Nav.Link> */}
-            <NavDropdown title="Other Options" id="collasible-nav-dropdown" style={{ color: '#3BB7C4 ' }}>
-              <NavDropdown.Item href="/deleteMovie" style={{ color: '#3BB7C4 ' }}>Delete a Movie</NavDropdown.Item>
-              <NavDropdown.Item href="/update" style={{ color: '#3BB7C4 ' }}>Update Data</NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-          <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-info">Search</Button>
-          </Form>
-        </Navbar>
-        <br />
         <Switch>
           <Route path='/' exact component={Home}></Route>
           <Route path='/deleteMovie' component={DeleteMovie}></Route> 

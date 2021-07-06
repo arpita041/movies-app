@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Alert, Carousel,Form,Nav } from 'react-bootstrap';
-import {Route, BrowserRouter as Router, Switch,Link} from 'react-router-dom'
-// import Home from './home';
+import NavBarrr from './NavBarrr';
 class filmsForm extends Component {
     constructor(props) {
         super(props)
@@ -94,6 +93,7 @@ class filmsForm extends Component {
 
         return (
             <div>
+                <NavBarrr></NavBarrr>
                 <div className='container'>
                     <div className="jumbotron my-5" style={csss}>
                         <div className="container ">

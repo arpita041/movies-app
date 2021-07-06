@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import Home from './Home';
+import InputField from './inputField';
+import NavBarrr from './NavBarrr';
 class updateDetails extends Component {
     constructor(props) {
         super(props);
@@ -22,6 +24,11 @@ class updateDetails extends Component {
         let ageNum = parseInt(this.state.age);
         let awardNum = parseInt(this.state.awardCount);
         let val = 0;
+        if(this.state.name.trim()==='')
+        {
+            val=1;
+            this.setState({nameError:"name is required"})
+        }
         if (ageNum >= 80 || ageNum <= 18) {
             val = 1;
             this.setState({ ageError: "Age should be from 18 to 80" })
@@ -40,13 +47,19 @@ class updateDetails extends Component {
     handleSumbit = e => {
         const valid = this.validation();
         e.preventDefault();
+        if(valid)
+        {
+            console.log("no error")
+        }
         console.log(this.state);
 
     }
     render() {
         const { name, age, awardCount } = this.state;
         return (
+            <div><NavBarrr></NavBarrr>
             <div className='container'>
+                    
                 <div className="jumbotron my-5">
                     <div className="container">
                         <div className="row">
@@ -62,9 +75,10 @@ class updateDetails extends Component {
                                                     <div className="row">
                                                         <div className="col-12">
                                                             <div className="form-group">
-                                                                <input type="text" name="name" value={name} required
+                                                                <InputField type="text" name="name" value={name}
                                                                     className="form-control" id="myinput"
                                                                     placeholder=" Name" onChange={this.handleChange} />
+                                                                    
                                                             </div>
                                                         </div>
                                                     </div>
@@ -73,7 +87,7 @@ class updateDetails extends Component {
                                                     <div className="row">
                                                         <div className="col-12">
                                                             <div className="form-group">
-                                                                <input type="number" required
+                                                                <InputField type="number" required
                                                                     name="age" id="myinput" value={age}
                                                                     className="form-control" placeholder="age" onChange={this.handleChange} />
                                                                 <small className="text-danger">{this.state.ageError}</small>
@@ -86,10 +100,10 @@ class updateDetails extends Component {
                                                     <div className="row">
                                                         <div className="col-12">
                                                             <div className="form-group">
-                                                                <input type="number" name="awardCount"
+                                                                <InputField type="number" name="awardCount"
                                                                     className="form-control" id="myinput" required value={awardCount}
                                                                     placeholder="awardCount" onChange={this.handleChange} />
-                                                                <small class="text-danger">{this.state.awardError}</small>
+                                                                <small className="text-danger">{this.state.awardError}</small>
                                                             </div>
 
                                                         </div>
@@ -122,6 +136,7 @@ class updateDetails extends Component {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         )
     }

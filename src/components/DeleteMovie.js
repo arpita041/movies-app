@@ -1,31 +1,33 @@
 import React, { Component } from 'react'
-import { Button, Form } from 'react-bootstrap';
+import { Button} from 'react-bootstrap';
 import InputField from './inputField';
-
+import NavBarrr from './NavBarrr';
 class DeleteMovie extends Component {
     constructor(props) {
-        super(props);
+        super(props)
 
         this.state = {
-             movieName:''
+            movieName: ''
         }
     }
 
  handleChange=(event)=>{
         this.setState({
-            movieName:event.target.value
+            movieName: event.target.value
         })
 
     }
 handleSubmit =e=>
 {
     e.preventDefault();
-    console.log(this.state);
+    console.log(this.state.movieName);
 }
     render() {
         const {movieName}= this.state;
         return (
+            <div>    <NavBarrr></NavBarrr>
             <div className='container'>
+             
                 <div className="jumbotron my-5">
                      <form onSubmit={this.handleSubmit}>
                     <div>
@@ -48,6 +50,8 @@ handleSubmit =e=>
                 </div>
                
             </div>
+            </div>
+
         )
     }
 }

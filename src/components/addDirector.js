@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Form } from 'react-bootstrap';
+import {Form } from 'react-bootstrap';
 import { BrowserRouter as Router} from 'react-router-dom'
 import NavBarrr from './NavBarrr';
 class addDirector extends Component {
@@ -113,7 +113,7 @@ class addDirector extends Component {
                                                     </Form.Group>
                                                 </div>
                                                 <div className="App">
-                                                    <Button variant="dark" type="submit">Add Director</Button>{' '}
+                                                    <button className="btnClass" type="submit">Add Director</button>{' '}
                                                 </div>
                                                 <br />
                                                 <Router>

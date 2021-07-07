@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button,Form} from 'react-bootstrap';
+import {Form} from 'react-bootstrap';
 import NavBarrr from './NavBarrr';
 import { BrowserRouter as Router} from 'react-router-dom'
 class filmsForm extends Component {
@@ -132,7 +132,7 @@ class filmsForm extends Component {
                                                     </Form.Group>
                                                 </div>
                                                 <div className="App">
-                                                    <Button variant="dark" type="submit">Add Film</Button>{' '}
+                                                    <button className="btnClass" type="submit">Add Film</button>
                                                 </div>
                                             </form>
                                             <br/>

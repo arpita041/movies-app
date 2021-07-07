@@ -108,7 +108,7 @@ class updateDetails extends Component {
 
                                                         </div>
                                                     </div>
-                                                    <button className="btn btn-dark " id="butt" >Update</button><br /><br />
+                                                    <button className="btnClass " id="butt" >Update</button><br /><br />
 
                                                     <Router>
                                                         <h6>Go back to <a href="/home">Home</a></h6>

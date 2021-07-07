@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Form } from 'react-bootstrap';
 import { BrowserRouter as Router} from 'react-router-dom'
 import NavBarrr from './NavBarrr';
+import axios from 'axios'
 class addDirector extends Component {
     constructor(props) {
         super(props)
@@ -63,6 +64,10 @@ class addDirector extends Component {
         })
         const valid = this.validate();
         if (valid) {
+            axios.post('http://localhost:3500/direct',this.state)
+            .then(response =>{
+                console.log(response)
+            })
             console.log("no error");
         }
         e.preventDefault()

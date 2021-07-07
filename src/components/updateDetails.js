@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { Component } from 'react'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import Home from './Home';
@@ -12,7 +13,8 @@ class updateDetails extends Component {
             awardCount: '',
             nameError: '',
             ageError: '',
-            awardError: ''
+            awardError: '',
+            respo:''
         }
     }
     handleChange = e => {
@@ -49,6 +51,13 @@ class updateDetails extends Component {
         e.preventDefault();
         if(valid)
         {
+            axios.put(`http://localhost:3500/updateDirect/${this.state.name}`,this.state)
+            .then(response =>{
+                console.log(response);
+                this.setState({
+                    respo:response.data
+                })
+            })
             console.log("no error")
         }
         console.log(this.state);
@@ -109,9 +118,10 @@ class updateDetails extends Component {
                                                         </div>
                                                     </div>
                                                     <button className="btn btn-dark " id="butt" >Update</button><br /><br />
-
+                                                    <h5>{this.state.respo}</h5>
                                                     <Router>
                                                         <h6>Go back to <a href="/home">Home</a></h6>
+                                                        
                                                         <Switch><Route path="/home" component={Home}></Route></Switch>
                                                     </Router>
                                                 </form>

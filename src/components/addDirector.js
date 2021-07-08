@@ -4,6 +4,7 @@ import {Form } from 'react-bootstrap';
 import { BrowserRouter as Router} from 'react-router-dom'
 import NavBarrr from './NavBarrr';
 import axios from 'axios'
+import './directorcss.css'
 class addDirector extends Component {
     constructor(props) {
         super(props)
@@ -79,41 +80,43 @@ class addDirector extends Component {
         return (
             <div>
                 <NavBarrr></NavBarrr>
-                <div className="container">
+                <div className='heading'>
+                    <h3 style={{ color: '#3BB7C4 ' }}>Add Directors Details</h3>
+                </div>
+                <div className="container my-5">
 
 
-                    <div className="jumbotron my-5">
-                        <div className="container">
-                            <div className="mycard">
+                    {/* <div className="jumbotron my-5"> */}
+                        
                                 <div className="row">
                                     <div className="col-md-12">
                                         <div className="myleftctn">
                                             <form onSubmit={this.handleSubmit}>
                                                 <div>
                                                     <Form.Group controlId="formBasicEmail">
-                                                        <Form.Label>Name</Form.Label>
-                                                        <Form.Control type="text" placeholder="name" name="name" value={name} onChange={this.handleChange} required />
+                                                        <Form.Label className='lab' style={{ color: '#3BB7C4 ' }}>Name</Form.Label>
+                                                        <Form.Control className='inputtxt' type="text" placeholder="name" name="name" value={name} onChange={this.handleChange} required />
                                                         <small className="text-danger">{this.state.nameError}</small>
                                                     </Form.Group>
                                                 </div>
                                                 <div>
                                                     <Form.Group controlId="formBasicEmail">
-                                                        <Form.Label>Age</Form.Label>
-                                                        <Form.Control type="number" placeholder="age" name="age" value={age} onChange={this.handleChange} required />
+                                                        <Form.Label className='lab' style={{ color: '#3BB7C4 ' }}>Age</Form.Label>
+                                                        <Form.Control className='inputtxt' type="number" placeholder="age" name="age" value={age} onChange={this.handleChange} required />
                                                         <small className="text-danger">{this.state.ageError}</small>
                                                     </Form.Group>
                                                 </div>
                                                 <div>
                                                     <Form.Group controlId="formBasicEmail">
-                                                        <Form.Label>Gender</Form.Label>
-                                                        <Form.Control type="text" placeholder="gender" name="gender" value={gender} onChange={this.handleChange} required />
+                                                        <Form.Label className='lab' style={{ color: '#3BB7C4 ' }} >Gender</Form.Label>
+                                                        <Form.Control className='inputtxt' type="text" placeholder="gender" name="gender" value={gender} onChange={this.handleChange} required />
                                                         <small className="text-danger">{this.state.genderError}</small>
                                                     </Form.Group>
                                                 </div>
                                                 <div>
                                                     <Form.Group controlId="formBasicEmail">
-                                                        <Form.Label>award Count</Form.Label>
-                                                        <Form.Control type="number" placeholder="awardCount" name="awardCount" value={awardCount} onChange={this.handleChange} required />
+                                                        <Form.Label className='lab'  style={{ color: '#3BB7C4 ' }}>award Count</Form.Label>
+                                                        <Form.Control className='inputtxt' type="number" placeholder="awardCount" name="awardCount" value={awardCount} onChange={this.handleChange} required />
                                                         <small className="text-danger">{this.state.awardCountError}</small>
                                                     </Form.Group>
                                                 </div>
@@ -122,7 +125,7 @@ class addDirector extends Component {
                                                 </div>
                                                 <br />
                                                 <Router>
-                                                    <h6 className="App">Go back to<a href="/home"> home</a></h6>
+                                                    <h6 className="App">Go back to<a href="/home">  home</a></h6>
                                                     {/* <Switch>
                                                     <Route path="/home" component={Home}></Route>
                                                 </Switch> */}
@@ -133,9 +136,8 @@ class addDirector extends Component {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
+                    // </div>
+         
 
         )
     }

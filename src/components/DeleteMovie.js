@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { Button, Alert } from 'react-bootstrap';
 import InputField from './inputField';
 import NavBarrr from './NavBarrr';
+import './deleted.css'
 class DeleteMovie extends Component {
     constructor(props) {
         super(props)
@@ -34,15 +35,14 @@ class DeleteMovie extends Component {
         const { movieName } = this.state;
         return (
             <div>    <NavBarrr></NavBarrr>
-                <div className='container'>
+              <div className='heading'>
+                    <h3>Delete movie if you want</h3>
+                </div>
+                <div className='container my-5'>
 
-                    <div className="jumbotron my-5">
+                    {/* <div className="jumbotron my-5"> */}
                         <form onSubmit={this.handleSubmit}>
                             <div>
-                                {/* <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Movie Name</Form.Label>
-                    <Form.Control type="text" placeholder="movie name" value={movieName} onChange={this.handleChange} />
-                </Form.Group> */}
                                 <InputField
                                     type="text"
                                     value={this.state.movieName}
@@ -54,7 +54,7 @@ class DeleteMovie extends Component {
                             <div className="App">
                                 <Button variant="danger" type="submit">Delete it</Button>{' '}
                             </div><br />
-                            <div>
+                            <div className='info'>
                                 <h5>{this.state.respo}</h5>
 
 
@@ -63,7 +63,7 @@ class DeleteMovie extends Component {
                     </div>
 
                 </div>
-            </div>
+            // </div>
 
         )
     }

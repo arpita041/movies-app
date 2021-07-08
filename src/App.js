@@ -20,8 +20,6 @@ function App() {
           <Route path='/update' component={updateDetails}></Route>
           <Route path="/forms" component={filmsForm}></Route>
           <Route path='/home' exact component={Home}></Route>
-
-          {/* <Route path="/data" component={getHttpEx} ></Route> */}
         </Switch>
       </Router>
 

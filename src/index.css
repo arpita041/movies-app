@@ -14,12 +14,13 @@ code {
 .btnClass
 {
   color: white;
-  background-color:	#181818;
+  background-color:rgba(39, 40, 41, 0.301);
   height: 40px;
   border-radius: 5px;
   opacity: 0.9;
 }
 .btnClass:hover
 {
+  background-color:#3BB7C4;
   opacity: 1;
 }

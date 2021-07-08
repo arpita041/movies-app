@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Form} from 'react-bootstrap';
 import NavBarrr from './NavBarrr';
@@ -80,8 +80,13 @@ class filmsForm extends Component {
         const isValid = this.validate();
 
         if (isValid) {
+            axios.post('http://localhost:3500/film',this.state) //posting movie data to backend
+            .then(response =>{
+                console.log(response)
+            })
             console.log(this.state)
             console.log("no error");
+
         }
         event.preventDefault()
     }

@@ -2,7 +2,6 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 //import { Button, Alert, NavDropdown, Navbar, Nav, Form, FormControl } from 'react-bootstrap';
 import { Route, BrowserRouter as Router, Switch} from 'react-router-dom'
-import postFroms from './components/postFroms';
 import filmsForm from './components/filmsForm';
 import addDirector from './components/addDirector';
 import Home from './components/Home';
@@ -23,7 +22,6 @@ function App() {
           <Route path='/home' exact component={Home}></Route>
 
           {/* <Route path="/data" component={getHttpEx} ></Route> */}
-          <Route path="/sendData" component={postFroms}></Route>
         </Switch>
       </Router>
 

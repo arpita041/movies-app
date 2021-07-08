@@ -8,7 +8,7 @@ import NavBarrr from './NavBarrr';
                 <NavBarrr></NavBarrr>
                 <div>
                     <br></br>
-                    <div className='container'>
+                    <div className='container my-5'>
                         <Carousel slide={false} fade={false}>
                             <Carousel.Item>
                                 <img

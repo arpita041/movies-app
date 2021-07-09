@@ -67,7 +67,7 @@ class updateDetails extends Component {
         return (
             <div><NavBarrr></NavBarrr>
              <div className='heading'>
-                    <h3>Update directors age and award count </h3>
+                    <h3>Update director's age and award count </h3>
                 </div>
                 <div className='container my-5'>
 
@@ -116,10 +116,10 @@ class updateDetails extends Component {
 
                                     </div>
                                 </div>
-                                <button className="btn btn-dark " id="butt" >Update</button><br /><br />
+                                <button className="btnClass" id="butt" >Update</button><br /><br />
                                 <h5>{this.state.respo}</h5>
                                 <Router>
-                                    <h6>Go back to <a href="/home">Home</a></h6>
+                                    <h6>Go back to <a href="/home" style={{ color: '#3BB7C4 ' }}>Home</a></h6>
 
                                     <Switch><Route path="/home" component={Home}></Route></Switch>
                                 </Router>

@@ -137,12 +137,12 @@ class filmsForm extends Component {
                                             </Form.Group>
                                         </div>
                                         <div className="App">
-                                            <Button className='btn' variant="dark" type="submit">Add Film</Button>{' '}
+                                            <button className='btnClass' type="submit">Add Film</button>{' '}
                                         </div>
                                     </form>
                                     <br />
                                     <Router>
-                                        <h6 className="App">Go back to<a href="/home"> home</a></h6>
+                                        <h6 className="App">Go back to<a href="/home" style={{ color: '#3BB7C4 ' }}> home</a></h6>
 
                                     </Router>
                                 </div>

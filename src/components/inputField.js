@@ -1,8 +1,8 @@
 import React from 'react'
-
+import './inputt.css'
 function InputField({ value, label, name, placeholder, type, onChange }) {
     return (
-        <div className="form-group">
+        <div className="form-group" >
         {label && <label htmlFor="input-field">{label}</label>}
         <input
           type={type}

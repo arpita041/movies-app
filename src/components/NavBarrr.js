@@ -20,7 +20,7 @@ class NavBarrr extends Component {
                             </Nav>
                             <Form inline>
                                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                                <Button variant="outline-info">Search</Button>
+                                <button className="btnClass"> Search </button>
                             </Form>
                         </Navbar>
                     </div>

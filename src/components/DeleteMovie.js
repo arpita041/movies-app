@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react'
-import { Button, Alert } from 'react-bootstrap';
+//import { Button, Alert } from 'react-bootstrap';
 import InputField from './inputField';
 import NavBarrr from './NavBarrr';
 import './deleted.css'
@@ -44,6 +44,7 @@ class DeleteMovie extends Component {
                         <form onSubmit={this.handleSubmit}>
                             <div>
                                 <InputField
+                                className="labelClass"
                                     type="text"
                                     value={this.state.movieName}
                                     placeholder="movie Name"
@@ -52,7 +53,7 @@ class DeleteMovie extends Component {
                                     onChange={this.handleChange} />
                             </div>
                             <div className="App">
-                                <Button variant="danger" type="submit">Delete it</Button>{' '}
+                                <button className="btnClass" type="submit">Delete it</button>
                             </div><br />
                             <div className='info'>
                                 <h5>{this.state.respo}</h5>

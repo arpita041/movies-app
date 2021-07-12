@@ -1,5 +1,7 @@
 .form-control{
-    background: rgba(0,0, 0, 0.5);
-    color: black;
     outline: 0;
+    background: none;
+    border: 1px solid #3BB7C4;
+    color: black;
+    font-size: medium;
 }

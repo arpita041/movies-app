@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Form } from 'react-bootstrap';
+import {Button,Form} from 'react-bootstrap';
 import NavBarrr from './NavBarrr';
 import { BrowserRouter as Router } from 'react-router-dom'
 import './film.css'
@@ -110,39 +110,39 @@ class filmsForm extends Component {
                                     <form onSubmit={this.handleSubmit} className='formm'>
                                         <div>
                                             <Form.Group controlId="formBasicEmail">
-                                                <Form.Label className='lab'>Movie Name</Form.Label>
-                                                <Form.Control className='inputtxt' type="text" placeholder="movie name" value={name} onChange={this.handlenameChange} required />
+                                                <Form.Label className='labelClass' >Movie Name</Form.Label>
+                                                <Form.Control className='inputBorder' type="text" placeholder="movie name" value={name} onChange={this.handlenameChange} required />
                                                 <small className="text-danger">{this.state.nameError}</small>
                                             </Form.Group>
                                         </div>
                                         <div>
                                             <Form.Group controlId="formBasicEmail">
-                                                <Form.Label className='lab'>Box Office Collection</Form.Label>
-                                                <Form.Control className='inputtxt' type="text" placeholder="box office collection" value={boxOfficeCollection} onChange={this.handleBox} required />
+                                                <Form.Label className='labelClass'>Box Office Collection</Form.Label>
+                                                <Form.Control className='inputBorder' type="text" placeholder="box office collection" value={boxOfficeCollection} onChange={this.handleBox} required />
                                                 <small className="text-danger">{this.state.boxOfficeError}</small>
                                             </Form.Group>
                                         </div>
                                         <div>
                                             <Form.Group controlId="formBasicEmail">
-                                                <Form.Label className='lab'>Rating</Form.Label>
-                                                <Form.Control className='inputtxt' type="text" placeholder="rating" value={rating} onChange={this.handleRating} required />
+                                                <Form.Label className='labelClass'>Rating</Form.Label>
+                                                <Form.Control className='inputBorder' type="text" placeholder="rating" value={rating} onChange={this.handleRating} required />
                                                 <small className="text-danger">{this.state.ratingError}</small>
                                             </Form.Group>
                                         </div>
                                         <div>
                                             <Form.Group controlId="formBasicEmail">
-                                                <Form.Label className='lab'>Director Name</Form.Label>
-                                                <Form.Control className='inputtxt' type="text" placeholder="Director" value={director} onChange={this.handleDirector} required />
+                                                <Form.Label className='labelClass'>Director Name</Form.Label>
+                                                <Form.Control className='inputBorder' type="text" placeholder="Director" value={director} onChange={this.handleDirector} required />
                                                 <small className="text-danger">{this.state.directorError}</small>
                                             </Form.Group>
                                         </div>
                                         <div className="App">
-                                            <Button className='btn' variant="dark" type="submit">Add Film</Button>{' '}
+                                            <button className='btnClass' type="submit">Add Film</button>{' '}
                                         </div>
                                     </form>
                                     <br />
                                     <Router>
-                                        <h6 className="App">Go back to<a href="/home"> home</a></h6>
+                                        <h6 className="App">Go back to<a href="/home" style={{ color: '#3BB7C4 ' }}> home</a></h6>
 
                                     </Router>
                                 </div>

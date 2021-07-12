@@ -7,6 +7,7 @@ import addDirector from './components/addDirector';
 import Home from './components/Home';
 import DeleteMovie from './components/DeleteMovie';
 import updateDetails from './components/updateDetails';
+//import Imgtrial from './components/imgtrial';
 //import NavBarrr from './components/NavBarrr';
 function App() {
   return (
@@ -22,7 +23,9 @@ function App() {
         </Switch>
       </Router>
 
-
+<br/>
+<br/>
+{/* <Imgtrial/> */}
     </div>
   );
 }

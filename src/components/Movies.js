@@ -11,9 +11,10 @@ const Movies = props => {
     
     useEffect(()=>
     {
-        axios.get(`http://localhost:3500/films/${searchVal}`)
+        axios.get(`http://localhost:3500/film/${searchVal}`)
         .then(res=>
             {
+              console.log(res.data.movies)
             setPost(res.data.movies)
 
         })
@@ -21,16 +22,20 @@ const Movies = props => {
                 {
                     console.log("error")
                 })
-    })
+    },[])
   return (
     <div>
     <NavBarrr></NavBarrr>
-   <div>name
-       {
+   <div>
+     <ul>
+     {
            post.map(items =>{
-            <li key={items._id}> {items.name}</li>
+             return(<li key={items._id}> {items.name}</li>)
+            
            })
        }
+     </ul>
+       
    </div>
     </div>
   );

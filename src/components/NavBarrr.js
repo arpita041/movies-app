@@ -1,9 +1,28 @@
-import React, { Component } from 'react'
-import { Button, NavDropdown, Navbar, Nav, Form, FormControl } from 'react-bootstrap';
-
-class NavBarrr extends Component {
-    render() {
-        return (
+import React, {useState} from 'react'
+import { Dropdown, NavDropdown, Navbar, Nav, Form, FormControl } from 'react-bootstrap';
+import {Link} from 'react-router-dom'
+ const NavBarrr = props=>
+ {
+    const [state, setState] = useState({
+        searchVal:'',
+        name:'movie'
+      });
+      const handleInputChange = event => {
+        const { name, value } = event.target;
+        setState(prevState => ({
+          ...prevState,
+          [name]: value
+        }));
+      };
+    //   const movieHandler = event=>
+    //   {
+    //     event.preventDefault();
+    //     props.history.push({
+    //       pathname: '/movies',
+    //       state
+    //     });
+    //   }
+   return (
             <div>
                 <div className='row'>
                     <div className="col-sm-12">
@@ -19,15 +38,42 @@ class NavBarrr extends Component {
                                 </NavDropdown>
                             </Nav>
                             <Form inline>
-                                <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                                <button className="btnClass"> Search </button>
+                                <FormControl type="text" name="searchVal" onChange={handleInputChange} placeholder="Search" className="mr-sm-2" />
+                                <Dropdown>
+  <Dropdown.Toggle className="btnClass" id="dropdown-basic">
+    Search
+  </Dropdown.Toggle>
+
+  <Dropdown.Menu>
+      <Dropdown.Item>
+    <Link
+          to={{
+            pathname: "/movies",
+            state
+          }}
+        >
+          Movie
+        </Link>
+        </Dropdown.Item>
+        <Dropdown.Item>
+        <Link
+          to={{
+            pathname: "/directors",
+            state
+          }}
+        >
+        Director
+        </Link>
+        </Dropdown.Item>
+  </Dropdown.Menu>
+</Dropdown>
                             </Form>
                         </Navbar>
                     </div>
                 </div>
             </div>
-        )
+        );
+
     }
-}
 
 export default NavBarrr

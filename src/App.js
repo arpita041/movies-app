@@ -7,6 +7,7 @@ import addDirector from './components/addDirector';
 import Home from './components/Home';
 import DeleteMovie from './components/DeleteMovie';
 import updateDetails from './components/updateDetails';
+import Movies from './components/Movies';
 //import Imgtrial from './components/imgtrial';
 //import NavBarrr from './components/NavBarrr';
 function App() {
@@ -20,6 +21,8 @@ function App() {
           <Route path='/update' component={updateDetails}></Route>
           <Route path="/forms" component={filmsForm}></Route>
           <Route path='/home' exact component={Home}></Route>
+          <Route path='/movies' component={Movies}></Route>
+          <Route path='/directors' component={Movies}></Route>
         </Switch>
       </Router>
 

@@ -46,7 +46,6 @@ import {Link} from 'react-router-dom'
   </Dropdown.Toggle>
 
   <Dropdown.Menu>
-      <Dropdown.Item>
     <Link
           to={{
             pathname: "/movies",
@@ -55,17 +54,15 @@ import {Link} from 'react-router-dom'
         >
           Movie
         </Link>
-        </Dropdown.Item>
-        <Dropdown.Item>
+<br/>
         <Link
           to={{
             pathname: "/directors",
             state
           }}
         >
-        Director
+      Director
         </Link>
-        </Dropdown.Item>
   </Dropdown.Menu>
 </Dropdown>
                             </Form>

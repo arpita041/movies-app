@@ -17,7 +17,8 @@ class addDirector extends Component {
             nameError: '',
             ageError: '',
             genderError: '',
-            awardCountError: ''
+            awardCountError: '',
+            respo:''
         }
     }
     handleChange = e => {
@@ -68,8 +69,16 @@ class addDirector extends Component {
             axios.post('http://localhost:3500/direct',this.state)
             .then(response =>{
                 console.log(response)
+                if(response.statusText==='OK'){
+                    this.setState({
+                        respo:'Uploaded successfully !!'
+                    })
+                }else{
+                    this.setState({
+                        respo:'something went wrong'
+                    })
+                }
             })
-            console.log("no error");
         }
         e.preventDefault()
         console.log("inside")
@@ -124,6 +133,7 @@ class addDirector extends Component {
                                                     <button className="btnClass" type="submit">Add Director</button>{' '}
                                                 </div>
                                                 <br />
+                                                <h5>{this.state.respo}</h5>
                                                 <Router>
                                                     <h6 className="App">Go back to<a style={{ color: '#3BB7C4 ' }} href="/home">  home</a></h6>
                                                     {/* <Switch>

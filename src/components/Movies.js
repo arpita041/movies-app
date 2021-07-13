@@ -10,6 +10,7 @@ const Movies = props => {
     const [post,setPost]=useState([])
     const [movie, setMovie]=useState()
     const [movies, setMovies]= useState([])
+    const [have, setHave] =useState([])
     useEffect(()=>
     {
       if(searchVal.trim()==='' && props.location.pathname ==='/movies')
@@ -30,6 +31,9 @@ const Movies = props => {
             setPost(res.data.forms);
             console.log(post);
           })
+            setHave(false);
+            console.log(have)
+        
       }
     else if(props.location.pathname==='/movies')
       {
@@ -66,8 +70,9 @@ const Movies = props => {
                         .then(res=>
                           {
                             console.log(res.data.movies)
+                          
                             setMovies(res.data.movies)
-                            console.log(movies)
+                            console.log(movies) 
                           })
               }
     },[searchVal])
@@ -136,8 +141,11 @@ const Movies = props => {
       </tbody>
   </table>
   <br/>
+ 
+  {
+(have)?(    
+  <div className='contain'> 
   <h3>Movies</h3>
-  <div className='contain'>
                     <table className='table table-striped' id='tbl'>
                         <thead>
                             <tr>
@@ -165,6 +173,8 @@ const Movies = props => {
                         </tbody>
                     </table>
                 </div>
+):null
+    }
 </div>
 
 }

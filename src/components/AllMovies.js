@@ -44,7 +44,7 @@ class AllMovies extends Component {
                             {
                                 this.state.allMovies.map((m, i) => {
                                     return (
-                                        <tr key={m.rating}>
+                                        <tr key={m.name}>
                                             <td >{m.name}</td>
                                             <td >{m.rating}</td>
                                             <td>{m.director}</td>

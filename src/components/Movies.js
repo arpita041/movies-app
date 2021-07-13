@@ -9,6 +9,7 @@ const Movies = props => {
 
     const [post,setPost]=useState([])
     const [movie, setMovie]=useState()
+    const [movies, setMovies]= useState([])
     useEffect(()=>
     {
       if(searchVal.trim()==='' && props.location.pathname ==='/movies')
@@ -61,6 +62,13 @@ const Movies = props => {
                         {
                             console.log("error")
                         })
+                        axios.get(`http://localhost:3500/film/${searchVal}`)
+                        .then(res=>
+                          {
+                            console.log(res.data.movies)
+                            setMovies(res.data.movies)
+                            console.log(movies)
+                          })
               }
     },[searchVal])
     
@@ -84,12 +92,11 @@ const Movies = props => {
                             {
                                 post.map((m, i) => {
                                     return (
-                                        <tr key={m.rating}>
+                                        <tr key={m._id}>
                                             <td >{m.name}</td>
                                             <td >{m.rating}</td>
                                             <td>{m.director}</td>
                                             <td>{m.boxOfficeCollection}</td>
-
                                         </tr>
                                     )
                                 })
@@ -106,6 +113,7 @@ const Movies = props => {
               <th>Age</th>
               <th>Gender</th>
               <th>Award Count</th>
+
           </tr>
       </thead>
       <tbody>
@@ -119,7 +127,6 @@ const Movies = props => {
                                             <td >{m.age}</td>
                                             <td>{m.gender}</td>
                                             <td>{m.awardCount}</td>
-
                                         </tr>
                                     )
                                 })
@@ -128,7 +135,39 @@ const Movies = props => {
 
       </tbody>
   </table>
-</div>}
+  <br/>
+  <h3>Movies</h3>
+  <div className='contain'>
+                    <table className='table table-striped' id='tbl'>
+                        <thead>
+                            <tr>
+                                <th>Movie</th>
+                                <th>Rating</th>
+                                <th>Director</th>
+                                <th>Box Office Collection</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            {
+                                movies.map((m, i) => {
+                                    return (
+                                        <tr key={m.name}>
+                                            <td >{m.name}</td>
+                                            <td >{m.rating}</td>
+                                            <td>{m.director}</td>
+                                            <td>{m.boxOfficeCollection}</td>
+                                        </tr>
+                                    )
+                                })
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+</div>
+
+}
    </div>
     </div>
   );

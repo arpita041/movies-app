@@ -32,7 +32,7 @@ const Movies = props => {
             console.log(post);
           })
             setHave(false);
-            console.log(have)
+           // console.log(have)
         
       }
     else if(props.location.pathname==='/movies')
@@ -53,7 +53,7 @@ const Movies = props => {
          else if(props.location.pathname==='/directors')
               {
                 setMovie(false);
-            
+            setHave(true)
                 console.log("direc")
                 axios.get(`http://localhost:3500/direct/${searchVal}`)
                 .then(res=>

@@ -26,6 +26,7 @@ const Movies = props => {
     <div>
     <NavBarrr></NavBarrr>
    <div>name
+       {searchVal}
        {
            post.map(items =>{
             <li key={items._id}> {items.name}</li>

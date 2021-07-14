@@ -59,7 +59,7 @@ const NavBarrr = props => {
                                         to={{
                                             pathname: "/directors",
                                             state
-                                        }}
+                                        }} 
                                     >
                                         Director
                                     </Link>

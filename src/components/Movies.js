@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import NavBarrr from './NavBarrr'
 import axios from 'axios';
+import Table from "./table";
 const Movies = props => {
 
   const { searchVal } =
@@ -37,38 +38,7 @@ const Movies = props => {
   return (
     <div>
       <NavBarrr></NavBarrr>
-      <div>
-       
-          <div className='contain'>
-            <table className='table table-striped' id='tbl'>
-              <thead>
-                <tr>
-                  <th>Movie</th>
-                  <th>Rating</th>
-                  <th>Director</th>
-                  <th>Box Office Collection</th>
-                </tr>
-              </thead>
-              <tbody>
-
-                {
-                  post.map((m, i) => {
-                    return (
-                      <tr key={m._id}>
-                        <td >{m.name}</td>
-                        <td >{m.rating}</td>
-                        <td>{m.director}</td>
-                        <td>{m.boxOfficeCollection}</td>
-                      </tr>
-                    )
-                  })
-                }
-
-              </tbody>
-            </table>
-          </div>
-        ) 
-      </div>
+      <Table post= {post}></Table>
     </div>
   );
 };

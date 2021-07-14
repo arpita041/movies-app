@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import NavBarrr from './NavBarrr'
 import axios from 'axios';
+import Table from "./table";
 const Director = props => {
 
   const { searchVal } =
@@ -81,35 +82,7 @@ const Director = props => {
 
           {
             (have) ? (
-              <div className='contain'>
-                <h3>Movies</h3>
-                <table className='table table-striped' id='tbl'>
-                  <thead>
-                    <tr>
-                      <th>Movie</th>
-                      <th>Rating</th>
-                      <th>Director</th>
-                      <th>Box Office Collection</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-
-                    {
-                      movies.map((m, i) => {
-                        return (
-                          <tr key={m.name}>
-                            <td >{m.name}</td>
-                            <td >{m.rating}</td>
-                            <td>{m.director}</td>
-                            <td>{m.boxOfficeCollection}</td>
-                          </tr>
-                        )
-                      })
-                    }
-
-                  </tbody>
-                </table>
-              </div>
+              <Table post= {movies}></Table>
             ) : null
           }
         </div>

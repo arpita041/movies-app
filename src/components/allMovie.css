@@ -1,0 +1,13 @@
+.contain{
+    width: auto;
+    text-align: center;
+    margin: 2%;
+}
+#tbl{
+    color: #3BB7C4;
+}
+/* table, th, td {
+    border: 1px solid white;
+    margin: 20px;
+    padding: 10px;
+  } */

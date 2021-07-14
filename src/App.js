@@ -9,11 +9,13 @@ import DeleteMovie from './components/DeleteMovie';
 import updateDetails from './components/updateDetails';
 import AllMovies from './components/AllMovies';
 import Movies from './components/Movies';
+import Footer from './components/Footer';
 //import Imgtrial from './components/imgtrial';
 //import NavBarrr from './components/NavBarrr';
 function App() {
   return (
-    <div className="container-fluid" >
+    <div className="page-container" >
+      <div className="content-wrap">
       <Router>
         <Switch>
           <Route path='/' exact component={Home}></Route>
@@ -27,10 +29,12 @@ function App() {
           <Route path='/directors' component={Movies}></Route>
         </Switch>
       </Router>
-
+      </div>
+      <Footer />
 <br/>
 <br/>
 {/* <Imgtrial/> */}
+
     </div>
   );
 }

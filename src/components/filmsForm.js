@@ -17,7 +17,8 @@ class filmsForm extends Component {
             nameError: '',
             boxOfficeError: '',
             ratingError: '',
-            directorError: ''
+            directorError: '',
+            respo:''
         }
     }
     handlenameChange = event => {
@@ -60,7 +61,7 @@ class filmsForm extends Component {
 
 
         }
-        if (rate >= 10 || rate <= 0) {
+        if (rate > 10 || rate < 0) {
             this.setState({ ratingError: "Rating should range between 0 to 10" });
             val = 1;
         }
@@ -79,14 +80,22 @@ class filmsForm extends Component {
     handleSubmit = event => {
         this.setState({ nameError: '', boxOfficeError: '', ratingError: '', directorError: '' })
         const isValid = this.validate();
-
+        var res=''
         if (isValid) {
             axios.post('http://localhost:3500/film', this.state) //posting movie data to backend
                 .then(response => {
                     console.log(response)
+                    if(response.statusText==='OK'){
+                        this.setState({
+                            respo:'Uploaded successfully !!'
+                        })
+                    }else{
+                        this.setState({
+                            respo:'something went wrong'
+                        })
+                    }
                 })
-            console.log(this.state)
-            console.log("no error");
+            
 
         }
         event.preventDefault()
@@ -141,6 +150,7 @@ class filmsForm extends Component {
                                         </div>
                                     </form>
                                     <br />
+                                    <h5>{this.state.respo}</h5>
                                     <Router>
                                         <h6 className="App">Go back to<a href="/home" style={{ color: '#3BB7C4 ' }}> home</a></h6>
 

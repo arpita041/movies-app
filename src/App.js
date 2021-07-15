@@ -26,6 +26,7 @@ function App() {
           <Route path='/showMovies' component={AllMovies}></Route>
           <Route path='/movies' component={Movies}></Route>
           <Route path='/directors' component={Director}></Route>
+
         </Switch>
       </Router>
 

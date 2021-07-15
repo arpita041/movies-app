@@ -32,6 +32,7 @@ const NavBarrr = props => {
                             <Nav.Link href="/forms" style={{ color: '#3BB7C4 ' }}>Add Cinema</Nav.Link>
                             <Nav.Link href="/addDirector" style={{ color: '#3BB7C4 ' }}>Add Director</Nav.Link>
                             <Nav.Link href="/showMovies" style={{ color: '#3BB7C4 ' }}>Movie List</Nav.Link>
+
                             {/* <Nav.Link href="/data"><Link to='/data'>Data</Link></Nav.Link> */}
                             <NavDropdown title="Other Options" id="collasible-nav-dropdown" style={{ color: '#3BB7C4 ' }}>
                                 <NavDropdown.Item href="/deleteMovie" style={{ color: '#3BB7C4 ' }}>Delete a Movie</NavDropdown.Item>

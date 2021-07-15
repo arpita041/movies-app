@@ -26,8 +26,7 @@ const onGridReady=(params)=>{
 }
   return (
     <div className="App">
-      <h1 align="center">React-App</h1>
-      <h3>Student Details</h3>
+      <h3>Director Details</h3>
       <div className="ag-theme-alpine" style={ {height: '400px'} }>
         <AgGridReact
             columnDefs={columnDefs}

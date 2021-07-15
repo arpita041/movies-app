@@ -2,7 +2,7 @@ import React from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
-
+import './AllDirector.css'
 function AllDirector() {
   const columnDefs= [
     { headerName: "NAME", field: "name" },
@@ -25,10 +25,10 @@ const onGridReady=(params)=>{
     params.api.applyTransaction({add:resp.forms})})
 }
   return (
-    <div className="App">
+    <div className="contain">
       <h3>Director Details</h3>
-      <div className="ag-theme-alpine" style={ {height: '400px'} }>
-        <AgGridReact
+      <div className="ag-theme-alpine" style={ {height: '600px'} }>
+        <AgGridReact 
             columnDefs={columnDefs}
             // rowData={rowData}
             defaultColDef={defaultColDef}

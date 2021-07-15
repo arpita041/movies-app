@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+//import {AgGridColumn, AgGridReact} from 'ag-grid-react';
 
 export class Table extends Component {
     render() {
@@ -10,7 +11,7 @@ export class Table extends Component {
          <table className='table table-striped' id='tbl'>
            <thead>
              <tr>
-               <th>Movie</th>
+          <th >Movie</th>
                <th>Rating</th>
                <th>Director</th>
                <th>Box Office Collection</th>

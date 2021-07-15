@@ -9,7 +9,7 @@ const Movies = props => {
     (props.location && props.location.state) || {};
 
   const [post, setPost] = useState([])
-  const [movie, setMovie] = useState()
+
   useEffect(() => {
       
     if (searchVal.trim() === '' && props.location.pathname === '/movies') {
@@ -22,7 +22,7 @@ const Movies = props => {
     }
 
     else if (props.location.pathname === '/movies') {
-      setMovie(true);
+   
       axios.get(`http://localhost:3500/films/${searchVal}`)
         .then(res => {
           console.log(res.data.movies)

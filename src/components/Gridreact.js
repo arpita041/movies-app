@@ -12,23 +12,17 @@ function Gridreact(props) {
         background : 'transparent',
         color: '#3BB7C4'
         }
-
-        const defaultColDef={
-            sortable:true,
-            editable:true,
-            flex:1,filter:true,
-            floatingFilter:true
-          }
-
+const height = props.height;
+console.log(height)
     // console.log(this.props)
     return (
         <div>
-            <div className="ag-theme-alpine" style={{ height: '300px' }}>
+            <div className="ag-theme-alpine" style={{ height: props.height }}>
                 <AgGridReact
                     columnDefs={props.columnDefs}
                     rowData={props.rowData}
                     rowStyle={rowStyle}
-                    defaultColDef={defaultColDef}
+                    defaultColDef={props.defaultColDef}
                     // onGridReady={onGridReady}
                     >
                 </AgGridReact>

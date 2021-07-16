@@ -62,7 +62,7 @@ componentDidMount= (e)=>
                     columnDefs={this.state.columnDefs}
                     defaultColDef={this.state.defaultColDef}
                     rowData={this.state.rowData}
-
+                    height='350px'
                 >
 
                 </Gridreact>

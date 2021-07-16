@@ -20,6 +20,12 @@ function AllDirectors() {
     {headerName: "GENDER",field: "gender",},
     { headerName: "AWARD COUNT", field: "awardCount" },
     ]
+    const defaultColDef={
+        sortable:true,
+        editable:true,
+        flex:1,filter:true,
+        floatingFilter:true
+      }
     return (
         <div>
                        <NavBarrr></NavBarrr>
@@ -31,7 +37,8 @@ function AllDirectors() {
                 <Gridreact
                     columnDefs={columnDefs}
                     rowData={post}
-
+                    defaultColDef={defaultColDef}
+                    height='350px'
                 >
 
                 </Gridreact>

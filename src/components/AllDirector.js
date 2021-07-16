@@ -11,6 +11,7 @@ function AllDirector() {
     { headerName: "AWARD COUNT", field: "awardCount" },
     ]
 
+    
 const defaultColDef={
   sortable:true,
   editable:true,

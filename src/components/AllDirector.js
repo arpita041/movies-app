@@ -1,8 +1,12 @@
 import React from 'react';
 import { AgGridReact } from 'ag-grid-react';
-import 'ag-grid-community/dist/styles/ag-grid.css';
-import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
-
+import NavBarrr from './NavBarrr'
+// import 'ag-grid-community/dist/styles/ag-grid.css';
+// import 'ag-grid-community/dist/styles/ag-theme-balham.css';
+// import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
+// import 'ag-grid-community/dist/styles/ag-theme-material.css';
+import './AllDirec.scss'
+import './AllDirector.css'
 function AllDirector() {
   const columnDefs= [
     { headerName: "NAME", field: "name" },
@@ -18,6 +22,11 @@ const defaultColDef={
   floatingFilter:true
 }
 
+const rowStyle ={
+background : 'transparent',
+color: '#3BB7C4'
+}
+
 const onGridReady=(params)=>{
   console.log("grid is ready")
   fetch("http://localhost:3500/direct").then(resp=>resp.json())
@@ -26,9 +35,11 @@ const onGridReady=(params)=>{
 }
   return (
     <div className="App">
+        <NavBarrr></NavBarrr>
       <h3>Director Details</h3>
       <div className="ag-theme-alpine" style={ {height: '400px'} }>
         <AgGridReact
+            rowStyle={rowStyle}
             columnDefs={columnDefs}
             // rowData={rowData}
             defaultColDef={defaultColDef}

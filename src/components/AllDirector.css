@@ -1,0 +1,16 @@
+.ag-theme-alpine {
+    /* use theme parameters where possible */
+    --ag-foreground-color: #3BB7C4;
+    --ag-background-color: transparent;
+    /* --ag-border-1: none;
+    --ag-border-color-2: transparent; */
+    --ag-borders: false;
+    --ag-border:none;
+    --ag-cell-horizontal-border: solid transparent,
+}
+.ag-theme-alpine .ag-header {
+    background-color:transparent;
+}
+.ag-group {
+    border-color: green;
+}

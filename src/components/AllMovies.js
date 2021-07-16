@@ -2,62 +2,70 @@ import axios from 'axios'
 import React, { Component } from 'react'
 import NavBarrr from './NavBarrr'
 import './allMovie.css'
+import Table from './table'
+import Gridreact from './Gridreact'
 class AllMovies extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
             allMovies: [],
+            columnDefs: [
+                { headerName: 'NAME', field: 'name' },
+                { headerName: 'RATING', field: 'rating' },
+                { headerName: 'DIRECTOR', field: 'director' },
+                { headerName: 'BOX OFFICE COLLECTION', field: 'boxOfficeCollection' }
+            ],
+            defaultColDef: {
+                sortable: true,
+                editable: true,
+                flex: 1, filter: true,
+            },
+            rowData:null
 
         }
     }
-
+componentDidMount= (e)=>
+{
+    axios.get('http://localhost:3500/film')
+    .then(response => {
+        console.log(response);
+        this.setState({
+            allMovies: response.data.forms,
+            rowData:response.data.forms
+        })
+    })
+    console.log(this.state.rowData);
+}
 
     getAllMovies = (e) => {
         axios.get('http://localhost:3500/film')
             .then(response => {
                 console.log(response);
                 this.setState({
-                    allMovies: response.data.forms
+                    allMovies: response.data.forms,
+                    rowData:response.data.forms
                 })
             })
+            console.log(this.state.rowData);
     }
     render() {
         return (
             <div>
                 <NavBarrr></NavBarrr>
                 <div className="contain">
-                    <button className='btn' onClick={this.getAllMovies} >load all Movies</button>
+                    <h3>Movie Details</h3>
+                    {/* <button className='btn' onClick={this.getAllMovies} >load all Movies</button> */}
                 </div>
-                <div className='contain'>
-                    <table className='table table-striped' id='tbl'>
-                        <thead>
-                            <tr>
-                                <th>Movie</th>
-                                <th>Rating</th>
-                                <th>Director</th>
-                                <th>Box Office Collection</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                {/* <Table post={this.state.allMovies}></Table> */}
+                <Gridreact
+                    columnDefs={this.state.columnDefs}
+                    defaultColDef={this.state.defaultColDef}
+                    rowData={this.state.rowData}
 
-                            {
-                                this.state.allMovies.map((m, i) => {
-                                    return (
-                                        <tr key={m.name}>
-                                            <td >{m.name}</td>
-                                            <td >{m.rating}</td>
-                                            <td>{m.director}</td>
-                                            <td>{m.boxOfficeCollection}</td>
+                >
 
-                                        </tr>
-                                    )
-                                })
-                            }
-
-                        </tbody>
-                    </table>
-                </div>
+                </Gridreact>
             </div>
         )
     }

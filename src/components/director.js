@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import NavBarrr from './NavBarrr'
 import axios from 'axios';
 import Table from "./table";
+import Gridreact from "./Gridreact";
 const Director = props => {
 
   const { searchVal } =
@@ -10,13 +11,35 @@ const Director = props => {
 
   const [post, setPost] = useState([])
   const [movies, setMovies] = useState([])
-  const [have, setHave] = useState([])
+  const [have, setHave] = useState([]);
+  const [def,setDef]= useState([]);
+  const [Height,setHeight]=useState('');
+  const [Mheight,setMheight]=useState('')
+  const columnDefs= [
+    { headerName: 'NAME', field: 'name' },
+    { headerName: 'RATING', field: 'rating' },
+    { headerName: 'DIRECTOR', field: 'director' },
+    { headerName: 'BOX OFFICE COLLECTION', field: 'boxOfficeCollection' }
+]
+const columnDefs1= [
+  { headerName: "NAME", field: "name" },
+  { headerName: "AGE", field: "age",}, 
+  {headerName: "GENDER",field: "gender",},
+  { headerName: "AWARD COUNT", field: "awardCount" },
+  ]
+
+  let defaultColDef={
+    sortable:true,
+    editable:true,
+    flex:1,
+  }
   useEffect(() => {
 
     if (searchVal.trim() === '' && props.location.pathname === '/directors') {
       axios.get(`http://localhost:3500/direct`)
         .then(res => {
           setPost(res.data.forms);
+          setHeight('225px')
           console.log(post);
         })
       setHave(false);
@@ -25,11 +48,14 @@ const Director = props => {
 
     else if (props.location.pathname === '/directors') {
       setHave(true)
+      console.log(have)
+
       console.log("direc")
       axios.get(`http://localhost:3500/direct/${searchVal}`)
         .then(res => {
           console.log(res)
           setPost(res.data.data)
+          setHeight('140px')
           //   console.log(post.data.age)
         })
         .catch(err => {
@@ -40,6 +66,7 @@ const Director = props => {
           console.log(res.data.movies)
 
           setMovies(res.data.movies)
+          setMheight('265px')
          //console.log(movies)
         })
     }
@@ -50,39 +77,34 @@ const Director = props => {
       <NavBarrr></NavBarrr>
       <div>
            <div className='contain'>
-          <table className='table table-striped' id='tbl'>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Gender</th>
-                <th>Award Count</th>
-
-              </tr>
-            </thead>
-            <tbody>
-
-
-              {
-                post.map((m, i) => {
-                  return (
-                    <tr key={m.name}>
-                      <td >{m.name}</td>
-                      <td >{m.age}</td>
-                      <td>{m.gender}</td>
-                      <td>{m.awardCount}</td>
-                    </tr>
-                  )
-                })
-              }
+           <div>
+                <div className="contain">
+               
+                </div>
               
-            </tbody>
-          </table>
+                <Gridreact
+                    columnDefs={columnDefs1}
+                    rowData={post}
+                    defaultColDef={defaultColDef}
+                    height={Height}
+                >
+
+                </Gridreact>
+    </div>
           <br />
 
           {
             (have) ? (
-              <Table post= {movies}></Table>
+              <div>
+         
+           <Gridreact
+               columnDefs={columnDefs}
+               rowData={movies}
+               defaultColDef={defaultColDef}
+                height={Mheight} >
+                
+           </Gridreact>
+</div>
             ) : null
           }
         </div>

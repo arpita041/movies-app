@@ -1,12 +1,30 @@
 .ag-theme-alpine {
     /* use theme parameters where possible */
-    --ag-foreground-color:#3BB7C4;
-    --ag-background-color:transparent;
-    /* borders:'false'; */
+    --ag-foreground-color: #3BB7C4;
+    --ag-background-color: transparent;
+    /* --ag-border-1: none;
+    --ag-border-color-2: transparent; */
+    --ag-borders: false;
+    --ag-border:none;
+    --ag-cell-horizontal-border: solid transparent,
 }
-
-/* or write CSS selectors to make customisations beyond what the parameters support */
 .ag-theme-alpine .ag-header {
     background-color:transparent;
+}
+.ag-group {
+    border-color: green;
+}
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 12px;
+}
 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px  #3BB7C4; 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
 }

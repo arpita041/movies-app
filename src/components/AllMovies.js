@@ -20,12 +20,26 @@ class AllMovies extends Component {
                 sortable: true,
                 editable: true,
                 flex: 1, filter: true,
+                floatingFilter:true
+
             },
             rowData:null
 
         }
     }
-
+    
+componentDidMount= (e)=>
+{
+    axios.get('http://localhost:3500/film')
+    .then(response => {
+        console.log(response);
+        this.setState({
+            allMovies: response.data.forms,
+            rowData:response.data.forms
+        })
+    })
+    console.log(this.state.rowData);
+}
 
     getAllMovies = (e) => {
         axios.get('http://localhost:3500/film')
@@ -36,20 +50,22 @@ class AllMovies extends Component {
                     rowData:response.data.forms
                 })
             })
+            console.log(this.state.rowData);
     }
     render() {
         return (
             <div>
                 <NavBarrr></NavBarrr>
                 <div className="contain">
-                    <button className='btn' onClick={this.getAllMovies} >load all Movies</button>
+                    <h3>Movie Details</h3>
+                    {/* <button className='btn' onClick={this.getAllMovies} >load all Movies</button> */}
                 </div>
                 {/* <Table post={this.state.allMovies}></Table> */}
                 <Gridreact
                     columnDefs={this.state.columnDefs}
                     defaultColDef={this.state.defaultColDef}
                     rowData={this.state.rowData}
-
+                    height='350px'
                 >
 
                 </Gridreact>

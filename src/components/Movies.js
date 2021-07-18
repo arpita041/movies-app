@@ -2,14 +2,26 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import NavBarrr from './NavBarrr'
 import axios from 'axios';
-import Table from "./table";
+import Gridreact from "./Gridreact";
 const Movies = props => {
 
   const { searchVal } =
     (props.location && props.location.state) || {};
 
   const [post, setPost] = useState([])
-
+  const [Height,setHeight]=useState('')
+  const columnDefs= [
+    { headerName: 'NAME', field: 'name' },
+    { headerName: 'RATING', field: 'rating' },
+    { headerName: 'DIRECTOR', field: 'director' },
+    { headerName: 'BOX OFFICE COLLECTION', field: 'boxOfficeCollection' }
+]
+const defaultColDef={
+  sortable:true,
+  editable:true,
+  flex:1,filter:true,
+  floatingFilter:true
+}
   useEffect(() => {
       
     if (searchVal.trim() === '' && props.location.pathname === '/movies') {
@@ -17,6 +29,7 @@ const Movies = props => {
       axios.get(`http://localhost:3500/film`)
         .then(res => {
           setPost(res.data.forms);
+          setHeight('350px')
 
         })
     }
@@ -26,7 +39,8 @@ const Movies = props => {
       axios.get(`http://localhost:3500/films/${searchVal}`)
         .then(res => {
           console.log(res.data.movies)
-          setPost(res.data.movies)
+          setPost(res.data.movies);
+          setHeight('188px')
 
         })
         .catch(err => {
@@ -37,8 +51,20 @@ const Movies = props => {
 
   return (
     <div>
-      <NavBarrr></NavBarrr>
-      <Table post= {post}></Table>
+                   <NavBarrr></NavBarrr>
+                <div className="contain">
+                    <h3>Movie Details</h3>
+                    {/* <button className='btn' onClick={this.getAllMovies} >load all Movies</button> */}
+                </div>
+                {/* <Table post={this.state.allMovies}></Table> */}
+                <Gridreact
+                    columnDefs={columnDefs}
+                    rowData={post}
+                    defaultColDef={defaultColDef}
+                    height={Height}
+                >
+
+                </Gridreact>
     </div>
   );
 };

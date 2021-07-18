@@ -1,7 +1,7 @@
 import React from 'react';
 import { AgGridReact } from 'ag-grid-react';
-import 'ag-grid-community/dist/styles/ag-grid.css';
-import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
+import NavBarrr from './NavBarrr'
+import './AllDirec.scss'
 import './AllDirector.css'
 function AllDirector() {
   const columnDefs= [
@@ -11,11 +11,18 @@ function AllDirector() {
     { headerName: "AWARD COUNT", field: "awardCount" },
     ]
 
+    
 const defaultColDef={
   sortable:true,
   editable:true,
   flex:1,filter:true,
   floatingFilter:true
+}
+
+const rowStyle ={
+background : 'transparent',
+color: '#3BB7C4',
+// margin:'0px auto'
 }
 
 const onGridReady=(params)=>{
@@ -25,10 +32,12 @@ const onGridReady=(params)=>{
     params.api.applyTransaction({add:resp.forms})})
 }
   return (
-    <div className="contain">
+    <div className="App">
+        <NavBarrr></NavBarrr>
       <h3>Director Details</h3>
-      <div className="ag-theme-alpine" style={ {height: '600px'} }>
-        <AgGridReact 
+      <div className="ag-theme-alpine" style={ {height: '350px'} }>
+        <AgGridReact
+            rowStyle={rowStyle}
             columnDefs={columnDefs}
             // rowData={rowData}
             defaultColDef={defaultColDef}

@@ -1,17 +1,4 @@
-.contain{
-    width: auto;
-    text-align: center;
-    margin: 2%;
-}
-#tbl{
-    color: #3BB7C4;
-}
-/* table, th, td {
-    border: 1px solid white;
-    margin: 20px;
-    padding: 10px;
-  } */
-  .ag-theme-alpine {
+.ag-theme-alpine {
     /* use theme parameters where possible */
     --ag-foreground-color:#3BB7C4;
     --ag-background-color:transparent;

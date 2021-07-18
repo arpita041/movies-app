@@ -9,7 +9,12 @@ import DeleteMovie from './components/DeleteMovie';
 import updateDetails from './components/updateDetails';
 import AllMovies from './components/AllMovies';
 import Movies from './components/Movies';
+<<<<<<< HEAD
 import Footer from './components/Footer';
+=======
+import Director from './components/director';
+import AllDirector from './components/AllDirector';
+>>>>>>> 4e618c5ca10e4b5bce3cf586463259beb3fb8931
 //import Imgtrial from './components/imgtrial';
 //import NavBarrr from './components/NavBarrr';
 function App() {
@@ -26,7 +31,8 @@ function App() {
           <Route path='/home' exact component={Home}></Route>
           <Route path='/showMovies' component={AllMovies}></Route>
           <Route path='/movies' component={Movies}></Route>
-          <Route path='/directors' component={Movies}></Route>
+          <Route path='/directors' component={Director}></Route>
+          <Route path= '/grid' component={AllDirector}></Route>
         </Switch>
       </Router>
       </div>

@@ -19,7 +19,9 @@ const defaultColDef={
   sortable:true,
   editable:true,
   flex:1,filter:true,
-  floatingFilter:true
+  floatingFilter:true,
+  rowSelection: 'multiple',
+  rowMultiSelectWithClick: true,
 }
   useEffect(() => {
       

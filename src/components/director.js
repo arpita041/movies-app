@@ -81,7 +81,7 @@ const columnDefs1= [
                     columnDefs={columnDefs1}
                     rowData={post}
                     defaultColDef={defaultColDef}
-                    height='200px'
+                    height='300px'
                 >
 
                 </Gridreact>
@@ -96,7 +96,7 @@ const columnDefs1= [
                columnDefs={columnDefs}
                rowData={movies}
                defaultColDef={defaultColDef}
-                height='200px' >
+                height='300px' >
                 
            </Gridreact>
 </div>

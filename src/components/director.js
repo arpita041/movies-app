@@ -13,6 +13,8 @@ const Director = props => {
   const [movies, setMovies] = useState([])
   const [have, setHave] = useState([]);
   const [def,setDef]= useState([]);
+  const [Height,setHeight]=useState('');
+  const [Mheight,setMheight]=useState('')
   const columnDefs= [
     { headerName: 'NAME', field: 'name' },
     { headerName: 'RATING', field: 'rating' },
@@ -37,6 +39,7 @@ const columnDefs1= [
       axios.get(`http://localhost:3500/direct`)
         .then(res => {
           setPost(res.data.forms);
+          setHeight('225px')
           console.log(post);
         })
       setHave(false);
@@ -52,6 +55,7 @@ const columnDefs1= [
         .then(res => {
           console.log(res)
           setPost(res.data.data)
+          setHeight('140px')
           //   console.log(post.data.age)
         })
         .catch(err => {
@@ -62,6 +66,7 @@ const columnDefs1= [
           console.log(res.data.movies)
 
           setMovies(res.data.movies)
+          setMheight('265px')
          //console.log(movies)
         })
     }
@@ -81,7 +86,7 @@ const columnDefs1= [
                     columnDefs={columnDefs1}
                     rowData={post}
                     defaultColDef={defaultColDef}
-                    height='300px'
+                    height={Height}
                 >
 
                 </Gridreact>
@@ -96,7 +101,7 @@ const columnDefs1= [
                columnDefs={columnDefs}
                rowData={movies}
                defaultColDef={defaultColDef}
-                height='300px' >
+                height={Mheight} >
                 
            </Gridreact>
 </div>

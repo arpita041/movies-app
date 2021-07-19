@@ -20,12 +20,14 @@ class AllMovies extends Component {
                 sortable: true,
                 editable: true,
                 flex: 1, filter: true,
-                pagination: true
+                floatingFilter:true
+
             },
             rowData:null
 
         }
     }
+    
 componentDidMount= (e)=>
 {
     axios.get('http://localhost:3500/film')

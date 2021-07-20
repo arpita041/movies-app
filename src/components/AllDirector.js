@@ -7,7 +7,8 @@ function AllDirector() {
   const columnDefs= [
     { headerName: "NAME", field: "name" },
     { headerName: "AGE", field: "age",}, 
-    {headerName: "GENDER",field: "gender",},
+    {headerName: "GENDER",field: "gender",
+  },
     { headerName: "AWARD COUNT", field: "awardCount" },
     ]
 

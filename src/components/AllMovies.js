@@ -65,6 +65,7 @@ componentDidMount= (e)=>
                     defaultColDef={this.state.defaultColDef}
                     rowData={this.state.rowData}
                     height='350px'
+                    apiValue='movie'
                 >
 
                 </Gridreact>

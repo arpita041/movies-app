@@ -24,10 +24,9 @@ class AllMovies extends Component {
 
             },
             rowData:null
-
         }
     }
-    
+     
 componentDidMount= (e)=>
 {
     axios.get('http://localhost:3500/film')

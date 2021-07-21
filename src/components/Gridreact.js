@@ -38,7 +38,6 @@ function Gridreact(props) {
         }
 const height = props.height;
 console.log(height)
-    // console.log(this.props)
     return (
         <div>
             <div className="ag-theme-alpine" style={{ height: props.height }}>

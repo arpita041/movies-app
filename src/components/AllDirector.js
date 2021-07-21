@@ -11,8 +11,23 @@ function AllDirector() {
   },
     { headerName: "AWARD COUNT", field: "awardCount" },
     ]
-
-    
+let name;
+    const  myFunction =(res)=>
+    {
+        console.log(res);
+        name= res.data.name;
+    }
+    const secnd =(res)=>
+    {
+     //   console.log(name);
+    //    console.log("called");
+        console.log(res.data)
+        axios.patch(`http://localhost:3500/updateDirect/${name}`,res.data)
+        .then(res=>
+            {
+                console.log(res);
+            });
+    }
 const defaultColDef={
   sortable:true,
   editable:true,

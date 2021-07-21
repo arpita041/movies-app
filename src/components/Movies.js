@@ -9,7 +9,6 @@ const Movies = props => {
     (props.location && props.location.state) || {};
 
   const [post, setPost] = useState([])
-  const [Height,setHeight]=useState('')
   const columnDefs= [
     { headerName: 'NAME', field: 'name' },
     { headerName: 'RATING', field: 'rating' },
@@ -21,8 +20,6 @@ const defaultColDef={
   editable:true,
   flex:1,filter:true,
   floatingFilter:true,
-  rowSelection: 'multiple',
-  rowMultiSelectWithClick: true,
 }
   useEffect(() => {
       
@@ -31,7 +28,6 @@ const defaultColDef={
       axios.get(`http://localhost:3500/film`)
         .then(res => {
           setPost(res.data.forms);
-          setHeight('350px')
 
         })
     }
@@ -41,8 +37,7 @@ const defaultColDef={
       axios.get(`http://localhost:3500/films/${searchVal}`)
         .then(res => {
           console.log(res.data.movies)
-          setPost(res.data.movies);
-          setHeight('188px')
+          setPost(res.data.movies)
 
         })
         .catch(err => {
@@ -55,7 +50,7 @@ const defaultColDef={
     <div>
                    <NavBarrr></NavBarrr>
                 <div className="contain">
-                    <h3>Movie Details</h3>
+                    <h3>Director Details</h3>
                     {/* <button className='btn' onClick={this.getAllMovies} >load all Movies</button> */}
                 </div>
                 {/* <Table post={this.state.allMovies}></Table> */}
@@ -63,7 +58,7 @@ const defaultColDef={
                     columnDefs={columnDefs}
                     rowData={post}
                     defaultColDef={defaultColDef}
-                    height={Height}
+                    height='350px'
                 >
 
                 </Gridreact>

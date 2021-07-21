@@ -12,14 +12,10 @@ function Gridreact(props) {
         background : 'transparent',
         color: '#3BB7C4'
         }
-        
         const pagination = true;
-
-// sets 10 rows per page (default is 100)
 const paginationPageSize = 10;
 const height = props.height;
 console.log(height)
-    // console.log(this.props)
     return (
         <div>
             <div className="ag-theme-alpine" style={{ height: props.height }}>
@@ -29,7 +25,8 @@ console.log(height)
                     rowData={props.rowData}
                     rowStyle={rowStyle}
                     defaultColDef={props.defaultColDef}
-                    // onGridReady={onGridReady}
+                    editType="fullRow"
+
                     >
                 </AgGridReact>
             </div>

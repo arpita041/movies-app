@@ -16,7 +16,10 @@ function AllDirectors() {
  },[]);
 
  const actionButton =(params) =>{
-     console.log(params);
+    let saveIt = window.confirm("Do you want to delete the data?");
+    if(saveIt===true)
+    {
+    // console.log(params);
      const name = params.data.name;
      params.api.applyTransaction({
         remove: [params.node.data]
@@ -26,6 +29,11 @@ function AllDirectors() {
         {
             console.log(res);
         })
+    }
+    else
+    {
+        console.log("not")
+    }
  }
 
  const columnDefs= [

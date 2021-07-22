@@ -66,7 +66,6 @@ console.log(height)
                     onCellValueChanged={valueChanged}
                     >
                 </AgGridReact>
-                <button onClick={saveChanges}>Save</button>
             </div>
         </div>
     )

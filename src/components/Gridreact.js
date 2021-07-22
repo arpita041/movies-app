@@ -5,17 +5,19 @@ import { AgGridReact } from 'ag-grid-react';
 import './AllDirec.scss';
 import './AllDirector.css'
 import axios from 'axios';
+//import { GridApi } from 'ag-grid-community';
 
 function Gridreact(props) {
 
-    let name;
+    let name; 
+   //  let saveBtn;
     const rowStyle ={
         background : 'transparent',
         color: '#3BB7C4'
         }
+      
   const  myFunction =(res)=>
         {
-            console.log(res);
             name= res.data.name;
         }
         const secnd =(res)=>
@@ -36,6 +38,16 @@ function Gridreact(props) {
                 console.log("movie data")
             }
         }
+        const valueChanged =(res)=>
+        {
+            console.log("value has been changed")
+        }
+        const saveChanges =(res)=>
+        {
+            console.log('called');
+          //  props.api.stopEditing();
+         // GridApi.stopEditing();
+        }
 const height = props.height;
 console.log(height)
     return (
@@ -48,8 +60,10 @@ console.log(height)
                     defaultColDef={props.defaultColDef}
                     onRowDoubleClicked= {myFunction}
                     onCellEditingStopped={secnd}
+                    onCellValueChanged={valueChanged}
                     >
                 </AgGridReact>
+                <button onClick={saveChanges}>Save</button>
             </div>
         </div>
     )

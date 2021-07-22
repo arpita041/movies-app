@@ -33,9 +33,12 @@ function Gridreact(props) {
                     console.log(res);
                 });
             }
-            else
+            else if(props.apiValue==='movie')
             {
-                console.log("movie data")
+                axios.patch(`http://localhost:3500/updateMovie/${name}`,res.data)
+                .then(res=>{
+                    console.log(res)
+                });
             }
         }
         const valueChanged =(res)=>

@@ -14,17 +14,35 @@ function AllDirectors() {
             console.log(res);
         })
  },[]);
+
+ const actionButton =(params) =>{
+     console.log(params);
+     const name = params.data.name;
+     params.api.applyTransaction({
+        remove: [params.node.data]
+      });
+     axios.delete(`http://localhost:3500/deleteDirectorRow/${name}`)
+     .then(res=>
+        {
+            console.log(res);
+        })
+ }
+
  const columnDefs= [
     { headerName: "NAME", field: "name" },
     { headerName: "AGE", field: "age",}, 
     {headerName: "GENDER",field: "gender",},
-    { headerName: "AWARD COUNT", field: "awardCount" },
+    { headerName: "AWARD COUNT", field: "awardCount"},
+    {headerName:'Action' , field:'abc', cellRendererFramework:(params)=><div>
+        <button className="btnClass" onClick={()=>actionButton(params)}>Delete</button>
+    </div>},
     ]
     const defaultColDef={
         sortable:true,
         editable:true,
         flex:1,filter:true,
         floatingFilter:true
+
       }
     return (
         <div>

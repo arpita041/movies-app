@@ -14,7 +14,10 @@ class AllMovies extends Component {
                 { headerName: 'NAME', field: 'name' },
                 { headerName: 'RATING', field: 'rating' },
                 { headerName: 'DIRECTOR', field: 'director' },
-                { headerName: 'BOX OFFICE COLLECTION', field: 'boxOfficeCollection' }
+                { headerName: 'BOX OFFICE COLLECTION', field: 'boxOfficeCollection' },
+                {headerName:'Action' , field:'abc', cellRendererFramework:(params)=><div>
+                <button className="btnClass" onClick={()=>this.actionButton(params)}>Delete</button>
+            </div>},
             ],
             defaultColDef: {
                 sortable: true,
@@ -26,6 +29,18 @@ class AllMovies extends Component {
             rowData:null
 
         }
+    }
+    actionButton =(params) =>{
+        console.log(params);
+        const name = params.data.name;
+        params.api.applyTransaction({
+           remove: [params.node.data]
+         });
+        axios.delete(`http://localhost:3500/deleteMovieRow/${name}`)
+        .then(res=>
+           {
+               console.log(res);
+           })
     }
     
 componentDidMount= (e)=>

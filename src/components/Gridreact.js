@@ -52,6 +52,7 @@ function Gridreact(props) {
          // GridApi.stopEditing();
         }
 const height = props.height;
+const paginationPageSize=10;
 console.log(height)
     return (
         <div>
@@ -63,7 +64,8 @@ console.log(height)
                     defaultColDef={props.defaultColDef}
                     onRowDoubleClicked= {myFunction}
                     onCellEditingStopped={secnd}
-                    onCellValueChanged={valueChanged}
+                    pagination={true}
+                    paginationPageSize={paginationPageSize}
                     >
                 </AgGridReact>
             </div>

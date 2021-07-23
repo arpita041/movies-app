@@ -28,6 +28,7 @@ var c = document.querySelector('#uni');
         {
       saveBtn =document.createElement('button');
       saveBtn.innerText="save";
+      saveBtn.classList.add('btnClass');
       console.log(saveBtn);
         c.appendChild(saveBtn);
         a=1;

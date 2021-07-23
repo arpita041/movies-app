@@ -77,7 +77,7 @@ class updateDetails extends Component {
 
 
                             <div className="myleftctn"></div>
-                            <form className="myform text-center" onSubmit={this.handleSumbit}>
+                            <form className="myform text-center" onSubmit={this.handleSumbit} autoComplete='off'>
                                 <header className="text-center">Updation Form</header>
 
                                 <div className="row">

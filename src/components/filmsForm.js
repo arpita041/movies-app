@@ -111,50 +111,49 @@ class filmsForm extends Component {
                 <div className='heading'>
                     <h3>Add Movie Details</h3>
                 </div>
-                <div className='container my-5'>
+                <div className='container my-4'>
                     {/* <div className="jumbotron my-5"> */}
                         <div className="row">
                             <div className="col-md-12">
                                 <div className="myleftctn">
-                                    <form onSubmit={this.handleSubmit} className='formm'>
+                                    <form onSubmit={this.handleSubmit} id='formm' autocomplete="off">
                                         <div>
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='labelClass' >Movie Name</Form.Label>
-                                                <Form.Control className='inputBorder' type="text" placeholder="movie name" value={name} onChange={this.handlenameChange} required />
+                                                <Form.Control id='inputBorder' type="text" placeholder="movie name" value={name} onChange={this.handlenameChange} required />
                                                 <small className="text-danger">{this.state.nameError}</small>
                                             </Form.Group>
                                         </div>
                                         <div>
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='labelClass'>Box Office Collection</Form.Label>
-                                                <Form.Control className='inputBorder' type="text" placeholder="box office collection" value={boxOfficeCollection} onChange={this.handleBox} required />
+                                                <Form.Control id='inputBorder' type="text" placeholder="box office collection" value={boxOfficeCollection} onChange={this.handleBox} required />
                                                 <small className="text-danger">{this.state.boxOfficeError}</small>
                                             </Form.Group>
                                         </div>
                                         <div>
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='labelClass'>Rating</Form.Label>
-                                                <Form.Control className='inputBorder' type="text" placeholder="rating" value={rating} onChange={this.handleRating} required />
+                                                <Form.Control id='inputBorder' type="text" placeholder="rating" value={rating} onChange={this.handleRating} required />
                                                 <small className="text-danger">{this.state.ratingError}</small>
                                             </Form.Group>
                                         </div>
                                         <div>
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='labelClass'>Director Name</Form.Label>
-                                                <Form.Control className='inputBorder' type="text" placeholder="Director" value={director} onChange={this.handleDirector} required />
+                                                <Form.Control id='inputBorder' type="text" placeholder="Director" value={director} onChange={this.handleDirector} required />
                                                 <small className="text-danger">{this.state.directorError}</small>
                                             </Form.Group>
                                         </div>
                                         <div className="App">
                                             <button className='btnClass' type="submit">Add Film</button>{' '}
                                         </div>
-                                    </form>
-                                    <br />
-                                    <h5>{this.state.respo}</h5>
+                                        <h5>{this.state.respo}</h5>
                                     <Router>
-                                        <h6 className="App">Go back to<a href="/home" style={{ color: '#3BB7C4 ' }}> home</a></h6>
+                                        <h6 className="App" id='hh'>Go back to<a href="/home" style={{ color: '#3BB7C4 ' }}> home</a></h6>
 
                                     </Router>
+                                    </form>
                                 </div>
                             </div>
                         </div>

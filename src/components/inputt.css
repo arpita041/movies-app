@@ -1,7 +1,6 @@
-.form-control{
-    outline: 0;
+#inn{
     background: none;
     border: 1px solid white;
-    color: black;
+    color: white;
     font-size: medium;
 }

@@ -92,7 +92,7 @@ class addDirector extends Component {
                 <div className='heading'>
                     <h3 style={{ color: '#3BB7C4 ' }}>Add Directors Details</h3>
                 </div>
-                <div className="container my-5">
+                <div className="container my-4">
 
 
                     {/* <div className="jumbotron my-5"> */}
@@ -100,39 +100,39 @@ class addDirector extends Component {
                                 <div className="row">
                                     <div className="col-md-12">
                                         <div className="myleftctn">
-                                            <form onSubmit={this.handleSubmit}>
+                                            <form onSubmit={this.handleSubmit} id='formm' autocomplete="off">
                                                 <div>
                                                     <Form.Group controlId="formBasicEmail">
                                                         <Form.Label className='lab'>Name</Form.Label>
-                                                        <Form.Control className='inputtxt' type="text" placeholder="name" name="name" value={name} onChange={this.handleChange} required />
+                                                        <Form.Control id='inputtxt' type="text" placeholder="name" name="name" value={name} onChange={this.handleChange} required />
                                                         <small className="text-danger">{this.state.nameError}</small>
                                                     </Form.Group>
                                                 </div>
                                                 <div>
                                                     <Form.Group controlId="formBasicEmail">
                                                         <Form.Label className='lab'>Age</Form.Label>
-                                                        <Form.Control className='inputtxt' type="number" placeholder="age" name="age" value={age} onChange={this.handleChange} required />
+                                                        <Form.Control id='inputtxt' type="number" placeholder="age" name="age" value={age} onChange={this.handleChange} required />
                                                         <small className="text-danger">{this.state.ageError}</small>
                                                     </Form.Group>
                                                 </div>
                                                 <div>
                                                     <Form.Group controlId="formBasicEmail">
                                                         <Form.Label className='lab' >Gender</Form.Label>
-                                                        <Form.Control className='inputtxt' type="text" placeholder="gender" name="gender" value={gender} onChange={this.handleChange} required />
+                                                        <Form.Control id='inputtxt' type="text" placeholder="gender" name="gender" value={gender} onChange={this.handleChange} required />
                                                         <small className="text-danger">{this.state.genderError}</small>
                                                     </Form.Group>
                                                 </div>
                                                 <div>
                                                     <Form.Group controlId="formBasicEmail">
                                                         <Form.Label className='lab'>award Count</Form.Label>
-                                                        <Form.Control className='inputtxt' type="number" placeholder="awardCount" name="awardCount" value={awardCount} onChange={this.handleChange} required />
+                                                        <Form.Control id='inputtxt' type="number" placeholder="awardCount" name="awardCount" value={awardCount} onChange={this.handleChange} required />
                                                         <small className="text-danger">{this.state.awardCountError}</small>
                                                     </Form.Group>
                                                 </div>
                                                 <div className="App">
                                                     <button className="btnClass" type="submit">Add Director</button>{' '}
                                                 </div>
-                                                <br />
+                                              
                                                 <h5>{this.state.respo}</h5>
                                                 <Router>
                                                     <h6 className="App">Go back to<a style={{ color: '#3BB7C4 ' }} href="/home">  home</a></h6>

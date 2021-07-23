@@ -11,6 +11,7 @@ function InputField({ value, label, name, placeholder, type, onChange }) {
           className="form-control"
           placeholder={placeholder}
           onChange={onChange}
+          id='inn'
           required
         />
       </div>

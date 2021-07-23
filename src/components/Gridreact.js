@@ -15,7 +15,7 @@ function Gridreact(props) {
     //  let saveBtn;
     const rowStyle = {
         background: 'transparent',
-        color: '#3BB7C4'
+        color: 'white'
     }
     let saveBtn;
     let data;

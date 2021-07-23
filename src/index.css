@@ -14,12 +14,12 @@ code {
 }
 .btnClass
 {
-  color:#3BB7C4;
+  color:white;
   background-color:transparent;
   height: 40px;
   border-radius: 5px;
   outline: 0;
-  border-color: #3BB7C4;
+  border-color: white;
 }
 .btnClass:hover
 {
@@ -29,11 +29,11 @@ code {
 }
 h3
 {
-  color:#3BB7C4;
+  color:white;
 }
 .trialClass
 {
  background: transparent;
- color:#3BB7C4;
+ color:white;
  
 }

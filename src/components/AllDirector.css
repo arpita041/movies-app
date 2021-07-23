@@ -1,6 +1,6 @@
 .ag-theme-alpine {
     /* use theme parameters where possible */
-    --ag-foreground-color: #3BB7C4;
+    --ag-foreground-color: white;
     --ag-background-color: transparent;
     /* --ag-border-1: none;
     --ag-border-color-2: transparent; */

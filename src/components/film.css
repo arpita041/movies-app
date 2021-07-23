@@ -8,12 +8,12 @@ h6{
     padding-bottom: 5%;
 }
 .lab{
-    color:#3BB7C4;
+    color:white;
     margin: 2%;
     font-size: large;
 }
 .labelClass{
-    color:#3BB7C4;
+    color:white;
     margin: 2%;
     font-size: large;
 }
@@ -23,7 +23,7 @@ h6{
 .inputBorder{
     outline: 0;
     background: none;
-    border: 1px solid #3BB7C4;
+    border: 1px solid white;
     color: black;
     font-size: medium;
 }

@@ -15,46 +15,51 @@ class AllMovies extends Component {
                 { headerName: 'RATING', field: 'rating' },
                 { headerName: 'DIRECTOR', field: 'director' },
                 { headerName: 'BOX OFFICE COLLECTION', field: 'boxOfficeCollection' },
-                {headerName:'Action' , field:'abc', cellRendererFramework:(params)=><div>
-                <button className="btnClass" onClick={()=>this.actionButton(params)}>Delete</button>
-            </div>},
+                {
+                    headerName: 'Action', field: 'abc', cellRendererFramework: (params) => <div>
+                        <button className="btnClass" onClick={() => this.saving(params)}>Save</button>
+                        <button className="btnClass" onClick={() => this.actionButton(params)}>Delete</button>
+                    </div>
+                },
             ],
             defaultColDef: {
                 sortable: true,
                 editable: true,
                 flex: 1, filter: true,
-                floatingFilter:true
+                floatingFilter: true
 
             },
-            rowData:null
+            rowData: null
 
         }
     }
-    actionButton =(params) =>{
+    saving = (params) => {
+        console.log(params);
+        alert("do you want to change it ?")
+    }
+    actionButton = (params) => {
         console.log(params);
         const name = params.data.name;
         params.api.applyTransaction({
-           remove: [params.node.data]
-         });
+            remove: [params.node.data]
+        });
         axios.delete(`http://localhost:3500/deleteMovieRow/${name}`)
-        .then(res=>
-           {
-               console.log(res);
-           })
+            .then(res => {
+                console.log(res);
+            })
     }
-    
-componentDidMount= (e)=>
-{
-    axios.get('http://localhost:3500/film')
-    .then(response => {
-        console.log(response);
-        this.setState({
-            allMovies: response.data.forms,
-            rowData:response.data.forms
-        })
-    })
-    console.log(this.state.rowData);
-}
+
+    componentDidMount = (e) => {
+        axios.get('http://localhost:3500/film')
+            .then(response => {
+                console.log(response);
+                this.setState({
+                    allMovies: response.data.forms,
+                    rowData: response.data.forms
+                })
+            })
+        console.log(this.state.rowData);
+    }
 
     getAllMovies = (e) => {
         axios.get('http://localhost:3500/film')
@@ -62,10 +67,10 @@ componentDidMount= (e)=>
                 console.log(response);
                 this.setState({
                     allMovies: response.data.forms,
-                    rowData:response.data.forms
+                    rowData: response.data.forms
                 })
             })
-            console.log(this.state.rowData);
+        console.log(this.state.rowData);
     }
     render() {
         return (

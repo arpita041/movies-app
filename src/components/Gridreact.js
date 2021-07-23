@@ -17,10 +17,10 @@ function Gridreact(props) {
         background: 'transparent',
         color: '#3BB7C4'
     }
-let saveBtn;
-let data;
-let a=0;
-var c = document.querySelector('#uni');
+    let saveBtn;
+    let data;
+    let a = 0;
+    var c = document.querySelector('#uni');
 
     const myFunction = (res) => {
 
@@ -33,7 +33,7 @@ var c = document.querySelector('#uni');
         c.appendChild(saveBtn);
         a=1;
         }
-      saveBtn.addEventListener('click', saveChanges);
+        saveBtn.addEventListener('click', saveChanges);
         name = res.data.name;
     nameArray.push(name);
     }
@@ -63,15 +63,17 @@ console.log("data", data)
            
         }
         else if (props.apiValue === 'movie') {
-            axios.patch(`http://localhost:3500/updateMovie/${name}`,data)
-                .then(res => {
-                    console.log(res)
-                });
+            for(let i=0;i<nameArray.length;i++)
+            {
+              axios.patch(`http://localhost:3500/updateMovie/${nameArray[i]}`,dataArray[i])
+          .then(res => {
+              console.log(res);
+          });   
+            }
         }
-        if(a===1)
-        {
-    c.removeChild(saveBtn);
-    a=0;
+        if (a === 1) {
+            c.removeChild(saveBtn);
+            a = 0;
         }
     }
     const height = props.height;

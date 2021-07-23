@@ -4,8 +4,8 @@
 .ag-theme-alpine {
     @include ag-theme-alpine((
         // use theme parameters where possible
-        alpine-active-color: #3BB7C4,
-        border-color:#3BB7C4
+        alpine-active-color: white,
+        border-color:white
     ));
 
     // .ag-header {

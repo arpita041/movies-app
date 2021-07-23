@@ -27,16 +27,16 @@ const NavBarrr = props => {
             <div className='row'>
                 <div className="col-sm-12">
                     <Navbar bg="dark" variant="dark">
-                        <Navbar.Brand href="/" style={{ color: '#3BB7C4 ' }}>CinemaWall</Navbar.Brand>
+                        <Navbar.Brand href="/" style={{ color: 'white ' }}>CinemaWall</Navbar.Brand>
                         <Nav className="mr-auto">
-                            <Nav.Link href="/forms" style={{ color: '#3BB7C4 ' }}>Add Cinema</Nav.Link>
-                            <Nav.Link href="/addDirector" style={{ color: '#3BB7C4 ' }}>Add Director</Nav.Link>
-                            <Nav.Link href="/showMovies" style={{ color: '#3BB7C4 ' }}>Movie List</Nav.Link>
-                            <Nav.Link href="/director" style={{ color: '#3BB7C4 ' }}>Director List</Nav.Link>
+                            <Nav.Link href="/forms" style={{ color: 'white ' }}>Add Cinema</Nav.Link>
+                            <Nav.Link href="/addDirector" style={{ color: 'white ' }}>Add Director</Nav.Link>
+                            <Nav.Link href="/showMovies" style={{ color: 'white ' }}>Movie List</Nav.Link>
+                            <Nav.Link href="/director" style={{ color: 'white ' }}>Director List</Nav.Link>
                             {/* <Nav.Link href="/data"><Link to='/data'>Data</Link></Nav.Link> */}
-                            <NavDropdown title="Other Options" id="collasible-nav-dropdown" style={{ color: '#3BB7C4 ' }}>
-                                <NavDropdown.Item href="/deleteMovie" style={{ color: '#3BB7C4 ' }}>Delete a Movie</NavDropdown.Item>
-                                <NavDropdown.Item href="/update" style={{ color: '#3BB7C4 ' }}>Update Data</NavDropdown.Item>
+                            <NavDropdown title="Other Options" id="collasible-nav-dropdown" style={{ color: 'white ' }}>
+                                <NavDropdown.Item href="/deleteMovie" style={{ color: 'white ' }}>Delete a Movie</NavDropdown.Item>
+                                <NavDropdown.Item href="/update" style={{ color: 'white ' }}>Update Data</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
                         <Form inline id='form1'>

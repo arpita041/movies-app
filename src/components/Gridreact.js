@@ -28,9 +28,9 @@ var c = document.querySelector('#uni');
       saveBtn.innerText="save";
       console.log(saveBtn);
         c.appendChild(saveBtn);
-      saveBtn.addEventListener('click', saveChanges);
-      a=1;
+        a=1;
         }
+      saveBtn.addEventListener('click', saveChanges);
         name = res.data.name;
     }
 
@@ -41,9 +41,10 @@ console.log("data", data)
         //    console.log("called");
       //  console.log(res.data)
       console.log(res);
-      if(res.oldValue === res.value)
+      if(res.oldValue === res.value  && a===1)
       {
       c.removeChild(saveBtn);
+      a=0;
       }
 
     }
@@ -61,7 +62,11 @@ console.log("data", data)
                     console.log(res)
                 });
         }
+        if(a===1)
+        {
     c.removeChild(saveBtn);
+    a=0;
+        }
     }
     const height = props.height;
     const paginationPageSize = 10;

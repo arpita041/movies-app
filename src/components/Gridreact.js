@@ -22,15 +22,14 @@ function Gridreact(props) {
 
     const myFunction = (res) => {
 
-        if(a===0)
-        {
-      saveBtn =document.createElement('button');
-      saveBtn.innerText="save";
-      console.log(saveBtn);
-        c.appendChild(saveBtn);
-        a=1;
+        if (a === 0) {
+            saveBtn = document.createElement('button');
+            saveBtn.innerText = "save";
+            console.log(saveBtn);
+            c.appendChild(saveBtn);
+            a = 1;
         }
-      saveBtn.addEventListener('click', saveChanges);
+        saveBtn.addEventListener('click', saveChanges);
         name = res.data.name;
     }
 
@@ -39,13 +38,12 @@ function Gridreact(props) {
         console.log("data", data)
         //   console.log(name);
         //    console.log("called");
-      //  console.log(res.data)
-      console.log(res);
-      if(res.oldValue === res.value  && a===1)
-      {
-      c.removeChild(saveBtn);
-      a=0;
-      }
+        //  console.log(res.data)
+        console.log(res);
+        if (res.oldValue === res.value && a === 1) {
+            c.removeChild(saveBtn);
+            a = 0;
+        }
 
     }
     const saveChanges = (res) => {
@@ -62,10 +60,9 @@ function Gridreact(props) {
                     console.log(res)
                 });
         }
-        if(a===1)
-        {
-    c.removeChild(saveBtn);
-    a=0;
+        if (a === 1) {
+            c.removeChild(saveBtn);
+            a = 0;
         }
     }
     const height = props.height;

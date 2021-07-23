@@ -15,34 +15,53 @@ function Gridreact(props) {
         background: 'transparent',
         color: '#3BB7C4'
     }
+let saveBtn;
+let data;
+let a=0;
+var c = document.querySelector('#uni');
 
     const myFunction = (res) => {
+
+        if(a===0)
+        {
+      saveBtn =document.createElement('button');
+      saveBtn.innerText="save";
+      console.log(saveBtn);
+        c.appendChild(saveBtn);
+      saveBtn.addEventListener('click', saveChanges);
+      a=1;
+        }
         name = res.data.name;
     }
+
     const secnd = (res) => {
+data = res.data;
+console.log("data", data)
         //   console.log(name);
         //    console.log("called");
-        console.log(res.data)
-        if (props.apiValue === 'director') {
-            axios.patch(`http://localhost:3500/updateDirect/${name}`, res.data)
+      //  console.log(res.data)
+      console.log(res);
+      if(res.oldValue === res.value)
+      {
+      c.removeChild(saveBtn);
+      }
+
+    }
+    const saveChanges = (res) => {
+        console.log('called');
+              if (props.apiValue === 'director') {
+            axios.patch(`http://localhost:3500/updateDirect/${name}`,data)
                 .then(res => {
                     console.log(res);
                 });
         }
         else if (props.apiValue === 'movie') {
-            axios.patch(`http://localhost:3500/updateMovie/${name}`, res.data)
+            axios.patch(`http://localhost:3500/updateMovie/${name}`,data)
                 .then(res => {
                     console.log(res)
                 });
         }
-    }
-    const valueChanged = (res) => {
-        console.log("value has been changed")
-    }
-    const saveChanges = (res) => {
-        console.log('called');
-        //  props.api.stopEditing();
-        // GridApi.stopEditing();
+    c.removeChild(saveBtn);
     }
     const height = props.height;
     const paginationPageSize = 10;
@@ -62,6 +81,7 @@ function Gridreact(props) {
                 >
                 </AgGridReact>
             </div>
+            <div id="uni"></div>
         </div>
     )
 }

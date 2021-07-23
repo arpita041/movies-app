@@ -10,6 +10,8 @@ import axios from 'axios';
 function Gridreact(props) {
 
     let name;
+    let nameArray=[];
+    let dataArray=[];
     //  let saveBtn;
     const rowStyle = {
         background: 'transparent',
@@ -32,14 +34,13 @@ var c = document.querySelector('#uni');
         }
       saveBtn.addEventListener('click', saveChanges);
         name = res.data.name;
+    nameArray.push(name);
     }
 
     const secnd = (res) => {
 data = res.data;
+dataArray.push(data);
 console.log("data", data)
-        //   console.log(name);
-        //    console.log("called");
-      //  console.log(res.data)
       console.log(res);
       if(res.oldValue === res.value  && a===1)
       {
@@ -51,10 +52,14 @@ console.log("data", data)
     const saveChanges = (res) => {
         console.log('called');
               if (props.apiValue === 'director') {
-            axios.patch(`http://localhost:3500/updateDirect/${name}`,data)
+                  for(let i=0;i<nameArray.length;i++)
+                  {
+                    axios.patch(`http://localhost:3500/updateDirect/${nameArray[i]}`,dataArray[i])
                 .then(res => {
                     console.log(res);
-                });
+                });   
+                  }
+           
         }
         else if (props.apiValue === 'movie') {
             axios.patch(`http://localhost:3500/updateMovie/${name}`,data)

@@ -12,14 +12,15 @@ h6{
     margin: 2%;
     font-size: large;
 }
-.formm{
+#formm{
     padding: 2%;
+    color:white
 }
-.inputtxt{
+#inputtxt{
     outline: 0;
     background: none;
     border: 1px solid white;
-    color: black;
+    color: white;
     font-size: medium;
 }
 

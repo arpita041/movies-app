@@ -35,8 +35,8 @@ const NavBarrr = props => {
                             <Nav.Link href="/director" style={{ color: 'white ' }}>Director List</Nav.Link>
                             {/* <Nav.Link href="/data"><Link to='/data'>Data</Link></Nav.Link> */}
                             <NavDropdown title="Other Options" id="collasible-nav-dropdown" style={{ color: 'white ' }}>
-                                <NavDropdown.Item href="/deleteMovie" style={{ color: 'white ' }}>Delete a Movie</NavDropdown.Item>
-                                <NavDropdown.Item href="/update" style={{ color: 'white ' }}>Update Data</NavDropdown.Item>
+                                <NavDropdown.Item href="/deleteMovie" style={{ color: 'black ' }}>Delete a Movie</NavDropdown.Item>
+                                <NavDropdown.Item href="/update" style={{ color: 'black ' }}>Update Data</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
                         <Form inline id='form1'>
@@ -46,7 +46,7 @@ const NavBarrr = props => {
                                     Search
                                 </Dropdown.Toggle>
 
-                                <Dropdown.Menu className='drop'>
+                                <Dropdown.Menu id='drop'>
                                     <Link
                                         to={{
                                             pathname: "/movies",

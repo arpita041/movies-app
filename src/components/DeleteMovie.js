@@ -41,7 +41,7 @@ class DeleteMovie extends Component {
                 <div className='container my-5'>
 
                     {/* <div className="jumbotron my-5"> */}
-                        <form onSubmit={this.handleSubmit}>
+                        <form onSubmit={this.handleSubmit} autoComplete='off'>
                             <div>
                                 <InputField
                                 className="labelClass"

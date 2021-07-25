@@ -160,10 +160,10 @@ class filmsForm extends Component {
                                         <div className="App">
                                             <button className='btnClass' type="submit">Add Film</button>{' '}
                                         </div>
-                                      
+                                        <h5>{this.state.respo}</h5>
+
                                     <Router>
                                         <h6 className="App" id='hh'>Go back to<a href="/home" style={{ color: '#3BB7C4 ' }}> home</a></h6>
-<h5>{this.state.respo}</h5>
                                     </Router>
                                     </form>
                                 </div>

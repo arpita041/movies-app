@@ -17,23 +17,28 @@ function Gridreact(props) {
         background: 'transparent',
         color: '#3BB7C4'
     }
-    let saveBtn;
-    let data;
-    let a = 0;
-    var c = document.querySelector('#uni');
+//let saveBtn;
+var c = document.querySelector('#uni');
+let data;
+let a=0;
+
 
     const myFunction = (res) => {
 
-        if(a===0)
+        if(a==0)
         {
-      saveBtn =document.createElement('button');
-      saveBtn.innerText="save";
-      saveBtn.classList.add('btnClass');
-      console.log(saveBtn);
-        c.appendChild(saveBtn);
-        a=1;
+            document.getElementById('myBtn').disabled= false;
+            document.getElementById('myBtn').addEventListener('click', saveChanges);
+            a=1;
         }
-        saveBtn.addEventListener('click', saveChanges);
+    //     if(a===0)
+    //     {
+    //         saveBtn =document.createElement('button');
+    //         saveBtn.innerText="save";
+    //           c.appendChild(saveBtn);
+    //     a=1;
+    //     }
+    //   saveBtn.addEventListener('click', saveChanges);
         name = res.data.name;
     nameArray.push(name);
     }
@@ -43,11 +48,16 @@ data = res.data;
 dataArray.push(data);
 console.log("data", data)
       console.log(res);
-      if(res.oldValue === res.value  && a===1)
-      {
-      c.removeChild(saveBtn);
-      a=0;
-      }
+    //   if(res.oldValue === res.value  && a===1)
+    //   {
+    //   c.removeChild(saveBtn);
+    //   a=0;
+    //   }
+    if(res.oldValue === res.value && a===1)
+    {
+document.getElementById('myBtn').disabled= true;
+a=0;
+    }
 
     }
     const saveChanges = (res) => {
@@ -63,17 +73,19 @@ console.log("data", data)
            
         }
         else if (props.apiValue === 'movie') {
-            for(let i=0;i<nameArray.length;i++)
-            {
-              axios.patch(`http://localhost:3500/updateMovie/${nameArray[i]}`,dataArray[i])
-          .then(res => {
-              console.log(res);
-          });   
-            }
+                for(let i=0;i<nameArray.length;i++)
+                {
+                  axios.patch(`http://localhost:3500/updateMovie/${nameArray[i]}`,dataArray[i])
+              .then(res => {
+                  console.log(res);
+              });   
+                }
         }
-        if (a === 1) {
-            c.removeChild(saveBtn);
-            a = 0;
+        if(a===1)
+        {
+    // c.removeChild(saveBtn);
+    document.getElementById('myBtn').disabled= true;
+    a=0;
         }
     }
     const height = props.height;
@@ -94,7 +106,9 @@ console.log("data", data)
                 >
                 </AgGridReact>
             </div>
-            <div id="uni"></div>
+            <div id="uni">
+                <button id="myBtn" disabled={true}>save</button>
+            </div>
         </div>
     )
 }

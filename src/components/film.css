@@ -3,30 +3,32 @@
     width: 50%;    
     background: rgba(0,0,0,0.3);
 }
-h6{
+#hh{
     color:white;
-    padding-bottom: 5%;
+    margin-bottom: 1%;
 }
 .lab{
-    color:#3BB7C4;
+    color:white;
     margin: 2%;
     font-size: large;
 }
 .labelClass{
-    color:#3BB7C4;
+    color:white;
     margin: 2%;
     font-size: large;
 }
-.formm{
+#formm{
     padding: 2%;
+    color:white
 }
-.inputBorder{
-    outline: 0;
+#inputBorder{
+    /* outline: 0; */
     background: none;
-    border: 1px solid #3BB7C4;
-    color: black;
+    border: 1px solid white;
+    color: white;
     font-size: medium;
 }
+
 
 .btn{
     background: none;

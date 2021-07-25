@@ -4,7 +4,7 @@
 
 #trial
 {
-  background-color: #61dafb;
+  background-color: white;
 }
 .App-logo {
   height: 40vmin;
@@ -29,7 +29,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: white;
 }
 
 @keyframes App-logo-spin {
@@ -44,5 +44,5 @@ body{
   background-image: url(https://wallpapercave.com/wp/wp3264044.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  /* overflow: hidden; */
+   /* overflow: hidden;  */
 }

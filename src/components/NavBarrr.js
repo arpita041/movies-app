@@ -27,15 +27,16 @@ const NavBarrr = props => {
             <div className='row'>
                 <div className="col-sm-12">
                     <Navbar bg="dark" variant="dark">
-                        <Navbar.Brand href="/" style={{ color: '#3BB7C4 ' }}>CinemaWall</Navbar.Brand>
+                        <Navbar.Brand href="/" style={{ color: 'white ' }}> <b>CinemaWall</b> </Navbar.Brand>
                         <Nav className="mr-auto">
-                            <Nav.Link href="/forms" style={{ color: '#3BB7C4 ' }}>Add Cinema</Nav.Link>
-                            <Nav.Link href="/addDirector" style={{ color: '#3BB7C4 ' }}>Add Director</Nav.Link>
-                            <Nav.Link href="/showMovies" style={{ color: '#3BB7C4 ' }}>Movie List</Nav.Link>
+                            <Nav.Link href="/forms" style={{ color: 'white ' }}> <b>Add Cinema</b> </Nav.Link>
+                            <Nav.Link href="/addDirector" style={{ color: 'white ' }}><b>Add Director</b></Nav.Link>
+                            <Nav.Link href="/showMovies" style={{ color: 'white ' }}><b>Movie List</b></Nav.Link>
+                            <Nav.Link href="/director" style={{ color: 'white ' }}><b>Director List</b></Nav.Link>
                             {/* <Nav.Link href="/data"><Link to='/data'>Data</Link></Nav.Link> */}
-                            <NavDropdown title="Other Options" id="collasible-nav-dropdown" style={{ color: '#3BB7C4 ' }}>
-                                <NavDropdown.Item href="/deleteMovie" style={{ color: '#3BB7C4 ' }}>Delete a Movie</NavDropdown.Item>
-                                <NavDropdown.Item href="/update" style={{ color: '#3BB7C4 ' }}>Update Data</NavDropdown.Item>
+                            <NavDropdown title="Other Options" id="collasible-nav-dropdown" style={{ color: 'white ' }}>
+                                <NavDropdown.Item href="/deleteMovie" style={{ color: 'black ' }}><b>Delete a Movie</b></NavDropdown.Item>
+                                <NavDropdown.Item href="/update" style={{ color: 'black ' }}><b>Update Data</b></NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
                         <Form inline id='form1'>
@@ -45,7 +46,7 @@ const NavBarrr = props => {
                                     Search
                                 </Dropdown.Toggle>
 
-                                <Dropdown.Menu className='drop'>
+                                <Dropdown.Menu id='drop'>
                                     <Link
                                         to={{
                                             pathname: "/movies",
@@ -59,7 +60,7 @@ const NavBarrr = props => {
                                         to={{
                                             pathname: "/directors",
                                             state
-                                        }}
+                                        }} 
                                     >
                                         Director
                                     </Link>

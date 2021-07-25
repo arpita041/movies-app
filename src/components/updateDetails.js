@@ -27,9 +27,15 @@ class updateDetails extends Component {
         let ageNum = parseInt(this.state.age);
         let awardNum = parseInt(this.state.awardCount);
         let val = 0;
+        let pattern = /^[a-zA-Z ]{2,30}$/;
         if (this.state.name.trim() === '') {
             val = 1;
             this.setState({ nameError: "name is required" })
+        }
+        if(!pattern.test(this.state.name))
+        {
+            this.setState({nameError:"Please enter a valid name"});
+            val=1;
         }
         if (ageNum > 80 || ageNum < 18) {
             val = 1;
@@ -53,14 +59,22 @@ class updateDetails extends Component {
             axios.put(`http://localhost:3500/updateDirect/${this.state.name}`, this.state)
                 .then(response => {
                     console.log(response);
+                    if(response.data==='error')
+                    {
+                        alert("No details with this director name exist,Please enter valid name");
+                    }
+                    else
+                    {
+                        alert('Details has been changed successfully');
+                    }
                     this.setState({
                         respo: response.data
                     })
                 })
             console.log("no error")
         }
-        console.log(this.state);
-
+     //   console.log(this.state);
+    
     }
     render() {
         const { name, age, awardCount } = this.state;
@@ -77,7 +91,7 @@ class updateDetails extends Component {
 
 
                             <div className="myleftctn"></div>
-                            <form className="myform text-center" onSubmit={this.handleSumbit}>
+                            <form className="myform text-center" onSubmit={this.handleSumbit} autoComplete='off'>
                                 <header className="text-center">Updation Form</header>
 
                                 <div className="row">
@@ -86,7 +100,7 @@ class updateDetails extends Component {
                                             <InputField type="text" name="name" value={name}
                                                 className="form-control" id="myinput"
                                                 placeholder=" Name" onChange={this.handleChange} />
-
+ <small className="text-danger">{this.state.nameError}</small>
                                         </div>
                                     </div>
                                 </div>
@@ -117,7 +131,7 @@ class updateDetails extends Component {
                                     </div>
                                 </div>
                                 <button className="btnClass" id="butt" >Update</button><br /><br />
-                                <h5>{this.state.respo}</h5>
+                                {/* <h5>{this.state.respo}</h5> */}
                                 <Router>
                                     <h6>Go back to <a href="/home" style={{ color: '#3BB7C4 ' }}>Home</a></h6>
 
@@ -125,24 +139,12 @@ class updateDetails extends Component {
                                 </Router>
                             </form>
                         </div>
-                        {/* <div className="col-md-4 ml-5 border">
-                                                <div className="App">
-                                                    Updated details:</div>
-                                                <br />
-                                                Name: Rohini Singh
-                                                <br />
-                                                Age: 23
-                                                <br />
-                                                Award Count: 10
-                                                <br />
-                                                Gender: Female
-
-                                            </div> */}
+                 
                     </div>
                 </div>
             </div>
 
-            // </div>
+    
 
         )
     }

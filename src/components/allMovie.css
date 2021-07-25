@@ -4,10 +4,22 @@
     margin: 2%;
 }
 #tbl{
-    color: #3BB7C4;
+    color: white;
 }
 /* table, th, td {
     border: 1px solid white;
     margin: 20px;
     padding: 10px;
   } */
+  .ag-theme-alpine {
+    /* use theme parameters where possible */
+    --ag-foreground-color:white;
+    --ag-background-color:transparent;
+    /* borders:'false'; */
+}
+
+/* or write CSS selectors to make customisations beyond what the parameters support */
+.ag-theme-alpine .ag-header {
+    background-color:transparent;
+
+}

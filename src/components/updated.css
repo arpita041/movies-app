@@ -8,20 +8,20 @@ h6{
     padding-bottom: 5%;
 }
 .lab{
-    color: #3BB7C4;
+    color: white;
     margin: 2%;
     font-size: large;
 }
 .formm{
     padding: 2%;
 }
-.inputtxt{
+/* #inputtxt{
     outline: 0;
     background: none;
-    border: 1px solid #3BB7C4;
+    border: 1px solid white;
     color: black;
     font-size: medium;
-}
+} */
 
 .btn{
     background: none;

@@ -49,10 +49,10 @@ class AllMovies extends Component {
             })
     }
 
-    componentDidMount = (e) => {
+    componentDidMount = () => {
         axios.get('http://localhost:3500/film')
             .then(response => {
-                console.log(response);
+                // console.log(response);
                 this.setState({
                     allMovies: response.data.forms,
                     rowData: response.data.forms
@@ -61,17 +61,7 @@ class AllMovies extends Component {
         console.log(this.state.rowData);
     }
 
-    getAllMovies = (e) => {
-        axios.get('http://localhost:3500/film')
-            .then(response => {
-                console.log(response);
-                this.setState({
-                    allMovies: response.data.forms,
-                    rowData: response.data.forms
-                })
-            })
-        console.log(this.state.rowData);
-    }
+
     render() {
         return (
             <div>

@@ -27,11 +27,17 @@ class addDirector extends Component {
     validate() {
         let ageNum = parseInt(this.state.age);
         let awardNum = parseInt(this.state.awardCount);
+        let pattern = /^[a-zA-Z ]{2,30}$/;
         console.log(ageNum);
         let val = 0;
         if (this.state.name.trim() === '') {
             val = 1;
             this.setState({ nameError: "name is required" })
+        }
+        if(!pattern.test(this.state.name))
+        {
+            this.setState({nameError:"Please enter a valid name"});
+            val=1;
         }
         if (this.state.age.trim() === '') {
             this.setState({ ageError: "age is required" });
@@ -53,6 +59,11 @@ class addDirector extends Component {
             val = 1;
             this.setState({ genderError: "gender is required" });
         }
+        // if(this.state.gender!=='male' || this.state.gender!=='female' || this.state.gender!=='other')
+        // {
+        //     val=1;
+        //     this.setState({genderError:'gender can be only male, female or other'})
+        // }
         if (val === 0) {
             return true;
         }
@@ -137,9 +148,6 @@ class addDirector extends Component {
                                                 <h5>{this.state.respo}</h5>
                                                 <Router>
                                                     <h6 className="App">Go back to<a style={{ color: '#3BB7C4 ' }} href="/home">  home</a></h6>
-                                                    {/* <Switch>
-                                                    <Route path="/home" component={Home}></Route>
-                                                </Switch> */}
                                                 </Router>
                                             </form>
                                         </div>

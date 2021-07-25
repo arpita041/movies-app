@@ -16,8 +16,8 @@ class AllMovies extends Component {
                 { headerName: 'DIRECTOR', field: 'director' },
                 { headerName: 'BOX OFFICE COLLECTION', field: 'boxOfficeCollection' },
                 {
-                    headerName: 'Action', field: 'abc', cellRendererFramework: (params) => <div>
-                        <button className="btnClass" onClick={() => this.saving(params)}>Save</button>
+                    headerName: 'ACTION', field: 'abc', cellRendererFramework: (params) => <div>
+                        {/* <button className="btnClass" onClick={() => this.saving(params)}>Save</button> */}
                         <button className="btnClass" onClick={() => this.actionButton(params)}>Delete</button>
                     </div>
                 },
@@ -33,11 +33,14 @@ class AllMovies extends Component {
 
         }
     }
-    saving = (params) => {
-        console.log(params);
-        alert("do you want to change it ?")
-    }
+    // saving = (params) => {
+    //     console.log(params);
+    //     alert("do you want to change it ?")
+    // }
     actionButton = (params) => {
+        let saveIt = window.confirm("Do you want to delete the data?");
+        if(saveIt===true)
+        {
         console.log(params);
         const name = params.data.name;
         params.api.applyTransaction({
@@ -47,6 +50,11 @@ class AllMovies extends Component {
             .then(res => {
                 console.log(res);
             })
+        }
+        else
+        {
+            console.log("no")
+        }
     }
 
     componentDidMount = () => {

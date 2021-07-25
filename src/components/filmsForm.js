@@ -18,7 +18,8 @@ class filmsForm extends Component {
             boxOfficeError: '',
             ratingError: '',
             directorError: '',
-            respo:''
+            respo:'',
+         
         }
     }
     handlenameChange = event => {
@@ -46,10 +47,16 @@ class filmsForm extends Component {
     }
     validate() {
         let val = 0;
+        let pattern = /^[a-zA-Z ]{2,30}$/;
         let rate = parseInt(this.state.rating);
         if (this.state.name.trim() === '') {
             this.setState({ nameError: "Name is required" });
             val = 1;
+        }
+        if(!pattern.test(this.state.name))
+        {
+            this.setState({nameError:"Please enter a valid name"});
+            val=1;
         }
         if (this.state.boxOfficeCollection.trim() === '') {
             this.setState({ boxOfficeError: "BoxOfficeCollection is required" })
@@ -69,6 +76,11 @@ class filmsForm extends Component {
         if (this.state.director.trim() === '') {
             this.setState({ directorError: "Director name is required" });
             val = 1;
+        }
+        if(!pattern.test(this.state.director))
+        {
+            this.setState({directorError:"Please enter a valid name"});
+            val=1;
         }
         if (val === 0) {
             return true;
@@ -148,10 +160,10 @@ class filmsForm extends Component {
                                         <div className="App">
                                             <button className='btnClass' type="submit">Add Film</button>{' '}
                                         </div>
-                                        <h5>{this.state.respo}</h5>
+                                      
                                     <Router>
                                         <h6 className="App" id='hh'>Go back to<a href="/home" style={{ color: '#3BB7C4 ' }}> home</a></h6>
-
+<h5>{this.state.respo}</h5>
                                     </Router>
                                     </form>
                                 </div>

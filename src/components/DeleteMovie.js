@@ -10,7 +10,8 @@ class DeleteMovie extends Component {
 
         this.state = {
             movieName: '',
-            respo: ''
+            respo: '',
+            nameError:''
         }
     }
 
@@ -20,51 +21,88 @@ class DeleteMovie extends Component {
         })
 
     }
+    validation()
+    { 
+        let val = 0;
+        let pattern = /^[a-zA-Z ]{2,30}$/;
+       
+        if (this.state.movieName.trim() === '') {
+            val = 1;
+            this.setState({ nameError: "name is required" })
+        }
+        if(!pattern.test(this.state.movieName))
+        {
+            this.setState({nameError:"Please enter a valid name"});
+            val=1;
+        }
+        if (val === 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
     handleSubmit = e => {
         var respo;
+        this.setState({
+            nameError: ''
+        })
         e.preventDefault();
+        const valid = this.validation();
+        if(valid)
+        {
+        
         axios.delete(`http://localhost:3500/deleteFilm/${this.state.movieName}`).then(response => {
-            console.log(response)
+            console.log(response);
+            if(response.data ==='error')
+            {
+                alert("No movie found with the entered name");
+            }
+            else
+            {
+                alert("Deleted successfully");
+            }
             this.setState({
                 respo: response.data
             })
         })
         console.log(this.state.movieName);
     }
+    }
     render() {
         const { movieName } = this.state;
         return (
             <div>    <NavBarrr></NavBarrr>
-              <div className='heading'>
+                <div className='heading'>
                     <h3>Delete movie if you want</h3>
                 </div>
                 <div className='container my-5'>
 
-                    {/* <div className="jumbotron my-5"> */}
-                        <form onSubmit={this.handleSubmit} autoComplete='off'>
-                            <div>
-                                <InputField
+                    <form onSubmit={this.handleSubmit} autoComplete='off'>
+                        <div>
+                            <InputField
                                 className="labelClass"
-                                    type="text"
-                                    value={this.state.movieName}
-                                    placeholder="movie Name"
-                                    label="Movie Name"
-                                    name="movieName"
-                                    onChange={this.handleChange} />
-                            </div>
-                            <div className="App">
-                                <button className="btnClass" type="submit">Delete it</button>
-                            </div><br />
-                            <div className='info'>
-                                <h5>{this.state.respo}</h5>
+                                type="text"
+                                value={this.state.movieName}
+                                placeholder="movie Name"
+                                label="Movie Name"
+                                name="movieName"
+                                onChange={this.handleChange} />
+                                <small className="text-danger">{this.state.nameError}</small>
+                        </div>
+                        <div className="App">
+                            <button className="btnClass" type="submit">Delete it</button>
+                        </div><br />
+                        <div className='info'>
+                          
 
 
-                            </div>
-                        </form>
-                    </div>
-
+                        </div>
+                    </form>
                 </div>
-            // </div>
+
+            </div>
+
 
         )
     }

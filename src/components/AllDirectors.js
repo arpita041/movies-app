@@ -45,7 +45,7 @@ function AllDirectors() {
     { headerName: "AGE", field: "age",}, 
     {headerName: "GENDER",field: "gender",},
     { headerName: "AWARD COUNT", field: "awardCount"},
-    {headerName:'Action' , field:'abc', cellRendererFramework:(params)=><div>
+    {headerName:'ACTION' , field:'abc', cellRendererFramework:(params)=><div>
         {/* <button className="btnClass" onClick={()=>saving(params)}>Save</button> */}
         <button className="btnClass" onClick={()=>actionButton(params)}>Delete</button>
     </div>},

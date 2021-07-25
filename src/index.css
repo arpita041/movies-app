@@ -23,8 +23,8 @@ code {
 }
 .btnClass:hover
 {
-  color: white;
-  background-color:#3BB7C4;
+  color:black;
+  background-color:white;
   opacity: 1;
 }
 h3

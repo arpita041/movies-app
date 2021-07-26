@@ -98,13 +98,12 @@ class filmsForm extends Component {
                 .then(response => {
                     console.log(response)
                     if(response.statusText==='OK'){
-                        this.setState({
-                            respo:'Uploaded successfully !!'
-                        })
+                        // this.setState({
+                        //     respo:'Uploaded successfully !!'
+                        // })
+                        alert("Successfully uploaded");
                     }else{
-                        this.setState({
-                            respo:'something went wrong'
-                        })
+                      alert("Can't upload above details")
                     }
                 })
             
@@ -160,18 +159,15 @@ class filmsForm extends Component {
                                         <div className="App">
                                             <button className='btnClass' type="submit">Add Film</button>{' '}
                                         </div>
-                                      
-                                    <Router>
+                                      <br/>
                                         <h6 className="App" id='hh'>Go back to<a href="/home" style={{ color: '#3BB7C4 ' }}> home</a></h6>
-<h5>{this.state.respo}</h5>
-                                    </Router>
+
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            // </div>
 
         )
     }

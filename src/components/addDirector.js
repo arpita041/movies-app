@@ -81,13 +81,11 @@ class addDirector extends Component {
             .then(response =>{
                 console.log(response)
                 if(response.statusText==='OK'){
-                    this.setState({
-                        respo:'Uploaded successfully !!'
-                    })
+                    alert("Successfully uploaded");
                 }else{
-                    this.setState({
-                        respo:'something went wrong'
-                    })
+
+                        alert("Something went wrong");
+                
                 }
             })
         }
@@ -135,7 +133,7 @@ class addDirector extends Component {
                                                 </div>
                                                 <div>
                                                     <Form.Group controlId="formBasicEmail">
-                                                        <Form.Label className='lab'>award Count</Form.Label>
+                                                        <Form.Label className='lab'>Award Count</Form.Label>
                                                         <Form.Control id='inputtxt' type="number" placeholder="awardCount" name="awardCount" value={awardCount} onChange={this.handleChange} required />
                                                         <small className="text-danger">{this.state.awardCountError}</small>
                                                     </Form.Group>

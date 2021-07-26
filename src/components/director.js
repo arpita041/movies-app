@@ -11,16 +11,16 @@ const Director = props => {
 
   const [post, setPost] = useState([])
   const [movies, setMovies] = useState([])
-  const [have, setHave] = useState([]);
+  //const [have, setHave] = useState([]);
   const [def,setDef]= useState([]);
   const [Height,setHeight]=useState('');
   const [Mheight,setMheight]=useState('')
-  const columnDefs= [
-    { headerName: 'NAME', field: 'name' },
-    { headerName: 'RATING', field: 'rating' },
-    { headerName: 'DIRECTOR', field: 'director' },
-    { headerName: 'BOX OFFICE COLLECTION', field: 'boxOfficeCollection' }
-]
+//   const columnDefs= [
+//     { headerName: 'NAME', field: 'name' },
+//     { headerName: 'RATING', field: 'rating' },
+//     { headerName: 'DIRECTOR', field: 'director' },
+//     { headerName: 'BOX OFFICE COLLECTION', field: 'boxOfficeCollection' }
+// ]
 const columnDefs1= [
   { headerName: "NAME", field: "name" },
   { headerName: "AGE", field: "age",}, 
@@ -28,10 +28,11 @@ const columnDefs1= [
   { headerName: "AWARD COUNT", field: "awardCount" },
   ]
 
-  let defaultColDef={
+  const defaultColDef={
     sortable:true,
     editable:true,
-    flex:1,
+    flex:1,filter:true,
+    floatingFilter:true,
   }
   useEffect(() => {
 
@@ -39,36 +40,38 @@ const columnDefs1= [
       axios.get(`http://localhost:3500/direct`)
         .then(res => {
           setPost(res.data.forms);
-          setHeight('225px')
+          setHeight('340px')
           console.log(post);
         })
-      setHave(false);
+  //    setHave(false);
       // console.log(have)
     }
 
     else if (props.location.pathname === '/directors') {
-      setHave(true)
-      console.log(have)
+
 
       console.log("direc")
       axios.get(`http://localhost:3500/direct/${searchVal}`)
         .then(res => {
           console.log(res)
           setPost(res.data.data)
-          setHeight('140px')
+          setHeight('300px')
           //   console.log(post.data.age)
         })
         .catch(err => {
-          console.log("error ayiii")
+          console.log("error")
         })
-      axios.get(`http://localhost:3500/film/${searchVal}`)
-        .then(res => {
-          console.log(res.data.movies)
-
-          setMovies(res.data.movies)
-          setMheight('265px')
-         //console.log(movies)
-        })
+      // axios.get(`http://localhost:3500/film/${searchVal}`)
+      //   .then(res => {
+      //     if(res.data.movies)
+      //     {
+      //     console.log(res.data.movies)
+      //     setHave(true)
+      //     setMovies(res.data.movies)
+      //     setMheight('300px')
+      //     }
+      //    //console.log(movies)
+      //   })
     }
   }, [searchVal])
 
@@ -91,7 +94,7 @@ const columnDefs1= [
 
                 </Gridreact>
     </div>
-          <br />
+          {/* <br />
 
           {
             (have) ? (
@@ -106,7 +109,7 @@ const columnDefs1= [
            </Gridreact>
 </div>
             ) : null
-          }
+          } */}
         </div>
       </div>
     </div>

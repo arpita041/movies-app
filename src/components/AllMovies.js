@@ -11,10 +11,10 @@ class AllMovies extends Component {
         this.state = {
             allMovies: [],
             columnDefs: [
-                { headerName: 'NAME', field: 'name' },
-                { headerName: 'RATING', field: 'rating' },
-                { headerName: 'DIRECTOR', field: 'director' },
-                { headerName: 'BOX OFFICE COLLECTION', field: 'boxOfficeCollection' },
+                { headerName: 'NAME', field: 'name',width: 100 },
+                { headerName: 'RATING', field: 'rating',width: 100 },
+                { headerName: 'DIRECTOR', field: 'director',width: 100 },
+                { headerName: 'BOX OFFICE COLLECTION', field: 'boxOfficeCollection' ,width: 100},
                 {
                     headerName: 'ACTION', field: 'abc', cellRendererFramework: (params) => <div>
                         {/* <button className="btnClass" onClick={() => this.saving(params)}>Save</button> */}
@@ -26,10 +26,12 @@ class AllMovies extends Component {
                 sortable: true,
                 editable: true,
                 flex: 1, filter: true,
-                floatingFilter: true
+                floatingFilter: true,
+                resizable: true
 
             },
-            rowData: null
+            rowData: null,
+            onFirstDataRendered: this.onFirstDataRendered,
 
         }
     }
@@ -37,6 +39,9 @@ class AllMovies extends Component {
     //     console.log(params);
     //     alert("do you want to change it ?")
     // }
+     onFirstDataRendered=(params)=> {
+        params.api.sizeColumnsToFit();
+      }
     actionButton = (params) => {
         let saveIt = window.confirm("Do you want to delete the data?");
         if(saveIt===true)

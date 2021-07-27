@@ -81,13 +81,11 @@ class addDirector extends Component {
             .then(response =>{
                 console.log(response)
                 if(response.statusText==='OK'){
-                    this.setState({
-                        respo:'Uploaded successfully !!'
-                    })
+                    alert("Successfully uploaded");
                 }else{
-                    this.setState({
-                        respo:'something went wrong'
-                    })
+
+                        alert("Something went wrong");
+                
                 }
             })
         }

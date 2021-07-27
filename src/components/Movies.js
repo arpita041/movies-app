@@ -9,6 +9,7 @@ const Movies = props => {
     (props.location && props.location.state) || {};
 
   const [post, setPost] = useState([])
+  const [height , setHeight]= useState()
   const columnDefs= [
     { headerName: 'NAME', field: 'name' },
     { headerName: 'RATING', field: 'rating' },
@@ -28,7 +29,7 @@ const defaultColDef={
       axios.get(`http://localhost:3500/film`)
         .then(res => {
           setPost(res.data.forms);
-
+          setHeight('340px');
         })
     }
 
@@ -36,9 +37,10 @@ const defaultColDef={
    
       axios.get(`http://localhost:3500/films/${searchVal}`)
         .then(res => {
+          
           console.log(res.data.movies)
           setPost(res.data.movies)
-
+          setHeight('300px');
         })
         .catch(err => {
           console.log("error")
@@ -58,7 +60,7 @@ const defaultColDef={
                     columnDefs={columnDefs}
                     rowData={post}
                     defaultColDef={defaultColDef}
-                    height='350px'
+                    height={height}
                 >
 
                 </Gridreact>

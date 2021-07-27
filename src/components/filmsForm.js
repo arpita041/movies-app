@@ -22,6 +22,53 @@ class filmsForm extends Component {
          
         }
     }
+    validName=event=>
+    {
+        let pattern = /^[a-zA-Z ]{2,30}$/;
+      //  let rate = parseInt(this.state.rating);
+        if(!pattern.test(this.state.name) || this.state.name.trim() === '' )
+        {
+            this.setState({nameError:"Please enter a valid name"});
+        }
+        else
+        {
+            this.setState({nameError:''})
+        }
+    }
+    validBox=event=>
+    {
+        if(this.state.boxOfficeCollection.trim()==='')
+        {
+            this.setState({ boxOfficeError: "BoxOfficeCollection is required"})
+        }
+        else
+        {
+            this.setState({boxOfficeError:""})
+        }
+    }
+    validRating =event =>
+    {
+          let rate = parseInt(this.state.rating);
+          if (rate > 10 || rate < 0 || this.state.rating.trim()==='') {
+            this.setState({ ratingError: "Rating should range between 0 to 10" });
+        }
+        else
+        {
+            this.setState({ ratingError: ""});
+        }
+    }
+    validDirector=event=>
+    {
+        let pattern = /^[a-zA-Z ]{2,30}$/;
+        if(!pattern.test(this.state.director) || this.state.director.trim()==='')
+        {
+            this.setState({directorError:"Please enter a valid name"});
+        }  
+        else
+        {
+            this.setState({directorError:""});   
+        } 
+    }
     handlenameChange = event => {
         this.setState({
             name: event.target.value
@@ -45,52 +92,64 @@ class filmsForm extends Component {
             director: event.target.value
         })
     }
-    validate() {
-        let val = 0;
-        let pattern = /^[a-zA-Z ]{2,30}$/;
-        let rate = parseInt(this.state.rating);
-        if (this.state.name.trim() === '') {
-            this.setState({ nameError: "Name is required" });
-            val = 1;
+    validate()
+    {
+        if(this.state.name !=='' && this.state.boxOfficeCollection!=='' && this.state.rating!=='' && this.state.director!=='' && 
+        this.state.nameError==='' && this.state.boxOfficeError==='' && this.state.ratingError==='' && this.state.directorError==='')
+          {
+                return true;
         }
-        if(!pattern.test(this.state.name))
+        else
         {
-            this.setState({nameError:"Please enter a valid name"});
-            val=1;
-        }
-        if (this.state.boxOfficeCollection.trim() === '') {
-            this.setState({ boxOfficeError: "BoxOfficeCollection is required" })
-            val = 1;
-        }
-        if (this.state.rating.trim() === '') {
-            this.setState({ ratingError: "Rating is required" });
-            val = 1;
-
-
-        }
-        if (rate > 10 || rate < 0) {
-            this.setState({ ratingError: "Rating should range between 0 to 10" });
-            val = 1;
-        }
-
-        if (this.state.director.trim() === '') {
-            this.setState({ directorError: "Director name is required" });
-            val = 1;
-        }
-        if(!pattern.test(this.state.director))
-        {
-            this.setState({directorError:"Please enter a valid name"});
-            val=1;
-        }
-        if (val === 0) {
-            return true;
-        }
-        else {
             return false;
         }
     }
+    // validate() {
+    //     let val = 0;
+    //     let pattern = /^[a-zA-Z ]{2,30}$/;
+    //     let rate = parseInt(this.state.rating);
+    //     if (this.state.name.trim() === '') {
+    //         this.setState({ nameError: "Name is required" });
+    //         val = 1;
+    //     }
+    //     if(!pattern.test(this.state.name))
+    //     {
+    //         this.setState({nameError:"Please enter a valid name"});
+    //         val=1;
+    //     }
+    //     if (this.state.boxOfficeCollection.trim() === '') {
+    //         this.setState({ boxOfficeError: "BoxOfficeCollection is required" })
+    //         val = 1;
+    //     }
+    //     if (this.state.rating.trim() === '') {
+    //         this.setState({ ratingError: "Rating is required" });
+    //         val = 1;
+
+
+    //     }
+    //     if (rate > 10 || rate < 0) {
+    //         this.setState({ ratingError: "Rating should range between 0 to 10" });
+    //         val = 1;
+    //     }
+
+    //     if (this.state.director.trim() === '') {
+    //         this.setState({ directorError: "Director name is required" });
+    //         val = 1;
+    //     }
+    //     if(!pattern.test(this.state.director))
+    //     {
+    //         this.setState({directorError:"Please enter a valid name"});
+    //         val=1;
+    //     }
+    //     if (val === 0) {
+    //         return true;
+    //     }
+    //     else {
+    //         return false;
+    //     }
+    // }
     handleSubmit = event => {
-        this.setState({ nameError: '', boxOfficeError: '', ratingError: '', directorError: '' })
+     //   this.setState({ nameError: '', boxOfficeError: '', ratingError: '', directorError: '' })
         const isValid = this.validate();
         var res=''
         if (isValid) {
@@ -106,8 +165,11 @@ class filmsForm extends Component {
                      this.setState({respo:'no'})
                     }
                 })
-            
-
+            console.log("true")
+        }
+        else
+        {
+            console.log(false);
         }
         event.preventDefault()
     }
@@ -131,28 +193,32 @@ class filmsForm extends Component {
                                         <div>
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='labelClass' >Movie Name</Form.Label>
-                                                <Form.Control id='inputBorder' type="text" placeholder="movie name" value={name} onChange={this.handlenameChange} required />
+                                                <Form.Control id='inputBorder' type="text" placeholder="movie name" value={name} onChange={this.handlenameChange}
+                                                onBlur={this.validName} required />
                                                 <small className="text-danger">{this.state.nameError}</small>
                                             </Form.Group>
                                         </div>
                                         <div>
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='labelClass'>Box Office Collection</Form.Label>
-                                                <Form.Control id='inputBorder' type="text" placeholder="box office collection" value={boxOfficeCollection} onChange={this.handleBox} required />
+                                                <Form.Control id='inputBorder' type="text" placeholder="box office collection" value={boxOfficeCollection} onChange={this.handleBox}
+                                                onBlur={this.validBox} required />
                                                 <small className="text-danger">{this.state.boxOfficeError}</small>
                                             </Form.Group>
                                         </div>
                                         <div>
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='labelClass'>Rating</Form.Label>
-                                                <Form.Control id='inputBorder' type="text" placeholder="rating" value={rating} onChange={this.handleRating} required />
+                                                <Form.Control id='inputBorder' type="text" placeholder="rating" value={rating} onChange={this.handleRating} onBlur={this.myFunc} 
+                                                onBlur={this.validRating} required />
                                                 <small className="text-danger">{this.state.ratingError}</small>
                                             </Form.Group>
                                         </div>
                                         <div>
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='labelClass'>Director Name</Form.Label>
-                                                <Form.Control id='inputBorder' type="text" placeholder="Director" value={director} onChange={this.handleDirector} required />
+                                                <Form.Control id='inputBorder' type="text" placeholder="Director" value={director} onChange={this.handleDirector} 
+                                                onBlur={this.validDirector} required />
                                                 <small className="text-danger">{this.state.directorError}</small>
                                             </Form.Group>
                                         </div>

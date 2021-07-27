@@ -18,7 +18,7 @@ class AllMovies extends Component {
                 {
                     headerName: 'ACTION', field: 'abc', cellRendererFramework: (params) => <div>
                         {/* <button className="btnClass" onClick={() => this.saving(params)}>Save</button> */}
-                        <button className='btn btn-primary' onClick={() => this.actionButton(params)}>Delete</button>
+                        <button className='btn btn-primary' id='but1' onClick={() => this.actionButton(params)}>Delete</button>
                     </div>
                 },
             ],

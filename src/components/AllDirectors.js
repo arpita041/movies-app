@@ -47,7 +47,8 @@ function AllDirectors() {
     { headerName: "AWARD COUNT", field: "awardCount"},
     {headerName:'ACTION' , field:'abc', cellRendererFramework:(params)=><div>
         {/* <button className="btnClass" onClick={()=>saving(params)}>Save</button> */}
-        <button className="btnClass" id='but1' onClick={()=>actionButton(params)}>Delete</button>
+        <button className="btn" id='but1'  onClick={()=>actionButton(params)}>Delete</button>
+        
     </div>},
     ]
     const defaultColDef={

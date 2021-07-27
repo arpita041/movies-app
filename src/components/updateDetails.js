@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
+import { Alert } from 'react-bootstrap';
 import Home from './Home';
 import InputField from './inputField';
 import NavBarrr from './NavBarrr';
@@ -61,16 +62,19 @@ class updateDetails extends Component {
             axios.put(`http://localhost:3500/updateDirect/${this.state.name}`, this.state)
                 .then(response => {
                     console.log(response);
-                    if (response.data === 'error') {
-                        alert("No details with this director name exist,Please enter valid name");
-
+                    if (response.statusText==='OK') {
+                        // alert("No details with this director name exist,Please enter valid name");
+                        this.setState({
+                            respo: 'yes'
+                        })
                     }
                     else {
-                        alert('Details has been changed successfully');
+                        //  alert('Details has been changed successfully');
+                        this.setState({
+                            respo: 'no'
+                        })
                     }
-                    this.setState({
-                        respo: response.data
-                    })
+
                 })
             console.log("no error")
         }
@@ -132,7 +136,12 @@ class updateDetails extends Component {
                                     </div>
                                 </div>
                                 <button className="btnClass" id="butt" >Update</button><br /><br />
-                                {/* <h5>{this.state.respo}</h5> */}
+                                {
+                                    this.state.respo === 'yes' ? <Alert variant='primary'> Your data has been successfully updated !! </Alert> : <b></b>
+                                }
+                                {
+                                    this.state.respo === 'no' ? <Alert variant='danger'>Something went wrong </Alert> : <b></b>
+                                }
                                 <Router>
                                     <h6>Go back to <a href="/home" style={{ color: '#3BB7C4 ' }}>Home</a></h6>
 

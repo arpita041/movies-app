@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react'
-//import { Button, Alert } from 'react-bootstrap';
+import { Alert } from 'react-bootstrap';
 import InputField from './inputField';
 import NavBarrr from './NavBarrr';
 import './deleted.css'
@@ -11,8 +11,8 @@ class DeleteMovie extends Component {
         this.state = {
             movieName: '',
             respo: '',
-            nameError:'',
-            val:true
+            nameError: '',
+            val: true
         }
     }
 
@@ -25,13 +25,11 @@ class DeleteMovie extends Component {
         //     this.setState({ nameError: "name is required" , val:false})
 
         // }
-        if(!pattern.test(this.state.movieName))
-        {
-            this.setState({nameError:"Please enter a valid name", val:false})
+        if (!pattern.test(this.state.movieName)) {
+            this.setState({ nameError: "Please enter a valid name", val: false })
         }
-        else
-        {
-            this.setState({nameError:'', val:true})
+        else {
+            this.setState({ nameError: '', val: true })
         }
 
     }
@@ -39,7 +37,7 @@ class DeleteMovie extends Component {
     // { 
     //     let val = 0;
     //     let pattern = /^[a-zA-Z ]{2,30}$/;
-       
+
     //     if (this.state.movieName.trim() === '') {
     //         val = 1;
     //         this.setState({ nameError: "name is required" })
@@ -62,26 +60,27 @@ class DeleteMovie extends Component {
         //     nameError: ''
         // })
         e.preventDefault();
-       // const valid = this.validation();
-        if(this.state.val)
-        {
-        
-        axios.delete(`http://localhost:3500/deleteFilm/${this.state.movieName}`).then(response => {
-            console.log(response);
-            if(response.data ==='error')
-            {
-                alert("No movie found with the entered name");
-            }
-            else
-            {
-                alert("Deleted successfully");
-            }
-            this.setState({
-                respo: response.data
+        // const valid = this.validation();
+        if (this.state.val) {
+
+            axios.delete(`http://localhost:3500/deleteFilm/${this.state.movieName}`).then(response => {
+                console.log(response);
+                if (response.statusText==='OK') {
+                    // alert("No movie found with the entered name");
+                    this.setState({
+                        respo: 'yes'
+                    })
+                }
+                else {
+                    //alert("Deleted successfully");
+                    this.setState({
+                        respo: 'no'
+                    })
+                }
+
             })
-        })
-        console.log(this.state.movieName);
-    }
+            console.log(this.state.movieName);
+        }
     }
     render() {
         const { movieName } = this.state;
@@ -102,16 +101,18 @@ class DeleteMovie extends Component {
                                 label="Movie Name"
                                 name="movieName"
                                 onChange={this.handleChange} />
-                                <small className="text-danger">{this.state.nameError}</small>
+                            <small className="text-danger">{this.state.nameError}</small>
                         </div>
                         <div className="App">
                             <button className="btnClass" type="submit">Delete it</button>
                         </div><br />
-                        <div className='info'>
-                          
-
-
-                        </div>
+                        {
+                            this.state.respo === 'yes' ? <Alert variant='primary'> Your data has been successfully deleted !! </Alert> : <b></b>
+                        }
+                        {
+                            this.state.respo === 'no' ? <Alert variant='danger'>Something went wrong </Alert> : <b></b>
+                        }
+                      
                     </form>
                 </div>
 

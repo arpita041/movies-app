@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Form, Alert } from 'react-bootstrap';
+import { Form, Alert, Dropdown } from 'react-bootstrap';
 import { BrowserRouter as Router } from 'react-router-dom'
 import NavBarrr from './NavBarrr';
 import axios from 'axios'
@@ -18,7 +18,8 @@ class addDirector extends Component {
             ageError: '',
             genderError: '',
             awardCountError: '',
-            respo: ''
+            respo: '',
+            value: ''
         }
     }
     handleChange = e => {
@@ -94,6 +95,10 @@ class addDirector extends Component {
         console.log("inside")
         console.log(this.state);
     }
+
+    alphaOnly = (e) => {
+        this.setState({ value: e.target.value.replace(/[^A-Za-z]/ig, '') })
+    }
     render() {
         const { name, age, gender, awardCount } = this.state
         return (
@@ -104,41 +109,49 @@ class addDirector extends Component {
 
                 </div>
                 <div className="container my-4">
-
-
-                    {/* <div className="jumbotron my-5"> */}
-
                     <div className="row">
                         <div className="col-md-12">
                             <div className="myleftctn">
                                 <form onSubmit={this.handleSubmit} id='formm' autocomplete="off">
-                                    <div>
-                                        <Form.Group controlId="formBasicEmail">
-                                            <Form.Label className='lab'>Name</Form.Label>
-                                            <Form.Control id='inputtxt' type="text" placeholder="name" name="name" value={name} onChange={this.handleChange} required />
-                                            <small className="text-danger">{this.state.nameError}</small>
-                                        </Form.Group>
+                                    <div className='row'>
+                                        <div className="col-md-12">
+                                            <Form.Group controlId="formBasicEmail">
+                                                <Form.Label className='lab'>Name</Form.Label>
+                                                <Form.Control id='inputtxt' type="text" placeholder="name" name="name" value={name} onChange={this.handleChange} required />
+                                                <small className="text-danger">{this.state.nameError}</small>
+                                            </Form.Group>
+                                        </div>
+
                                     </div>
-                                    <div>
-                                        <Form.Group controlId="formBasicEmail">
-                                            <Form.Label className='lab'>Age</Form.Label>
-                                            <Form.Control id='inputtxt' type="number" placeholder="age" name="age" value={age} onChange={this.handleChange} required />
-                                            <small className="text-danger">{this.state.ageError}</small>
-                                        </Form.Group>
+                                    <div className='row'>
+                                        <div className="col-md-12">
+                                            <Form.Group controlId="formBasicEmail">
+                                                <Form.Label className='lab'>Age</Form.Label>
+                                                <Form.Control id='inputtxt' type="number" placeholder="age" name="age" value={age} onChange={this.handleChange} required />
+                                                <small className="text-danger">{this.state.ageError}</small>
+                                            </Form.Group>
+                                        </div>
+
                                     </div>
-                                    <div>
-                                        <Form.Group controlId="formBasicEmail">
-                                            <Form.Label className='lab' >Gender</Form.Label>
-                                            <Form.Control id='inputtxt' type="text" placeholder="gender" name="gender" value={gender} onChange={this.handleChange} required />
-                                            <small className="text-danger">{this.state.genderError}</small>
-                                        </Form.Group>
+                                    <div className='row'>
+                                        <div className="col-md-12">
+                                            <Form.Group controlId="formBasicEmail">
+                                                <Form.Label className='lab' >Gender</Form.Label>
+                                                <Form.Control id='inputtxt' type="text" placeholder="gender" name="gender" value={this.state.value} onChange={this.alphaOnly} required />
+                                                <small className="text-danger">{this.state.genderError}</small>
+                                            </Form.Group>
+                                        </div>
+
                                     </div>
-                                    <div>
-                                        <Form.Group controlId="formBasicEmail">
-                                            <Form.Label className='lab'>Award Count</Form.Label>
-                                            <Form.Control id='inputtxt' type="number" placeholder="awardCount" name="awardCount" value={awardCount} onChange={this.handleChange} required />
-                                            <small className="text-danger">{this.state.awardCountError}</small>
-                                        </Form.Group>
+                                    <div className='row'>
+                                        <div className="col-md-12">
+                                            <Form.Group controlId="formBasicEmail">
+                                                <Form.Label className='lab'>Award Count</Form.Label>
+                                                <Form.Control id='inputtxt' type="number" placeholder="awardCount" name="awardCount" value={awardCount} onChange={this.handleChange} required />
+                                                <small className="text-danger">{this.state.awardCountError}</small>
+                                            </Form.Group>
+                                        </div>
+
                                     </div>
                                     <div className="App">
                                         <button className="btnClass" type="submit">Add Director</button>{' '}
@@ -163,8 +176,8 @@ class addDirector extends Component {
                 </div>
             </div>
 
-                )
+        )
     }
 }
 
-                export default addDirector
+export default addDirector

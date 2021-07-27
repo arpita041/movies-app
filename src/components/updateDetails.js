@@ -32,10 +32,9 @@ class updateDetails extends Component {
             val = 1;
             this.setState({ nameError: "name is required" })
         }
-        if(!pattern.test(this.state.name))
-        {
-            this.setState({nameError:"Please enter a valid name"});
-            val=1;
+        if (!pattern.test(this.state.name)) {
+            this.setState({ nameError: "Please enter a valid name" });
+            val = 1;
         }
         if (ageNum > 80 || ageNum < 18) {
             val = 1;
@@ -59,12 +58,11 @@ class updateDetails extends Component {
             axios.put(`http://localhost:3500/updateDirect/${this.state.name}`, this.state)
                 .then(response => {
                     console.log(response);
-                    if(response.data==='error')
-                    {
-                        alert("No details with this director name exist,Please enter valid name");
+                    if (response.data === 'error') {
+                         alert("No details with this director name exist,Please enter valid name");
+                       
                     }
-                    else
-                    {
+                    else {
                         alert('Details has been changed successfully');
                     }
                     this.setState({
@@ -73,14 +71,14 @@ class updateDetails extends Component {
                 })
             console.log("no error")
         }
-     //   console.log(this.state);
-    
+        //   console.log(this.state);
+
     }
     render() {
         const { name, age, awardCount } = this.state;
         return (
             <div><NavBarrr></NavBarrr>
-             <div className='heading'>
+                <div className='heading'>
                     <h3>Update director's age and award count </h3>
                 </div>
                 <div className='container my-5'>
@@ -100,7 +98,7 @@ class updateDetails extends Component {
                                             <InputField type="text" name="name" value={name}
                                                 className="form-control" id="myinput"
                                                 placeholder=" Name" onChange={this.handleChange} />
- <small className="text-danger">{this.state.nameError}</small>
+                                            <small className="text-danger">{this.state.nameError}</small>
                                         </div>
                                     </div>
                                 </div>
@@ -139,12 +137,12 @@ class updateDetails extends Component {
                                 </Router>
                             </form>
                         </div>
-                 
+
                     </div>
                 </div>
             </div>
 
-    
+
 
         )
     }

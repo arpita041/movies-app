@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Button,Form} from 'react-bootstrap';
+import {Button,Form,Alert} from 'react-bootstrap';
 import NavBarrr from './NavBarrr';
 import { BrowserRouter as Router } from 'react-router-dom'
 import './film.css'
@@ -98,12 +98,12 @@ class filmsForm extends Component {
                 .then(response => {
                     console.log(response)
                     if(response.statusText==='OK'){
-                        // this.setState({
-                        //     respo:'Uploaded successfully !!'
-                        // })
-                        alert("Successfully uploaded");
+                     
+                        this.setState({
+                            respo:'yes'
+                        })
                     }else{
-                      alert("Can't upload above details")
+                     this.setState({respo:'no'})
                     }
                 })
             
@@ -158,8 +158,14 @@ class filmsForm extends Component {
                                         </div>
                                         <div className="App">
                                             <button className='btnClass' type="submit">Add Film</button>{' '}
-                                        </div>
-                                      <br/>
+                                        </div><br />
+                                        {
+                                            this.state.respo==='yes' ? <Alert variant='primary'> Your data has been successfully uploaded !! </Alert> : <b></b>    
+                                        }
+                                         {
+                                            this.state.respo==='no' ? <Alert variant='danger'>Something went wrong </Alert> : <b></b>    
+                                        }
+                                    
                                         <h6 className="App" id='hh'>Go back to<a href="/home" style={{ color: '#3BB7C4 ' }}> home</a></h6>
 
                                     </form>

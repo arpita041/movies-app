@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Form } from 'react-bootstrap';
-import { BrowserRouter as Router} from 'react-router-dom'
+import { Form ,Alert} from 'react-bootstrap';
+import { BrowserRouter as Router } from 'react-router-dom'
 import NavBarrr from './NavBarrr';
 import axios from 'axios'
 import './directorcss.css'
@@ -18,7 +18,7 @@ class addDirector extends Component {
             ageError: '',
             genderError: '',
             awardCountError: '',
-            respo:''
+            respo: ''
         }
     }
     handleChange = e => {
@@ -34,10 +34,9 @@ class addDirector extends Component {
             val = 1;
             this.setState({ nameError: "name is required" })
         }
-        if(!pattern.test(this.state.name))
-        {
-            this.setState({nameError:"Please enter a valid name"});
-            val=1;
+        if (!pattern.test(this.state.name)) {
+            this.setState({ nameError: "Please enter a valid name" });
+            val = 1;
         }
         if (this.state.age.trim() === '') {
             this.setState({ ageError: "age is required" });
@@ -77,17 +76,19 @@ class addDirector extends Component {
         })
         const valid = this.validate();
         if (valid) {
-            axios.post('http://localhost:3500/direct',this.state)
-            .then(response =>{
-                console.log(response)
-                if(response.statusText==='OK'){
-                    alert("Successfully uploaded");
-                }else{
-
-                        alert("Something went wrong");
-                
-                }
-            })
+            axios.post('http://localhost:3500/direct', this.state)
+                .then(response => {
+                    console.log(response)
+                    if (response.statusText === 'OK') {
+                        this.setState({
+                            respo:'yes'
+                        })
+                    } else {
+                        this.setState({
+                            respo:'no'
+                        })
+                    }
+                })
         }
         e.preventDefault()
         console.log("inside")
@@ -100,61 +101,66 @@ class addDirector extends Component {
                 <NavBarrr></NavBarrr>
                 <div className='heading'>
                     <h3 style={{ color: 'white ' }} id='headd'>Add Directors Details</h3>
-                    
+
                 </div>
                 <div className="container my-4">
 
 
                     {/* <div className="jumbotron my-5"> */}
-                        
-                                <div className="row">
-                                    <div className="col-md-12">
-                                        <div className="myleftctn">
-                                            <form onSubmit={this.handleSubmit} id='formm' autocomplete="off">
-                                                <div>
-                                                    <Form.Group controlId="formBasicEmail">
-                                                        <Form.Label className='lab'>Name</Form.Label>
-                                                        <Form.Control id='inputtxt' type="text" placeholder="name" name="name" value={name} onChange={this.handleChange} required />
-                                                        <small className="text-danger">{this.state.nameError}</small>
-                                                    </Form.Group>
-                                                </div>
-                                                <div>
-                                                    <Form.Group controlId="formBasicEmail">
-                                                        <Form.Label className='lab'>Age</Form.Label>
-                                                        <Form.Control id='inputtxt' type="number" placeholder="age" name="age" value={age} onChange={this.handleChange} required />
-                                                        <small className="text-danger">{this.state.ageError}</small>
-                                                    </Form.Group>
-                                                </div>
-                                                <div>
-                                                    <Form.Group controlId="formBasicEmail">
-                                                        <Form.Label className='lab' >Gender</Form.Label>
-                                                        <Form.Control id='inputtxt' type="text" placeholder="gender" name="gender" value={gender} onChange={this.handleChange} required />
-                                                        <small className="text-danger">{this.state.genderError}</small>
-                                                    </Form.Group>
-                                                </div>
-                                                <div>
-                                                    <Form.Group controlId="formBasicEmail">
-                                                        <Form.Label className='lab'>Award Count</Form.Label>
-                                                        <Form.Control id='inputtxt' type="number" placeholder="awardCount" name="awardCount" value={awardCount} onChange={this.handleChange} required />
-                                                        <small className="text-danger">{this.state.awardCountError}</small>
-                                                    </Form.Group>
-                                                </div>
-                                                <div className="App">
-                                                    <button className="btnClass" type="submit">Add Director</button>{' '}
-                                                </div>
-                                              
-                                                <h5>{this.state.respo}</h5>
-                                                <Router>
-                                                    <h6 className="App">Go back to<a style={{ color: '#3BB7C4 ' }} href="/home">  home</a></h6>
-                                                </Router>
-                                            </form>
-                                        </div>
+
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="myleftctn">
+                                <form onSubmit={this.handleSubmit} id='formm' autocomplete="off">
+                                    <div>
+                                        <Form.Group controlId="formBasicEmail">
+                                            <Form.Label className='lab'>Name</Form.Label>
+                                            <Form.Control id='inputtxt' type="text" placeholder="name" name="name" value={name} onChange={this.handleChange} required />
+                                            <small className="text-danger">{this.state.nameError}</small>
+                                        </Form.Group>
                                     </div>
-                                </div>
+                                    <div>
+                                        <Form.Group controlId="formBasicEmail">
+                                            <Form.Label className='lab'>Age</Form.Label>
+                                            <Form.Control id='inputtxt' type="number" placeholder="age" name="age" value={age} onChange={this.handleChange} required />
+                                            <small className="text-danger">{this.state.ageError}</small>
+                                        </Form.Group>
+                                    </div>
+                                    <div>
+                                        <Form.Group controlId="formBasicEmail">
+                                            <Form.Label className='lab' >Gender</Form.Label>
+                                            <Form.Control id='inputtxt' type="text" placeholder="gender" name="gender" value={gender} onChange={this.handleChange} required />
+                                            <small className="text-danger">{this.state.genderError}</small>
+                                        </Form.Group>
+                                    </div>
+                                    <div>
+                                        <Form.Group controlId="formBasicEmail">
+                                            <Form.Label className='lab'>Award Count</Form.Label>
+                                            <Form.Control id='inputtxt' type="number" placeholder="awardCount" name="awardCount" value={awardCount} onChange={this.handleChange} required />
+                                            <small className="text-danger">{this.state.awardCountError}</small>
+                                        </Form.Group>
+                                    </div>
+                                    <div className="App">
+                                        <button className="btnClass" type="submit">Add Director</button>{' '}
+                                    </div><br />
+
+                                    {
+                                        this.state.respo === 'yes' ? <Alert variant='primary'> Your data has been successfully uploaded !! </Alert> : <b></b>
+                                    }
+                                    {
+                                        this.state.respo === 'no' ? <Alert variant='danger'>Something went wrong </Alert> : <b></b>
+                                    }
+                                   
+                                        <h6 className="App">Go back to<a style={{ color: '#3BB7C4 ' }} href="/home">  home</a></h6>
+                                   
+                                </form>
                             </div>
                         </div>
-                    // </div>
-         
+                    </div>
+                </div>
+            </div>
+            // </div>
+
 
         )
     }

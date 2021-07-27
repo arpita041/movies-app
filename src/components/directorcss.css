@@ -1,4 +1,8 @@
-
+.container{
+    margin: auto;
+    width: 100%;    
+    background: rgba(145, 34, 34, 0.3);
+}
 h6{
     color:white;
     padding-bottom: 5%;

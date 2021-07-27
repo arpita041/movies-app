@@ -20,7 +20,6 @@
     "karma-webpack": "^5.0.0",
     "multer": "^1.4.2",
     "node-sass": "^6.0.1",
-    "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",
     "react-grid-carousel": "^1.0.1",
@@ -56,7 +55,16 @@
   },
   "devDependencies": {
     "@testing-library/react": "^11.2.7",
+    "babel-loader": "^8.1.0",
+    "d3": "^7.0.0",
+    "expect": "^27.0.6",
     "jest-dom": "^4.0.0",
-    "react-test-render": "^1.1.2"
+    "karma": "^6.3.4",
+    "karma-cli": "^2.0.0",
+    "karma-mocha": "^2.0.1",
+    "karma-webpack": "^5.0.0",
+    "react": "^17.0.2",
+    "react-test-render": "^1.1.2",
+    "webpack": "^4.44.2"
   }
 }

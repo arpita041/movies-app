@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { Component } from 'react'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
-import { Alert } from 'react-bootstrap';
+import {Modal} from 'react-bootstrap';
 import Home from './Home';
 import InputField from './inputField';
 import NavBarrr from './NavBarrr';
@@ -16,8 +16,15 @@ class updateDetails extends Component {
             nameError: '',
             ageError: '',
             awardError: '',
-            respo: ''
+            respo: '',
+            show:true
         }
+    }
+    handleClose=()=>{
+        this.setState({show:false})
+    }
+    handleShow=()=>{
+        this.setState({show:true})
     }
     handleChange = e => {
         this.setState({
@@ -68,7 +75,7 @@ class updateDetails extends Component {
             axios.put(`http://localhost:3500/updateDirect/${this.state.name}`, this.state)
                 .then(response => {
                     console.log(response);
-                    if (response.statusText==='OK') {
+                    if (response.data==='done') {
                         // alert("No details with this director name exist,Please enter valid name");
                         this.setState({
                             respo: 'yes'
@@ -143,10 +150,22 @@ class updateDetails extends Component {
                                 </div>
                                 <button className="btnClass" id="butt" >Update</button><br /><br />
                                 {
-                                    this.state.respo === 'yes' ? <Alert variant='primary'> Your data has been successfully updated !! </Alert> : <b></b>
+                                    this.state.respo === 'yes' ? <Modal centered show={this.state.show} onHide={this.handleClose}>
+                                    <Modal.Header closeButton>
+                                      <Modal.Title>Result</Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>Woohoo,  Directors data updated successfully !!</Modal.Body>
+                                    
+                                  </Modal> : <b></b>
                                 }
                                 {
-                                    this.state.respo === 'no' ? <Alert variant='danger'>Something went wrong </Alert> : <b></b>
+                                    this.state.respo === 'no' ? <Modal centered show={this.state.show} onHide={this.handleClose}>
+                                    <Modal.Header closeButton>
+                                      <Modal.Title>Result</Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>Something went wrong !!</Modal.Body>
+                                    
+                                  </Modal> : <b></b>
                                 }
                                 <Router>
                                     <h6>Go back to <a href="/home" style={{ color: '#3BB7C4 ' }}>Home</a></h6>

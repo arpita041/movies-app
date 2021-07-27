@@ -15,6 +15,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'src/test/*.spec.js',
+      'test/**/*.js'
     ],
 
 
@@ -28,7 +30,10 @@ module.exports = function(config) {
     preprocessors: {
     },
 
-
+    coverageReporter: {
+      type : 'html',
+      dir : 'coverage/'
+    },
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://www.npmjs.com/search?q=keywords:karma-reporter

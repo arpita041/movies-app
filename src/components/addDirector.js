@@ -141,8 +141,7 @@ class addDirector extends Component {
                                                 <div className="App">
                                                     <button className="btnClass" type="submit">Add Director</button>{' '}
                                                 </div>
-                                              
-                                                <h5>{this.state.respo}</h5>
+                                              <br/>
                                                 <Router>
                                                     <h6 className="App">Go back to<a style={{ color: '#3BB7C4 ' }} href="/home">  home</a></h6>
                                                 </Router>
@@ -152,7 +151,6 @@ class addDirector extends Component {
                                 </div>
                             </div>
                         </div>
-                    // </div>
          
 
         )

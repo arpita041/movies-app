@@ -23,6 +23,10 @@ class updateDetails extends Component {
             [e.target.name]: e.target.value
         })
     }
+    validateName =(e)=>
+    {
+        console.log("called")
+    }
     validation() {
         let ageNum = parseInt(this.state.age);
         let awardNum = parseInt(this.state.awardCount);
@@ -92,14 +96,14 @@ class updateDetails extends Component {
 
                             <div className="myleftctn"></div>
                             <form className="myform text-center" onSubmit={this.handleSumbit} autoComplete='off'>
-                                <header className="text-center">Updation Form</header>
-
+                                {/* <header className="text-center">Updation Form</header> */}
+<br/>
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="form-group">
                                             <InputField type="text" name="name" value={name}
                                                 className="form-control" id="myinput"
-                                                placeholder=" Name" onChange={this.handleChange} />
+                                                placeholder=" Name" onChange={this.handleChange} onMouseout={this.validateName} />
  <small className="text-danger">{this.state.nameError}</small>
                                         </div>
                                     </div>

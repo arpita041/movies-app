@@ -11,7 +11,8 @@ class DeleteMovie extends Component {
         this.state = {
             movieName: '',
             respo: '',
-            nameError:''
+            nameError:'',
+            val:true
         }
     }
 
@@ -19,37 +20,50 @@ class DeleteMovie extends Component {
         this.setState({
             movieName: event.target.value
         })
+        let pattern = /^[a-zA-Z ]{4,30}$/;
+        // if (!this.state.movieName) {
+        //     this.setState({ nameError: "name is required" , val:false})
 
-    }
-    validation()
-    { 
-        let val = 0;
-        let pattern = /^[a-zA-Z ]{2,30}$/;
-       
-        if (this.state.movieName.trim() === '') {
-            val = 1;
-            this.setState({ nameError: "name is required" })
-        }
+        // }
         if(!pattern.test(this.state.movieName))
         {
-            this.setState({nameError:"Please enter a valid name"});
-            val=1;
+            this.setState({nameError:"Please enter a valid name", val:false})
         }
-        if (val === 0) {
-            return true;
+        else
+        {
+            this.setState({nameError:'', val:true})
         }
-        else {
-            return false;
-        }
+
     }
+    // validation()
+    // { 
+    //     let val = 0;
+    //     let pattern = /^[a-zA-Z ]{2,30}$/;
+       
+    //     if (this.state.movieName.trim() === '') {
+    //         val = 1;
+    //         this.setState({ nameError: "name is required" })
+    //     }
+    //     if(!pattern.test(this.state.movieName))
+    //     {
+    //         this.setState({nameError:"Please enter a valid name"});
+    //         val=1;
+    //     }
+    //     if (val === 0) {
+    //         return true;
+    //     }
+    //     else {
+    //         return false;
+    //     }
+    // }
     handleSubmit = e => {
         var respo;
-        this.setState({
-            nameError: ''
-        })
+        // this.setState({
+        //     nameError: ''
+        // })
         e.preventDefault();
-        const valid = this.validation();
-        if(valid)
+       // const valid = this.validation();
+        if(this.state.val)
         {
         
         axios.delete(`http://localhost:3500/deleteFilm/${this.state.movieName}`).then(response => {

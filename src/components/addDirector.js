@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Form ,Alert} from 'react-bootstrap';
+import { Form, Alert } from 'react-bootstrap';
 import { BrowserRouter as Router } from 'react-router-dom'
 import NavBarrr from './NavBarrr';
 import axios from 'axios'
@@ -81,11 +81,11 @@ class addDirector extends Component {
                     console.log(response)
                     if (response.statusText === 'OK') {
                         this.setState({
-                            respo:'yes'
+                            respo: 'yes'
                         })
                     } else {
                         this.setState({
-                            respo:'no'
+                            respo: 'no'
                         })
                     }
                 })
@@ -142,7 +142,8 @@ class addDirector extends Component {
                                     </div>
                                     <div className="App">
                                         <button className="btnClass" type="submit">Add Director</button>{' '}
-                                    </div><br />
+                                    </div>
+                                    <br />
 
                                     {
                                         this.state.respo === 'yes' ? <Alert variant='primary'> Your data has been successfully uploaded !! </Alert> : <b></b>
@@ -150,20 +151,20 @@ class addDirector extends Component {
                                     {
                                         this.state.respo === 'no' ? <Alert variant='danger'>Something went wrong </Alert> : <b></b>
                                     }
-                                   
-                                        <h6 className="App">Go back to<a style={{ color: '#3BB7C4 ' }} href="/home">  home</a></h6>
-                                   
+
+                                    <h6 className="App">Go back to<a style={{ color: '#3BB7C4 ' }} href="/home">  home</a></h6>
+
                                 </form>
                             </div>
                         </div>
+
+
                     </div>
                 </div>
             </div>
-            // </div>
 
-
-        )
+                )
     }
 }
 
-export default addDirector
+                export default addDirector

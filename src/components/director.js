@@ -55,7 +55,7 @@ const columnDefs1= [
         .then(res => {
           console.log(res)
           setPost(res.data.data)
-          setHeight('300px')
+          setHeight('3m00px')
           //   console.log(post.data.age)
         })
         .catch(err => {
@@ -76,43 +76,22 @@ const columnDefs1= [
   }, [searchVal])
 
   return (
-    <div>
-      <NavBarrr></NavBarrr>
-      <div>
-           <div className='contain'>
-           <div>
-                <div className="contain">
-               
-                </div>
-              
-                <Gridreact
-                    columnDefs={columnDefs1}
-                    rowData={post}
-                    defaultColDef={defaultColDef}
-                    height={Height}
-                >
-
-                </Gridreact>
-    </div>
-          {/* <br />
-
-          {
-            (have) ? (
-              <div>
-         
-           <Gridreact
-               columnDefs={columnDefs}
-               rowData={movies}
-               defaultColDef={defaultColDef}
-                height={Mheight} >
-                
-           </Gridreact>
+<div>
+<NavBarrr></NavBarrr>
+<div className="contain">
+ <h3>Director Details</h3>
+ {/* <button className='btn' onClick={this.getAllMovies} >load all Movies</button> */}
 </div>
-            ) : null
-          } */}
-        </div>
-      </div>
-    </div>
+{/* <Table post={this.state.allMovies}></Table> */}
+<Gridreact
+ columnDefs={columnDefs1}
+ rowData={post}
+ defaultColDef={defaultColDef}
+ height={Height}
+>
+
+</Gridreact>
+</div>
   );
 };
 

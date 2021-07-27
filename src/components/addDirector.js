@@ -24,57 +24,113 @@ class addDirector extends Component {
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })
     }
-    validate() {
-        let ageNum = parseInt(this.state.age);
-        let awardNum = parseInt(this.state.awardCount);
+
+    validName=event=>
+    {
         let pattern = /^[a-zA-Z ]{2,30}$/;
-        console.log(ageNum);
-        let val = 0;
-        if (this.state.name.trim() === '') {
-            val = 1;
-            this.setState({ nameError: "name is required" })
-        }
-        if(!pattern.test(this.state.name))
+      //  let rate = parseInt(this.state.rating);
+        if(!pattern.test(this.state.name) || this.state.name.trim() === '' )
         {
             this.setState({nameError:"Please enter a valid name"});
-            val=1;
         }
-        if (this.state.age.trim() === '') {
-            this.setState({ ageError: "age is required" });
-            val = 1;
+        else
+        {
+            this.setState({nameError:''})
         }
-        if (ageNum > 80 || ageNum < 18) {
-            this.setState({ ageError: "age should range between 18 to 80" });
-            val = 1;
+    }
+    validAge=event=>
+    {
+        let ageNum = parseInt(this.state.age);
+        if (ageNum > 80 || ageNum < 18 || this.state.age.trim()==='') {
+            this.setState({ ageError: "age should range between 18 to 80" });    
         }
-        if (this.state.awardCount.trim() === '') {
-            val = 1;
-            this.setState({ awardCountError: "award Count is required" });
+        else
+        {
+            this.setState({ageError:""})
         }
-        if (awardNum >= 100 || awardNum <= 1) {
-            val = 1;
+    }
+    validAward =event =>
+    {
+          let award = parseInt(this.state.awardCount);
+          if (award > 101 || award < 0 || this.state.awardCount.trim()==='') {
             this.setState({ awardCountError: "award count should be between 0 to 100" })
         }
+        else
+        {
+            this.setState({ awardCountError: ""});
+        }
+    }
+    validGender=event=>
+    {
         if (this.state.gender.trim() === '') {
-            val = 1;
             this.setState({ genderError: "gender is required" });
         }
-        // if(this.state.gender!=='male' || this.state.gender!=='female' || this.state.gender!=='other')
-        // {
-        //     val=1;
-        //     this.setState({genderError:'gender can be only male, female or other'})
-        // }
-        if (val === 0) {
-            return true;
+        else
+        {
+            this.setState({ genderError: "" });
         }
-        else {
+    }
+
+    // validate() {
+    //     let ageNum = parseInt(this.state.age);
+    //     let awardNum = parseInt(this.state.awardCount);
+    //     let pattern = /^[a-zA-Z ]{2,30}$/;
+    //     console.log(ageNum);
+    //     let val = 0;
+    //     if (this.state.name.trim() === '') {
+    //         val = 1;
+    //         this.setState({ nameError: "name is required" })
+    //     }
+    //     if(!pattern.test(this.state.name))
+    //     {
+    //         this.setState({nameError:"Please enter a valid name"});
+    //         val=1;
+    //     }
+    //     if (this.state.age.trim() === '') {
+    //         this.setState({ ageError: "age is required" });
+    //         val = 1;
+    //     }
+    //     if (ageNum > 80 || ageNum < 18) {
+    //         this.setState({ ageError: "age should range between 18 to 80" });
+    //         val = 1;
+    //     }
+    //     if (this.state.awardCount.trim() === '') {
+    //         val = 1;
+    //         this.setState({ awardCountError: "award Count is required" });
+    //     }
+    //     if (awardNum >= 100 || awardNum <= 1) {
+    //         val = 1;
+    //         this.setState({ awardCountError: "award count should be between 0 to 100" })
+    //     }
+    //     if (this.state.gender.trim() === '') {
+    //         val = 1;
+    //         this.setState({ genderError: "gender is required" });
+    //     }
+    //     // if(this.state.gender!=='male' || this.state.gender!=='female' || this.state.gender!=='other')
+    //     // {
+    //     //     val=1;
+    //     //     this.setState({genderError:'gender can be only male, female or other'})
+    //     // }
+    //     if (val === 0) {
+    //         return true;
+    //     }
+    //     else {
+    //         return false;
+    //     }
+    // }
+    validate()
+    {
+        if(this.state.name !=='' && this.state.gender!=='' && this.state.age!=='' && this.state.awardCount!=='' && 
+        this.state.nameError==='' && this.state.ageError==='' && this.state.awardCountError==='' && this.state.genderError==='')
+          {
+                return true;
+        }
+        else
+        {
             return false;
         }
     }
     handleSubmit = e => {
-        this.setState({
-            nameError: '', ageError: '', genderError: '', awardCountError: ''
-        })
         const valid = this.validate();
         if (valid) {
             axios.post('http://localhost:3500/direct',this.state)
@@ -88,10 +144,9 @@ class addDirector extends Component {
                 
                 }
             })
+            console.log('true')
         }
         e.preventDefault()
-        console.log("inside")
-        console.log(this.state);
     }
     render() {
         const { name, age, gender, awardCount } = this.state
@@ -113,28 +168,32 @@ class addDirector extends Component {
                                                 <div>
                                                     <Form.Group controlId="formBasicEmail">
                                                         <Form.Label className='lab'>Name</Form.Label>
-                                                        <Form.Control id='inputtxt' type="text" placeholder="name" name="name" value={name} onChange={this.handleChange} required />
+                                                        <Form.Control id='inputtxt' type="text" placeholder="name" name="name" value={name} onChange={this.handleChange}
+                                                        onBlur={this.validName} required />
                                                         <small className="text-danger">{this.state.nameError}</small>
                                                     </Form.Group>
                                                 </div>
                                                 <div>
                                                     <Form.Group controlId="formBasicEmail">
                                                         <Form.Label className='lab'>Age</Form.Label>
-                                                        <Form.Control id='inputtxt' type="number" placeholder="age" name="age" value={age} onChange={this.handleChange} required />
+                                                        <Form.Control id='inputtxt' type="number" placeholder="age" name="age" value={age} onChange={this.handleChange}
+                                                        onBlur={this.validAge} required />
                                                         <small className="text-danger">{this.state.ageError}</small>
                                                     </Form.Group>
                                                 </div>
                                                 <div>
                                                     <Form.Group controlId="formBasicEmail">
                                                         <Form.Label className='lab' >Gender</Form.Label>
-                                                        <Form.Control id='inputtxt' type="text" placeholder="gender" name="gender" value={gender} onChange={this.handleChange} required />
+                                                        <Form.Control id='inputtxt' type="text" placeholder="gender" name="gender" value={gender} onChange={this.handleChange} 
+                                                        onBlur={this.validGender} required />
                                                         <small className="text-danger">{this.state.genderError}</small>
                                                     </Form.Group>
                                                 </div>
                                                 <div>
                                                     <Form.Group controlId="formBasicEmail">
                                                         <Form.Label className='lab'>Award Count</Form.Label>
-                                                        <Form.Control id='inputtxt' type="number" placeholder="awardCount" name="awardCount" value={awardCount} onChange={this.handleChange} required />
+                                                        <Form.Control id='inputtxt' type="number" placeholder="awardCount" name="awardCount" value={awardCount} onChange={this.handleChange} 
+                                                        onBlur={this.validAward} required />
                                                         <small className="text-danger">{this.state.awardCountError}</small>
                                                     </Form.Group>
                                                 </div>

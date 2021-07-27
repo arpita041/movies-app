@@ -22,6 +22,8 @@ class updateDetails extends Component {
         this.setState({
             [e.target.name]: e.target.value
         })
+        let ageNum = parseInt(this.state.age);
+        console.log(this.state.age);
     }
     validateName =(e)=>
     {
@@ -54,6 +56,10 @@ class updateDetails extends Component {
         else {
             return true;
         }
+    }
+    myFunc()
+    {
+              console.log("called");
     }
     handleSumbit = e => {
         const valid = this.validation();
@@ -101,7 +107,7 @@ class updateDetails extends Component {
                                         <div className="form-group">
                                             <InputField type="text" name="name" value={name}
                                                 className="form-control" id="myinput"
-                                                placeholder=" Name" onChange={this.handleChange} onMouseout={this.validateName} />
+                                                placeholder=" Name" onChange={this.handleChange}  />
  <small className="text-danger">{this.state.nameError}</small>
                                         </div>
                                     </div>
@@ -113,7 +119,7 @@ class updateDetails extends Component {
                                         <div className="form-group">
                                             <InputField type="number" required
                                                 name="age" id="myinput" value={age}
-                                                className="form-control" placeholder="age" onChange={this.handleChange} />
+                                                className="form-control" placeholder="age" onChange={this.handleChange}/>
                                             <small className="text-danger">{this.state.ageError}</small>
                                         </div>
                                     </div>

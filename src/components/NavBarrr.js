@@ -21,10 +21,10 @@ const NavBarrr = props => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
-                            <Nav.Link href="/forms" style={{ color: 'white ' }}> <b>Add Cinema</b> </Nav.Link>
-                            <Nav.Link href="/addDirector" style={{ color: 'white ' }}><b>Add Director</b></Nav.Link>
-                            <Nav.Link href="/showMovies" style={{ color: 'white ' }}><b>Movie List</b></Nav.Link>
-                            <Nav.Link href="/director" style={{ color: 'white ' }}><b>Director List</b></Nav.Link>
+                            <span className="nav-link" style={{ color: 'white ' }}><Link to='/forms'> <b>Add Cinema</b></Link> </span>
+                            <span className="nav-link" style={{ color: 'white ' }}><Link to='/addDirector'><b>Add Director</b></Link></span>
+                            <span className="nav-link" style={{ color: 'white ' }}><Link to='/showMovies'><b>Movie List</b></Link></span>
+                            <span className="nav-link" style={{ color: 'white ' }}><Link to='/director'><b>Director List</b></Link></span>
                             <NavDropdown title="Other Options" id="collasible-nav-dropdown" style={{ color: 'white ' }}>
                                 <NavDropdown.Item href="/deleteMovie" style={{ color: 'black ' }}><b>Delete a Movie</b></NavDropdown.Item>
                                 <NavDropdown.Item href="/update" style={{ color: 'black ' }}><b>Update Data</b></NavDropdown.Item>

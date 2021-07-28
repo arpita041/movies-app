@@ -70,6 +70,7 @@ class addDirector extends Component {
     }
     validGender=event=>
     {
+      
         console.log(this.state.gender);
         if (this.state.gender.trim() === '') {
             this.setState({ genderError: "gender is required" });
@@ -160,7 +161,9 @@ class addDirector extends Component {
     }
 
     alphaOnly = (e) => {
-        this.setState({ value: e.target.value.replace(/[^A-Za-z]/ig, '') })
+        this.setState({ gender: e.target.value.replace(/[^A-Za-z]/ig, '') })
+        console.log(this.state.gender);
+       
     }
     render() {
         const { name, age, gender, awardCount } = this.state
@@ -201,7 +204,7 @@ class addDirector extends Component {
                                         <div className="col-md-12">
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='lab' >Gender</Form.Label>
-                                                <Form.Control id='inputtxt' type="text" placeholder="gender" name="gender" value={this.state.value} onChange={this.alphaOnly}  
+                                                <Form.Control id='inputtxt' type="text" placeholder="gender" name="gender" value={this.state.gender} onChange={this.alphaOnly}  
                                                 onBlur={this.validGender} required />
                                                 <small className="text-danger">{this.state.genderError}</small>
                                             </Form.Group>

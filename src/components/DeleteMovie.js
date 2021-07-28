@@ -32,7 +32,8 @@ class DeleteMovie extends Component {
         console.log("called")
         console.log(this.state.movieName)
         let pattern = /^[a-zA-Z ]{4,30}$/;
-        if (!pattern.test(this.state.movieName) || this.state.movieName.trim()==='') {
+        let pattern2=/^[a-zA-Z0-9~@#$^*()_+=[\]{}|\\,.?: -]*$/;
+        if (!pattern2.test(this.state.movieName) || this.state.movieName.trim()==='') {
             this.setState({ nameError: "Please enter a valid name" })
         }
         else {

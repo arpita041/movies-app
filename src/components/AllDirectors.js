@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, {useState,useEffect} from 'react'
 import NavBarrr from './NavBarrr';
 import Gridreact from './Gridreact';
+import { IoIosTrash } from "react-icons/io";
 function AllDirectors() {
  const [post,setPost]=useState([]);
 
@@ -41,13 +42,13 @@ function AllDirectors() {
 //      alert("do you want to change it ?")
 //  }
  const columnDefs= [
-    { headerName: "NAME", field: "name" },
+    { headerName: "NAME", field: "name", width:100 },
     { headerName: "AGE", field: "age",}, 
     {headerName: "GENDER",field: "gender",},
     { headerName: "AWARD COUNT", field: "awardCount"},
     {headerName:'ACTION' , field:'abc', cellRendererFramework:(params)=><div>
         {/* <button className="btnClass" onClick={()=>saving(params)}>Save</button> */}
-        <button className="btn" id='but1'  onClick={()=>actionButton(params)}>Delete</button>
+        <button className="btn"  onClick={()=>actionButton(params)}><IoIosTrash/></button>
         
     </div>},
     ]
@@ -55,7 +56,7 @@ function AllDirectors() {
         sortable:true,
         editable:true,
         flex:1,filter:true,
-        floatingFilter:true
+    
 
       }
     return (

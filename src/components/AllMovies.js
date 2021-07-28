@@ -4,6 +4,7 @@ import NavBarrr from './NavBarrr'
 import './allMovie.css'
 import Table from './table'
 import Gridreact from './Gridreact'
+import { IoIosTrash } from "react-icons/io";
 class AllMovies extends Component {
     constructor(props) {
         super(props)
@@ -18,7 +19,7 @@ class AllMovies extends Component {
                 {
                     headerName: 'ACTION', field: 'abc', cellRendererFramework: (params) => <div>
                         {/* <button className="btnClass" onClick={() => this.saving(params)}>Save</button> */}
-                        <button className='btn btn-primary' id='but1' onClick={() => this.actionButton(params)}>Delete</button>
+                        <button className='btn btn-primary' onClick={() => this.actionButton(params)}><IoIosTrash/></button>
                     </div>
                 },
             ],
@@ -26,8 +27,7 @@ class AllMovies extends Component {
                 sortable: true,
                 editable: true,
                 flex: 1, filter: true,
-                floatingFilter: true,
-                resizable: true
+                
 
             },
             rowData: null,

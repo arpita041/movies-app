@@ -1,9 +1,9 @@
 import axios from 'axios';
 import React, { Component } from 'react'
-import { Modal } from 'react-bootstrap';
+import { Modal,Form } from 'react-bootstrap';
 import InputField from './inputField';
 import NavBarrr from './NavBarrr';
-import './deleted.css'
+import './updated.css'
 class DeleteMovie extends Component {
     constructor(props) {
         super(props)
@@ -12,7 +12,6 @@ class DeleteMovie extends Component {
             movieName: '',
             respo: '',
             nameError: '',
-            val: true,
             show:true
         }
     }
@@ -27,18 +26,18 @@ class DeleteMovie extends Component {
         this.setState({
             movieName: event.target.value
         })
+    }
+    validateName= (event)=>
+    {
+        console.log("called")
+        console.log(this.state.movieName)
         let pattern = /^[a-zA-Z ]{4,30}$/;
-        // if (!this.state.movieName) {
-        //     this.setState({ nameError: "name is required" , val:false})
-
-        // }
-        if (!pattern.test(this.state.movieName)) {
-            this.setState({ nameError: "Please enter a valid name", val: false })
+        if (!pattern.test(this.state.movieName) || this.state.movieName.trim()==='') {
+            this.setState({ nameError: "Please enter a valid name" })
         }
         else {
-            this.setState({ nameError: '', val: true })
+            this.setState({ nameError: ''})
         }
-
     }
     // validation()
     // { 
@@ -61,14 +60,25 @@ class DeleteMovie extends Component {
     //         return false;
     //     }
     // }
+    validation() 
+    {
+        if(this.state.movieName!=='' && this.state.nameError==='')
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     handleSubmit = e => {
         var respo;
         // this.setState({
         //     nameError: ''
         // })
         e.preventDefault();
-        // const valid = this.validation();
-        if (this.state.val) {
+        const valid = this.validation();
+        if (valid) {
 
             axios.delete(`http://localhost:3500/deleteFilm/${this.state.movieName}`).then(response => {
                 console.log(response);
@@ -100,15 +110,13 @@ class DeleteMovie extends Component {
 
                     <form onSubmit={this.handleSubmit} autoComplete='off'>
                         <div>
-                            <InputField
-                                className="labelClass"
-                                type="text"
-                                value={this.state.movieName}
-                                placeholder="movie Name"
-                                label="Movie Name"
-                                name="movieName"
-                                onChange={this.handleChange} />
-                            <small className="text-danger">{this.state.nameError}</small>
+                            <br/>
+                        <div className="form-group">
+                                            <Form.Control id="inputtxt" type="text" name="movieName" value={movieName} 
+                                                placeholder="movie Name" onChange={this.handleChange} onBlur={this.validateName} />
+                                            <small className="text-danger">{this.state.nameError}</small>
+                                            
+                                        </div>
                         </div>
                         <div className="App">
                             <button className="btnClass" type="submit">Delete it</button>

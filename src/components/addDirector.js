@@ -70,6 +70,7 @@ class addDirector extends Component {
     }
     validGender=event=>
     {
+        console.log(this.state.gender);
         if (this.state.gender.trim() === '') {
             this.setState({ genderError: "gender is required" });
         }
@@ -178,7 +179,8 @@ class addDirector extends Component {
                                         <div className="col-md-12">
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='lab'>Name</Form.Label>
-                                                <Form.Control id='inputtxt' type="text" placeholder="name" name="name" value={name} onChange={this.handleChange} required />
+                                                <Form.Control id='inputtxt' type="text" placeholder="name" name="name" value={name} onChange={this.handleChange} 
+                                                onBlur={this.validName} required />
                                                 <small className="text-danger">{this.state.nameError}</small>
                                             </Form.Group>
                                         </div>
@@ -188,7 +190,8 @@ class addDirector extends Component {
                                         <div className="col-md-12">
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='lab'>Age</Form.Label>
-                                                <Form.Control id='inputtxt' type="number" placeholder="age" name="age" value={age} onChange={this.handleChange} required />
+                                                <Form.Control id='inputtxt' type="number" placeholder="age" name="age" value={age} onChange={this.handleChange}
+                                                onBlur={this.validAge} required />
                                                 <small className="text-danger">{this.state.ageError}</small>
                                             </Form.Group>
                                         </div>
@@ -198,7 +201,8 @@ class addDirector extends Component {
                                         <div className="col-md-12">
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='lab' >Gender</Form.Label>
-                                                <Form.Control id='inputtxt' type="text" placeholder="gender" name="gender" value={this.state.value} onChange={this.alphaOnly} required />
+                                                <Form.Control id='inputtxt' type="text" placeholder="gender" name="gender" value={this.state.value} onChange={this.alphaOnly}  
+                                                onBlur={this.validGender} required />
                                                 <small className="text-danger">{this.state.genderError}</small>
                                             </Form.Group>
                                         </div>
@@ -208,7 +212,8 @@ class addDirector extends Component {
                                         <div className="col-md-12">
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='lab'>Award Count</Form.Label>
-                                                <Form.Control id='inputtxt' type="number" placeholder="awardCount" name="awardCount" value={awardCount} onChange={this.handleChange} required />
+                                                <Form.Control id='inputtxt' type="number" placeholder="awardCount" name="awardCount" value={awardCount} onChange={this.handleChange}
+                                                onBlur={this.validAward} required />
                                                 <small className="text-danger">{this.state.awardCountError}</small>
                                             </Form.Group>
                                         </div>

@@ -4,6 +4,7 @@ import NavBarrr from './NavBarrr'
 import axios from 'axios';
 import Table from "./table";
 import Gridreact from "./Gridreact";
+import './directorList.css'
 const Director = props => {
 
   const { searchVal } =
@@ -12,27 +13,27 @@ const Director = props => {
   const [post, setPost] = useState([])
   const [movies, setMovies] = useState([])
   //const [have, setHave] = useState([]);
-  const [def,setDef]= useState([]);
-  const [Height,setHeight]=useState('');
-  const [Mheight,setMheight]=useState('')
-//   const columnDefs= [
-//     { headerName: 'NAME', field: 'name' },
-//     { headerName: 'RATING', field: 'rating' },
-//     { headerName: 'DIRECTOR', field: 'director' },
-//     { headerName: 'BOX OFFICE COLLECTION', field: 'boxOfficeCollection' }
-// ]
-const columnDefs1= [
-  { headerName: "NAME", field: "name" },
-  { headerName: "AGE", field: "age",}, 
-  {headerName: "GENDER",field: "gender",},
-  { headerName: "AWARD COUNT", field: "awardCount" },
+  const [def, setDef] = useState([]);
+  const [Height, setHeight] = useState('');
+  const [Mheight, setMheight] = useState('')
+  //   const columnDefs= [
+  //     { headerName: 'NAME', field: 'name' },
+  //     { headerName: 'RATING', field: 'rating' },
+  //     { headerName: 'DIRECTOR', field: 'director' },
+  //     { headerName: 'BOX OFFICE COLLECTION', field: 'boxOfficeCollection' }
+  // ]
+  const columnDefs1 = [
+    { headerName: "NAME", field: "name" },
+    { headerName: "AGE", field: "age", },
+    { headerName: "GENDER", field: "gender", },
+    { headerName: "AWARD COUNT", field: "awardCount" },
   ]
 
-  const defaultColDef={
-    sortable:true,
-    editable:true,
-    flex:1,filter:true,
-    floatingFilter:true,
+  const defaultColDef = {
+    sortable: true,
+    editable: true,
+    flex: 1, filter: true,
+    floatingFilter: true,
   }
   useEffect(() => {
 
@@ -43,7 +44,7 @@ const columnDefs1= [
           setHeight('340px')
           console.log(post);
         })
-  //    setHave(false);
+      //    setHave(false);
       // console.log(have)
     }
 
@@ -76,22 +77,22 @@ const columnDefs1= [
   }, [searchVal])
 
   return (
-<div>
-<NavBarrr></NavBarrr>
-<div className="contain">
- <h3>Director Details</h3>
- {/* <button className='btn' onClick={this.getAllMovies} >load all Movies</button> */}
-</div>
-{/* <Table post={this.state.allMovies}></Table> */}
-<Gridreact
- columnDefs={columnDefs1}
- rowData={post}
- defaultColDef={defaultColDef}
- height={Height}
->
+    <div>
+      <NavBarrr></NavBarrr>
+      <div className="heading">
+        <h3>Director Details</h3>
+        {/* <button className='btn' onClick={this.getAllMovies} >load all Movies</button> */}
+      </div> <br />
+      {/* <Table post={this.state.allMovies}></Table> */}
+      <Gridreact
+        columnDefs={columnDefs1}
+        rowData={post}
+        defaultColDef={defaultColDef}
+        height={Height}
+      >
 
-</Gridreact>
-</div>
+      </Gridreact>
+    </div>
   );
 };
 

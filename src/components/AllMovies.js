@@ -79,10 +79,10 @@ class AllMovies extends Component {
         return (
             <div>
                 <NavBarrr></NavBarrr>
-                <div className="contain">
+                <div className="heading">
                     <h3>Movie Details</h3>
                     {/* <button className='btn' onClick={this.getAllMovies} >load all Movies</button> */}
-                </div>
+                </div><br />
                 {/* <Table post={this.state.allMovies}></Table> */}
                 <Gridreact
                     columnDefs={this.state.columnDefs}

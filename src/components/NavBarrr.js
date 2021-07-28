@@ -34,7 +34,7 @@ const NavBarrr = props => {
                                 <div>
                                 <FormControl type="text" name="searchVal" onChange={handleInputChange} placeholder="Search" className="mr-sm-2" /> 
                                 </div>
-                                <div style={{marginLeft:'10px'}}>
+                                <div style={{marginLeft:'5px'}}>
                                 <Dropdown>
                                     <Dropdown.Toggle className="btnClass" id="dropdown-basic">
                                         Search

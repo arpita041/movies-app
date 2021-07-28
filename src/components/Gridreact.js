@@ -93,7 +93,7 @@ a=0;
     console.log(height)
     return (
         <div>
-            <div className="ag-theme-alpine" style={{ height: props.height }}>
+            <div className="ag-theme-alpine" style={{ height: props.height, width:'100%' }}>
                 <AgGridReact
                     columnDefs={props.columnDefs}
                     rowData={props.rowData}

@@ -75,6 +75,10 @@ class addDirector extends Component {
         if (this.state.gender.trim() === '') {
             this.setState({ genderError: "gender is required" });
         }
+         if(this.state.gender!=='male' && this.state.gender!=='female' && this.state.gender!=='other')
+        {
+            this.setState({genderError:'gender can be only male, female or other'})
+        }
         else
         {
             this.setState({ genderError: "" });

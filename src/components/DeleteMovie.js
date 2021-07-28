@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react'
-import { Alert } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 import InputField from './inputField';
 import NavBarrr from './NavBarrr';
 import './deleted.css'
@@ -12,8 +12,15 @@ class DeleteMovie extends Component {
             movieName: '',
             respo: '',
             nameError: '',
-            val: true
+            val: true,
+            show:true
         }
+    }
+    handleClose=()=>{
+        this.setState({show:false})
+    }
+    handleShow=()=>{
+        this.setState({show:true})
     }
 
     handleChange = (event) => {
@@ -65,7 +72,7 @@ class DeleteMovie extends Component {
 
             axios.delete(`http://localhost:3500/deleteFilm/${this.state.movieName}`).then(response => {
                 console.log(response);
-                if (response.statusText==='OK') {
+                if (response.data==='done') {
                     // alert("No movie found with the entered name");
                     this.setState({
                         respo: 'yes'
@@ -107,10 +114,22 @@ class DeleteMovie extends Component {
                             <button className="btnClass" type="submit">Delete it</button>
                         </div><br />
                         {
-                            this.state.respo === 'yes' ? <Alert variant='primary'> Your data has been successfully deleted !! </Alert> : <b></b>
+                            this.state.respo === 'yes' ? <Modal centered show={this.state.show} onHide={this.handleClose}>
+                            <Modal.Header closeButton>
+                              <Modal.Title>Result</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>Woohoo,  Movie deleted successfully !!</Modal.Body>
+                            
+                          </Modal> : <b></b>
                         }
                         {
-                            this.state.respo === 'no' ? <Alert variant='danger'>Something went wrong </Alert> : <b></b>
+                            this.state.respo === 'no' ? <Modal centered show={this.state.show} onHide={this.handleClose}>
+                            <Modal.Header closeButton>
+                              <Modal.Title>Result</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>Something went wrong !!</Modal.Body>
+                            
+                          </Modal> : <b></b>
                         }
                       
                     </form>

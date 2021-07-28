@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Button,Form,Alert} from 'react-bootstrap';
+import { Button, Form, Alert ,Modal} from 'react-bootstrap';
 import NavBarrr from './NavBarrr';
 import { BrowserRouter as Router } from 'react-router-dom'
 import './film.css'
@@ -18,56 +18,52 @@ class filmsForm extends Component {
             boxOfficeError: '',
             ratingError: '',
             directorError: '',
-            respo:'',
-         
+            respo: '',
+            show:true
+
         }
     }
-    validName=event=>
-    {
+    handleClose=()=>{
+        this.setState({show:false})
+    }
+    handleShow=()=>{
+        this.setState({show:true})
+    }
+    validName = event => {
         let pattern = /^[a-zA-Z ]{2,30}$/;
-      //  let rate = parseInt(this.state.rating);
-        if(!pattern.test(this.state.name) || this.state.name.trim() === '' )
-        {
-            this.setState({nameError:"Please enter a valid name"});
+        //  let rate = parseInt(this.state.rating);
+        if (!pattern.test(this.state.name) || this.state.name.trim() === '') {
+            this.setState({ nameError: "Please enter a valid name" });
         }
-        else
-        {
-            this.setState({nameError:''})
+        else {
+            this.setState({ nameError: '' })
         }
     }
-    validBox=event=>
-    {
-        if(this.state.boxOfficeCollection.trim()==='')
-        {
-            this.setState({ boxOfficeError: "BoxOfficeCollection is required"})
+    validBox = event => {
+        if (this.state.boxOfficeCollection.trim() === '') {
+            this.setState({ boxOfficeError: "BoxOfficeCollection is required" })
         }
-        else
-        {
-            this.setState({boxOfficeError:""})
+        else {
+            this.setState({ boxOfficeError: "" })
         }
     }
-    validRating =event =>
-    {
-          let rate = parseInt(this.state.rating);
-          if (rate > 10 || rate < 0 || this.state.rating.trim()==='') {
+    validRating = event => {
+        let rate = parseInt(this.state.rating);
+        if (rate > 10 || rate < 0 || this.state.rating.trim() === '') {
             this.setState({ ratingError: "Rating should range between 0 to 10" });
         }
-        else
-        {
-            this.setState({ ratingError: ""});
+        else {
+            this.setState({ ratingError: "" });
         }
     }
-    validDirector=event=>
-    {
+    validDirector = event => {
         let pattern = /^[a-zA-Z ]{2,30}$/;
-        if(!pattern.test(this.state.director) || this.state.director.trim()==='')
-        {
-            this.setState({directorError:"Please enter a valid name"});
-        }  
-        else
-        {
-            this.setState({directorError:""});   
-        } 
+        if (!pattern.test(this.state.director) || this.state.director.trim() === '') {
+            this.setState({ directorError: "Please enter a valid name" });
+        }
+        else {
+            this.setState({ directorError: "" });
+        }
     }
     handlenameChange = event => {
         this.setState({
@@ -92,15 +88,12 @@ class filmsForm extends Component {
             director: event.target.value
         })
     }
-    validate()
-    {
-        if(this.state.name !=='' && this.state.boxOfficeCollection!=='' && this.state.rating!=='' && this.state.director!=='' && 
-        this.state.nameError==='' && this.state.boxOfficeError==='' && this.state.ratingError==='' && this.state.directorError==='')
-          {
-                return true;
+    validate() {
+        if (this.state.name !== '' && this.state.boxOfficeCollection !== '' && this.state.rating !== '' && this.state.director !== '' &&
+            this.state.nameError === '' && this.state.boxOfficeError === '' && this.state.ratingError === '' && this.state.directorError === '') {
+            return true;
         }
-        else
-        {
+        else {
             return false;
         }
     }
@@ -149,26 +142,24 @@ class filmsForm extends Component {
     //     }
     // }
     handleSubmit = event => {
-     //   this.setState({ nameError: '', boxOfficeError: '', ratingError: '', directorError: '' })
+        //   this.setState({ nameError: '', boxOfficeError: '', ratingError: '', directorError: '' })
         const isValid = this.validate();
-        var res=''
+        var res = ''
         if (isValid) {
             axios.post('http://localhost:3500/film', this.state) //posting movie data to backend
                 .then(response => {
                     console.log(response)
-                    if(response.statusText==='OK'){
-                     
+                    if (response.statusText === 'OK') {
+
                         this.setState({
-                            respo:'yes'
+                            respo: 'yes'
                         })
-                    }else{
-                     this.setState({respo:'no'})
+                    } else {
+                        this.setState({ respo: 'no' })
                     }
                 })
-            console.log("true")
         }
-        else
-        {
+        else {
             console.log(false);
         }
         event.preventDefault()
@@ -176,7 +167,7 @@ class filmsForm extends Component {
     render() {
 
         const { name, boxOfficeCollection, rating, director } = this.state
-       
+
 
         return (
             <div>
@@ -186,60 +177,72 @@ class filmsForm extends Component {
                 </div>
                 <div className='container my-4'>
                     {/* <div className="jumbotron my-5"> */}
-                        <div className="row">
-                            <div className="col-md-12">
-                                <div className="myleftctn">
-                                    <form onSubmit={this.handleSubmit} id='formm' autocomplete="off">
-                                        <div>
-                                            <Form.Group controlId="formBasicEmail">
-                                                <Form.Label className='labelClass' >Movie Name</Form.Label>
-                                                <Form.Control id='inputBorder' type="text" placeholder="movie name" value={name} onChange={this.handlenameChange}
+                    <div className="row">
+                        <div className="col-md-12">
+                            <div className="myleftctn">
+                                <form onSubmit={this.handleSubmit} id='formm' autocomplete="off">
+                                    <div>
+                                        <Form.Group controlId="formBasicEmail">
+                                            <Form.Label className='labelClass' >Movie Name</Form.Label>
+                                            <Form.Control id='inputBorder' type="text" placeholder="movie name" value={name} onChange={this.handlenameChange}
                                                 onBlur={this.validName} required />
-                                                <small className="text-danger">{this.state.nameError}</small>
-                                            </Form.Group>
-                                        </div>
-                                        <div>
-                                            <Form.Group controlId="formBasicEmail">
-                                                <Form.Label className='labelClass'>Box Office Collection</Form.Label>
-                                                <Form.Control id='inputBorder' type="text" placeholder="box office collection" value={boxOfficeCollection} onChange={this.handleBox}
+                                            <small className="text-danger">{this.state.nameError}</small>
+                                        </Form.Group>
+                                    </div>
+                                    <div>
+                                        <Form.Group controlId="formBasicEmail">
+                                            <Form.Label className='labelClass'>Box Office Collection</Form.Label>
+                                            <Form.Control id='inputBorder' type="number" placeholder="box office collection" value={boxOfficeCollection} onChange={this.handleBox}
                                                 onBlur={this.validBox} required />
-                                                <small className="text-danger">{this.state.boxOfficeError}</small>
-                                            </Form.Group>
-                                        </div>
-                                        <div>
-                                            <Form.Group controlId="formBasicEmail">
-                                                <Form.Label className='labelClass'>Rating</Form.Label>
-                                                <Form.Control id='inputBorder' type="text" placeholder="rating" value={rating} onChange={this.handleRating} onBlur={this.myFunc} 
+                                            <small className="text-danger">{this.state.boxOfficeError}</small>
+                                        </Form.Group>
+                                    </div>
+                                    <div>
+                                        <Form.Group controlId="formBasicEmail">
+                                            <Form.Label className='labelClass'>Rating</Form.Label>
+                                            <Form.Control id='inputBorder' type="number" placeholder="rating" value={rating} onChange={this.handleRating} onBlur={this.myFunc}
                                                 onBlur={this.validRating} required />
-                                                <small className="text-danger">{this.state.ratingError}</small>
-                                            </Form.Group>
-                                        </div>
-                                        <div>
-                                            <Form.Group controlId="formBasicEmail">
-                                                <Form.Label className='labelClass'>Director Name</Form.Label>
-                                                <Form.Control id='inputBorder' type="text" placeholder="Director" value={director} onChange={this.handleDirector} 
+                                            <small className="text-danger">{this.state.ratingError}</small>
+                                        </Form.Group>
+                                    </div>
+                                    <div>
+                                        <Form.Group controlId="formBasicEmail">
+                                            <Form.Label className='labelClass'>Director Name</Form.Label>
+                                            <Form.Control id='inputBorder' type="text" placeholder="Director" value={director} onChange={this.handleDirector}
                                                 onBlur={this.validDirector} required />
-                                                <small className="text-danger">{this.state.directorError}</small>
-                                            </Form.Group>
-                                        </div>
-                                        <div className="App">
-                                            <button className='btnClass' type="submit">Add Film</button>{' '}
-                                        </div><br />
-                                        {
-                                            this.state.respo==='yes' ? <Alert variant='primary'> Your data has been successfully uploaded !! </Alert> : <b></b>    
-                                        }
-                                         {
-                                            this.state.respo==='no' ? <Alert variant='danger'>Something went wrong </Alert> : <b></b>    
-                                        }
-                                    
-                                        <h6 className="App" id='hh'>Go back to<a href="/home" style={{ color: '#3BB7C4 ' }}> home</a></h6>
+                                            <small className="text-danger">{this.state.directorError}</small>
+                                        </Form.Group>
+                                    </div>
+                                    <div className="App">
+                                        <button className='btnClass' type="submit">Add Film</button>{' '}
+                                    </div><br />
+                                    {
+                                        this.state.respo === 'yes' ?<Modal centered show={this.state.show} onHide={this.handleClose}>
+                                        <Modal.Header closeButton>
+                                          <Modal.Title>Result</Modal.Title>
+                                        </Modal.Header>
+                                        <Modal.Body>Woohoo,  Movie data uploaded successfully!!</Modal.Body>
+                                        
+                                      </Modal> : <b></b>
+                                    }
+                                    {
+                                        this.state.respo === 'no' ? <Modal centered show={this.state.show} onHide={this.handleClose}>
+                                        <Modal.Header closeButton>
+                                          <Modal.Title>Result</Modal.Title>
+                                        </Modal.Header>
+                                        <Modal.Body>Woohoo,Something went wrong!!</Modal.Body>
+                                        
+                                      </Modal> : <b></b>
+                                    }
 
-                                    </form>
-                                </div>
+                                    <h6 className="App" id='hh'>Go back to<a href="/home" style={{ color: '#3BB7C4 ' }}> home</a></h6>
+
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
         )
     }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Form, Alert, Dropdown } from 'react-bootstrap';
+import { Form,Modal} from 'react-bootstrap';
 import { BrowserRouter as Router } from 'react-router-dom'
 import NavBarrr from './NavBarrr';
 import axios from 'axios'
@@ -19,8 +19,15 @@ class addDirector extends Component {
             genderError: '',
             awardCountError: '',
             respo: '',
-            value: ''
+            value: '',
+            show:true
         }
+    }
+    handleClose=()=>{
+        this.setState({show:false})
+    }
+    handleShow=()=>{
+        this.setState({show:true})
     }
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })
@@ -133,7 +140,7 @@ class addDirector extends Component {
     }
     handleSubmit = e => {
         const valid = this.validate();
-        if (valid) {
+        // if (valid) {
             axios.post('http://localhost:3500/direct', this.state)
                 .then(response => {
                     console.log(response)
@@ -147,7 +154,7 @@ class addDirector extends Component {
                         })
                     }
                 })
-        }
+        //}
         e.preventDefault()
     }
 
@@ -160,7 +167,7 @@ class addDirector extends Component {
             <div>
                 <NavBarrr></NavBarrr>
                 <div className='heading'>
-                    <h3 style={{ color: '#3BB7C4 ' }}>Add Directors Details</h3>
+                    <h3 style={{ color: 'white ' }}>Add Directors Details</h3>
                 </div>
                 <div className="container my-4">
                     <div className="row">
@@ -213,11 +220,24 @@ class addDirector extends Component {
                                     <br />
 
                                     {
-                                        this.state.respo === 'yes' ? <Alert variant='primary'> Your data has been successfully uploaded !! </Alert> : <b></b>
+                                        this.state.respo === 'yes' ?<Modal centered show={this.state.show} onHide={this.handleClose}>
+                                        <Modal.Header closeButton>
+                                          <Modal.Title>Result</Modal.Title>
+                                        </Modal.Header>
+                                        <Modal.Body>Woohoo,  Director's data uploaded successfully!!</Modal.Body>
+                                        
+                                      </Modal> : <b></b>
                                     }
                                     {
-                                        this.state.respo === 'no' ? <Alert variant='danger'>Something went wrong </Alert> : <b></b>
+                                        this.state.respo === 'no' ? <Modal centered show={this.state.show} onHide={this.handleClose}>
+                                        <Modal.Header closeButton>
+                                          <Modal.Title>Result</Modal.Title>
+                                        </Modal.Header>
+                                        <Modal.Body>Woohoo,Something went wrong!!</Modal.Body>
+                                        
+                                      </Modal> : <b></b>
                                     }
+
 
                                     <h6 className="App">Go back to<a style={{ color: '#3BB7C4 ' }} href="/home">  home</a></h6>
 

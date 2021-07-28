@@ -31,8 +31,10 @@ const NavBarrr = props => {
                             </NavDropdown>
                         </Nav>
                             <Form inline id='form1'>
-                                
+                                <div>
                                 <FormControl type="text" name="searchVal" onChange={handleInputChange} placeholder="Search" className="mr-sm-2" /> 
+                                </div>
+                                <div style={{marginLeft:'10px'}}>
                                 <Dropdown>
                                     <Dropdown.Toggle className="btnClass" id="dropdown-basic">
                                         Search
@@ -58,6 +60,8 @@ const NavBarrr = props => {
                                         </Link>
                                     </Dropdown.Menu>
                                 </Dropdown>
+                                </div>
+                                
                             </Form>
 
                     </Navbar.Collapse>

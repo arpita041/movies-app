@@ -1,9 +1,8 @@
 import axios from 'axios';
 import React, { Component } from 'react'
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
-import {Modal} from 'react-bootstrap';
+import { Alert, Form, Modal } from 'react-bootstrap';
 import Home from './Home';
-import InputField from './inputField';
 import NavBarrr from './NavBarrr';
 import './updated.css'
 class updateDetails extends Component {
@@ -34,40 +33,81 @@ class updateDetails extends Component {
         console.log(this.state.age);
     }
     validateName = (e) => {
-        console.log("called")
-    }
-    validation() {
-        let ageNum = parseInt(this.state.age);
-        let awardNum = parseInt(this.state.awardCount);
-        let val = 0;
         let pattern = /^[a-zA-Z ]{2,30}$/;
-        if (this.state.name.trim() === '') {
-            val = 1;
-            this.setState({ nameError: "name is required" })
+        //  let rate = parseInt(this.state.rating);
+          if(!pattern.test(this.state.name) || this.state.name.trim() === '' )
+          {
+              this.setState({nameError:"Please enter a valid name"});
+          }
+          else
+          {
+              this.setState({nameError:''})
+          }
+    }
+    validateAge=event=>
+    {
+        let ageNum = parseInt(this.state.age);
+        if (ageNum > 80 || ageNum < 18 || this.state.age.trim()==='') {
+            this.setState({ ageError: "age should range between 18 to 80" });    
         }
-        if (!pattern.test(this.state.name)) {
-            this.setState({ nameError: "Please enter a valid name" });
-            val = 1;
+        else
+        {
+            this.setState({ageError:""})
         }
-        if (ageNum > 80 || ageNum < 18) {
-            val = 1;
-            this.setState({ ageError: "Age should be from 18 to 80" })
+    }
+    validateAward =event =>
+    {
+          let award = parseInt(this.state.awardCount);
+          if (award > 101 || award < 0 || this.state.awardCount.trim()==='') {
+            this.setState({ awardError: "award count should be between 0 to 100" })
         }
-        if (awardNum > 100 || awardNum < 1) {
-            val = 1;
-            this.setState({ awardError: "award can't be more than 100" })
+        else
+        {
+            this.setState({ awardError: ""});
         }
-        if (val === 1) {
+    }
+
+    validation()
+    {
+        if(this.state.name !=='' && this.state.age!=='' && this.state.awardCount!=='' && 
+        this.state.nameError==='' && this.state.ageError==='' && this.state.awardError==='')
+          {
+                return true;
+        }
+        else
+        {
             return false;
         }
-        else {
-            return true;
-        }
     }
-    myFunc()
-    {
-              console.log("called");
-    }
+    // validation() {
+    //     let ageNum = parseInt(this.state.age);
+    //     let awardNum = parseInt(this.state.awardCount);
+    //     let val = 0;
+    //     let pattern = /^[a-zA-Z ]{2,30}$/;
+    //     if (this.state.name.trim() === '') {
+    //         val = 1;
+    //         this.setState({ nameError: "name is required" })
+    //     }
+    //     if (!pattern.test(this.state.name)) {
+    //         this.setState({ nameError: "Please enter a valid name" });
+    //         val = 1;
+    //     }
+    //     if (ageNum > 80 || ageNum < 18) {
+    //         val = 1;
+    //         this.setState({ ageError: "Age should be from 18 to 80" })
+    //     }
+    //     if (awardNum > 100 || awardNum < 1) {
+    //         val = 1;
+    //         this.setState({ awardError: "award can't be more than 100" })
+    //     }
+    //     if (val === 1) {
+    //         return false;
+    //     }
+    //     else {
+    //         return true;
+    //     }
+    // }
+
     handleSumbit = e => {
         const valid = this.validation();
         e.preventDefault();
@@ -109,15 +149,14 @@ class updateDetails extends Component {
 
 
                             <div className="myleftctn"></div>
-                            <form className="myform text-center" onSubmit={this.handleSumbit} autoComplete='off'>
+                            <form className="myform" onSubmit={this.handleSumbit} autoComplete='off'>
                                 {/* <header className="text-center">Updation Form</header> */}
                                 <br />
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="form-group">
-                                            <InputField type="text" name="name" value={name}
-                                                className="form-control" id="myinput"
-                                                placeholder=" Name" onChange={this.handleChange} onMouseout={this.validateName} />
+                                            <Form.Control id="inputtxt" type="text" name="name" value={name} 
+                                                placeholder=" Name" onChange={this.handleChange} onBlur={this.validateName} />
                                             <small className="text-danger">{this.state.nameError}</small>
                                         </div>
                                     </div>
@@ -127,9 +166,9 @@ class updateDetails extends Component {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="form-group">
-                                            <InputField type="number" required
-                                                name="age" id="myinput" value={age}
-                                                className="form-control" placeholder="age" onChange={this.handleChange}/>
+                                            <Form.Control type="number" required id="inputtxt"
+                                                name="age" value={age} onBlur={this.validateAge}
+                                                 placeholder="age" onChange={this.handleChange}/>
                                             <small className="text-danger">{this.state.ageError}</small>
                                         </div>
                                     </div>
@@ -140,14 +179,15 @@ class updateDetails extends Component {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="form-group">
-                                            <InputField type="number" name="awardCount"
-                                                className="form-control" id="myinput" required value={awardCount}
+                                            <Form.Control type="number" name="awardCount" id="inputtxt"
+                                             required value={awardCount} onBlur={this.validateAward}
                                                 placeholder="awardCount" onChange={this.handleChange} />
                                             <small className="text-danger">{this.state.awardError}</small>
                                         </div>
 
                                     </div>
                                 </div>
+                             <div className="App">
                                 <button className="btnClass" id="butt" >Update</button><br /><br />
                                 {
                                     this.state.respo === 'yes' ? <Modal centered show={this.state.show} onHide={this.handleClose}>
@@ -172,6 +212,7 @@ class updateDetails extends Component {
 
                                     <Switch><Route path="/home" component={Home}></Route></Switch>
                                 </Router>
+                                </div>
                             </form>
                         </div>
 

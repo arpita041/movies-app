@@ -31,8 +31,9 @@ class filmsForm extends Component {
     }
     validName = event => {
         let pattern = /^[a-zA-Z ]{2,30}$/;
+        let pattern2=/^[a-zA-Z0-9~@#$^*()_+=[\]{}|\\,.?: -]*$/
         //  let rate = parseInt(this.state.rating);
-        if (!pattern.test(this.state.name) || this.state.name.trim() === '') {
+        if (!pattern2.test(this.state.name) || this.state.name.trim() === '') {
             this.setState({ nameError: "Please enter a valid name" });
         }
         else {
@@ -58,6 +59,7 @@ class filmsForm extends Component {
     }
     validDirector = event => {
         let pattern = /^[a-zA-Z ]{2,30}$/;
+
         if (!pattern.test(this.state.director) || this.state.director.trim() === '') {
             this.setState({ directorError: "Please enter a valid name" });
         }

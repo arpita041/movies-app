@@ -1,7 +1,14 @@
 .container{
     margin: auto;
-    width: 100%;    
+    width: 50%;    
     background: rgba(145, 34, 34, 0.3);
+}
+@media only screen and (max-width: 600px) {
+    .container{
+        margin: auto;
+        width: 100%;    
+        background: rgba(0,0,0,0.3);
+    }
 }
 h6{
     color:white;

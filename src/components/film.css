@@ -3,6 +3,13 @@
     width: 50%;    
     background: rgba(0,0,0,0.3);
 }
+@media only screen and (max-width: 600px) {
+    .container{
+        margin: auto;
+        width: 100%;    
+        background: rgba(0,0,0,0.3);
+    }
+}
 #hh{
     color:white;
     margin-bottom: 1%;

@@ -31,6 +31,7 @@ const NavBarrr = props => {
                             </NavDropdown>
                         </Nav>
                             <Form inline id='form1'>
+                                
                                 <FormControl type="text" name="searchVal" onChange={handleInputChange} placeholder="Search" className="mr-sm-2" /> 
                                 <Dropdown>
                                     <Dropdown.Toggle className="btnClass" id="dropdown-basic">

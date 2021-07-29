@@ -40,7 +40,7 @@ h3
 #danger-id{
   outline: 0;
   background: none;
-  border: 1px solid red;
+  border: 1px solid #C0392B;
   color: white;
   font-size: medium;
 }

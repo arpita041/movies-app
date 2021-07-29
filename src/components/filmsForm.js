@@ -5,7 +5,7 @@ import { Button, Form, Alert ,Modal} from 'react-bootstrap';
 import NavBarrr from './NavBarrr';
 import { BrowserRouter as Router } from 'react-router-dom'
 import '../css/film.css'
-class filmsForm extends Component {
+class FilmsForm extends Component {
     constructor(props) {
         super(props)
 
@@ -35,26 +35,32 @@ class filmsForm extends Component {
         //  let rate = parseInt(this.state.rating);
         if (!pattern2.test(this.state.name) || this.state.name.trim() === '') {
             this.setState({ nameError: "Please enter a valid name" });
+            event.target.id= 'danger-id';
         }
         else {
             this.setState({ nameError: '' })
+            event.target.id= 'inputtxt';
         }
     }
     validBox = event => {
         if (this.state.boxOfficeCollection.trim() === '') {
             this.setState({ boxOfficeError: "Box Office Collection is required" })
+            event.target.id= 'danger-id';
         }
         else {
             this.setState({ boxOfficeError: "" })
+            event.target.id= 'inputtxt';
         }
     }
     validRating = event => {
         let rate = parseInt(this.state.rating);
         if (rate > 10 || rate < 0 || this.state.rating.trim() === '') {
             this.setState({ ratingError: "Rating should range between 0 to 10" });
+            event.target.id= 'danger-id';
         }
         else {
             this.setState({ ratingError: "" });
+            event.target.id= 'inputtxt';
         }
     }
     validDirector = event => {
@@ -62,9 +68,11 @@ class filmsForm extends Component {
 
         if (!pattern.test(this.state.director) || this.state.director.trim() === '') {
             this.setState({ directorError: "Please enter a valid name" });
+            event.target.id= 'danger-id';
         }
         else {
             this.setState({ directorError: "" });
+            event.target.id= 'inputtxt';
         }
     }
     handlenameChange = event => {
@@ -250,4 +258,4 @@ class filmsForm extends Component {
     }
 }
 
-export default filmsForm
+export default FilmsForm

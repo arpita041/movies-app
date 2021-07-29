@@ -5,7 +5,7 @@ import { Alert, Form, Modal } from 'react-bootstrap';
 import Home from './Home';
 import NavBarrr from './NavBarrr';
 import '../css/updated.css'
-class updateDetails extends Component {
+class UpdateDetails extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -235,4 +235,4 @@ class updateDetails extends Component {
     }
 }
 
-export default updateDetails
+export default UpdateDetails

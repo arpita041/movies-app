@@ -33,10 +33,12 @@ class DeleteMovie extends Component {
         let pattern = /^[a-zA-Z ]{4,30}$/;
         let pattern2 = /^[a-zA-Z0-9~@#$^*()_+=[\]{}|\\,.?: -]*$/;
         if (!pattern2.test(this.state.movieName) || this.state.movieName.trim() === '') {
-            this.setState({ nameError: "Please enter a valid name" })
+            this.setState({ nameError: "Please enter a valid name" });
+            event.target.id= 'danger-id';
         }
         else {
-            this.setState({ nameError: '' })
+            this.setState({ nameError: '' });
+            event.target.id= 'inputtxt';
         }
     }
     // validation()

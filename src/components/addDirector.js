@@ -5,7 +5,7 @@ import { BrowserRouter as Router ,Link} from 'react-router-dom'
 import NavBarrr from './NavBarrr';
 import axios from 'axios'
 import '../css/directorcss.css'
-class addDirector extends Component {
+class AddDirector extends Component {
     constructor(props) {
         super(props)
 
@@ -276,4 +276,4 @@ class addDirector extends Component {
     }
 }
 
-export default addDirector
+export default AddDirector

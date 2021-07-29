@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Modal,Button } from 'react-bootstrap';
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router ,Link} from 'react-router-dom'
 import NavBarrr from './NavBarrr';
 import axios from 'axios'
 import '../css/directorcss.css'
@@ -10,7 +10,7 @@ class addDirector extends Component {
         super(props)
 
         this.state = {
-            name: '',
+            name: '', 
             age: '',
             gender: '',
             awardCount: '',
@@ -173,7 +173,7 @@ class addDirector extends Component {
                                         <div className="col-md-12">
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='lab'>Name</Form.Label>
-                                                <Form.Control id='inputtxt' type="text" placeholder="name" name="name" value={name} onChange={this.handleChange}
+                                                <Form.Control id='inputtxt' type="text" placeholder="Name" name="name" value={name} onChange={this.handleChange}
                                                     onBlur={this.validName} required />
                                                 <small className="text-danger">{this.state.nameError}</small>
                                             </Form.Group>
@@ -184,7 +184,7 @@ class addDirector extends Component {
                                         <div className="col-md-12">
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='lab'>Age</Form.Label>
-                                                <Form.Control id='inputtxt' type="number" placeholder="age" name="age" value={age} onChange={this.handleChange}
+                                                <Form.Control id='inputtxt' type="number" placeholder="Age" name="age" value={age} onChange={this.handleChange}
                                                     onBlur={this.validAge} required />
                                                 <small className="text-danger">{this.state.ageError}</small>
                                             </Form.Group>
@@ -195,7 +195,7 @@ class addDirector extends Component {
                                         <div className="col-md-12">
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='lab' >Gender</Form.Label>
-                                                <Form.Control id='inputtxt' type="text" placeholder="gender" name="gender" value={this.state.gender} onChange={this.alphaOnly}
+                                                <Form.Control id='inputtxt' type="text" placeholder="Gender" name="gender" value={this.state.gender} onChange={this.alphaOnly}
                                                     onBlur={this.validGender} required />
                                                 <small className="text-danger">{this.state.genderError}</small>
                                             </Form.Group>
@@ -206,7 +206,7 @@ class addDirector extends Component {
                                         <div className="col-md-12">
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='lab'>Award Count</Form.Label>
-                                                <Form.Control id='inputtxt' type="number" placeholder="awardCount" name="awardCount" value={awardCount} onChange={this.handleChange}
+                                                <Form.Control id='inputtxt' type="number" placeholder="Award Count" name="awardCount" value={awardCount} onChange={this.handleChange}
                                                     onBlur={this.validAward} required />
                                                 <small className="text-danger">{this.state.awardCountError}</small>
                                             </Form.Group>

@@ -168,7 +168,7 @@ class updateDetails extends Component {
                                         <div className="form-group">
                                             <Form.Control type="number" required id="inputtxt"
                                                 name="age" value={age} onBlur={this.validateAge}
-                                                 placeholder="age" onChange={this.handleChange}/>
+                                                 placeholder="Age" onChange={this.handleChange}/>
                                             <small className="text-danger">{this.state.ageError}</small>
                                         </div>
                                     </div>
@@ -181,7 +181,7 @@ class updateDetails extends Component {
                                         <div className="form-group">
                                             <Form.Control type="number" name="awardCount" id="inputtxt"
                                              required value={awardCount} onBlur={this.validateAward}
-                                                placeholder="awardCount" onChange={this.handleChange} />
+                                                placeholder="Award Count" onChange={this.handleChange} />
                                             <small className="text-danger">{this.state.awardError}</small>
                                         </div>
 

@@ -114,7 +114,7 @@ class DeleteMovie extends Component {
                             <br/>
                         <div className="form-group">
                                             <Form.Control id="inputtxt" type="text" name="movieName" value={movieName} 
-                                                placeholder="movie Name" onChange={this.handleChange} onBlur={this.validateName} />
+                                                placeholder="Movie Name" onChange={this.handleChange} onBlur={this.validateName} />
                                             <small className="text-danger">{this.state.nameError}</small>
                                             
                                         </div>

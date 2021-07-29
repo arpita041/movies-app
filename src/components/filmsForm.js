@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Form, Alert ,Modal} from 'react-bootstrap';
 import NavBarrr from './NavBarrr';
 import { BrowserRouter as Router } from 'react-router-dom'
-import './film.css'
+import '../css/film.css'
 class filmsForm extends Component {
     constructor(props) {
         super(props)
@@ -186,7 +186,7 @@ class filmsForm extends Component {
                                     <div>
                                         <Form.Group controlId="formBasicEmail">
                                             <Form.Label className='labelClass' >Movie Name</Form.Label>
-                                            <Form.Control id='inputBorder' type="text" placeholder="movie name" value={name} onChange={this.handlenameChange}
+                                            <Form.Control id='inputBorder' type="text" placeholder="Movie Name" value={name} onChange={this.handlenameChange}
                                                 onBlur={this.validName} required />
                                             <small className="text-danger">{this.state.nameError}</small>
                                         </Form.Group>
@@ -194,7 +194,7 @@ class filmsForm extends Component {
                                     <div>
                                         <Form.Group controlId="formBasicEmail">
                                             <Form.Label className='labelClass'>Box Office Collection</Form.Label>
-                                            <Form.Control id='inputBorder' type="number" placeholder="box office collection" value={boxOfficeCollection} onChange={this.handleBox}
+                                            <Form.Control id='inputBorder' type="number" placeholder="Box Office Collection" value={boxOfficeCollection} onChange={this.handleBox}
                                                 onBlur={this.validBox} required />
                                             <small className="text-danger">{this.state.boxOfficeError}</small>
                                         </Form.Group>
@@ -202,7 +202,7 @@ class filmsForm extends Component {
                                     <div>
                                         <Form.Group controlId="formBasicEmail">
                                             <Form.Label className='labelClass'>Rating</Form.Label>
-                                            <Form.Control id='inputBorder' type="number" placeholder="rating" value={rating} onChange={this.handleRating} onBlur={this.myFunc}
+                                            <Form.Control id='inputBorder' type="number" placeholder="Rating" value={rating} onChange={this.handleRating} onBlur={this.myFunc}
                                                 onBlur={this.validRating} required />
                                             <small className="text-danger">{this.state.ratingError}</small>
                                         </Form.Group>

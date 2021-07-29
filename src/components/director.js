@@ -4,7 +4,7 @@ import NavBarrr from './NavBarrr'
 import axios from 'axios';
 import Table from "./table";
 import Gridreact from "./Gridreact";
-import './css/directorList.css'
+import '../css/directorList.css'
 const Director = props => {
 
   const { searchVal } =

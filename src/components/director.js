@@ -34,6 +34,7 @@ const Director = props => {
     editable: true,
     flex: 1, filter: true,
     floatingFilter: true,
+    minWidth: 120
   }
   useEffect(() => {
 

@@ -42,7 +42,7 @@ class filmsForm extends Component {
     }
     validBox = event => {
         if (this.state.boxOfficeCollection.trim() === '') {
-            this.setState({ boxOfficeError: "BoxOfficeCollection is required" })
+            this.setState({ boxOfficeError: "Box Office Collection is required" })
         }
         else {
             this.setState({ boxOfficeError: "" })

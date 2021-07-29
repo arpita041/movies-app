@@ -16,7 +16,7 @@ h6{
 }
 .lab{
     color: white;
-    margin: 2%;
+    margin: 1%;
     font-size: large;
 }
 #formm{
@@ -52,4 +52,8 @@ h6{
 .colorT
 {
 color:#3BB7C4
+}
+.error
+{
+    border-bottom: 1px solid #eb516d;
 }

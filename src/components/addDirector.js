@@ -46,7 +46,7 @@ class addDirector extends Component {
     validAge = event => {
         let ageNum = parseInt(this.state.age);
         if (ageNum > 80 || ageNum < 18 || this.state.age.trim() === '') {
-            this.setState({ ageError: "age should range between 18 to 80" });
+            this.setState({ ageError: "Age should range between 18 to 80" });
         }
         else {
             this.setState({ ageError: "" })
@@ -55,7 +55,7 @@ class addDirector extends Component {
     validAward = event => {
         let award = parseInt(this.state.awardCount);
         if (award > 101 || award < 0 || this.state.awardCount.trim() === '') {
-            this.setState({ awardCountError: "award count should be between 0 to 100" })
+            this.setState({ awardCountError: "Award Count should be between 0 to 100" })
         }
         else {
             this.setState({ awardCountError: "" });
@@ -65,10 +65,10 @@ class addDirector extends Component {
 
         console.log(this.state.gender);
         if (this.state.gender.trim() === '') {
-            this.setState({ genderError: "gender is required" });
+            this.setState({ genderError: "Gender is required" });
         }
         if (this.state.gender !== 'male' && this.state.gender !== 'female' && this.state.gender !== 'other') {
-            this.setState({ genderError: 'gender can be only male, female or other' })
+            this.setState({ genderError: 'Gender can be only male, female or other' })
         }
         else {
             this.setState({ genderError: "" });
@@ -173,7 +173,7 @@ class addDirector extends Component {
                                         <div className="col-md-12">
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='lab'>Name</Form.Label>
-                                                <Form.Control id='inputtxt' type="text" placeholder="Name" name="name" value={name} onChange={this.handleChange}
+                                                <Form.Control  id='inputtxt' type="text" placeholder="Name" name="name" value={name} onChange={this.handleChange}
                                                     onBlur={this.validName} required />
                                                 <small className="text-danger">{this.state.nameError}</small>
                                             </Form.Group>
@@ -206,7 +206,7 @@ class addDirector extends Component {
                                         <div className="col-md-12">
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='lab'>Award Count</Form.Label>
-                                                <Form.Control id='inputtxt' type="number" placeholder="Award Count" name="awardCount" value={awardCount} onChange={this.handleChange}
+                                                <Form.Control  id='inputtxt' type="number" placeholder="Award Count" name="awardCount" value={awardCount} onChange={this.handleChange}
                                                     onBlur={this.validAward} required />
                                                 <small className="text-danger">{this.state.awardCountError}</small>
                                             </Form.Group>

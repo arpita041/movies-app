@@ -48,7 +48,7 @@ class updateDetails extends Component {
     {
         let ageNum = parseInt(this.state.age);
         if (ageNum > 80 || ageNum < 18 || this.state.age.trim()==='') {
-            this.setState({ ageError: "age should range between 18 to 80" });    
+            this.setState({ ageError: "Age should range between 18 to 80" });    
         }
         else
         {
@@ -59,7 +59,7 @@ class updateDetails extends Component {
     {
           let award = parseInt(this.state.awardCount);
           if (award > 101 || award < 0 || this.state.awardCount.trim()==='') {
-            this.setState({ awardError: "award count should be between 0 to 100" })
+            this.setState({ awardError: "Award Count should be between 0 to 100" })
         }
         else
         {
@@ -155,6 +155,7 @@ class updateDetails extends Component {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="form-group">
+                                        <Form.Label className='lab'>Name</Form.Label>
                                             <Form.Control id="inputtxt" type="text" name="name" value={name} 
                                                 placeholder=" Name" onChange={this.handleChange} onBlur={this.validateName} />
                                             <small className="text-danger">{this.state.nameError}</small>
@@ -166,6 +167,7 @@ class updateDetails extends Component {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="form-group">
+                                        <Form.Label className='lab'>Age</Form.Label>
                                             <Form.Control type="number" required id="inputtxt"
                                                 name="age" value={age} onBlur={this.validateAge}
                                                  placeholder="Age" onChange={this.handleChange}/>
@@ -179,6 +181,7 @@ class updateDetails extends Component {
                                 <div className="row">
                                     <div className="col-12">
                                         <div className="form-group">
+                                        <Form.Label className='lab'>Award Count</Form.Label>
                                             <Form.Control type="number" name="awardCount" id="inputtxt"
                                              required value={awardCount} onBlur={this.validateAward}
                                                 placeholder="Award Count" onChange={this.handleChange} />

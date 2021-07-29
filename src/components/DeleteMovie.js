@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react'
-import { Modal,Form } from 'react-bootstrap';
+import { Modal, Form } from 'react-bootstrap';
 import InputField from './inputField';
 import NavBarrr from './NavBarrr';
 import '../css/updated.css'
@@ -12,14 +12,14 @@ class DeleteMovie extends Component {
             movieName: '',
             respo: '',
             nameError: '',
-            show:true
+            show: true
         }
     }
-    handleClose=()=>{
-        this.setState({show:false})
+    handleClose = () => {
+        this.setState({ show: false })
     }
-    handleShow=()=>{
-        this.setState({show:true})
+    handleShow = () => {
+        this.setState({ show: true })
     }
 
     handleChange = (event) => {
@@ -27,17 +27,16 @@ class DeleteMovie extends Component {
             movieName: event.target.value
         })
     }
-    validateName= (event)=>
-    {
+    validateName = (event) => {
         console.log("called")
         console.log(this.state.movieName)
         let pattern = /^[a-zA-Z ]{4,30}$/;
-        let pattern2=/^[a-zA-Z0-9~@#$^*()_+=[\]{}|\\,.?: -]*$/;
-        if (!pattern2.test(this.state.movieName) || this.state.movieName.trim()==='') {
+        let pattern2 = /^[a-zA-Z0-9~@#$^*()_+=[\]{}|\\,.?: -]*$/;
+        if (!pattern2.test(this.state.movieName) || this.state.movieName.trim() === '') {
             this.setState({ nameError: "Please enter a valid name" })
         }
         else {
-            this.setState({ nameError: ''})
+            this.setState({ nameError: '' })
         }
     }
     // validation()
@@ -61,14 +60,11 @@ class DeleteMovie extends Component {
     //         return false;
     //     }
     // }
-    validation() 
-    {
-        if(this.state.movieName!=='' && this.state.nameError==='')
-        {
+    validation() {
+        if (this.state.movieName !== '' && this.state.nameError === '') {
             return true;
         }
-        else
-        {
+        else {
             return false;
         }
     }
@@ -83,7 +79,7 @@ class DeleteMovie extends Component {
 
             axios.delete(`http://localhost:3500/deleteFilm/${this.state.movieName}`).then(response => {
                 console.log(response);
-                if (response.data==='done') {
+                if (response.data === 'done') {
                     // alert("No movie found with the entered name");
                     this.setState({
                         respo: 'yes'
@@ -111,36 +107,37 @@ class DeleteMovie extends Component {
 
                     <form onSubmit={this.handleSubmit} autoComplete='off'>
                         <div>
-                            <br/>
-                        <div className="form-group">
-                                            <Form.Control id="inputtxt" type="text" name="movieName" value={movieName} 
-                                                placeholder="Movie Name" onChange={this.handleChange} onBlur={this.validateName} />
-                                            <small className="text-danger">{this.state.nameError}</small>
-                                            
-                                        </div>
+                            <br />
+                            <div className="form-group">
+                                <Form.Label className='lab'>Movie Name</Form.Label>
+                                <Form.Control id="inputtxt" type="text" name="movieName" value={movieName} 
+                                    placeholder="Movie Name" onChange={this.handleChange} onBlur={this.validateName} />
+                                <small className="text-danger">{this.state.nameError}</small>
+
+                            </div>
                         </div>
                         <div className="App">
                             <button className="btnClass" type="submit">Delete it</button>
                         </div><br />
                         {
                             this.state.respo === 'yes' ? <Modal backdrop="static" centered show={this.state.show} onHide={this.handleClose}>
-                            <Modal.Header closeButton>
-                              <Modal.Title>Result</Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>Woohoo,  Movie deleted successfully !!</Modal.Body>
-                            
-                          </Modal> : <b></b>
+                                <Modal.Header closeButton>
+                                    <Modal.Title>Result</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>Woohoo,  Movie deleted successfully !!</Modal.Body>
+
+                            </Modal> : <b></b>
                         }
                         {
                             this.state.respo === 'no' ? <Modal backdrop="static" centered show={this.state.show} onHide={this.handleClose}>
-                            <Modal.Header closeButton>
-                              <Modal.Title>Result</Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>Something went wrong !!</Modal.Body>
-                            
-                          </Modal> : <b></b>
+                                <Modal.Header closeButton>
+                                    <Modal.Title>Result</Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>Something went wrong !!</Modal.Body>
+
+                            </Modal> : <b></b>
                         }
-                      
+
                     </form>
                 </div>
 

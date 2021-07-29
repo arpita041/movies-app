@@ -43,7 +43,7 @@ class updateDetails extends Component {
           else
           {
               this.setState({nameError:''})
-              e.target.id= 'input-txt';
+              e.target.id= 'inputtxt';
           }
     }
     validateAge=event=>
@@ -56,7 +56,7 @@ class updateDetails extends Component {
         else
         {
             this.setState({ageError:""})
-            event.target.id= 'input-txt';
+            event.target.id= 'inputtxt';
         }
     }
     validateAward =event =>
@@ -69,7 +69,7 @@ class updateDetails extends Component {
         else
         {
             this.setState({ awardError: ""});
-            event.target.id= 'input-txt';
+            event.target.id= 'inputtxt';
         }
     }
 

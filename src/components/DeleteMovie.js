@@ -123,7 +123,7 @@ class DeleteMovie extends Component {
                             <button className="btnClass" type="submit">Delete it</button>
                         </div><br />
                         {
-                            this.state.respo === 'yes' ? <Modal centered show={this.state.show} onHide={this.handleClose}>
+                            this.state.respo === 'yes' ? <Modal backdrop="static" centered show={this.state.show} onHide={this.handleClose}>
                             <Modal.Header closeButton>
                               <Modal.Title>Result</Modal.Title>
                             </Modal.Header>
@@ -132,7 +132,7 @@ class DeleteMovie extends Component {
                           </Modal> : <b></b>
                         }
                         {
-                            this.state.respo === 'no' ? <Modal centered show={this.state.show} onHide={this.handleClose}>
+                            this.state.respo === 'no' ? <Modal backdrop="static" centered show={this.state.show} onHide={this.handleClose}>
                             <Modal.Header closeButton>
                               <Modal.Title>Result</Modal.Title>
                             </Modal.Header>

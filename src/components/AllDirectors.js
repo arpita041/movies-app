@@ -56,7 +56,8 @@ function AllDirectors() {
         sortable:true,
         editable:true,
         flex:1,filter:true,
-    
+        flex: 1,
+        minWidth: 120
 
       }
     return (

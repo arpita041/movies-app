@@ -51,10 +51,10 @@ const defaultColDef={
   return (
     <div>
                    <NavBarrr></NavBarrr>
-                <div className="contain">
-                    <h3>Director Details</h3>
+                <div className="heading">
+                    <h3>Movie Details</h3>
                     {/* <button className='btn' onClick={this.getAllMovies} >load all Movies</button> */}
-                </div>
+                </div> <br />
                 {/* <Table post={this.state.allMovies}></Table> */}
                 <Gridreact
                     columnDefs={columnDefs}

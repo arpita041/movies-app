@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Form,Modal} from 'react-bootstrap';
+import { Form, Modal,Button } from 'react-bootstrap';
 import { BrowserRouter as Router } from 'react-router-dom'
 import NavBarrr from './NavBarrr';
 import axios from 'axios'
@@ -20,67 +20,57 @@ class addDirector extends Component {
             awardCountError: '',
             respo: '',
             value: '',
-            show:true
+            show: true
         }
     }
-    handleClose=()=>{
-        this.setState({show:false})
+    handleClose = () => {
+        this.setState({ show: false })
     }
-    handleShow=()=>{
-        this.setState({show:true})
+    handleShow = () => {
+        this.setState({ show: true })
     }
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    validName=event=>
-    {
+    validName = event => {
         let pattern = /^[a-zA-Z ]{2,30}$/;
-      //  let rate = parseInt(this.state.rating);
-        if(!pattern.test(this.state.name) || this.state.name.trim() === '' )
-        {
-            this.setState({nameError:"Please enter a valid name"});
+        //  let rate = parseInt(this.state.rating);
+        if (!pattern.test(this.state.name) || this.state.name.trim() === '') {
+            this.setState({ nameError: "Please enter a valid name" });
         }
-        else
-        {
-            this.setState({nameError:''})
+        else {
+            this.setState({ nameError: '' })
         }
     }
-    validAge=event=>
-    {
+    validAge = event => {
         let ageNum = parseInt(this.state.age);
-        if (ageNum > 80 || ageNum < 18 || this.state.age.trim()==='') {
-            this.setState({ ageError: "age should range between 18 to 80" });    
+        if (ageNum > 80 || ageNum < 18 || this.state.age.trim() === '') {
+            this.setState({ ageError: "age should range between 18 to 80" });
         }
-        else
-        {
-            this.setState({ageError:""})
+        else {
+            this.setState({ ageError: "" })
         }
     }
-    validAward =event =>
-    {
-          let award = parseInt(this.state.awardCount);
-          if (award > 101 || award < 0 || this.state.awardCount.trim()==='') {
+    validAward = event => {
+        let award = parseInt(this.state.awardCount);
+        if (award > 101 || award < 0 || this.state.awardCount.trim() === '') {
             this.setState({ awardCountError: "award count should be between 0 to 100" })
         }
-        else
-        {
-            this.setState({ awardCountError: ""});
+        else {
+            this.setState({ awardCountError: "" });
         }
     }
-    validGender=event=>
-    {
-      
+    validGender = event => {
+
         console.log(this.state.gender);
         if (this.state.gender.trim() === '') {
             this.setState({ genderError: "gender is required" });
         }
-         if(this.state.gender!=='male' && this.state.gender!=='female' && this.state.gender!=='other')
-        {
-            this.setState({genderError:'gender can be only male, female or other'})
+        if (this.state.gender !== 'male' && this.state.gender !== 'female' && this.state.gender !== 'other') {
+            this.setState({ genderError: 'gender can be only male, female or other' })
         }
-        else
-        {
+        else {
             this.setState({ genderError: "" });
         }
     }
@@ -132,34 +122,31 @@ class addDirector extends Component {
     //         return false;
     //     }
     // }
-    validate()
-    {
-        if(this.state.name !=='' && this.state.gender!=='' && this.state.age!=='' && this.state.awardCount!=='' && 
-        this.state.nameError==='' && this.state.ageError==='' && this.state.awardCountError==='' && this.state.genderError==='')
-          {
-                return true;
+    validate() {
+        if (this.state.name !== '' && this.state.gender !== '' && this.state.age !== '' && this.state.awardCount !== '' &&
+            this.state.nameError === '' && this.state.ageError === '' && this.state.awardCountError === '' && this.state.genderError === '') {
+            return true;
         }
-        else
-        {
+        else {
             return false;
         }
     }
     handleSubmit = e => {
         const valid = this.validate();
         // if (valid) {
-            axios.post('http://localhost:3500/direct', this.state)
-                .then(response => {
-                    console.log(response)
-                    if (response.statusText === 'OK') {
-                        this.setState({
-                            respo: 'yes'
-                        })
-                    } else {
-                        this.setState({
-                            respo: 'no'
-                        })
-                    }
-                })
+        axios.post('http://localhost:3500/direct', this.state)
+            .then(response => {
+                console.log(response)
+                if (response.statusText === 'OK') {
+                    this.setState({
+                        respo: 'yes'
+                    })
+                } else {
+                    this.setState({
+                        respo: 'no'
+                    })
+                }
+            })
         //}
         e.preventDefault()
     }
@@ -167,7 +154,7 @@ class addDirector extends Component {
     alphaOnly = (e) => {
         this.setState({ gender: e.target.value.replace(/[^A-Za-z]/ig, '') })
         console.log(this.state.gender);
-       
+
     }
     render() {
         const { name, age, gender, awardCount } = this.state
@@ -186,8 +173,8 @@ class addDirector extends Component {
                                         <div className="col-md-12">
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='lab'>Name</Form.Label>
-                                                <Form.Control id='inputtxt' type="text" placeholder="name" name="name" value={name} onChange={this.handleChange} 
-                                                onBlur={this.validName} required />
+                                                <Form.Control id='inputtxt' type="text" placeholder="name" name="name" value={name} onChange={this.handleChange}
+                                                    onBlur={this.validName} required />
                                                 <small className="text-danger">{this.state.nameError}</small>
                                             </Form.Group>
                                         </div>
@@ -198,7 +185,7 @@ class addDirector extends Component {
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='lab'>Age</Form.Label>
                                                 <Form.Control id='inputtxt' type="number" placeholder="age" name="age" value={age} onChange={this.handleChange}
-                                                onBlur={this.validAge} required />
+                                                    onBlur={this.validAge} required />
                                                 <small className="text-danger">{this.state.ageError}</small>
                                             </Form.Group>
                                         </div>
@@ -208,8 +195,8 @@ class addDirector extends Component {
                                         <div className="col-md-12">
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='lab' >Gender</Form.Label>
-                                                <Form.Control id='inputtxt' type="text" placeholder="gender" name="gender" value={this.state.gender} onChange={this.alphaOnly}  
-                                                onBlur={this.validGender} required />
+                                                <Form.Control id='inputtxt' type="text" placeholder="gender" name="gender" value={this.state.gender} onChange={this.alphaOnly}
+                                                    onBlur={this.validGender} required />
                                                 <small className="text-danger">{this.state.genderError}</small>
                                             </Form.Group>
                                         </div>
@@ -220,7 +207,7 @@ class addDirector extends Component {
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='lab'>Award Count</Form.Label>
                                                 <Form.Control id='inputtxt' type="number" placeholder="awardCount" name="awardCount" value={awardCount} onChange={this.handleChange}
-                                                onBlur={this.validAward} required />
+                                                    onBlur={this.validAward} required />
                                                 <small className="text-danger">{this.state.awardCountError}</small>
                                             </Form.Group>
                                         </div>
@@ -232,22 +219,36 @@ class addDirector extends Component {
                                     <br />
 
                                     {
-                                        this.state.respo === 'yes' ?<Modal centered show={this.state.show} onHide={this.handleClose}>
-                                        <Modal.Header closeButton>
-                                          <Modal.Title>Result</Modal.Title>
-                                        </Modal.Header>
-                                        <Modal.Body>Woohoo,  Director's data uploaded successfully!!</Modal.Body>
-                                        
-                                      </Modal> : <b></b>
+                                        this.state.respo === 'yes' ? <Modal backdrop="static" centered show={this.state.show} onHide={this.handleClose}>
+                                            <Modal.Header closeButton>
+                                                <Modal.Title>Result</Modal.Title>
+                                            </Modal.Header>
+                                            <Modal.Body>Woohoo,  Director's data uploaded successfully!!</Modal.Body>
+                                            <Modal.Footer>
+                                                <Button variant="secondary" onClick={this.handleClose}>
+                                                    Close
+                                                </Button>
+                                                <Button variant="primary" onClick={this.handleClose}>
+                                                    Save Changes
+                                                </Button>
+                                            </Modal.Footer>
+                                        </Modal> : <b></b>
                                     }
                                     {
-                                        this.state.respo === 'no' ? <Modal centered show={this.state.show} onHide={this.handleClose}>
-                                        <Modal.Header closeButton>
-                                          <Modal.Title>Result</Modal.Title>
-                                        </Modal.Header>
-                                        <Modal.Body>Woohoo,Something went wrong!!</Modal.Body>
-                                        
-                                      </Modal> : <b></b>
+                                        this.state.respo === 'no' ? <Modal backdrop="static" centered show={this.state.show} onHide={this.handleClose}>
+                                            <Modal.Header closeButton>
+                                                <Modal.Title>Result</Modal.Title>
+                                            </Modal.Header>
+                                            <Modal.Body>Woohoo,Something went wrong!!</Modal.Body>
+                                            <Modal.Footer>
+                                                <Button variant="secondary" onClick={this.handleClose}>
+                                                    Close
+                                                </Button>
+                                                <Button variant="primary" onClick={this.handleClose}>
+                                                    Save Changes
+                                                </Button>
+                                            </Modal.Footer>
+                                        </Modal> : <b></b>
                                     }
 
 

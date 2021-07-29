@@ -4,7 +4,7 @@ import NavBarrr from './NavBarrr'
 import axios from 'axios';
 import Table from "./table";
 import Gridreact from "./Gridreact";
-import './directorList.css'
+import './css/directorList.css'
 const Director = props => {
 
   const { searchVal } =
@@ -81,7 +81,6 @@ const Director = props => {
       <NavBarrr></NavBarrr>
       <div className="heading">
         <h3>Director Details</h3>
-        {/* <button className='btn' onClick={this.getAllMovies} >load all Movies</button> */}
       </div> <br />
       {/* <Table post={this.state.allMovies}></Table> */}
       <Gridreact

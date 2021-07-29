@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Modal,Form } from 'react-bootstrap';
 import InputField from './inputField';
 import NavBarrr from './NavBarrr';
-import './updated.css'
+import '../css/updated.css'
 class DeleteMovie extends Component {
     constructor(props) {
         super(props)

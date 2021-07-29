@@ -1,7 +1,8 @@
 import axios from 'axios'
 import React, { Component } from 'react'
 import NavBarrr from './NavBarrr'
-import './allMovie.css'
+import '../css/allMovie.css'
+import Table from './table'
 import Gridreact from './Gridreact'
 import { IoIosTrash } from "react-icons/io";
 import { Modal,Button} from 'react-bootstrap';

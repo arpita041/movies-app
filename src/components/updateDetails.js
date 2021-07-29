@@ -4,7 +4,7 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
 import { Alert, Form, Modal } from 'react-bootstrap';
 import Home from './Home';
 import NavBarrr from './NavBarrr';
-import './updated.css'
+import '../css/updated.css'
 class updateDetails extends Component {
     constructor(props) {
         super(props);

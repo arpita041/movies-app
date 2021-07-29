@@ -1,8 +1,8 @@
 import React from 'react';
 import { AgGridReact } from 'ag-grid-react';
 import NavBarrr from './NavBarrr'
-import './AllDirec.scss'
-import './AllDirector.css'
+import '../css/AllDirec.scss'
+import '../css/AllDirector.css'
 function AllDirector() {
   const columnDefs= [
     { headerName: "NAME", field: "name" },

@@ -4,7 +4,7 @@ import { Form, Modal,Button } from 'react-bootstrap';
 import { BrowserRouter as Router } from 'react-router-dom'
 import NavBarrr from './NavBarrr';
 import axios from 'axios'
-import './directorcss.css'
+import '../css/directorcss.css'
 class addDirector extends Component {
     constructor(props) {
         super(props)
@@ -252,7 +252,7 @@ class addDirector extends Component {
                                     }
 
 
-                                    <h6 className="App">Go back to<a style={{ color: '#3BB7C4 ' }} href="/home">  home</a></h6>
+                                    <h6 className="App">Go back to<Link to='/home'><b className="colorT"> home</b></Link></h6>
 
                                 </form>
                             </div>

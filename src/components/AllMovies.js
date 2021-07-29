@@ -49,21 +49,9 @@ class AllMovies extends Component {
         params.api.sizeColumnsToFit();
     }
     actionButton = (params) => {
-        this.handleShow()
-        if(this.state.respo==='yes'){
-            var name = params.data.name;
-            params.api.applyTransaction({
-                remove: [params.node.data]
-            });
-            axios.delete(`http://localhost:3500/deleteMovieRow/${name}`)
-                .then(res => {
-                    console.log(res);
-                })
-        }
-        // let saveIt = window.confirm("Do you want to delete the data?");
-        // if (saveIt === true) {
-        //     console.log(params);
-        //     const name = params.data.name;
+        // this.handleShow()
+        // if(this.state.respo==='yes'){
+        //     var name = params.data.name;
         //     params.api.applyTransaction({
         //         remove: [params.node.data]
         //     });
@@ -72,9 +60,21 @@ class AllMovies extends Component {
         //             console.log(res);
         //         })
         // }
-        // else {
-        //     console.log("no")
-        // }
+        let saveIt = window.confirm("Do you want to delete the data?");
+        if (saveIt === true) {
+            console.log(params);
+            const name = params.data.name;
+            params.api.applyTransaction({
+                remove: [params.node.data]
+            });
+            axios.delete(`http://localhost:3500/deleteMovieRow/${name}`)
+                .then(res => {
+                    console.log(res);
+                })
+        }
+        else {
+            console.log("no")
+         }
     }
 
     // deleteIt=(params)=>{
@@ -109,7 +109,7 @@ class AllMovies extends Component {
                 <div className="heading">
                     <h3>Movie Details</h3>
                 </div><br />
-                {
+                {/* {
                     this.state.show ? <Modal backdrop="static" centered show={this.state.show} onHide={this.handleClose}>
                     <Modal.Header closeButton>
                       <Modal.Title>Modal heading</Modal.Title>
@@ -127,7 +127,7 @@ class AllMovies extends Component {
                     
                     </Modal.Footer>
                   </Modal> : <b></b>
-                }
+                } */}
                 <Gridreact
                     columnDefs={this.state.columnDefs}
                     defaultColDef={this.state.defaultColDef}

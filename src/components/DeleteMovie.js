@@ -109,7 +109,6 @@ class DeleteMovie extends Component {
 
                     <form onSubmit={this.handleSubmit} autoComplete='off'>
                         <div>
-                            <br />
                             <div className="form-group">
                                 <Form.Label className='lab'>Movie Name</Form.Label>
                                 <Form.Control id="inputtxt" type="text" name="movieName" value={movieName} 
@@ -133,9 +132,9 @@ class DeleteMovie extends Component {
                         {
                             this.state.respo === 'no' ? <Modal backdrop="static" centered show={this.state.show} onHide={this.handleClose}>
                                 <Modal.Header closeButton>
-                                    <Modal.Title>Result</Modal.Title>
+                                    <Modal.Title>Something went wrong !!</Modal.Title>
                                 </Modal.Header>
-                                <Modal.Body>Something went wrong !!</Modal.Body>
+                                <Modal.Body>You entered the wrong movie name</Modal.Body>
 
                             </Modal> : <b></b>
                         }

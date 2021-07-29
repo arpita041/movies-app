@@ -24,10 +24,11 @@ class AllMovies extends Component {
                 },
             ],
             defaultColDef: {
-                sortable: true,
-                editable: true,
-                flex: 1, filter: true,
-                
+                sortable:true,
+        editable:true,
+        flex:1,filter:true,
+        flex: 1,
+        minWidth: 120
 
             },
             rowData: null,
@@ -79,10 +80,11 @@ class AllMovies extends Component {
         return (
             <div>
                 <NavBarrr></NavBarrr>
-                <div className="contain">
+                <div className="heading">
                     <h3>Movie Details</h3>
                     {/* <button className='btn' onClick={this.getAllMovies} >load all Movies</button> */}
                 </div>
+                <br/>
                 {/* <Table post={this.state.allMovies}></Table> */}
                 <Gridreact
                     columnDefs={this.state.columnDefs}

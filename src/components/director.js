@@ -32,8 +32,7 @@ const Director = props => {
   const defaultColDef = {
     sortable: true,
     editable: true,
-    flex: 1, filter: true,
-    floatingFilter: true,
+    flex: 1,
     minWidth: 120
   }
   useEffect(() => {
@@ -57,7 +56,7 @@ const Director = props => {
         .then(res => {
           console.log(res)
           setPost(res.data.data)
-          setHeight('3m00px')
+          setHeight('300px')
           //   console.log(post.data.age)
         })
         .catch(err => {

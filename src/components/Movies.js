@@ -19,8 +19,7 @@ const Movies = props => {
 const defaultColDef={
   sortable:true,
   editable:true,
-  flex:1,filter:true,
-  floatingFilter:true,
+  flex:1,
   minWidth: 120
 
 }

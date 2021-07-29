@@ -101,9 +101,9 @@ a=0;
                     paginationPageSize={paginationPageSize}
                 >
                 </AgGridReact>
-            </div>
+            </div> <br />
             <div id="uni">
-                <button id="myBtn" className="btn btn-dark" disabled={true}>Save</button>
+                <button id="myBtn" className="btn btn-Success" disabled={true}>Save</button>
             </div>
         </div>
     )

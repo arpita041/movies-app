@@ -15,7 +15,7 @@ class AllMovies extends Component {
                 { headerName: 'NAME', field: 'name',width: 100 },
                 { headerName: 'RATING', field: 'rating',width: 100 },
                 { headerName: 'DIRECTOR', field: 'director',width: 100 },
-                { headerName: 'BOX OFFICE COLLECTION', field: 'boxOfficeCollection' ,width: 100},
+                { headerName: 'COLLECTION', field: 'boxOfficeCollection' ,width: 100},
                 {
                     headerName: 'ACTION', field: 'abc', cellRendererFramework: (params) => <div>
                         {/* <button className="btnClass" onClick={() => this.saving(params)}>Save</button> */}
@@ -27,7 +27,7 @@ class AllMovies extends Component {
                 sortable: true,
                 editable: true,
                 flex: 1, filter: true,
-                
+                minWidth: 135
 
             },
             rowData: null,
@@ -79,10 +79,10 @@ class AllMovies extends Component {
         return (
             <div>
                 <NavBarrr></NavBarrr>
-                <div className="contain">
+                <div className="heading">
                     <h3>Movie Details</h3>
                     {/* <button className='btn' onClick={this.getAllMovies} >load all Movies</button> */}
-                </div>
+                </div> <br />
                 {/* <Table post={this.state.allMovies}></Table> */}
                 <Gridreact
                     columnDefs={this.state.columnDefs}

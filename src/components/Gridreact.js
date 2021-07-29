@@ -2,8 +2,8 @@ import React from 'react'
 import { AgGridReact } from 'ag-grid-react';
 // import 'ag-grid-community/dist/styles/ag-grid.css';
 // import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
-import './AllDirec.scss';
-import './AllDirector.css'
+import '../css/AllDirec.scss';
+import '../css/AllDirector.css'
 import axios from 'axios';
 //import { GridApi } from 'ag-grid-community';
 

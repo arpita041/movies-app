@@ -1,5 +1,5 @@
 import React from 'react'
-import './inputt.css'
+import '../css/inputt.css'
 function InputField({ value, label, name, placeholder, type, onChange,myFunc }) {
     return (
         <div className="form-group" >

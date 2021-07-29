@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 // import { Carousel} from 'react-bootstrap';
 import NavBarrr from './NavBarrr';
 import Carousel from 'react-grid-carousel';
-import './home.css';
+import '../css/home.css';
  class Home extends Component {
     render() {
         return (

@@ -38,40 +38,49 @@ class addDirector extends Component {
         //  let rate = parseInt(this.state.rating);
         if (!pattern.test(this.state.name) || this.state.name.trim() === '') {
             this.setState({ nameError: "Please enter a valid name" });
+        event.target.id= 'danger-id';
         }
         else {
             this.setState({ nameError: '' })
+           event.target.id='inputtxt'
         }
     }
     validAge = event => {
         let ageNum = parseInt(this.state.age);
         if (ageNum > 80 || ageNum < 18 || this.state.age.trim() === '') {
-            this.setState({ ageError: "Age should range between 18 to 80" });
+            this.setState({ ageError: "age should range between 18 to 80" });
+            event.target.id= 'danger-id';
         }
         else {
             this.setState({ ageError: "" })
+            event.target.id='inputtxt'
         }
     }
     validAward = event => {
         let award = parseInt(this.state.awardCount);
         if (award > 101 || award < 0 || this.state.awardCount.trim() === '') {
-            this.setState({ awardCountError: "Award Count should be between 0 to 100" })
+            this.setState({ awardCountError: "award count should be between 0 to 100" })
+            event.target.id= 'danger-id';
         }
         else {
             this.setState({ awardCountError: "" });
+            event.target.id='inputtxt'
         }
     }
     validGender = event => {
 
         console.log(this.state.gender);
         if (this.state.gender.trim() === '') {
-            this.setState({ genderError: "Gender is required" });
+            this.setState({ genderError: "gender is required" });
+            event.target.id= 'danger-id';
         }
         if (this.state.gender !== 'male' && this.state.gender !== 'female' && this.state.gender !== 'other') {
-            this.setState({ genderError: 'Gender can be only male, female or other' })
+            this.setState({ genderError: 'gender can be only male, female or other' })
+            event.target.id= 'danger-id';
         }
         else {
             this.setState({ genderError: "" });
+            event.target.id='inputtxt'
         }
     }
 
@@ -173,7 +182,7 @@ class addDirector extends Component {
                                         <div className="col-md-12">
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='lab'>Name</Form.Label>
-                                                <Form.Control  id='inputtxt' type="text" placeholder="Name" name="name" value={name} onChange={this.handleChange}
+                                                <Form.Control id='inputtxt' className="cl1" type="text" placeholder="Name" name="name" value={name} onChange={this.handleChange}
                                                     onBlur={this.validName} required />
                                                 <small className="text-danger">{this.state.nameError}</small>
                                             </Form.Group>
@@ -195,7 +204,7 @@ class addDirector extends Component {
                                         <div className="col-md-12">
                                             <Form.Group controlId="formBasicEmail">
                                                 <Form.Label className='lab' >Gender</Form.Label>
-                                                <Form.Control id='inputtxt' type="text" placeholder="Gender" name="gender" value={this.state.gender} onChange={this.alphaOnly}
+                                                <Form.Control id='inputtxt'  type="text" placeholder="Gender" name="gender" value={this.state.gender} onChange={this.alphaOnly}
                                                     onBlur={this.validGender} required />
                                                 <small className="text-danger">{this.state.genderError}</small>
                                             </Form.Group>

@@ -45,14 +45,10 @@ let a=0;
 
     const secnd = (res) => {
 data = res.data;
+
 dataArray.push(data);
 console.log("data", data)
       console.log(res);
-    //   if(res.oldValue === res.value  && a===1)
-    //   {
-    //   c.removeChild(saveBtn);
-    //   a=0;
-    //   }
     if(res.oldValue === res.value && a===1)
     {
 document.getElementById('myBtn').disabled= true;

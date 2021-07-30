@@ -5,7 +5,7 @@ var React = require('react/addons'),
     expect = require('expect'),
     componentt=require('../components/filmsForm.js')
 
-describe("render ho jaa",()=>{
+describe("rendering ",()=>{
     it("check element",()=>{
         var comp = TestUtils.renderIntoDocument(
             <filmsForm />

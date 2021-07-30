@@ -80,7 +80,7 @@ class AllMovies extends Component {
             <div>
                 <NavBarrr></NavBarrr>
                 <div className="heading">
-                    <h3>Movie Details</h3>
+                    <h3 data-testid='header'>Movie Details</h3>
                     {/* <button className='btn' onClick={this.getAllMovies} >load all Movies</button> */}
                 </div> <br />
                 {/* <Table post={this.state.allMovies}></Table> */}

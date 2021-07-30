@@ -171,7 +171,7 @@ class AddDirector extends Component {
             <div>
                 <NavBarrr></NavBarrr>
                 <div className='heading'>
-                    <h3 style={{ color: 'white ' }}>Add Directors Details</h3>
+                    <h3 data-testid='header' style={{ color: 'white ' }}>Add Directors Details</h3>
                 </div>
                 <div className="container my-4">
                     <div className="row">

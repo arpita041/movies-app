@@ -57,6 +57,7 @@ function AllDirectors() {
         editable:true,
         flex:1,filter:true,
         flex: 1,
+        floatingFilter:true,
         minWidth: 120
 
       }

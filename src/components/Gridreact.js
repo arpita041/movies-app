@@ -63,20 +63,34 @@ a=0;
               if (props.apiValue === 'director') {
                   for(let i=0;i<nameArray.length;i++)
                   {
+                      if(!nameArray[i] || !dataArray[i])
+                      {
+                          console.log('something wrong')
+                      }
+                      else
+                      {
                     axios.patch(`http://localhost:3500/updateDirect/${nameArray[i]}`,dataArray[i])
                 .then(res => {
                     console.log(res);
-                });   
+                }); 
+            }  
                   }
            
         }
         else if (props.apiValue === 'movie') {
                 for(let i=0;i<nameArray.length;i++)
                 {
+                    if(!nameArray[i] || !dataArray[i])
+                    {
+                        console.log('something wrong')
+                    }
+                    else
+                    {
                   axios.patch(`http://localhost:3500/updateMovie/${nameArray[i]}`,dataArray[i])
               .then(res => {
                   console.log(res);
-              });   
+              });  
+            } 
                 }
         }
         if(a===1)

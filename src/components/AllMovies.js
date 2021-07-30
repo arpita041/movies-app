@@ -27,6 +27,7 @@ class AllMovies extends Component {
                 sortable: true,
                 editable: true,
                 flex: 1, filter: true,
+                floatingFilter:true,
                 minWidth: 135
 
             },

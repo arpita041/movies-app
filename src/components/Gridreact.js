@@ -9,9 +9,11 @@ import axios from 'axios';
 
 function Gridreact(props) {
 
+
     let name;
     let nameArray=[];
     let dataArray=[];
+
     //  let saveBtn;
     const rowStyle = {
         background: 'transparent',
@@ -61,20 +63,34 @@ a=0;
               if (props.apiValue === 'director') {
                   for(let i=0;i<nameArray.length;i++)
                   {
+                      if(!nameArray[i] || !dataArray[i])
+                      {
+                          console.log('something wrong')
+                      }
+                      else
+                      {
                     axios.patch(`http://localhost:3500/updateDirect/${nameArray[i]}`,dataArray[i])
                 .then(res => {
                     console.log(res);
-                });   
+                }); 
+            }  
                   }
            
         }
         else if (props.apiValue === 'movie') {
                 for(let i=0;i<nameArray.length;i++)
                 {
+                    if(!nameArray[i] || !dataArray[i])
+                    {
+                        console.log('something wrong')
+                    }
+                    else
+                    {
                   axios.patch(`http://localhost:3500/updateMovie/${nameArray[i]}`,dataArray[i])
               .then(res => {
                   console.log(res);
-              });   
+              });  
+            } 
                 }
         }
         if(a===1)
@@ -89,7 +105,7 @@ a=0;
     console.log(height)
     return (
         <div>
-            <div className="ag-theme-alpine" style={{ height: props.height, width:'100%' }}>
+         <div className="ag-theme-alpine" style={{ height: props.height, width:'100%' }}>
                 <AgGridReact
                     columnDefs={props.columnDefs}
                     rowData={props.rowData}
@@ -98,14 +114,14 @@ a=0;
                     onRowDoubleClicked={myFunction}
                     onCellEditingStopped={secnd}
                     pagination={true}
-                    paginationPageSize={paginationPageSize}
-                >
+                    paginationPageSize={paginationPageSize}>
                 </AgGridReact>
             </div> <br />
             <div id="uni">
                 <button id="myBtn" className="btn btn-Success" disabled={true}>Save</button>
             </div>
         </div>
+        
     )
 }
 

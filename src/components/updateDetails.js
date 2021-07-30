@@ -50,7 +50,7 @@ class UpdateDetails extends Component {
     {
         let ageNum = parseInt(this.state.age);
         if (ageNum > 80 || ageNum < 18 || this.state.age.trim()==='') {
-            this.setState({ ageError: "age should range between 18 to 80" });   
+            this.setState({ ageError: "Age should range between 18 to 80" });   
             event.target.id= 'danger-id'; 
         }
         else
@@ -63,7 +63,7 @@ class UpdateDetails extends Component {
     {
           let award = parseInt(this.state.awardCount);
           if (award > 101 || award < 0 || this.state.awardCount.trim()==='') {
-            this.setState({ awardError: "award count should be between 0 to 100" })
+            this.setState({ awardError: "Award count should be between 0 to 100" })
             event.target.id= 'danger-id';
         }
         else

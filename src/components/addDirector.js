@@ -48,7 +48,7 @@ class AddDirector extends Component {
     validAge = event => {
         let ageNum = parseInt(this.state.age);
         if (ageNum > 80 || ageNum < 18 || this.state.age.trim() === '') {
-            this.setState({ ageError: "age should range between 18 to 80" });
+            this.setState({ ageError: "Age should range between 18 to 80" });
             event.target.id= 'danger-id';
         }
         else {
@@ -59,7 +59,7 @@ class AddDirector extends Component {
     validAward = event => {
         let award = parseInt(this.state.awardCount);
         if (award > 101 || award < 0 || this.state.awardCount.trim() === '') {
-            this.setState({ awardCountError: "award count should be between 0 to 100" })
+            this.setState({ awardCountError: "Award count should be between 0 to 100" })
             event.target.id= 'danger-id';
         }
         else {
@@ -71,11 +71,11 @@ class AddDirector extends Component {
 
         console.log(this.state.gender);
         if (this.state.gender.trim() === '') {
-            this.setState({ genderError: "gender is required" });
+            this.setState({ genderError: "Gender is required" });
             event.target.id= 'danger-id';
         }
         if (this.state.gender !== 'male' && this.state.gender !== 'female' && this.state.gender !== 'other') {
-            this.setState({ genderError: 'gender can be only male, female or other' })
+            this.setState({ genderError: 'Gender can be only male, female or other' })
             event.target.id= 'danger-id';
         }
         else {
@@ -233,14 +233,6 @@ class AddDirector extends Component {
                                                 <Modal.Title>Result</Modal.Title>
                                             </Modal.Header>
                                             <Modal.Body>Woohoo,  Director's data uploaded successfully!!</Modal.Body>
-                                            <Modal.Footer>
-                                                <Button variant="secondary" onClick={this.handleClose}>
-                                                    Close
-                                                </Button>
-                                                <Button variant="primary" onClick={this.handleClose}>
-                                                    Save Changes
-                                                </Button>
-                                            </Modal.Footer>
                                         </Modal> : <b></b>
                                     }
                                     {
@@ -249,14 +241,7 @@ class AddDirector extends Component {
                                                 <Modal.Title>Result</Modal.Title>
                                             </Modal.Header>
                                             <Modal.Body>Woohoo,Something went wrong!!</Modal.Body>
-                                            <Modal.Footer>
-                                                <Button variant="secondary" onClick={this.handleClose}>
-                                                    Close
-                                                </Button>
-                                                <Button variant="primary" onClick={this.handleClose}>
-                                                    Save Changes
-                                                </Button>
-                                            </Modal.Footer>
+                                          
                                         </Modal> : <b></b>
                                     }
 

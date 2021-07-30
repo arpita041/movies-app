@@ -14,13 +14,14 @@ const Movies = props => {
     { headerName: 'NAME', field: 'name' },
     { headerName: 'RATING', field: 'rating' },
     { headerName: 'DIRECTOR', field: 'director' },
-    { headerName: 'BOX OFFICE COLLECTION', field: 'boxOfficeCollection', minWidth:120 }
+    { headerName: 'COLLECTION', field: 'boxOfficeCollection', minWidth:120 }
 ]
 const defaultColDef={
   sortable:true,
   editable:true,
-  flex:1,
-  minWidth: 120
+  flex:1,filter:true,
+  floatingFilter:true,
+  minWidth: 135
 
 }
   useEffect(() => {

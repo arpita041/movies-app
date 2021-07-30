@@ -45,7 +45,7 @@ function AllDirectors() {
     { headerName: "NAME", field: "name", width:100 },
     { headerName: "AGE", field: "age",}, 
     {headerName: "GENDER",field: "gender",},
-    { headerName: "AWARD COUNT", field: "awardCount"},
+    { headerName: "AWARD'S", field: "awardCount"},
     {headerName:'ACTION' , field:'abc', cellRendererFramework:(params)=><div>
         {/* <button className="btnClass" onClick={()=>saving(params)}>Save</button> */}
         <button className="btn"  onClick={()=>actionButton(params)}><IoIosTrash/></button>

@@ -4,7 +4,7 @@ import { Form, Modal,Button } from 'react-bootstrap';
 import { BrowserRouter as Router ,Link} from 'react-router-dom'
 import NavBarrr from './NavBarrr';
 import axios from 'axios'
-import '../css/directorcss.css'
+// import '../css/directorcss.css'
 import '../css/forms.scss'
 class AddDirector extends Component {
     constructor(props) {
@@ -185,7 +185,7 @@ class AddDirector extends Component {
                                         <label className="form__input-label">Name</label>
                                                 <input className="form__input-field" type="text" placeholder="Name" name="name" value={name} onChange={this.handleChange}
                                                     onBlur={this.validName} required />
-                                                <small className="text-danger">{this.state.nameError}</small>
+                                                <small className="error">{this.state.nameError}</small>
                                            
                                     </div>
                                 
@@ -194,7 +194,7 @@ class AddDirector extends Component {
                                         <label className="form__input-label">Age</label>
                                                 <input className="form__input-field" type="number" placeholder="Age" name="age" value={age} onChange={this.handleChange}
                                                     onBlur={this.validAge} required />
-                                                <small className="text-danger">{this.state.ageError}</small>
+                                                <small className="error">{this.state.ageError}</small>
                             
                                         </div>
 
@@ -204,7 +204,7 @@ class AddDirector extends Component {
                                         <label className="form__input-label">Gender</label>
                                                 <input className="form__input-field"  type="text" placeholder="Gender" name="gender" value={this.state.gender} onChange={this.alphaOnly}
                                                     onBlur={this.validGender} required />
-                                                <small className="text-danger">{this.state.genderError}</small>
+                                                <small className="error">{this.state.genderError}</small>
                                      
                                        </div>
                         
@@ -213,7 +213,7 @@ class AddDirector extends Component {
                                         <label className="form__input-label">Award Count</label>
                                                 <input className="form__input-field" type="number" placeholder="Award Count" name="awardCount" value={awardCount} onChange={this.handleChange}
                                                     onBlur={this.validAward} required />
-                                                <small className="text-danger">{this.state.awardCountError}</small>
+                                                <small className="error">{this.state.awardCountError}</small>
                                             
                             
 

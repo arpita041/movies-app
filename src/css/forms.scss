@@ -1,0 +1,56 @@
+$base_Color:white;
+$form_bgColor: rgba(0,0,0,0.3);
+
+.header{
+    padding: 1%;
+    margin: auto;
+    background:$form_bgColor;
+    text-align: center;
+}
+.header__title
+{
+    color:$base_Color;
+}
+.container{
+   margin: auto;
+    width: 50%;    
+    background:$form_bgColor;
+}
+.container-margin
+{
+    margin-top: 2%;
+}
+@media only screen and (max-width: 600px) {
+    .container{
+        margin: auto;
+        width: 100%;    
+        background:$form_bgColor;
+    }
+}
+.form{
+    padding: 2%;
+    color:white
+}
+
+.form__input
+{
+    width: 100%;
+    margin-bottom:8px;
+}
+.form__input-label
+{
+    color:$base_Color;
+    margin: 2%;
+    font-size: large;
+}
+.form__input-field
+{
+    width: 100%;
+    background: none;
+    border: 1px solid white;
+    color: white;
+    font-size: medium;
+    border-radius: 5px;
+    padding:7px;
+    padding-left: 12px;
+}

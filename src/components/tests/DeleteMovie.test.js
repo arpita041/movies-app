@@ -1,10 +1,11 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Home from '../components/Home';
+import DeleteMovie from '../DeleteMovie';
 import { BrowserRouter } from 'react-router-dom';
 
-test('to check whether home component rendered',()=>{
+
+test('to check whether DeleteMovie component rendered',()=>{
     render(<BrowserRouter>
-        <Home />
+        <DeleteMovie />
     </BrowserRouter>)
 })

@@ -179,7 +179,7 @@ exports[`should take a snapshot 1`] = `
               <!--AG-GRID-BODY-->
               <div
                 aria-colcount="5"
-                aria-rowcount="1"
+                aria-rowcount="2"
                 class="ag-root ag-unselectable ag-layout-normal"
                 ref="gridBody"
                 role="grid"
@@ -192,7 +192,7 @@ exports[`should take a snapshot 1`] = `
                   class="ag-header ag-focus-managed ag-pivot-off"
                   ref="headerRoot"
                   role="presentation"
-                  style="height: 49px; min-height: 49px;"
+                  style="height: 97px; min-height: 97px;"
                   unselectable="on"
                 >
                   
@@ -209,6 +209,12 @@ exports[`should take a snapshot 1`] = `
                       role="row"
                       style="top: 0px; height: 48px; width: 0px;"
                     />
+                    <div
+                      aria-rowindex="2"
+                      class="ag-header-row ag-header-row-floating-filter"
+                      role="row"
+                      style="top: 48px; height: 48px; width: 0px;"
+                    />
                   </div>
                   
             
@@ -223,13 +229,13 @@ exports[`should take a snapshot 1`] = `
                       class="ag-header-container"
                       ref="eHeaderContainer"
                       role="rowgroup"
-                      style="width: 950px;"
+                      style="width: 920px;"
                     >
                       <div
                         aria-rowindex="1"
                         class="ag-header-row ag-header-row-column"
                         role="row"
-                        style="top: 0px; height: 48px; width: 950px;"
+                        style="top: 0px; height: 48px; width: 920px;"
                       >
                         <div
                           aria-colindex="1"
@@ -237,7 +243,7 @@ exports[`should take a snapshot 1`] = `
                           class="ag-header-cell ag-focus-managed ag-header-cell-sortable"
                           col-id="name"
                           role="columnheader"
-                          style="width: 150px; left: 0px;"
+                          style="width: 120px; left: 0px;"
                           tabindex="-1"
                           unselectable="on"
                         >
@@ -275,7 +281,7 @@ exports[`should take a snapshot 1`] = `
                               <input
                                 aria-label="Press Space to toggle all rows selection (unchecked)"
                                 class="ag-input-field-input ag-checkbox-input"
-                                id="ag-96-input"
+                                id="ag-131-input"
                                 ref="eInput"
                                 tabindex="-1"
                                 type="checkbox"
@@ -394,7 +400,7 @@ exports[`should take a snapshot 1`] = `
                           class="ag-header-cell ag-focus-managed ag-header-cell-sortable"
                           col-id="age"
                           role="columnheader"
-                          style="width: 200px; left: 150px;"
+                          style="width: 200px; left: 120px;"
                           tabindex="-1"
                           unselectable="on"
                         >
@@ -432,7 +438,7 @@ exports[`should take a snapshot 1`] = `
                               <input
                                 aria-label="Press Space to toggle all rows selection (unchecked)"
                                 class="ag-input-field-input ag-checkbox-input"
-                                id="ag-99-input"
+                                id="ag-134-input"
                                 ref="eInput"
                                 tabindex="-1"
                                 type="checkbox"
@@ -551,7 +557,7 @@ exports[`should take a snapshot 1`] = `
                           class="ag-header-cell ag-focus-managed ag-header-cell-sortable"
                           col-id="gender"
                           role="columnheader"
-                          style="width: 200px; left: 350px;"
+                          style="width: 200px; left: 320px;"
                           tabindex="-1"
                           unselectable="on"
                         >
@@ -589,7 +595,7 @@ exports[`should take a snapshot 1`] = `
                               <input
                                 aria-label="Press Space to toggle all rows selection (unchecked)"
                                 class="ag-input-field-input ag-checkbox-input"
-                                id="ag-102-input"
+                                id="ag-137-input"
                                 ref="eInput"
                                 tabindex="-1"
                                 type="checkbox"
@@ -708,7 +714,7 @@ exports[`should take a snapshot 1`] = `
                           class="ag-header-cell ag-focus-managed ag-header-cell-sortable"
                           col-id="awardCount"
                           role="columnheader"
-                          style="width: 200px; left: 550px;"
+                          style="width: 200px; left: 520px;"
                           tabindex="-1"
                           unselectable="on"
                         >
@@ -746,7 +752,7 @@ exports[`should take a snapshot 1`] = `
                               <input
                                 aria-label="Press Space to toggle all rows selection (unchecked)"
                                 class="ag-input-field-input ag-checkbox-input"
-                                id="ag-105-input"
+                                id="ag-140-input"
                                 ref="eInput"
                                 tabindex="-1"
                                 type="checkbox"
@@ -865,7 +871,7 @@ exports[`should take a snapshot 1`] = `
                           class="ag-header-cell ag-focus-managed ag-header-cell-sortable"
                           col-id="abc"
                           role="columnheader"
-                          style="width: 200px; left: 750px;"
+                          style="width: 200px; left: 720px;"
                           tabindex="-1"
                           unselectable="on"
                         >
@@ -903,7 +909,7 @@ exports[`should take a snapshot 1`] = `
                               <input
                                 aria-label="Press Space to toggle all rows selection (unchecked)"
                                 class="ag-input-field-input ag-checkbox-input"
-                                id="ag-108-input"
+                                id="ag-143-input"
                                 ref="eInput"
                                 tabindex="-1"
                                 type="checkbox"
@@ -1017,6 +1023,397 @@ exports[`should take a snapshot 1`] = `
                           </div>
                         </div>
                       </div>
+                      <div
+                        aria-rowindex="2"
+                        class="ag-header-row ag-header-row-floating-filter"
+                        role="row"
+                        style="top: 48px; height: 48px; width: 920px;"
+                      >
+                        <div
+                          aria-colindex="1"
+                          class="ag-header-cell ag-focus-managed"
+                          role="gridcell"
+                          style="width: 120px; left: 0px;"
+                          tabindex="-1"
+                        >
+                          
+            
+                          <div
+                            class="ag-floating-filter-body"
+                            ref="eFloatingFilterBody"
+                            role="presentation"
+                          >
+                            <div
+                              class="ag-floating-filter-input"
+                              role="presentation"
+                            >
+                              
+                
+                              <!--AG-INPUT-TEXT-FIELD-->
+                              <div
+                                class="ag-labeled ag-label-align-left ag-text-field ag-input-field"
+                                ref="eFloatingFilterInput"
+                                role="presentation"
+                              >
+                                
+                
+                                <div
+                                  class="ag-input-field-label ag-label ag-hidden ag-text-field-label"
+                                  ref="eLabel"
+                                  role="presentation"
+                                />
+                                
+                
+                                <div
+                                  class="ag-wrapper ag-input-wrapper ag-text-field-input-wrapper"
+                                  ref="eWrapper"
+                                  role="presentation"
+                                >
+                                  
+                    
+                                  <input
+                                    aria-label="NAME Filter Input"
+                                    class="ag-input-field-input ag-text-field-input"
+                                    id="ag-147-input"
+                                    ref="eInput"
+                                    type="text"
+                                  />
+                                  
+                
+                                </div>
+                                
+            
+                              </div>
+                              
+            
+                            </div>
+                          </div>
+                          
+            
+                          <div
+                            class="ag-floating-filter-button"
+                            ref="eButtonWrapper"
+                            role="presentation"
+                          >
+                            
+                
+                            <button
+                              aria-label="Open Filter Menu"
+                              class="ag-floating-filter-button-button"
+                              ref="eButtonShowMainFilter"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              <span
+                                class="ag-icon ag-icon-filter"
+                                role="presentation"
+                                unselectable="on"
+                              />
+                            </button>
+                            
+            
+                          </div>
+                          
+        
+                        </div>
+                        <div
+                          aria-colindex="2"
+                          class="ag-header-cell ag-focus-managed"
+                          role="gridcell"
+                          style="width: 200px; left: 120px;"
+                          tabindex="-1"
+                        >
+                          
+            
+                          <div
+                            class="ag-floating-filter-body"
+                            ref="eFloatingFilterBody"
+                            role="presentation"
+                          >
+                            <div
+                              class="ag-floating-filter-input"
+                              role="presentation"
+                            >
+                              
+                
+                              <!--AG-INPUT-TEXT-FIELD-->
+                              <div
+                                class="ag-labeled ag-label-align-left ag-text-field ag-input-field"
+                                ref="eFloatingFilterInput"
+                                role="presentation"
+                              >
+                                
+                
+                                <div
+                                  class="ag-input-field-label ag-label ag-hidden ag-text-field-label"
+                                  ref="eLabel"
+                                  role="presentation"
+                                />
+                                
+                
+                                <div
+                                  class="ag-wrapper ag-input-wrapper ag-text-field-input-wrapper"
+                                  ref="eWrapper"
+                                  role="presentation"
+                                >
+                                  
+                    
+                                  <input
+                                    aria-label="AGE Filter Input"
+                                    class="ag-input-field-input ag-text-field-input"
+                                    id="ag-150-input"
+                                    ref="eInput"
+                                    type="text"
+                                  />
+                                  
+                
+                                </div>
+                                
+            
+                              </div>
+                              
+            
+                            </div>
+                          </div>
+                          
+            
+                          <div
+                            class="ag-floating-filter-button"
+                            ref="eButtonWrapper"
+                            role="presentation"
+                          >
+                            
+                
+                            <button
+                              aria-label="Open Filter Menu"
+                              class="ag-floating-filter-button-button"
+                              ref="eButtonShowMainFilter"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              <span
+                                class="ag-icon ag-icon-filter"
+                                role="presentation"
+                                unselectable="on"
+                              />
+                            </button>
+                            
+            
+                          </div>
+                          
+        
+                        </div>
+                        <div
+                          aria-colindex="3"
+                          class="ag-header-cell ag-focus-managed"
+                          role="gridcell"
+                          style="width: 200px; left: 320px;"
+                          tabindex="-1"
+                        >
+                          
+            
+                          <div
+                            class="ag-floating-filter-body"
+                            ref="eFloatingFilterBody"
+                            role="presentation"
+                          >
+                            <div
+                              class="ag-floating-filter-input"
+                              role="presentation"
+                            >
+                              
+                
+                              <!--AG-INPUT-TEXT-FIELD-->
+                              <div
+                                class="ag-labeled ag-label-align-left ag-text-field ag-input-field"
+                                ref="eFloatingFilterInput"
+                                role="presentation"
+                              >
+                                
+                
+                                <div
+                                  class="ag-input-field-label ag-label ag-hidden ag-text-field-label"
+                                  ref="eLabel"
+                                  role="presentation"
+                                />
+                                
+                
+                                <div
+                                  class="ag-wrapper ag-input-wrapper ag-text-field-input-wrapper"
+                                  ref="eWrapper"
+                                  role="presentation"
+                                >
+                                  
+                    
+                                  <input
+                                    aria-label="GENDER Filter Input"
+                                    class="ag-input-field-input ag-text-field-input"
+                                    id="ag-153-input"
+                                    ref="eInput"
+                                    type="text"
+                                  />
+                                  
+                
+                                </div>
+                                
+            
+                              </div>
+                              
+            
+                            </div>
+                          </div>
+                          
+            
+                          <div
+                            class="ag-floating-filter-button"
+                            ref="eButtonWrapper"
+                            role="presentation"
+                          >
+                            
+                
+                            <button
+                              aria-label="Open Filter Menu"
+                              class="ag-floating-filter-button-button"
+                              ref="eButtonShowMainFilter"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              <span
+                                class="ag-icon ag-icon-filter"
+                                role="presentation"
+                                unselectable="on"
+                              />
+                            </button>
+                            
+            
+                          </div>
+                          
+        
+                        </div>
+                        <div
+                          aria-colindex="4"
+                          class="ag-header-cell ag-focus-managed"
+                          role="gridcell"
+                          style="width: 200px; left: 520px;"
+                          tabindex="-1"
+                        >
+                          
+            
+                          <div
+                            class="ag-floating-filter-body"
+                            ref="eFloatingFilterBody"
+                            role="presentation"
+                          >
+                            <div
+                              class="ag-floating-filter-input"
+                              role="presentation"
+                            >
+                              
+                
+                              <!--AG-INPUT-TEXT-FIELD-->
+                              <div
+                                class="ag-labeled ag-label-align-left ag-text-field ag-input-field"
+                                ref="eFloatingFilterInput"
+                                role="presentation"
+                              >
+                                
+                
+                                <div
+                                  class="ag-input-field-label ag-label ag-hidden ag-text-field-label"
+                                  ref="eLabel"
+                                  role="presentation"
+                                />
+                                
+                
+                                <div
+                                  class="ag-wrapper ag-input-wrapper ag-text-field-input-wrapper"
+                                  ref="eWrapper"
+                                  role="presentation"
+                                >
+                                  
+                    
+                                  <input
+                                    aria-label="AWARD'S Filter Input"
+                                    class="ag-input-field-input ag-text-field-input"
+                                    id="ag-156-input"
+                                    ref="eInput"
+                                    type="text"
+                                  />
+                                  
+                
+                                </div>
+                                
+            
+                              </div>
+                              
+            
+                            </div>
+                          </div>
+                          
+            
+                          <div
+                            class="ag-floating-filter-button"
+                            ref="eButtonWrapper"
+                            role="presentation"
+                          >
+                            
+                
+                            <button
+                              aria-label="Open Filter Menu"
+                              class="ag-floating-filter-button-button"
+                              ref="eButtonShowMainFilter"
+                              tabindex="-1"
+                              type="button"
+                            >
+                              <span
+                                class="ag-icon ag-icon-filter"
+                                role="presentation"
+                                unselectable="on"
+                              />
+                            </button>
+                            
+            
+                          </div>
+                          
+        
+                        </div>
+                        <div
+                          aria-colindex="5"
+                          class="ag-header-cell ag-focus-managed"
+                          role="gridcell"
+                          style="width: 200px; left: 720px;"
+                          tabindex="-1"
+                        >
+                          
+            
+                          <div
+                            class="ag-floating-filter-full-body"
+                            ref="eFloatingFilterBody"
+                            role="presentation"
+                          />
+                          
+            
+                          <div
+                            class="ag-floating-filter-button ag-hidden"
+                            ref="eButtonWrapper"
+                            role="presentation"
+                          >
+                            
+                
+                            <button
+                              aria-label="Open Filter Menu"
+                              class="ag-floating-filter-button-button"
+                              ref="eButtonShowMainFilter"
+                              tabindex="-1"
+                              type="button"
+                            />
+                            
+            
+                          </div>
+                          
+        
+                        </div>
+                      </div>
                     </div>
                     
             
@@ -1034,6 +1431,12 @@ exports[`should take a snapshot 1`] = `
                       class="ag-header-row ag-header-row-column"
                       role="row"
                       style="top: 0px; height: 48px; width: 0px;"
+                    />
+                    <div
+                      aria-rowindex="2"
+                      class="ag-header-row ag-header-row-floating-filter"
+                      role="row"
+                      style="top: 48px; height: 48px; width: 0px;"
                     />
                   </div>
                   
@@ -1074,7 +1477,7 @@ exports[`should take a snapshot 1`] = `
                       class="ag-floating-top-container"
                       ref="eContainer"
                       role="presentation"
-                      style="width: 950px;"
+                      style="width: 920px;"
                       unselectable="on"
                     />
                     
@@ -1146,7 +1549,7 @@ exports[`should take a snapshot 1`] = `
                         class="ag-center-cols-container"
                         ref="eContainer"
                         role="rowgroup"
-                        style="width: 950px; height: 1px;"
+                        style="width: 920px; height: 1px;"
                         unselectable="on"
                       />
                       
@@ -1215,7 +1618,7 @@ exports[`should take a snapshot 1`] = `
                       class="ag-floating-bottom-container"
                       ref="eContainer"
                       role="presentation"
-                      style="width: 950px;"
+                      style="width: 920px;"
                       unselectable="on"
                     />
                     
@@ -1271,7 +1674,7 @@ exports[`should take a snapshot 1`] = `
                     <div
                       class="ag-body-horizontal-scroll-container"
                       ref="eContainer"
-                      style="height: 0px; max-height: 0px; min-height: 0px; width: 950px;"
+                      style="height: 0px; max-height: 0px; min-height: 0px; width: 920px;"
                     />
                     
             
@@ -1333,10 +1736,10 @@ exports[`should take a snapshot 1`] = `
                 
             <!--AG-PAGINATION-->
             <div
-              aria-describedby="ag-91-start-page ag-91-start-page-number ag-91-of-page ag-91-of-page-number ag-91-first-row ag-91-to ag-91-last-row ag-91-of ag-91-row-count"
+              aria-describedby="ag-123-start-page ag-123-start-page-number ag-123-of-page ag-123-of-page-number ag-123-first-row ag-123-to ag-123-last-row ag-123-of ag-123-row-count"
               aria-live="polite"
               class="ag-paging-panel ag-unselectable"
-              id="ag-91"
+              id="ag-123"
             >
               
                 
@@ -1348,7 +1751,7 @@ exports[`should take a snapshot 1`] = `
                     
                 <span
                   class="ag-paging-row-summary-panel-number"
-                  id="ag-91-first-row"
+                  id="ag-123-first-row"
                   ref="lbFirstRowOnPage"
                 >
                   0
@@ -1356,7 +1759,7 @@ exports[`should take a snapshot 1`] = `
                 
                     
                 <span
-                  id="ag-91-to"
+                  id="ag-123-to"
                 >
                   to
                 </span>
@@ -1364,7 +1767,7 @@ exports[`should take a snapshot 1`] = `
                     
                 <span
                   class="ag-paging-row-summary-panel-number"
-                  id="ag-91-last-row"
+                  id="ag-123-last-row"
                   ref="lbLastRowOnPage"
                 >
                   0
@@ -1372,7 +1775,7 @@ exports[`should take a snapshot 1`] = `
                 
                     
                 <span
-                  id="ag-91-of"
+                  id="ag-123-of"
                 >
                   of
                 </span>
@@ -1380,7 +1783,7 @@ exports[`should take a snapshot 1`] = `
                     
                 <span
                   class="ag-paging-row-summary-panel-number"
-                  id="ag-91-row-count"
+                  id="ag-123-row-count"
                   ref="lbRecordCount"
                 >
                   0
@@ -1435,7 +1838,7 @@ exports[`should take a snapshot 1`] = `
                   
                         
                   <span
-                    id="ag-91-start-page"
+                    id="ag-123-start-page"
                   >
                     Page
                   </span>
@@ -1443,7 +1846,7 @@ exports[`should take a snapshot 1`] = `
                         
                   <span
                     class="ag-paging-number"
-                    id="ag-91-start-page-number"
+                    id="ag-123-start-page-number"
                     ref="lbCurrent"
                   >
                     0
@@ -1451,7 +1854,7 @@ exports[`should take a snapshot 1`] = `
                   
                         
                   <span
-                    id="ag-91-of-page"
+                    id="ag-123-of-page"
                   >
                     of
                   </span>
@@ -1459,7 +1862,7 @@ exports[`should take a snapshot 1`] = `
                         
                   <span
                     class="ag-paging-number"
-                    id="ag-91-of-page-number"
+                    id="ag-123-of-page-number"
                     ref="lbTotal"
                   >
                     0

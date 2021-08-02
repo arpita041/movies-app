@@ -5,6 +5,7 @@ import { BrowserRouter as Router ,Link} from 'react-router-dom'
 import NavBarrr from './NavBarrr';
 import axios from 'axios'
 import '../css/directorcss.css'
+import '../css/forms.scss'
 class AddDirector extends Component {
     constructor(props) {
         super(props)
@@ -69,12 +70,14 @@ class AddDirector extends Component {
     }
     validGender = event => {
 
-        console.log(this.state.gender);
+     //   console.log(this.state.gender);
+        let a = this.state.gender.toLocaleLowerCase();
+      //  console.log(a);
         if (this.state.gender.trim() === '') {
             this.setState({ genderError: "Gender is required" });
             event.target.id= 'danger-id';
         }
-        if (this.state.gender !== 'male' && this.state.gender !== 'female' && this.state.gender !== 'other') {
+        if (a!== 'male' && a !== 'female' && a !== 'other') {
             this.setState({ genderError: 'Gender can be only male, female or other' })
             event.target.id= 'danger-id';
         }
@@ -170,59 +173,53 @@ class AddDirector extends Component {
         return (
             <div>
                 <NavBarrr></NavBarrr>
-                <div className='heading'>
-                    <h3 data-testid='header' style={{ color: 'white ' }}>Add Directors Details</h3>
+                <div className='header'>
+                    <h3  data-testid="header" className="header__title">Add Directors Details</h3>
                 </div>
-                <div className="container my-4">
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="myleftctn">
-                                <form onSubmit={this.handleSubmit} id='formm' autocomplete="off">
-                                    <div className='row'>
-                                        <div className="col-md-12">
-                                            <Form.Group controlId="formBasicEmail">
-                                                <Form.Label className='lab'>Name</Form.Label>
-                                                <Form.Control id='inputtxt' className="cl1" type="text" placeholder="Name" name="name" value={name} onChange={this.handleChange}
+                
+                <div className="container container-margin">
+        
+                                <form onSubmit={this.handleSubmit} className="form" autoComplete="off">
+                                        <div className="form__input">
+                                      
+                                        <label className="form__input-label">Name</label>
+                                                <input className="form__input-field" type="text" placeholder="Name" name="name" value={name} onChange={this.handleChange}
                                                     onBlur={this.validName} required />
                                                 <small className="text-danger">{this.state.nameError}</small>
-                                            </Form.Group>
-                                        </div>
-
+                                           
                                     </div>
-                                    <div className='row'>
-                                        <div className="col-md-12">
-                                            <Form.Group controlId="formBasicEmail">
-                                                <Form.Label className='lab'>Age</Form.Label>
-                                                <Form.Control id='inputtxt' type="number" placeholder="Age" name="age" value={age} onChange={this.handleChange}
+                                
+                                        <div className="form__input">
+                                          
+                                        <label className="form__input-label">Age</label>
+                                                <input className="form__input-field" type="number" placeholder="Age" name="age" value={age} onChange={this.handleChange}
                                                     onBlur={this.validAge} required />
                                                 <small className="text-danger">{this.state.ageError}</small>
-                                            </Form.Group>
+                            
                                         </div>
 
-                                    </div>
-                                    <div className='row'>
-                                        <div className="col-md-12">
-                                            <Form.Group controlId="formBasicEmail">
-                                                <Form.Label className='lab' >Gender</Form.Label>
-                                                <Form.Control id='inputtxt'  type="text" placeholder="Gender" name="gender" value={this.state.gender} onChange={this.alphaOnly}
+                                  
+                                        <div className="form__input">
+                                         
+                                        <label className="form__input-label">Gender</label>
+                                                <input className="form__input-field"  type="text" placeholder="Gender" name="gender" value={this.state.gender} onChange={this.alphaOnly}
                                                     onBlur={this.validGender} required />
                                                 <small className="text-danger">{this.state.genderError}</small>
-                                            </Form.Group>
-                                        </div>
-
-                                    </div>
-                                    <div className='row'>
-                                        <div className="col-md-12">
-                                            <Form.Group controlId="formBasicEmail">
-                                                <Form.Label className='lab'>Award Count</Form.Label>
-                                                <Form.Control  id='inputtxt' type="number" placeholder="Award Count" name="awardCount" value={awardCount} onChange={this.handleChange}
+                                     
+                                       </div>
+                        
+                                        <div className="form__input">
+                                         
+                                        <label className="form__input-label">Award Count</label>
+                                                <input className="form__input-field" type="number" placeholder="Award Count" name="awardCount" value={awardCount} onChange={this.handleChange}
                                                     onBlur={this.validAward} required />
                                                 <small className="text-danger">{this.state.awardCountError}</small>
-                                            </Form.Group>
-                                        </div>
+                                            
+                            
 
                                     </div>
-                                    <div className="App">
+                                   
+                                    <div className="App"> <br/>
                                         <button className="btnClass" type="submit">Add Director</button>{' '}
                                     </div>
                                     <br />
@@ -249,11 +246,7 @@ class AddDirector extends Component {
                                     <h6 className="App">Go back to<Link to='/home'><b className="colorT"> home</b></Link></h6>
 
                                 </form>
-                            </div>
-                        </div>
-
-
-                    </div>
+                        
                 </div>
             </div>
 

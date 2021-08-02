@@ -27,8 +27,6 @@ test('to check whether AllMovies component rendered',()=>{
 })
 
 
-
-
   test('should take a snapshot of AllMovies ', () => {
     const { asFragment } = render(
       <BrowserRouter>

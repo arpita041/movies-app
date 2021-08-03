@@ -16,7 +16,7 @@ $form_bgColor: rgba(0,0,0,0.3);
     width: 50%;    
     background:$form_bgColor;
 }
-.container-margin
+.container--margin
 {
     margin-top: 2%;
 }
@@ -54,6 +54,31 @@ $form_bgColor: rgba(0,0,0,0.3);
     padding:7px;
     padding-left: 12px;
 }
-.error{
-    color: red;
+.form__error{
+    color:#d9534f;
+}
+.form--center
+{
+    text-align: center;
+}
+.form__btn
+{
+    color:white;
+    background-color:transparent;
+    height: 40px;
+    border-radius: 5px;
+    outline: 0;
+    border-color: white;   
+    margin: 3%;
+}
+.form__btn:hover
+{
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+
+}
+.form__link--color
+{
+    color:#3BB7C4;
 }

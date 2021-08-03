@@ -177,7 +177,7 @@ class AddDirector extends Component {
                     <h3  data-testid="header" className="header__title">Add Directors Details</h3>
                 </div>
                 
-                <div className="container container-margin">
+                <div className="container container--margin">
         
                                 <form onSubmit={this.handleSubmit} className="form" autoComplete="off">
                                         <div className="form__input">
@@ -185,7 +185,7 @@ class AddDirector extends Component {
                                         <label className="form__input-label">Name</label>
                                                 <input className="form__input-field" type="text" placeholder="Name" name="name" value={name} onChange={this.handleChange}
                                                     onBlur={this.validName} required />
-                                                <small className="error">{this.state.nameError}</small>
+                                                <small className="form__error">{this.state.nameError}</small>
                                            
                                     </div>
                                 
@@ -194,7 +194,7 @@ class AddDirector extends Component {
                                         <label className="form__input-label">Age</label>
                                                 <input className="form__input-field" type="number" placeholder="Age" name="age" value={age} onChange={this.handleChange}
                                                     onBlur={this.validAge} required />
-                                                <small className="error">{this.state.ageError}</small>
+                                                <small className="form__error">{this.state.ageError}</small>
                             
                                         </div>
 
@@ -204,7 +204,7 @@ class AddDirector extends Component {
                                         <label className="form__input-label">Gender</label>
                                                 <input className="form__input-field"  type="text" placeholder="Gender" name="gender" value={this.state.gender} onChange={this.alphaOnly}
                                                     onBlur={this.validGender} required />
-                                                <small className="error">{this.state.genderError}</small>
+                                                <small className="form__error">{this.state.genderError}</small>
                                      
                                        </div>
                         
@@ -213,17 +213,16 @@ class AddDirector extends Component {
                                         <label className="form__input-label">Award Count</label>
                                                 <input className="form__input-field" type="number" placeholder="Award Count" name="awardCount" value={awardCount} onChange={this.handleChange}
                                                     onBlur={this.validAward} required />
-                                                <small className="error">{this.state.awardCountError}</small>
+                                                <small className="form__error">{this.state.awardCountError}</small>
                                             
                             
 
                                     </div>
                                    
-                                    <div className="App"> <br/>
-                                        <button className="btnClass" type="submit">Add Director</button>{' '}
-                                    </div>
-                                    <br />
-
+                                        <div className="form--center">
+                                        <button className="form__btn" type="submit">Add Director</button>{' '}
+                                
+{/* 
                                     {
                                         this.state.respo === 'yes' ? <Modal backdrop="static" centered show={this.state.show} onHide={this.handleClose}>
                                             <Modal.Header closeButton>
@@ -240,11 +239,11 @@ class AddDirector extends Component {
                                             <Modal.Body>Woohoo,Something went wrong!!</Modal.Body>
                                           
                                         </Modal> : <b></b>
-                                    }
+                                    } */}
 
 
-                                    <h6 className="App">Go back to<Link to='/home'><b className="colorT"> home</b></Link></h6>
-
+                                    <h6>Go back to<Link to='/home'><b className="form__link--color"> home</b></Link></h6>
+</div>
                                 </form>
                         
                 </div>

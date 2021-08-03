@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import NavBarrr from './NavBarrr';
 import Carousel from 'react-grid-carousel';
 import '../css/home.css';
- class Home extends Component {
+class Home extends Component {
     render() {
         return (
             <div>
@@ -40,17 +40,17 @@ import '../css/home.css';
                             </Carousel.Item>
                         </Carousel> */}
                         <Carousel showDots cols={1} rows={1} gap={10} loop>
-      <Carousel.Item>
-        <img width="100%" src="../288732.jpg" />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img width="100%" src="../329583.jpg" />
-      </Carousel.Item>
-      <Carousel.Item>
-        <img width="100%" src="../790933.jpg" />
-      </Carousel.Item>
-     
-    </Carousel>
+                            <Carousel.Item>
+                                <img width="100%" src="../288732.jpg" />
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img width="100%" src="../329583.jpg" />
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img width="100%" src="../790933.jpg" />
+                            </Carousel.Item>
+
+                        </Carousel>
                     </div>
                 </div>
             </div>

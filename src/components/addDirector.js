@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Form, Modal,Button } from 'react-bootstrap';
-import { BrowserRouter as Router ,Link} from 'react-router-dom'
+import { Form, Modal, Button } from 'react-bootstrap';
+import { BrowserRouter as Router, Link } from 'react-router-dom'
 import NavBarrr from './NavBarrr';
 import axios from 'axios'
 // import '../css/directorcss.css'
@@ -11,7 +11,7 @@ class AddDirector extends Component {
         super(props)
 
         this.state = {
-            name: '', 
+            name: '',
             age: '',
             gender: '',
             awardCount: '',
@@ -39,51 +39,51 @@ class AddDirector extends Component {
         //  let rate = parseInt(this.state.rating);
         if (!pattern.test(this.state.name) || this.state.name.trim() === '') {
             this.setState({ nameError: "Please enter a valid name" });
-        event.target.id= 'danger-id';
+            event.target.id = 'danger-id';
         }
         else {
             this.setState({ nameError: '' })
-           event.target.id='inputtxt'
+            event.target.id = 'inputtxt'
         }
     }
     validAge = event => {
         let ageNum = parseInt(this.state.age);
         if (ageNum > 80 || ageNum < 18 || this.state.age.trim() === '') {
             this.setState({ ageError: "Age should range between 18 to 80" });
-            event.target.id= 'danger-id';
+            event.target.id = 'danger-id';
         }
         else {
             this.setState({ ageError: "" })
-            event.target.id='inputtxt'
+            event.target.id = 'inputtxt'
         }
     }
     validAward = event => {
         let award = parseInt(this.state.awardCount);
         if (award > 101 || award < 0 || this.state.awardCount.trim() === '') {
             this.setState({ awardCountError: "Award count should be between 0 to 100" })
-            event.target.id= 'danger-id';
+            event.target.id = 'danger-id';
         }
         else {
             this.setState({ awardCountError: "" });
-            event.target.id='inputtxt'
+            event.target.id = 'inputtxt'
         }
     }
     validGender = event => {
 
-     //   console.log(this.state.gender);
+        //   console.log(this.state.gender);
         let a = this.state.gender.toLocaleLowerCase();
-      //  console.log(a);
+        //  console.log(a);
         if (this.state.gender.trim() === '') {
             this.setState({ genderError: "Gender is required" });
-            event.target.id= 'danger-id';
+            event.target.id = 'danger-id';
         }
-        if (a!== 'male' && a !== 'female' && a !== 'other') {
+        if (a !== 'male' && a !== 'female' && a !== 'other') {
             this.setState({ genderError: 'Gender can be only male, female or other' })
-            event.target.id= 'danger-id';
+            event.target.id = 'danger-id';
         }
         else {
             this.setState({ genderError: "" });
-            event.target.id='inputtxt'
+            event.target.id = 'inputtxt'
         }
     }
 
@@ -174,55 +174,55 @@ class AddDirector extends Component {
             <div>
                 <NavBarrr></NavBarrr>
                 <div className='header'>
-                    <h3  data-testid="header" className="header__title">Add Directors Details</h3>
+                    <h3 data-testid="header" className="header__title">Add Directors Details</h3>
                 </div>
-                
+
                 <div className="container container--margin">
-        
-                                <form onSubmit={this.handleSubmit} className="form" autoComplete="off">
-                                        <div className="form__input">
-                                      
-                                        <label className="form__input-label">Name</label>
-                                                <input className="form__input-field" type="text" placeholder="Name" name="name" value={name} onChange={this.handleChange}
-                                                    onBlur={this.validName} required />
-                                                <small className="form__error">{this.state.nameError}</small>
-                                           
-                                    </div>
-                                
-                                        <div className="form__input">
-                                          
-                                        <label className="form__input-label">Age</label>
-                                                <input className="form__input-field" type="number" placeholder="Age" name="age" value={age} onChange={this.handleChange}
-                                                    onBlur={this.validAge} required />
-                                                <small className="form__error">{this.state.ageError}</small>
-                            
-                                        </div>
 
-                                  
-                                        <div className="form__input">
-                                         
-                                        <label className="form__input-label">Gender</label>
-                                                <input className="form__input-field"  type="text" placeholder="Gender" name="gender" value={this.state.gender} onChange={this.alphaOnly}
-                                                    onBlur={this.validGender} required />
-                                                <small className="form__error">{this.state.genderError}</small>
-                                     
-                                       </div>
-                        
-                                        <div className="form__input">
-                                         
-                                        <label className="form__input-label">Award Count</label>
-                                                <input className="form__input-field" type="number" placeholder="Award Count" name="awardCount" value={awardCount} onChange={this.handleChange}
-                                                    onBlur={this.validAward} required />
-                                                <small className="form__error">{this.state.awardCountError}</small>
-                                            
-                            
+                    <form onSubmit={this.handleSubmit} className="form" autoComplete="off">
+                        <div className="form__input">
 
-                                    </div>
-                                   
-                                        <div className="form--center">
-                                        <button className="form__btn" type="submit">Add Director</button>{' '}
-                                
-{/* 
+                            <label className="form__input-label">Name</label>
+                            <input className="form__input-field" type="text" placeholder="Name" name="name" value={name} onChange={this.handleChange}
+                                onBlur={this.validName} required />
+                            <small className="form__error">{this.state.nameError}</small>
+
+                        </div>
+
+                        <div className="form__input">
+
+                            <label className="form__input-label">Age</label>
+                            <input className="form__input-field" type="number" placeholder="Age" name="age" value={age} onChange={this.handleChange}
+                                onBlur={this.validAge} required />
+                            <small className="form__error">{this.state.ageError}</small>
+
+                        </div>
+
+
+                        <div className="form__input">
+
+                            <label className="form__input-label">Gender</label>
+                            <input className="form__input-field" type="text" placeholder="Gender" name="gender" value={this.state.gender} onChange={this.alphaOnly}
+                                onBlur={this.validGender} required />
+                            <small className="form__error">{this.state.genderError}</small>
+
+                        </div>
+
+                        <div className="form__input">
+
+                            <label className="form__input-label">Award Count</label>
+                            <input className="form__input-field" type="number" placeholder="Award Count" name="awardCount" value={awardCount} onChange={this.handleChange}
+                                onBlur={this.validAward} required />
+                            <small className="form__error">{this.state.awardCountError}</small>
+
+
+
+                        </div>
+
+                        <div className="form--center">
+                            <button className="form__btn" type="submit">Add Director</button>
+
+                            {/* 
                                     {
                                         this.state.respo === 'yes' ? <Modal backdrop="static" centered show={this.state.show} onHide={this.handleClose}>
                                             <Modal.Header closeButton>
@@ -242,10 +242,10 @@ class AddDirector extends Component {
                                     } */}
 
 
-                                    <h6>Go back to<Link to='/home'><b className="form__link--color"> home</b></Link></h6>
-</div>
-                                </form>
-                        
+                            <h6>Go back to<Link to='/home'><b className="form__link--color"> home</b></Link></h6>
+                        </div>
+                    </form>
+
                 </div>
             </div>
 

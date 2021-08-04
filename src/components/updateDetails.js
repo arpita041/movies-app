@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React, { Component } from 'react'
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
+import { Route, BrowserRouter as Router, Switch ,Link} from 'react-router-dom'
 import { Alert, Form, Modal } from 'react-bootstrap';
 import Home from './Home';
 import NavBarrr from './NavBarrr';
-import '../css/updated.css'
+import '../css/forms.scss'
 class UpdateDetails extends Component {
     constructor(props) {
         super(props);
@@ -144,61 +144,54 @@ class UpdateDetails extends Component {
         const { name, age, awardCount } = this.state;
         return (
             <div><NavBarrr></NavBarrr>
-                <div className='heading'>
-                    <h3>Update director's age and award count </h3>
+                <div className='header'>
+                    <h3 className="header__title">Update director's age and award count </h3>
                 </div>
-                <div className='container my-5'>
-
+                <div className='container container--margin'>
                     {/* <div className="jumbotron my-5"> */}
                     <div className="row">
                         <div className="col-sm-12">
-
-
                             <div className="myleftctn"></div>
-                            <form className="myform" onSubmit={this.handleSumbit} autoComplete='off'>
+                            <form className="form" onSubmit={this.handleSumbit} autoComplete='off'>
                                 {/* <header className="text-center">Updation Form</header> */}
                                 <br />
                                 <div className="row">
                                     <div className="col-12">
-                                        <div className="form-group">
-                                        <Form.Label className='lab'>Name</Form.Label>
-                                            <Form.Control id="inputtxt" type="text" name="name" value={name} 
+                                        <div className="form__input">
+                                        <label className="form__input-label">Name</label>
+                                            <input className="form__input-field" type="text" name="name" value={name} 
                                                 placeholder=" Name" onChange={this.handleChange} onBlur={this.validateName} />
-                                            <small className="text-danger">{this.state.nameError}</small>
+                                            <small className="form__error">{this.state.nameError}</small>
                                         </div>
                                     </div>
                                 </div>
-
-
                                 <div className="row">
                                     <div className="col-12">
-                                        <div className="form-group">
-                                        <Form.Label className='lab'>Age</Form.Label>
-                                            <Form.Control type="number" required id="inputtxt"
+                                        <div className="form__input">
+                                        <label className="form__input-label">Age</label>
+                                            <input type="number" required className="form__input-field"
                                                 name="age" value={age} onBlur={this.validateAge}
                                                  placeholder="Age" onChange={this.handleChange}/>
-                                            <small className="text-danger">{this.state.ageError}</small>
+                                            <small className="form__error">{this.state.ageError}</small>
                                         </div>
                                     </div>
-
                                 </div>
-
-
                                 <div className="row">
                                     <div className="col-12">
-                                        <div className="form-group">
-                                        <Form.Label className='lab'>Award Count</Form.Label>
-                                            <Form.Control type="number" name="awardCount" id="inputtxt"
+                                        <div className="form__input">
+                                        <label className="form__input-label">Award Count</label>
+                                            <input type="number" name="awardCount" className="form__input-field"
                                              required value={awardCount} onBlur={this.validateAward}
                                                 placeholder="Award Count" onChange={this.handleChange} />
-                                            <small className="text-danger">{this.state.awardError}</small>
+                                            <small className="form__error">{this.state.awardError}</small>
                                         </div>
-
                                     </div>
                                 </div>
-                             <div className="App">
-                                <button className="btnClass" id="butt" >Update</button><br /><br />
-                                {
+                             <div className="form--center">
+                                <button className="form__btn" id="butt" >Update</button>
+                                <h6>Go back to<Link to='/home'><b className="form__link--color"> home</b></Link></h6>
+
+                                {/* {
                                     this.state.respo === 'yes' ? <Modal backdrop="static" centered show={this.state.show} onHide={this.handleClose}>
                                     <Modal.Header closeButton>
                                       <Modal.Title>Result</Modal.Title>
@@ -215,24 +208,14 @@ class UpdateDetails extends Component {
                                     <Modal.Body>Something went wrong !!</Modal.Body>
                                     
                                   </Modal> : <b></b>
-                                }
-                                <Router>
-                                    <h6>Go back to <a href="/home" style={{ color: '#3BB7C4 ' }}>Home</a></h6>
-
-                                    <Switch><Route path="/home" component={Home}></Route></Switch>
-                                </Router>
+                                } */}
                                 </div>
                             </form>
                         </div>
-
                     </div>
                 </div>
             </div>
-
-
-
         )
     }
 }
-
 export default UpdateDetails

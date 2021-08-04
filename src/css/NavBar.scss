@@ -1,0 +1,67 @@
+li{
+    list-style-type: none;
+  }
+
+  
+a{
+    text-decoration: none;
+  }
+  nav{
+    width: 100vw;
+    background-color: #D6EFFF;
+  }
+  
+ul{
+    margin: 0;
+    padding: 0;
+  }
+  
+  body{
+    margin: 0;
+  }
+  
+ul{
+    margin: 0;
+    padding: 0;
+    
+    /*this option by default dispose the elements in a row (flex-direction: row)*/
+    display: flex;
+  }
+  
+li{
+    list-style-type: none;  
+    
+    /*when I specify 2 values to margin, the first one is for the top and bottom side, the second for the left and right side*/
+    margin: 0 2vw;
+  }
+  a{
+    text-decoration: none;
+    
+    /*below I changed the color*/
+    color: black;
+    /*I added some padding*/
+
+    /*also changed the font family but that's totally irrelevant*/
+    font-family: monospace;
+  }
+  
+a:hover{
+    background-color: #C6E9FF;
+  }
+
+  
+@media only screen and (max-width: 500px) {
+    /*shows elements in a column*/
+    ul{
+      flex-direction: column;
+    }
+    
+    /* deletes margin on top or bottom of the a tag*/
+    li{
+      margin: 0;
+    }
+   /* makes sure that the a tag will take the entire screen*/
+    a{
+      display: block;
+    }
+  }

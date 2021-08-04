@@ -187,10 +187,6 @@ class FilmsForm extends Component {
                     <h3 className="header__title">Add Movie Details</h3>
                 </div>
                 <div className='container container--margin'>
-                    {/* <div className="jumbotron my-5"> */}
-                    <div className="row">
-                        <div className="col-md-12">
-                            <div className="myleftctn">
                                 <form onSubmit={this.handleSubmit} className="form" autocomplete="off">
                                     <div className="form__input">
                                         <label className="form__input-label" >Movie Name</label>
@@ -241,9 +237,6 @@ class FilmsForm extends Component {
                                 </form>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
         )
     }
 }

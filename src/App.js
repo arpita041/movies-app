@@ -2,7 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, BrowserRouter as Router, Switch} from 'react-router-dom'
 import FilmsForm from './components/FilmsForm';
-import AddDirector from './components/addDirector';
+import AddDirector from './components/AddDirector';
 import Home from './components/Home';
 import DeleteMovie from './components/DeleteMovie';
 import UpdateDetails from './components/UpdateDetails';

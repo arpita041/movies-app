@@ -29,7 +29,7 @@ $form_bgColor: rgba(0,0,0,0.3);
 }
 .form{
     padding: 2%;
-    color:white
+    color:$base_Color
 }
 
 .form__input
@@ -47,8 +47,8 @@ $form_bgColor: rgba(0,0,0,0.3);
 {
     width: 100%;
     background: none;
-    border: 1px solid white;
-    color: white;
+    border: 1px solid $base_Color;
+    color: $base_Color;
     font-size: medium;
     border-radius: 5px;
     padding:7px;

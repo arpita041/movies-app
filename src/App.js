@@ -10,6 +10,7 @@ import AllMovies from './components/AllMovies';
 import Movies from './components/Movies';
 import Director from './components/director';
 import AllDirectors from './components/AllDirectors';
+import NavBar from './components/NavBar';
 //import Imgtrial from './components/imgtrial';
 //import NavBarrr from './components/NavBarrr';
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path='/movies' component={Movies}></Route>
           <Route path='/directors' component={Director}></Route>
           <Route path= '/director' component={AllDirectors}></Route>
+          <Route path='/hh' component={NavBar}></Route>
         </Switch>
       </Router>
 

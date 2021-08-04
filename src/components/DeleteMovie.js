@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Modal, Form } from 'react-bootstrap';
 import InputField from './inputField';
 import NavBarrr from './NavBarrr';
-import '../css/updated.css'
+import '../css/forms.scss'
 class DeleteMovie extends Component {
     constructor(props) {
         super(props)
@@ -102,25 +102,23 @@ class DeleteMovie extends Component {
         const { movieName } = this.state;
         return (
             <div>    <NavBarrr></NavBarrr>
-                <div className='heading'>
-                    <h3>Delete movie if you want</h3>
+                <div className='header'>
+                    <h3 className="header__title">Delete movie if you want</h3>
                 </div>
-                <div className='container my-5'>
+                <div className='container container--margin'>
 
-                    <form onSubmit={this.handleSubmit} autoComplete='off'>
-                        <div>
-                            <div className="form-group">
-                                <Form.Label className='lab'>Movie Name</Form.Label>
-                                <Form.Control id="inputtxt" type="text" name="movieName" value={movieName} 
+                    <form onSubmit={this.handleSubmit} className="form" autoComplete='off'>
+                            <div className="form__input">
+                            <label className="form__input-label">Movie Name</label>
+                                <input type="text" className="form__input-field" name="movieName" value={movieName} 
                                     placeholder="Movie Name" onChange={this.handleChange} onBlur={this.validateName} />
-                                <small className="text-danger">{this.state.nameError}</small>
+                                <small className="form__error">{this.state.nameError}</small>
 
-                            </div>
                         </div>
-                        <div className="App">
-                            <button className="btnClass" type="submit">Delete it</button>
+                        <div className="form--center">
+                            <button className="form__btn" type="submit">Delete it</button>
                         </div><br />
-                        {
+                        {/* {
                             this.state.respo === 'yes' ? <Modal backdrop="static" centered show={this.state.show} onHide={this.handleClose}>
                                 <Modal.Header closeButton>
                                     <Modal.Title>Result</Modal.Title>
@@ -137,7 +135,7 @@ class DeleteMovie extends Component {
                                 <Modal.Body>You entered the wrong movie name</Modal.Body>
 
                             </Modal> : <b></b>
-                        }
+                        } */}
 
                     </form>
                 </div>

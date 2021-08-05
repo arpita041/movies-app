@@ -63,17 +63,17 @@ $form_bgColor: rgba(0,0,0,0.3);
 }
 .form__btn
 {
-    color:white;
+    color:$base_Color;
     background-color:transparent;
     height: 40px;
     border-radius: 5px;
     outline: 0;
-    border-color: white;   
+    border-color: $base_Color;   
     margin: 3%;
 }
 .form__btn:hover
 {
-    background-color: white;
+    background-color:$base_Color;
     color: black;
     transition: 0.5s;
 

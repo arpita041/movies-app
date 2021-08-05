@@ -183,7 +183,7 @@ class FilmsForm extends Component {
         return (
             <div>
                 <NavBarrr></NavBarrr>
-                <div className='heading'>
+                <div className='header'>
                     <h3 className="header__title">Add Movie Details</h3>
                 </div>
                 <div className='container container--margin'>

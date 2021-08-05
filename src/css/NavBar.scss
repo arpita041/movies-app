@@ -1,67 +1,134 @@
-li{
-    list-style-type: none;
+* {
+    box-sizing: border-box;
   }
-
   
-a{
+  body {
+    margin: 0px;
+    font-family: 'segoe ui';
+  }
+  
+  .nav {
+    height: 50px;
+    width: 100%;
+    background-color: #292b2c;
+    position: relative;
+  }
+  
+  .nav > .nav-header {
+    display: inline;
+  }
+  
+  .nav > .nav-header > .nav-title {
+    display: inline-block;
+    font-size: 22px;
+    color: #fff;
+    padding: 10px 10px 10px 10px;
+  }
+  
+  .nav > .nav-btn {
+    display: none;
+  }
+  
+  .nav > .nav-links {
+    display: inline;
+    float: right;
+    font-size: 18px;
+  }
+  
+  .nav > .nav-links > .ok{
+    display: inline-block;
+    padding: 13px 10px 13px 10px;
     text-decoration: none;
-  }
-  nav{
-    width: 100vw;
-    background-color: #D6EFFF;
+    color: #efefef;
   }
   
-ul{
-    margin: 0;
-    padding: 0;
+  .nav > .nav-links > a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
   }
   
-  body{
-    margin: 0;
+  .nav > #nav-check {
+    display: none;
   }
   
-ul{
-    margin: 0;
-    padding: 0;
-    
-    /*this option by default dispose the elements in a row (flex-direction: row)*/
-    display: flex;
-  }
-  
-li{
-    list-style-type: none;  
-    
-    /*when I specify 2 values to margin, the first one is for the top and bottom side, the second for the left and right side*/
-    margin: 0 2vw;
-  }
-  a{
-    text-decoration: none;
-    
-    /*below I changed the color*/
-    color: black;
-    /*I added some padding*/
-
-    /*also changed the font family but that's totally irrelevant*/
-    font-family: monospace;
-  }
-  
-a:hover{
-    background-color: #C6E9FF;
-  }
-
-  
-@media only screen and (max-width: 500px) {
-    /*shows elements in a column*/
-    ul{
-      flex-direction: column;
+  @media (max-width:600px) {
+    .nav > .nav-btn {
+      display: inline-block;
+      position: absolute;
+      right: 0px;
+      top: 0px;
     }
-    
-    /* deletes margin on top or bottom of the a tag*/
-    li{
-      margin: 0;
+    .nav > .nav-btn > label {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      padding: 13px;
     }
-   /* makes sure that the a tag will take the entire screen*/
-    a{
+    .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    .nav > .nav-btn > label > span {
       display: block;
+      width: 25px;
+      height: 10px;
+      border-top: 2px solid #eee;
+    }
+    .nav > .nav-links {
+      position: absolute;
+      display: block;
+      width: 100%;
+      background-color: #333;
+      height: 0px;
+      transition: all 0.3s ease-in;
+      overflow-y: hidden;
+      top: 50px;
+      left: 0px;
+    }
+    .nav > .nav-links > .ok {
+      display: block;
+      width: 100%;
+    }
+    .nav > #nav-check:not(:checked) ~ .nav-links {
+      height: 0px;
+    }
+    .nav > #nav-check:checked ~ .nav-links {
+      height: 300px;
+      overflow-y: auto;
     }
   }
+
+
+  
+  .dropbtn {
+    background-color:transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding:5px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  

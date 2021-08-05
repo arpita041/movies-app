@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Form, Modal, Button } from 'react-bootstrap';
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 import NavBarrr from './NavBarrr';
+import NavBar from './NavBar';
 import axios from 'axios'
 // import '../css/directorcss.css'
 import '../css/forms.scss'
@@ -172,7 +173,7 @@ class AddDirector extends Component {
         const { name, age, gender, awardCount } = this.state
         return (
             <div>
-                <NavBarrr></NavBarrr>
+                <NavBar></NavBar>
                 <div className='header'>
                     <h3 data-testid="header" className="header__title">Add Directors Details</h3>
                 </div>

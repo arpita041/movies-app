@@ -11,6 +11,7 @@ import Movies from './components/Movies';
 import Director from './components/director';
 import AllDirectors from './components/AllDirectors';
 import NavBar from './components/NavBar';
+import MyCarousel from './components/MyCarousel';
 //import Imgtrial from './components/imgtrial';
 //import NavBarrr from './components/NavBarrr';
 function App() {
@@ -18,7 +19,7 @@ function App() {
     <div className="container-fluid" >
       <Router>
         <Switch>
-          <Route path='/' exact component={Home}></Route>
+          <Route path='/' exact component={MyCarousel}></Route>
           <Route path='/deleteMovie' component={DeleteMovie}></Route> 
           <Route path='/addDirector' component={AddDirector}></Route>
           <Route path='/update' component={UpdateDetails}></Route>

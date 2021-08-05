@@ -3,9 +3,8 @@ import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Form, Alert, Modal } from 'react-bootstrap';
 import NavBarrr from './NavBarrr';
-import { BrowserRouter as Router,Link } from 'react-router-dom'
+import { BrowserRouter as Router, Link } from 'react-router-dom'
 import '../css/forms.scss'
-
 class FilmsForm extends Component {
     constructor(props) {
         super(props)
@@ -187,36 +186,36 @@ class FilmsForm extends Component {
                     <h3 className="header__title">Add Movie Details</h3>
                 </div>
                 <div className='container container--margin'>
-                                <form onSubmit={this.handleSubmit} className="form" autocomplete="off">
-                                    <div className="form__input">
-                                        <label className="form__input-label" >Movie Name</label>
-                                        <input className="form__input-field" type="text" placeholder="Movie Name" value={name} onChange={this.handlenameChange}
-                                            onBlur={this.validName} required />
-                                        <small className="form__error">{this.state.nameError}</small>
-                                    </div>
-                                    <div className="form__input">
-                                        <label className="form__input-label">Box Office Collection</label>
-                                        <input className="form__input-field" type="number" placeholder="Box Office Collection" value={boxOfficeCollection} onChange={this.handleBox}
-                                            onBlur={this.validBox} required />
-                                        <small className="text-danger">{this.state.boxOfficeError}</small>
-                                    </div>
-                                    <div className="form__input">
-                                        <label className="form__input-label">Rating</label>
-                                        <input className="form__input-field" type="number" placeholder="Rating" value={rating} onChange={this.handleRating} onBlur={this.myFunc}
-                                            onBlur={this.validRating} required />
-                                        <small className="text-danger">{this.state.ratingError}</small>
-                                    </div>
-                                    <div className="form__input">
-                                        <label className="form__input-label">Director Name</label>
-                                        <input className="form__input-field" type="text" placeholder="Director" value={director} onChange={this.handleDirector}
-                                            onBlur={this.validDirector} required />
-                                        <small className="text-danger">{this.state.directorError}</small>
-                                    </div>
-                                    <div className="form--center">
-                                        <button className="form__btn" type="submit">Add Film</button>
-                                        <h6>Go back to<Link to='/home'><b className="form__link--color"> home</b></Link></h6>
-                                    </div>
-                                    {/* {
+                    <form onSubmit={this.handleSubmit} className="form" autocomplete="off">
+                        <div className="form__input">
+                            <label className="form__input-label" >Movie Name</label>
+                            <input className="form__input-field" type="text" placeholder="Movie Name" value={name} onChange={this.handlenameChange}
+                                onBlur={this.validName} required />
+                            <small className="form__error">{this.state.nameError}</small>
+                        </div>
+                        <div className="form__input">
+                            <label className="form__input-label">Box Office Collection</label>
+                            <input className="form__input-field" type="number" placeholder="Box Office Collection" value={boxOfficeCollection} onChange={this.handleBox}
+                                onBlur={this.validBox} required />
+                            <small className="text-danger">{this.state.boxOfficeError}</small>
+                        </div>
+                        <div className="form__input">
+                            <label className="form__input-label">Rating</label>
+                            <input className="form__input-field" type="number" placeholder="Rating" value={rating} onChange={this.handleRating} onBlur={this.myFunc}
+                                onBlur={this.validRating} required />
+                            <small className="text-danger">{this.state.ratingError}</small>
+                        </div>
+                        <div className="form__input">
+                            <label className="form__input-label">Director Name</label>
+                            <input className="form__input-field" type="text" placeholder="Director" value={director} onChange={this.handleDirector}
+                                onBlur={this.validDirector} required />
+                            <small className="text-danger">{this.state.directorError}</small>
+                        </div>
+                        <div className="form--center">
+                            <button className="form__btn" type="submit">Add Film</button>
+                            <h6>Go back to<Link to='/home'><b className="form__link--color"> home</b></Link></h6>
+                        </div>
+                        {/* {
                                         this.state.respo === 'yes' ? <Modal backdrop="static" centered show={this.state.show} onHide={this.handleClose}>
                                             <Modal.Header closeButton>
                                                 <Modal.Title>Result</Modal.Title>
@@ -234,9 +233,9 @@ class FilmsForm extends Component {
 
                                         </Modal> : <b></b>
                                     } */}
-                                </form>
-                            </div>
-                        </div>
+                    </form>
+                </div>
+            </div>
         )
     }
 }

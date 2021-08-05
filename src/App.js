@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, BrowserRouter as Router, Switch} from 'react-router-dom'
-import FilmsForm from './components/FilmsForm';
+import FilmsForm from './components/FilmsForm'
 import AddDirector from './components/AddDirector';
 import Home from './components/Home';
 import DeleteMovie from './components/DeleteMovie';
@@ -11,7 +11,7 @@ import Movies from './components/Movies';
 import Director from './components/director';
 import AllDirectors from './components/AllDirectors';
 import NavBar from './components/NavBar';
-
+import MyCarousel from './components/MyCarousel'
 //import Imgtrial from './components/imgtrial';
 //import NavBarrr from './components/NavBarrr';
 function App() {
@@ -19,7 +19,7 @@ function App() {
     <div className="container-fluid" >
       <Router>
         <Switch>
-          <Route path='/' exact component={Home}></Route>
+          <Route path='/' exact component={MyCarousel}></Route>
           <Route path='/deleteMovie' component={DeleteMovie}></Route> 
           <Route path='/addDirector' component={AddDirector}></Route>
           <Route path='/update' component={UpdateDetails}></Route>

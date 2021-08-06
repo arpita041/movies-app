@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { Component } from 'react'
 import { Modal, Form } from 'react-bootstrap';
 import InputField from './inputField';
-import NavBarrr from './NavBarrr';
+import NavBar from './NavBar';
 import '../css/forms.scss'
 import NavBar from './NavBar';
 class DeleteMovie extends Component {

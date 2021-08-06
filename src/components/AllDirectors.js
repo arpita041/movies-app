@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, {useState,useEffect} from 'react'
-import NavBarrr from './NavBarrr';
+import NavBar from './NavBar';
 import Gridreact from './Gridreact';
 import { IoIosTrash } from "react-icons/io";
 import NavBar from './NavBar';

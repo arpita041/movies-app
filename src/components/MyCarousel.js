@@ -1,7 +1,6 @@
 import React from 'react'
 import { Navbar } from 'react-bootstrap'
 import '../css/MyCarousel.scss'
-import NavBarrr from './NavBarrr'
 import NavBar from './NavBar'
 function MyCarousel() {
     return (

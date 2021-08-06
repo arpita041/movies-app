@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Form, Alert, Modal } from 'react-bootstrap';
-import NavBarrr from './NavBarrr';
+import NavBar from './NavBar';
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 import '../css/forms.scss'
 import NavBar from './NavBar';

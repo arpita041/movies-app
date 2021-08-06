@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { Component } from 'react'
-
+import NavBar from './NavBar'
 import '../css/allMovie.css'
 
 import Gridreact from './Gridreact'

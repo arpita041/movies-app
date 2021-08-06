@@ -74,22 +74,22 @@ function NavBar() {
           <div className="nav__link">
             <div class="dropdown">
               <button className="nav__dropbtn">
-                <b> Other Options</b>
+ Other Options
               </button>
               <div className="dropdown-content">
-                <a>
-                  <NavLink
+                <span className="dropdown__link"> 
+                  <NavLink className="nav__link--color"
                     to="/deleteMovie"
                     activeClassName="nav__link--active"
                   >
                     Delete a Movie
                   </NavLink>
-                </a>
-                <a>
-                  <NavLink to="/update" activeClassName="nav__link--active">
+                </span>
+                <span className="dropdown__link">
+                  <NavLink to="/update" className="nav__link--color" activeClassName="nav__link--active">
                     Update Details
                   </NavLink>
-                </a>
+                </span>
               </div>
             </div>
           </div>

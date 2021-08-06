@@ -1,4 +1,4 @@
-$link-active:#3BB7C4;
+$link-active: #3bb7c4;
 
 * {
   box-sizing: border-box;
@@ -50,9 +50,8 @@ body {
   color: white;
   font-weight: bold;
 }
-.nav__link--color:hover
-{
-  color:white;
+.nav__link--color:hover {
+  color: white;
   text-decoration: none;
 }
 
@@ -60,28 +59,43 @@ body {
   display: none;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 797px) {
   .nav__btn {
     display: inline-block;
     position: absolute;
     right: 0;
     top: 0;
   }
-  .nav > .nav__btn > label {
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    padding: 13px;
+  .nav {
+    .nav__btn {
+      label {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        padding: 13px;
+      }
+    }
   }
-  .nav > .nav__btn > label:hover,
-  .nav #nav-check:checked ~ .nav__btn > label {
-    background-color: rgba(0, 0, 0, 0.3);
+  .nav {
+    .nav__btn {
+      label:hover,
+      .nav #nav-check:checked ~ .nav__btn { label {
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+    }
   }
-  .nav > .nav__btn > label > span {
-    display: block;
-    width: 25px;
-    height: 10px;
-    border-top: 2px solid #eee;
+  }
+  .nav {
+    .nav__btn {
+      label {
+        span {
+          display: block;
+          width: 25px;
+          height: 10px;
+          border-top: 2px solid #eee;
+        }
+      }
+    }
   }
   .nav__links {
     position: absolute;
@@ -97,26 +111,26 @@ body {
   .nav__link {
     display: block;
     width: 100%;
-    
   }
 
-  .nav > #nav-check:not(:checked) ~ .nav__links {
-    height: 0px;
+  .nav {
+    #nav-check:not(:checked) ~ .nav__links {
+      height: 0px;
+    }
   }
-  .nav > #nav-check:checked ~ .nav__links {
-    height: 300px;
-    overflow-y: auto;
+  .nav {
+    #nav-check:checked ~ .nav__links {
+      height: 300px;
+      overflow-y: auto;
+    }
   }
 }
 
-.nav__link--active
-{
-  color:$link-active;
+.nav__link--active {
+  color: $link-active;
   font-weight: bold;
-//  background-color: #a9d5da;
-
+  //  background-color: #a9d5da;
 }
-
 
 .nav__dropbtn {
   background-color: transparent;
@@ -124,9 +138,8 @@ body {
   border: none;
   cursor: pointer;
 }
-.active 
-{
-  color:$link-active;
+.active {
+  color: $link-active;
 }
 
 .dropdown {

@@ -4,6 +4,7 @@ import { Modal, Form } from 'react-bootstrap';
 import InputField from './inputField';
 import NavBarrr from './NavBarrr';
 import '../css/forms.scss'
+import NavBar from './NavBar';
 class DeleteMovie extends Component {
     constructor(props) {
         super(props)
@@ -101,7 +102,7 @@ class DeleteMovie extends Component {
     render() {
         const { movieName } = this.state;
         return (
-            <div>    <NavBarrr></NavBarrr>
+            <div>    <NavBar></NavBar>
                 <div className='header'>
                     <h3 className="header__title">Delete movie if you want</h3>
                 </div>
@@ -109,8 +110,8 @@ class DeleteMovie extends Component {
 
                     <form onSubmit={this.handleSubmit} className="form" autoComplete='off'>
                             <div className="form__input">
-                            <label className="form__input-label">Movie Name</label>
-                                <input type="text" className="form__input-field" name="movieName" value={movieName} 
+                            <label className="form__input-label" for='movieName'>Movie Name</label>
+                                <input type="text" className="form__input-field" id='movieName' name="movieName" value={movieName} 
                                     placeholder="Movie Name" onChange={this.handleChange} onBlur={this.validateName} />
                                 <small className="form__error">{this.state.nameError}</small>
 

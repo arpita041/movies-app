@@ -183,8 +183,8 @@ class AddDirector extends Component {
                     <form onSubmit={this.handleSubmit} className="form" autoComplete="off">
                         <div className="form__input">
 
-                            <label className="form__input-label">Name</label>
-                            <input className="form__input-field" type="text" placeholder="Name" name="name" value={name} onChange={this.handleChange}
+                            <label className="form__input-label" for='name'>Name</label>
+                            <input className="form__input-field" id='name' type="text" placeholder="Name" name="name" value={name} onChange={this.handleChange}
                                 onBlur={this.validName} required />
                             <small className="form__error">{this.state.nameError}</small>
 
@@ -192,8 +192,8 @@ class AddDirector extends Component {
 
                         <div className="form__input">
 
-                            <label className="form__input-label">Age</label>
-                            <input className="form__input-field" type="number" placeholder="Age" name="age" value={age} onChange={this.handleChange}
+                            <label className="form__input-label" for='age'>Age</label>
+                            <input className="form__input-field" id='age' type="number" placeholder="Age" name="age" value={age} onChange={this.handleChange}
                                 onBlur={this.validAge} required />
                             <small className="form__error">{this.state.ageError}</small>
 
@@ -202,8 +202,8 @@ class AddDirector extends Component {
 
                         <div className="form__input">
 
-                            <label className="form__input-label">Gender</label>
-                            <input className="form__input-field" type="text" placeholder="Gender" name="gender" value={this.state.gender} onChange={this.alphaOnly}
+                            <label className="form__input-label" for='gender'>Gender</label>
+                            <input className="form__input-field" id='gender' type="text" placeholder="Gender" name="gender" value={this.state.gender} onChange={this.alphaOnly}
                                 onBlur={this.validGender} required />
                             <small className="form__error">{this.state.genderError}</small>
 
@@ -211,8 +211,8 @@ class AddDirector extends Component {
 
                         <div className="form__input">
 
-                            <label className="form__input-label">Award Count</label>
-                            <input className="form__input-field" type="number" placeholder="Award Count" name="awardCount" value={awardCount} onChange={this.handleChange}
+                            <label className="form__input-label" for='awardCount'>Award Count</label>
+                            <input className="form__input-field" id='awardCount' type="number" placeholder="Award Count" name="awardCount" value={awardCount} onChange={this.handleChange}
                                 onBlur={this.validAward} required />
                             <small className="form__error">{this.state.awardCountError}</small>
 

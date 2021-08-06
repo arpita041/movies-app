@@ -5,6 +5,7 @@ import { Button, Form, Alert, Modal } from 'react-bootstrap';
 import NavBarrr from './NavBarrr';
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 import '../css/forms.scss'
+import NavBar from './NavBar';
 class FilmsForm extends Component {
     constructor(props) {
         super(props)
@@ -181,33 +182,34 @@ class FilmsForm extends Component {
 
         return (
             <div>
-                <NavBarrr></NavBarrr>
+                {/* <NavBarrr></NavBarrr> */}
+                <NavBar></NavBar>
                 <div className='header'>
                     <h3 className="header__title">Add Movie Details</h3>
                 </div>
                 <div className='container container--margin'>
                     <form onSubmit={this.handleSubmit} className="form" autocomplete="off">
                         <div className="form__input">
-                            <label className="form__input-label" >Movie Name</label>
-                            <input className="form__input-field" type="text" placeholder="Movie Name" value={name} onChange={this.handlenameChange}
+                            <label className="form__input-label" for='moviename'>Movie Name</label>
+                            <input className="form__input-field" id='moviename' type="text" placeholder="Movie Name" value={name} onChange={this.handlenameChange}
                                 onBlur={this.validName} required />
                             <small className="form__error">{this.state.nameError}</small>
                         </div>
                         <div className="form__input">
-                            <label className="form__input-label">Box Office Collection</label>
-                            <input className="form__input-field" type="number" placeholder="Box Office Collection" value={boxOfficeCollection} onChange={this.handleBox}
+                            <label className="form__input-label" for="boxOfficeCollection">Box Office Collection</label>
+                            <input className="form__input-field" id='boxOfficeCollection' type="number" placeholder="Box Office Collection" value={boxOfficeCollection} onChange={this.handleBox}
                                 onBlur={this.validBox} required />
                             <small className="text-danger">{this.state.boxOfficeError}</small>
                         </div>
                         <div className="form__input">
-                            <label className="form__input-label">Rating</label>
-                            <input className="form__input-field" type="number" placeholder="Rating" value={rating} onChange={this.handleRating} onBlur={this.myFunc}
+                            <label className="form__input-label" for="rating">Rating</label>
+                            <input className="form__input-field" id='rating' type="number" placeholder="Rating" value={rating} onChange={this.handleRating} onBlur={this.myFunc}
                                 onBlur={this.validRating} required />
                             <small className="text-danger">{this.state.ratingError}</small>
                         </div>
                         <div className="form__input">
-                            <label className="form__input-label">Director Name</label>
-                            <input className="form__input-field" type="text" placeholder="Director" value={director} onChange={this.handleDirector}
+                            <label className="form__input-label" for="directorName">Director Name</label>
+                            <input className="form__input-field" id='directorName' type="text" placeholder="Director" value={director} onChange={this.handleDirector}
                                 onBlur={this.validDirector} required />
                             <small className="text-danger">{this.state.directorError}</small>
                         </div>

@@ -3,6 +3,7 @@ import React, {useState,useEffect} from 'react'
 import NavBarrr from './NavBarrr';
 import Gridreact from './Gridreact';
 import { IoIosTrash } from "react-icons/io";
+import NavBar from './NavBar';
 function AllDirectors() {
  const [post,setPost]=useState([]);
 
@@ -48,7 +49,7 @@ function AllDirectors() {
     { headerName: "AWARD'S", field: "awardCount"},
     {headerName:'ACTION' , field:'abc',floatingFilter:false, cellRendererFramework:(params)=><div>
         {/* <button className="btnClass" onClick={()=>saving(params)}>Save</button> */}
-        <button className="btn"  onClick={()=>actionButton(params)}><IoIosTrash/></button>
+        <button className="btn btn-dark" aria-label='trash button' title='trash button' onClick={()=>actionButton(params)}><IoIosTrash/></button>
         
     </div>},
     ]
@@ -63,7 +64,7 @@ function AllDirectors() {
       }
     return (
         <div>
-                       <NavBarrr></NavBarrr>
+                       <NavBar></NavBar>
                 <div className="heading">
                     <h3 data-testid="header">Director Details</h3>
                     {/* <button className='btn' onClick={this.getAllMovies} >load all Movies</button> */}

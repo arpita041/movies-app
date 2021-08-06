@@ -118,8 +118,7 @@ a=0;
                 </AgGridReact>
             </div> <br />
             <div id="uni">
-            
-                <button id="myBtn" disabled={true}>Save</button>
+                <button id="myBtn" className="btn btn-Success" disabled={true}>Save</button>
             </div>
         </div>
         

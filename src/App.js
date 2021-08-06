@@ -1,7 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, BrowserRouter as Router, Switch} from 'react-router-dom'
-import FilmsForm from './components/FilmsForm'
 import AddDirector from './components/AddDirector';
 import Home from './components/Home';
 import DeleteMovie from './components/DeleteMovie';
@@ -12,6 +11,7 @@ import Director from './components/director';
 import AllDirectors from './components/AllDirectors';
 import NavBar from './components/NavBar';
 import MyCarousel from './components/MyCarousel'
+import FilmsForm from './components/FilmsForm';
 //import Imgtrial from './components/imgtrial';
 //import NavBarrr from './components/NavBarrr';
 function App() {
@@ -24,7 +24,7 @@ function App() {
           <Route path='/addDirector' component={AddDirector}></Route>
           <Route path='/update' component={UpdateDetails}></Route>
           <Route path="/forms" component={FilmsForm}></Route>
-          <Route path='/home' exact component={Home}></Route>
+          <Route path='/home' exact component={MyCarousel}></Route>
           <Route path='/showMovies' component={AllMovies}></Route>
           <Route path='/movies' component={Movies}></Route>
           <Route path='/directors' component={Director}></Route>

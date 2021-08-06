@@ -5,6 +5,7 @@ import { Alert, Form, Modal } from 'react-bootstrap';
 import Home from './Home';
 import NavBarrr from './NavBarrr';
 import '../css/forms.scss'
+import NavBar from './NavBar';
 class UpdateDetails extends Component {
     constructor(props) {
         super(props);
@@ -134,7 +135,8 @@ class UpdateDetails extends Component {
     render() {
         const { name, age, awardCount } = this.state;
         return (
-            <div><NavBarrr></NavBarrr>
+            <div>
+                <NavBar></NavBar>
                 <div className='header'>
                     <h3 className="header__title">Update director's age and award count </h3>
                 </div>
@@ -144,21 +146,21 @@ class UpdateDetails extends Component {
                         <br />
 
                         <div className="form__input">
-                            <label className="form__input-label">Name</label>
-                            <input className="form__input-field" type="text" name="name" value={name}
+                            <label className="form__input-label" for='name'>Name</label>
+                            <input className="form__input-field" id='name' type="text" name="name" value={name}
                                 placeholder=" Name" onChange={this.handleChange} onBlur={this.validateName} />
                             <small className="form__error">{this.state.nameError}</small>
                         </div>
                         <div className="form__input">
-                            <label className="form__input-label">Age</label>
-                            <input type="number" required className="form__input-field"
+                            <label className="form__input-label" for='age'>Age</label>
+                            <input type="number" id='age' required className="form__input-field"
                                 name="age" value={age} onBlur={this.validateAge}
                                 placeholder="Age" onChange={this.handleChange} />
                             <small className="form__error">{this.state.ageError}</small>
                         </div>
                         <div className="form__input">
-                            <label className="form__input-label">Award Count</label>
-                            <input type="number" name="awardCount" className="form__input-field"
+                            <label className="form__input-label" for='awardCount'>Award Count</label>
+                            <input type="number" id='awardCount' name="awardCount" className="form__input-field"
                                 required value={awardCount} onBlur={this.validateAward}
                                 placeholder="Award Count" onChange={this.handleChange} />
                             <small className="form__error">{this.state.awardError}</small>

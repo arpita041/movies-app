@@ -1,10 +1,11 @@
 import axios from 'axios'
 import React, { Component } from 'react'
-import NavBarrr from './NavBarrr'
+
 import '../css/allMovie.css'
-import Table from './table'
+
 import Gridreact from './Gridreact'
 import { IoIosTrash } from "react-icons/io";
+import NavBar from './NavBar'
 class AllMovies extends Component {
     constructor(props) {
         super(props)
@@ -19,7 +20,7 @@ class AllMovies extends Component {
                 {
                     headerName: 'ACTION', field: 'abc',floatingFilter:false, cellRendererFramework: (params) => <div>
                         {/* <button className="btnClass" onClick={() => this.saving(params)}>Save</button> */}
-                        <button className='btn btn-primary' onClick={() => this.actionButton(params)}><IoIosTrash/></button>
+                        <button className='btn btn-dark' aria-label='delete button' title='delete button' onClick={() => this.actionButton(params)}><IoIosTrash/></button>
                     </div>
                 },
             ],
@@ -79,7 +80,7 @@ class AllMovies extends Component {
     render() {
         return (
             <div>
-                <NavBarrr></NavBarrr>
+                <NavBar></NavBar>
                 <div className="heading">
                     <h3 data-testid="header">Movie Details</h3>
                     {/* <button className='btn' onClick={this.getAllMovies} >load all Movies</button> */}

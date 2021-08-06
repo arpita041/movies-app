@@ -15,14 +15,23 @@ const NavBarrr = props => {
             [name]: value
         }));
     };
+    // var btns=document.getElementsByClassName('color')
+    // console.log(btns)
+    // for( var i=0;i<btns.length;i++){
+    //     btns[i].addEventListener('click',function(){
+    //         var curr=document.getElementsByClassName('active')
+    //         curr[0].class=curr[0].class.replace('active')
+    //     })
+    // }
+    
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                    <Navbar.Brand><Link to ='/'><b className="color">CinemaWall</b></Link></Navbar.Brand>
+                    <Navbar.Brand><Link to ='/'><b className="colorr">CinemaWall</b></Link></Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
-                            <span className="nav-link" ><Link to='/forms'> <b className="color">Add Cinema</b></Link> </span>
+                            <span className="nav-link active" ><Link to='/forms'> <b className="color active">Add Cinema</b></Link> </span>
                             <span className="nav-link"><Link to='/addDirector'><b className="color">Add Director</b></Link></span>
                             <span className="nav-link"><Link to='/showMovies'><b className="color">Movie List</b></Link></span>
                             <span className="nav-link"><Link to='/director'><b className="color">Director List</b></Link></span>
@@ -75,4 +84,4 @@ const NavBarrr = props => {
 
 }
 
-            export default NavBarrr
+export default NavBarrr

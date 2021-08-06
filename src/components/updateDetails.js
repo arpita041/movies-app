@@ -5,7 +5,6 @@ import { Alert, Form, Modal } from 'react-bootstrap';
 import Home from './Home';
 import NavBar from './NavBar';
 import '../css/forms.scss'
-import NavBar from './NavBar';
 class UpdateDetails extends Component {
     constructor(props) {
         super(props);

@@ -5,7 +5,6 @@ import { Button, Form, Alert, Modal } from 'react-bootstrap';
 import NavBar from './NavBar';
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 import '../css/forms.scss'
-import NavBar from './NavBar';
 class FilmsForm extends Component {
     constructor(props) {
         super(props)

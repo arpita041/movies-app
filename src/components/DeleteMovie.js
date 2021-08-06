@@ -4,7 +4,6 @@ import { Modal, Form } from 'react-bootstrap';
 import InputField from './inputField';
 import NavBar from './NavBar';
 import '../css/forms.scss'
-import NavBar from './NavBar';
 class DeleteMovie extends Component {
     constructor(props) {
         super(props)

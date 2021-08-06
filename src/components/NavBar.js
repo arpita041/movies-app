@@ -55,7 +55,7 @@ let a = window.location.pathname;
           <div className="nav__link">
             <div class="dropdown">
               <button className="nav__dropbtn">
-                Other Options
+               <b> Other Options</b>
               </button>
               <div className="dropdown-content">
                 <a>

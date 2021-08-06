@@ -24,7 +24,7 @@ function App() {
           <Route path='/addDirector' component={AddDirector}></Route>
           <Route path='/update' component={UpdateDetails}></Route>
           <Route path="/forms" component={FilmsForm}></Route>
-          <Route path='/home' exact component={Home}></Route>
+          <Route path='/home' exact component={MyCarousel}></Route>
           <Route path='/showMovies' component={AllMovies}></Route>
           <Route path='/movies' component={Movies}></Route>
           <Route path='/directors' component={Director}></Route>

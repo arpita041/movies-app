@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { Component } from 'react'
 import { Modal, Form } from 'react-bootstrap';
 import InputField from './inputField';
-import NavBarrr from './NavBarrr';
+import NavBar from './NavBar';
 import '../css/forms.scss'
 class DeleteMovie extends Component {
     constructor(props) {
@@ -101,7 +101,7 @@ class DeleteMovie extends Component {
     render() {
         const { movieName } = this.state;
         return (
-            <div>    <NavBarrr></NavBarrr>
+            <div>    <NavBar></NavBar>
                 <div className='header'>
                     <h3 className="header__title">Delete movie if you want</h3>
                 </div>

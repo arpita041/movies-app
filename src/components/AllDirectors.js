@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, {useState,useEffect} from 'react'
-import NavBarrr from './NavBarrr';
+import NavBar from './NavBar';
 import Gridreact from './Gridreact';
 import { IoIosTrash } from "react-icons/io";
 function AllDirectors() {
@@ -63,7 +63,7 @@ function AllDirectors() {
       }
     return (
         <div>
-                       <NavBarrr></NavBarrr>
+                       <NavBar></NavBar>
                 <div className="heading">
                     <h3 data-testid="header">Director Details</h3>
                     {/* <button className='btn' onClick={this.getAllMovies} >load all Movies</button> */}

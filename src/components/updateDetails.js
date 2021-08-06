@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Route, BrowserRouter as Router, Switch, Link } from 'react-router-dom'
 import { Alert, Form, Modal } from 'react-bootstrap';
 import Home from './Home';
-import NavBarrr from './NavBarrr';
+import NavBar from './NavBar';
 import '../css/forms.scss'
 class UpdateDetails extends Component {
     constructor(props) {
@@ -134,7 +134,7 @@ class UpdateDetails extends Component {
     render() {
         const { name, age, awardCount } = this.state;
         return (
-            <div><NavBarrr></NavBarrr>
+            <div><NavBar></NavBar>
                 <div className='header'>
                     <h3 className="header__title">Update director's age and award count </h3>
                 </div>

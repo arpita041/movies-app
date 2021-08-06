@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Form, Alert, Modal } from 'react-bootstrap';
-import NavBarrr from './NavBarrr';
+import NavBar from './NavBar';
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 import '../css/forms.scss'
 class FilmsForm extends Component {
@@ -181,7 +181,7 @@ class FilmsForm extends Component {
 
         return (
             <div>
-                <NavBarrr></NavBarrr>
+                <NavBar></NavBar>
                 <div className='header'>
                     <h3 className="header__title">Add Movie Details</h3>
                 </div>

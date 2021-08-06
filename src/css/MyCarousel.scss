@@ -19,14 +19,15 @@
   }
   
   .carousel {
-    position: relative;
+ //   position: relative;
     padding-top: 75%;
     // filter: drop-shadow(0 0 10px #0003);
     perspective: 100px;
   }
   
   .carousel__viewport {
-    position: absolute;
+  position: absolute;
+    border-radius: 20px;
     top: 0;
     right: 0;
     bottom: 0;
@@ -35,7 +36,8 @@
     overflow-x:auto;
     counter-reset: item;
     scroll-behavior: smooth;
-    // scroll-snap-type: x mandatory;
+   scroll-snap-type: x mandatory;
+   overflow: hidden;
   }
   
   .carousel__slide {

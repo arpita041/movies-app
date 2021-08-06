@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { Component } from 'react'
-import NavBarrr from './NavBarrr'
+import NavBar from './NavBar'
 import '../css/allMovie.css'
 import Table from './table'
 import Gridreact from './Gridreact'
@@ -79,7 +79,7 @@ class AllMovies extends Component {
     render() {
         return (
             <div>
-                <NavBarrr></NavBarrr>
+                <NavBar></NavBar>
                 <div className="heading">
                     <h3 data-testid="header">Movie Details</h3>
                     {/* <button className='btn' onClick={this.getAllMovies} >load all Movies</button> */}

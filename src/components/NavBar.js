@@ -1,46 +1,76 @@
-
-import React, { useState } from 'react'
-import '../css/NavBar.scss'
-import {Link} from 'react-router-dom'
+import React, { useState } from "react";
+import "../css/NavBar.scss";
+import { NavLink} from "react-router-dom";
 function NavBar() {
- 
 
-    return (
-        <div>
-    <div class="nav">
-    <input type="checkbox" id="nav-check"/>
-  <div class="nav-header">
-    <div class="nav-title">
-     <Link to='/home'> <b className="color">CinemaWall</b></Link>
-    </div>
-  </div>
-  <div class="nav-btn">
-    <label for="nav-check">
-      <span></span>
-      <span></span>
-      <span></span>
-    </label>
-  </div>
-  
-  <div class="nav-links">
-      <div className="ok" ><Link to='/forms'> <b className="color">Add Cinema</b></Link> </div>
-                            <div className="ok"><Link to='/addDirector'><b className="color">Add Director</b></Link></div>
-                            <div className="ok"><Link to='/showMovies'><b className="color">Movie List</b></Link></div>
-                            <div className="ok"><Link to='/director'><b className="color">Director List</b></Link></div>
-                            <div className="ok">
-                            <div class="dropdown">
-  <button class="dropbtn"><b>Other Options</b></button>
-  <div class="dropdown-content">
-  <a><Link to='/deleteMovie'>Delete a Movie</Link></a>
-  <a><Link to='/update'>Update Details</Link></a>
-  </div>
-</div> 
-                            </div>
+let a = window.location.pathname;
+// console.log(a);
+// let k = document.querySelector('.nav__dropbtn');
+// if(a==='/deleteMovie' || a==='/update')
+// {
+//   console.log("true");
+//   k.classList.add('active');
+//   console.log(k);
+// }
+// else{
+//   k.classList.remove('active');
+// }
 
-  </div>
-</div>
+
+  return (
+    <div>
+      <div className="nav">
+        <input type="checkbox" id="nav-check" />
+        <div className="nav__header">
+          <div className="nav__title">
+            <NavLink to="/home" className="nav__link--color" activeClassName="nav__link--active">CinemaWall
+            </NavLink>
+          </div>
         </div>
-    )
+        <div className="nav__btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+
+        <div className="nav__links">
+          <div className="nav__link">
+            <NavLink to="/forms" className="nav__link--color" activeClassName="nav__link--active">Add Cinema
+            </NavLink>{" "}
+          </div>
+          <div className="nav__link">
+            <NavLink to="/addDirector" className="nav__link--color" activeClassName="nav__link--active">Add Director
+            </NavLink>
+          </div>
+          <div className="nav__link">
+            <NavLink to="/showMovies" className="nav__link--color" activeClassName="nav__link--active">Movie List
+            </NavLink>
+          </div>
+          <div className="nav__link">
+            <NavLink to="/director" className="nav__link--color">Director List
+            </NavLink>
+          </div>
+          <div className="nav__link">
+            <div class="dropdown">
+              <button className="nav__dropbtn">
+                Other Options
+              </button>
+              <div className="dropdown-content">
+                <a>
+                  <NavLink to="/deleteMovie" activeClassName="nav__link--active">Delete a Movie</NavLink>
+                </a>
+                <a>
+                  <NavLink to="/update" activeClassName="nav__link--active">Update Details</NavLink>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default NavBar
+export default NavBar;

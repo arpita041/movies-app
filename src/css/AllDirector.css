@@ -27,3 +27,17 @@
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
+.grid-cell-centered{
+    text-align: center;
+}
+.ag-header-cell-label {
+    justify-content: center;
+ }
+ @media only screen and (min-width: 600px){
+    .table-container{
+        margin: auto;
+        width: 70%;
+        background-color: transparent;
+        margin-top: 2%;
+     }
+ }

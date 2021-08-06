@@ -48,6 +48,12 @@ body {
 
 .nav__link--color {
   color: white;
+  font-weight: bold;
+}
+.nav__link--color:hover
+{
+  color:white;
+  text-decoration: none;
 }
 
 #nav-check {
@@ -91,7 +97,9 @@ body {
   .nav__link {
     display: block;
     width: 100%;
+    
   }
+
   .nav > #nav-check:not(:checked) ~ .nav__links {
     height: 0px;
   }
@@ -104,6 +112,9 @@ body {
 .nav__link--active
 {
   color:$link-active;
+  font-weight: bold;
+//  background-color: #a9d5da;
+
 }
 
 

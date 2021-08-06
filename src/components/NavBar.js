@@ -32,9 +32,9 @@ function NavBar() {
         </div>
         <div className="nav__btn">
           <label for="nav-check">
-            <span>.</span>
-            <span>.</span>
-            <span>.</span>
+            <span>...</span>
+            <span>...</span>
+            <span>...</span>
           </label>
         </div>
 

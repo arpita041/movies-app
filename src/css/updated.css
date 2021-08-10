@@ -1,8 +1,4 @@
-.container{
-    margin: auto;
-    width: 50%;    
-    background: rgba(0,0,0,0.3);
-}
+
 h6{
     color:white;
     padding-bottom: 5%;
@@ -15,13 +11,13 @@ h6{
 .formm{
     padding: 2%;
 }
-/* #inputtxt{
+#inputtxt{
     outline: 0;
     background: none;
     border: 1px solid white;
-    color: black;
+    color: white;
     font-size: medium;
-} */
+}
 
 .btn{
     background: none;
@@ -41,4 +37,9 @@ h6{
     background: rgba(0,0,0,0.3);
     text-align: center;
     color: white;
+}
+.lef
+{
+   float: left;
+   padding: 2px;
 }

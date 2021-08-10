@@ -1,8 +1,8 @@
 import React from 'react';
 import { AgGridReact } from 'ag-grid-react';
-import NavBarrr from './NavBarrr'
-import './AllDirec.scss'
-import './AllDirector.css'
+import NavBar from './NavBar'
+import '../css/AllDirec.scss'
+import '../css/AllDirector.css'
 function AllDirector() {
   const columnDefs= [
     { headerName: "NAME", field: "name" },
@@ -34,7 +34,7 @@ const onGridReady=(params)=>{
 }
   return (
     <div className="App">
-        <NavBarrr></NavBarrr>
+        <NavBar></NavBar>
       <h3>Director Details</h3>
       <div className="ag-theme-alpine" style={ {height: '350px'} }>
         <AgGridReact

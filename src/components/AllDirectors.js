@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, {useState,useEffect} from 'react'
-import NavBarrr from './NavBarrr';
 import Gridreact from './Gridreact';
+import { IoIosTrash } from "react-icons/io";
+import NavBar from './NavBar';
 function AllDirectors() {
  const [post,setPost]=useState([]);
 
@@ -41,29 +42,32 @@ function AllDirectors() {
 //      alert("do you want to change it ?")
 //  }
  const columnDefs= [
-    { headerName: "NAME", field: "name" },
+    { headerName: "NAME", field: "name", width:100 },
     { headerName: "AGE", field: "age",}, 
     {headerName: "GENDER",field: "gender",},
-    { headerName: "AWARD COUNT", field: "awardCount"},
-    {headerName:'ACTION' , field:'abc', cellRendererFramework:(params)=><div>
+    { headerName: "AWARD'S", field: "awardCount"},
+    {headerName:'ACTION' , field:'abc',floatingFilter:false, cellRendererFramework:(params)=><div>
         {/* <button className="btnClass" onClick={()=>saving(params)}>Save</button> */}
-        <button className="btnClass" id='but1' onClick={()=>actionButton(params)}>Delete</button>
+        <button className="btn btn-dark" aria-label='trash button' title='trash button' onClick={()=>actionButton(params)}><IoIosTrash/></button>
+        
     </div>},
     ]
     const defaultColDef={
         sortable:true,
         editable:true,
         flex:1,filter:true,
-        floatingFilter:true
+        flex: 1,
+        floatingFilter:true,
+        minWidth: 120
 
       }
     return (
         <div>
-                       <NavBarrr></NavBarrr>
-                <div className="contain">
-                    <h3>Director Details</h3>
+                       <NavBar></NavBar>
+                <div className="heading">
+                    <h3 data-testid="header">Director Details</h3>
                     {/* <button className='btn' onClick={this.getAllMovies} >load all Movies</button> */}
-                </div>
+                </div><br />
                 {/* <Table post={this.state.allMovies}></Table> */}
                 <Gridreact
                     columnDefs={columnDefs}

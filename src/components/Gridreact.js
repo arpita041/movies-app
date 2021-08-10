@@ -2,21 +2,25 @@ import React from 'react'
 import { AgGridReact } from 'ag-grid-react';
 // import 'ag-grid-community/dist/styles/ag-grid.css';
 // import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
-import './AllDirec.scss';
-import './AllDirector.css'
+import '../css/AllDirec.scss';
+import '../css/AllDirector.css'
 import axios from 'axios';
 //import { GridApi } from 'ag-grid-community';
 
 function Gridreact(props) {
 
+
     let name;
     let nameArray=[];
     let dataArray=[];
+
     //  let saveBtn;
-    const rowStyle = {
+    let rowStyle = {
         background: 'transparent',
-        color: '#3BB7C4'
+        color: '#3BB7C4',
+
     }
+    
 //let saveBtn;
 var c = document.querySelector('#uni');
 let data;
@@ -45,14 +49,10 @@ let a=0;
 
     const secnd = (res) => {
 data = res.data;
+
 dataArray.push(data);
 console.log("data", data)
       console.log(res);
-    //   if(res.oldValue === res.value  && a===1)
-    //   {
-    //   c.removeChild(saveBtn);
-    //   a=0;
-    //   }
     if(res.oldValue === res.value && a===1)
     {
 document.getElementById('myBtn').disabled= true;
@@ -65,20 +65,34 @@ a=0;
               if (props.apiValue === 'director') {
                   for(let i=0;i<nameArray.length;i++)
                   {
+                      if(!nameArray[i] || !dataArray[i])
+                      {
+                          console.log('something wrong')
+                      }
+                      else
+                      {
                     axios.patch(`http://localhost:3500/updateDirect/${nameArray[i]}`,dataArray[i])
                 .then(res => {
                     console.log(res);
-                });   
+                }); 
+            }  
                   }
            
         }
         else if (props.apiValue === 'movie') {
                 for(let i=0;i<nameArray.length;i++)
                 {
+                    if(!nameArray[i] || !dataArray[i])
+                    {
+                        console.log('something wrong')
+                    }
+                    else
+                    {
                   axios.patch(`http://localhost:3500/updateMovie/${nameArray[i]}`,dataArray[i])
               .then(res => {
                   console.log(res);
-              });   
+              });  
+            } 
                 }
         }
         if(a===1)
@@ -92,8 +106,8 @@ a=0;
     const paginationPageSize = 10;
     console.log(height)
     return (
-        <div>
-            <div className="ag-theme-alpine" style={{ height: props.height }}>
+        <div className="container App">
+         <div className="ag-theme-alpine" style={{ height: props.height, width:'100%' }}>
                 <AgGridReact
                     columnDefs={props.columnDefs}
                     rowData={props.rowData}
@@ -102,14 +116,14 @@ a=0;
                     onRowDoubleClicked={myFunction}
                     onCellEditingStopped={secnd}
                     pagination={true}
-                    paginationPageSize={paginationPageSize}
-                >
+                    paginationPageSize={paginationPageSize}>
                 </AgGridReact>
-            </div>
+            </div> <br />
             <div id="uni">
-                <button id="myBtn" disabled={true}>save</button>
+                <button id="myBtn" className="btn btn-Success" disabled={true}>Save</button>
             </div>
         </div>
+        
     )
 }
 

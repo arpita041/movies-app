@@ -1,0 +1,22 @@
+#form1{
+    margin-right: 4%;
+}
+#drop{
+   text-align: center;
+   margin: 5%;
+   color: black;
+}
+.color{
+    color:white;
+}
+.colorB
+{
+    color:black;
+}
+.color:hover
+{
+    color: white;
+}
+.active{
+    color:red
+}

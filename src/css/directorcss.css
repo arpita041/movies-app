@@ -1,21 +1,14 @@
-.container{
-    margin: auto;
-    width: 50%;    
-    background: rgba(0,0,0,0.3);
-}
+
 h6{
     color:white;
     padding-bottom: 5%;
 }
 .lab{
     color: white;
-    margin: 2%;
+    margin: 1%;
     font-size: large;
 }
-#formm{
-    padding: 2%;
-    color:white
-}
+
 #inputtxt{
     outline: 0;
     background: none;
@@ -41,4 +34,12 @@ h6{
     margin: auto;
     background: rgba(0,0,0,0.3);
     text-align: center;
+}
+.colorT
+{
+color:#3BB7C4
+}
+.error
+{
+    border-bottom: 1px solid #eb516d;
 }

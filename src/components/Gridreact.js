@@ -15,10 +15,12 @@ function Gridreact(props) {
     let dataArray=[];
 
     //  let saveBtn;
-    const rowStyle = {
+    let rowStyle = {
         background: 'transparent',
-        color: '#3BB7C4'
+        color: '#3BB7C4',
+
     }
+    
 //let saveBtn;
 var c = document.querySelector('#uni');
 let data;
@@ -104,7 +106,7 @@ a=0;
     const paginationPageSize = 10;
     console.log(height)
     return (
-        <div>
+        <div className="container App">
          <div className="ag-theme-alpine" style={{ height: props.height, width:'100%' }}>
                 <AgGridReact
                     columnDefs={props.columnDefs}

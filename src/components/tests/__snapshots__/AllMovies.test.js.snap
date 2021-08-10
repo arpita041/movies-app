@@ -4,141 +4,127 @@ exports[`should take a snapshot of AllMovies  1`] = `
 <DocumentFragment>
   <div>
     <div>
-      <nav
-        class="navbar navbar-expand-lg navbar-dark bg-dark"
+      <div
+        class="nav"
       >
-        <span
-          class="navbar-brand"
-        >
-          <a
-            href="/"
-          >
-            <b
-              class="color"
-            >
-              CinemaWall
-            </b>
-          </a>
-        </span>
-        <button
-          aria-controls="responsive-navbar-nav"
-          aria-label="Toggle navigation"
-          class="navbar-toggler collapsed"
-          type="button"
-        >
-          <span
-            class="navbar-toggler-icon"
-          />
-        </button>
+        <input
+          id="nav-check"
+          type="checkbox"
+        />
         <div
-          class="navbar-collapse collapse"
-          id="responsive-navbar-nav"
+          class="nav__header"
         >
           <div
-            class="mr-auto navbar-nav"
+            class="nav__title"
           >
-            <span
-              class="nav-link"
+            <a
+              class="nav__link--color"
+              href="/home"
             >
-              <a
-                href="/forms"
-              >
-                 
-                <b
-                  class="color"
-                >
-                  Add Cinema
-                </b>
-              </a>
-               
+              CinemaWall
+            </a>
+          </div>
+        </div>
+        <div
+          class="nav__btn"
+        >
+          <label
+            for="nav-check"
+          >
+            <span>
+              ...
             </span>
-            <span
-              class="nav-link"
+            <span>
+              ...
+            </span>
+            <span>
+              ...
+            </span>
+          </label>
+        </div>
+        <div
+          class="nav__links"
+        >
+          <div
+            class="nav__link"
+          >
+            <a
+              class="nav__link--color"
+              href="/forms"
             >
-              <a
-                href="/addDirector"
-              >
-                <b
-                  class="color"
-                >
-                  Add Director
-                </b>
-              </a>
-            </span>
-            <span
-              class="nav-link"
+              Add Cinema
+            </a>
+             
+          </div>
+          <div
+            class="nav__link"
+          >
+            <a
+              class="nav__link--color"
+              href="/addDirector"
             >
-              <a
-                href="/showMovies"
-              >
-                <b
-                  class="color"
-                >
-                  Movie List
-                </b>
-              </a>
-            </span>
-            <span
-              class="nav-link"
+              Add Director
+            </a>
+          </div>
+          <div
+            class="nav__link"
+          >
+            <a
+              class="nav__link--color"
+              href="/showMovies"
             >
-              <a
-                href="/director"
-              >
-                <b
-                  class="color"
-                >
-                  Director List
-                </b>
-              </a>
-            </span>
+              Movie List
+            </a>
+          </div>
+          <div
+            class="nav__link"
+          >
+            <a
+              class="nav__link--color"
+              href="/director"
+            >
+              Director List
+            </a>
+          </div>
+          <div
+            class="nav__link"
+          >
             <div
-              class="nav-item dropdown"
-              style="color: white;"
+              class="dropdown"
             >
-              <a
-                aria-expanded="false"
-                aria-haspopup="true"
-                class="dropdown-toggle nav-link"
-                href="#"
-                id="collasible-nav-dropdown"
-                role="button"
+              <button
+                class="nav__dropbtn"
               >
                 Other Options
-              </a>
-            </div>
-          </div>
-          <form
-            class="form-inline"
-            id="form1"
-          >
-            <div>
-              <input
-                class="mr-sm-2 form-control"
-                name="searchVal"
-                placeholder="Search"
-                type="text"
-              />
-            </div>
-            <div
-              style="margin-left: 5px;"
-            >
+              </button>
               <div
-                class="dropdown"
+                class="dropdown-content"
               >
-                <button
-                  aria-expanded="false"
-                  aria-haspopup="true"
-                  class="btnClass dropdown-toggle btn btn-primary"
-                  id="dropdown-basic"
-                  type="button"
+                <span
+                  class="dropdown__link"
                 >
-                  Search
-                </button>
+                  <a
+                    class="nav__link--color"
+                    href="/deleteMovie"
+                  >
+                    Delete a Movie
+                  </a>
+                </span>
+                <span
+                  class="dropdown__link"
+                >
+                  <a
+                    class="nav__link--color"
+                    href="/update"
+                  >
+                    Update Details
+                  </a>
+                </span>
               </div>
             </div>
-          </form>
+          </div>
         </div>
-      </nav>
+      </div>
     </div>
     <div
       class="heading"
@@ -151,7 +137,9 @@ exports[`should take a snapshot of AllMovies  1`] = `
     </div>
      
     <br />
-    <div>
+    <div
+      class="container App"
+    >
       <div
         class="ag-theme-alpine"
         style="height: 350px; width: 100%;"

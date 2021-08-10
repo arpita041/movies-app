@@ -110,7 +110,7 @@ function AllDirectors() {
           columnDefs={columnDefs}
           rowData={post}
           defaultColDef={defaultColDef}
-          height="350px"
+          height="357px"
           apiValue="director"
         ></Gridreact>
       </div>

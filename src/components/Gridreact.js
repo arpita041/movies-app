@@ -5,6 +5,7 @@ import { AgGridReact } from "ag-grid-react";
 import "../css/AllDirec.scss";
 import "../css/AllDirector.css";
 import axios from "axios";
+import '../css/Gridreact.scss'
 //import { GridApi } from 'ag-grid-community';
 
 function Gridreact(props) {
@@ -108,11 +109,12 @@ function Gridreact(props) {
           onCellEditingStopped={secnd}
           pagination={true}
           paginationPageSize={paginationPageSize}
+          paginationAutoPageSize={true}
         ></AgGridReact>
       </div>{" "}
       <br />
       <div id="uni">
-        <button id="myBtn" className="btn btn-Success" disabled={true}>
+        <button id="myBtn" className="btn btn-success" disabled={true}>
           Save
         </button>
       </div>

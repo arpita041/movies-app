@@ -124,7 +124,7 @@ class AllMovies extends Component {
             columnDefs={this.state.columnDefs}
             defaultColDef={this.state.defaultColDef}
             rowData={this.state.rowData}
-            height="350px"
+            height="357px"
             apiValue="movie"
           ></Gridreact>
         </div>

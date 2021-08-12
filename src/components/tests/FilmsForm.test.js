@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { getByText, render, screen, fireEvent,act, getByPlaceholderText } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import FilmsForm from '../FilmsForm';
 import { BrowserRouter } from 'react-router-dom';
 import { shallow } from 'enzyme';
@@ -18,6 +19,13 @@ const simulateChangeInput = (component, inputSelector, newValue) =>
     return component.find(inputSelector)
 }
 
+const simulateBlurInput =(component, inputSelector, val) =>
+{
+    let inp =component.find(inputSelector);
+    inp.simulate('blur', {   target :{ value: val},});
+    return component.find(inputSelector);
+}
+
 test('to check whether filmsform component rendered',()=>{
     render(<BrowserRouter>
         <FilmsForm />
@@ -29,6 +37,7 @@ it('Should capture movieName correctly onChange', function(){
 
     const component = shallow(<FilmsForm />);
  let nameInput=  simulateChangeInput(component,'#moviename','Random');
+
 expect(nameInput.props().value).toBe('Random');
 });
 
@@ -55,3 +64,17 @@ it('Should capture DirectorName correctly onChange', function(){
  let nameInput=  simulateChangeInput(component,'#directorName','Random');
 expect(nameInput.props().value).toBe('Random');
 });
+
+it('renders the submit button', () =>
+{
+    const {getByText} =  render(<BrowserRouter>
+        <FilmsForm />
+    </BrowserRouter>);
+     expect(getByText('Add Film')).toBeInTheDocument();
+})
+
+// it('testing the form behaviour', ()=>
+// {
+//  const com = shallow(<FilmsForm/>);
+//  com.find('')
+// })

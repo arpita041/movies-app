@@ -9,6 +9,15 @@ import Adapter from 'enzyme-adapter-react-16';
  
 Enzyme.configure({ adapter: new Adapter() });
 
+
+// const simulateBlurInput =(component, inputSelector, val) =>
+// {
+//     let inp =component.find(inputSelector);
+//     inp.simulate('blur',component.validName());
+//     return component.find(inputSelector);
+// }
+
+
 it('to check whether DeleteMovie component rendered',()=>{
     render(<BrowserRouter>
         <DeleteMovie />
@@ -24,6 +33,8 @@ it('Should capture moviename correctly onChange', function(){
         target: {value:'Jack'}
     });
     expect(component.state().movieName).toEqual('Jack');
+  //  let nameErr = simulateBlurInput(component,'#movieName','s&*(')
+  //  expect(component.state().nameError).toEqual('gugs')
 })
 
 

@@ -61,7 +61,7 @@ it('should do the validation properly' , function(){
 simulateBlurInput(component,'#name','(*&','name');
 simulateBlurInput(component,'#age','47924','age');
 simulateBlurInput(component,'#awardCount','574805','awardCount');
-      expect(component.state().nameError).toBe('Please enter a valid name');
-      expect(component.state().ageError).toBe("Age should range between 18 to 80");
-      expect(component.state().awardError).toBe("Award count should be between 0 to 100");
+expect(component.state().nameError).toBe('Please enter a valid name');
+expect(component.state().ageError).toBe("Age should range between 18 to 80");
+expect(component.state().awardError).toBe("Award count should be between 0 to 100");
 });

@@ -24,12 +24,6 @@ class AddDirector extends Component {
       show: true,
     };
   }
-  handleClose = () => {
-    this.setState({ show: false });
-  };
-  handleShow = () => {
-    this.setState({ show: true });
-  };
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };

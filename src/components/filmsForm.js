@@ -22,12 +22,6 @@ class FilmsForm extends Component {
       show: true,
     };
   }
-  handleClose = () => {
-    this.setState({ show: false });
-  };
-  handleShow = () => {
-    this.setState({ show: true });
-  };
   validName = (event) => {
     let pattern = /^[a-zA-Z ]{2,30}$/;
     let pattern2 = /^[a-zA-Z0-9~@#$^*()_+=[\]{}|\\,.?: -]*$/;
@@ -159,6 +153,7 @@ class FilmsForm extends Component {
                 type="text"
                 placeholder="Movie Name"
                 value={name}
+                name="movieName"
                 onChange={this.handlenameChange}
                 onBlur={this.validName}
                 required
@@ -173,6 +168,7 @@ class FilmsForm extends Component {
                 className="form__input-field"
                 id="boxOfficeCollection"
                 type="number"
+                name="boxOfficeCollection"
                 placeholder="Box Office Collection"
                 value={boxOfficeCollection}
                 onChange={this.handleBox}
@@ -191,6 +187,7 @@ class FilmsForm extends Component {
                 type="number"
                 placeholder="Rating"
                 value={rating}
+                name="rating"
                 onChange={this.handleRating}
                 onBlur={this.myFunc}
                 onBlur={this.validRating}
@@ -206,6 +203,7 @@ class FilmsForm extends Component {
                 className="form__input-field"
                 id="directorName"
                 type="text"
+                name="directorName"
                 placeholder="Director"
                 value={director}
                 onChange={this.handleDirector}

@@ -99,10 +99,11 @@ class AddDirector extends Component {
     // if (valid) {
     axios.post("http://localhost:3500/direct", this.state).then((response) => {
       console.log(response);
-      if (response.statusText === "OK") {
+      if (response.statusText === "") {
         this.setState({
           respo: "yes",
         });
+        this.modalCode();
       } else {
         this.setState({
           respo: "no",
@@ -116,6 +117,27 @@ class AddDirector extends Component {
   alphaOnly = (e) => {
     this.setState({ gender: e.target.value.replace(/[^A-Za-z]/gi, "") });
     console.log(this.state.gender);
+  };
+
+  //for model
+  modalCode = () => {
+    var modal = document.getElementById("myModal");
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    modal.style.display = "block";
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+    };
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
   };
   render() {
     const { name, age, gender, awardCount } = this.state;
@@ -212,6 +234,32 @@ class AddDirector extends Component {
               <button className="form__btn" type="submit">
                 Add Director
               </button>
+
+              {this.state.respo === "yes" ? (
+                <div id="myModal" class="modal">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <span class="close">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                      <p>Some text in the Modal Body</p>
+                      <p>Some other text...</p>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <b></b>
+              )}
+              {/* {
+                                        this.state.respo === 'no' ? <Modal backdrop="static" centered show={this.state.show} onHide={this.handleClose}>
+                                            <Modal.Header closeButton>
+                                                <Modal.Title>Result</Modal.Title>
+                                            </Modal.Header>
+                                            <Modal.Body>Woohoo,Something went wrong!!</Modal.Body>
+                                          
+                                        </Modal> : <b></b>
+                                    } */}
+
               <h6>
                 Go back to
                 <Link to="/home">

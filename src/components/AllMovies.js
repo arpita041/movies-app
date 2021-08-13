@@ -73,10 +73,6 @@ class AllMovies extends Component {
       onFirstDataRendered: this.onFirstDataRendered,
     };
   }
-  // saving = (params) => {
-  //     console.log(params);
-  //     alert("do you want to change it ?")
-  // }
   onFirstDataRendered = (params) => {
     params.api.sizeColumnsToFit();
   };
@@ -112,23 +108,23 @@ class AllMovies extends Component {
   render() {
     return (
       <div>
-        <NavBar></NavBar>
-        <div className="header">
-          <h3 data-testid="header" className='header__title'>Movies Details</h3>
-          {/* <button className='btn' onClick={this.getAllMovies} >load all Movies</button> */}
-        </div>{" "}
-        <br />
-        {/* <Table post={this.state.allMovies}></Table> */}
-        <div className="table-container">
-          <Gridreact
-            columnDefs={this.state.columnDefs}
-            defaultColDef={this.state.defaultColDef}
-            rowData={this.state.allMovies}
-            height="357px"
-            apiValue="movie"
-          ></Gridreact>
-        </div>
+      <NavBar></NavBar>
+      <div className="header">
+        <h3 data-testid="header" className='header__title'>Movie Details</h3>
+        {/* <button className='btn' onClick={this.getAllMovies} >load all Movies</button> */}
+      </div>{" "}
+      <br />
+      {/* <Table post={this.state.allMovies}></Table> */}
+      <div className="table-container">
+        <Gridreact
+          columnDefs={this.state.columnDefs}
+          defaultColDef={this.state.defaultColDef}
+          rowData={this.state.rowData}
+          height="357px"
+          apiValue="movie"
+        ></Gridreact>
       </div>
+    </div>
     );
   }
 }

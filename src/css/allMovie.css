@@ -39,7 +39,6 @@
 .ag-header-cell-label {
     justify-content: center;
  }
-
  @media only screen and (min-width: 600px){
     .table-container{
         margin: auto;

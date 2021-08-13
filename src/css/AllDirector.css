@@ -1,30 +1,44 @@
 .ag-theme-alpine {
-    /* use theme parameters where possible */
-    --ag-foreground-color: white;
-    --ag-background-color: transparent;
-    /* --ag-border-1: none;
+  /* use theme parameters where possible */
+  --ag-foreground-color: white;
+  --ag-background-color: transparent;
+  /* --ag-border-1: none;
     --ag-border-color-2: transparent; */
-    --ag-borders: false;
-    --ag-border:none;
-    --ag-cell-horizontal-border: solid transparent,
+  --ag-borders: false;
+  --ag-border: none;
+  --ag-cell-horizontal-border: solid transparent;
 }
 
 .ag-theme-alpine .ag-header {
-    background-color:transparent;
+  background-color: transparent;
 }
 .ag-group {
-    border-color: green;
+  border-color: green;
 }
 ::-webkit-scrollbar {
-    width: 12px;
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px  #3BB7C4; 
-    border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px #3bb7c4;
+  border-radius: 10px;
 }
- 
+
 ::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
+.grid-cell-centered{
+    text-align: center;
+}
+.ag-header-cell-label {
+    justify-content: center;
+ }
+ @media only screen and (min-width: 600px){
+    .table-container{
+        margin: auto;
+        width: 70%;
+        background-color: transparent;
+        margin-top: 2%;
+     }
+ }

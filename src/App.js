@@ -1,12 +1,10 @@
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+//import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import AddDirector from "./components/AddDirector";
 import Home from "./components/Home";
 import DeleteMovie from "./components/DeleteMovie";
-
 import UpdateDetails from "./components/UpdateDetails";
-
 import AllMovies from "./components/AllMovies";
 import Movies from "./components/Movies";
 import Director from "./components/director";

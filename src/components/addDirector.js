@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 import NavBarrr from "./NavBarrr";
 import NavBar from "./NavBar";
 import axios from "axios";
-// import '../css/directorcss.css'
 import "../css/forms.scss";
 class AddDirector extends Component {
   constructor(props) {
@@ -25,12 +24,6 @@ class AddDirector extends Component {
       show: true,
     };
   }
-  handleClose = () => {
-    this.setState({ show: false });
-  };
-  handleShow = () => {
-    this.setState({ show: true });
-  };
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -69,9 +62,7 @@ class AddDirector extends Component {
     }
   };
   validGender = (event) => {
-    //   console.log(this.state.gender);
     let a = this.state.gender.toLocaleLowerCase();
-    //  console.log(a);
     if (this.state.gender.trim() === "") {
       this.setState({ genderError: "Gender is required" });
       event.target.id = "danger-id";
@@ -87,53 +78,6 @@ class AddDirector extends Component {
     }
   };
 
-  // validate() {
-  //     let ageNum = parseInt(this.state.age);
-  //     let awardNum = parseInt(this.state.awardCount);
-  //     let pattern = /^[a-zA-Z ]{2,30}$/;
-  //     console.log(ageNum);
-  //     let val = 0;
-  //     if (this.state.name.trim() === '') {
-  //         val = 1;
-  //         this.setState({ nameError: "name is required" })
-  //     }
-  //     if(!pattern.test(this.state.name))
-  //     {
-  //         this.setState({nameError:"Please enter a valid name"});
-  //         val=1;
-  //     }
-  //     if (this.state.age.trim() === '') {
-  //         this.setState({ ageError: "age is required" });
-  //         val = 1;
-  //     }
-  //     if (ageNum > 80 || ageNum < 18) {
-  //         this.setState({ ageError: "age should range between 18 to 80" });
-  //         val = 1;
-  //     }
-  //     if (this.state.awardCount.trim() === '') {
-  //         val = 1;
-  //         this.setState({ awardCountError: "award Count is required" });
-  //     }
-  //     if (awardNum >= 100 || awardNum <= 1) {
-  //         val = 1;
-  //         this.setState({ awardCountError: "award count should be between 0 to 100" })
-  //     }
-  //     if (this.state.gender.trim() === '') {
-  //         val = 1;
-  //         this.setState({ genderError: "gender is required" });
-  //     }
-  //     // if(this.state.gender!=='male' || this.state.gender!=='female' || this.state.gender!=='other')
-  //     // {
-  //     //     val=1;
-  //     //     this.setState({genderError:'gender can be only male, female or other'})
-  //     // }
-  //     if (val === 0) {
-  //         return true;
-  //     }
-  //     else {
-  //         return false;
-  //     }
-  // }
   validate() {
     if (
       this.state.name !== "" &&
@@ -155,10 +99,11 @@ class AddDirector extends Component {
     // if (valid) {
     axios.post("http://localhost:3500/direct", this.state).then((response) => {
       console.log(response);
-      if (response.statusText === "OK") {
+      if (response.statusText === "") {
         this.setState({
           respo: "yes",
         });
+        this.modalCode();
       } else {
         this.setState({
           respo: "no",
@@ -172,6 +117,27 @@ class AddDirector extends Component {
   alphaOnly = (e) => {
     this.setState({ gender: e.target.value.replace(/[^A-Za-z]/gi, "") });
     console.log(this.state.gender);
+  };
+
+  //for model
+  modalCode = () => {
+    var modal = document.getElementById("myModal");
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    modal.style.display = "block";
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+    };
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
   };
   render() {
     const { name, age, gender, awardCount } = this.state;
@@ -269,16 +235,22 @@ class AddDirector extends Component {
                 Add Director
               </button>
 
-              {/* 
-                                    {
-                                        this.state.respo === 'yes' ? <Modal backdrop="static" centered show={this.state.show} onHide={this.handleClose}>
-                                            <Modal.Header closeButton>
-                                                <Modal.Title>Result</Modal.Title>
-                                            </Modal.Header>
-                                            <Modal.Body>Woohoo,  Director's data uploaded successfully!!</Modal.Body>
-                                        </Modal> : <b></b>
-                                    }
-                                    {
+              {this.state.respo === "yes" ? (
+                <div id="myModal" class="modal">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <span class="close">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                      <p>Some text in the Modal Body</p>
+                      <p>Some other text...</p>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <b></b>
+              )}
+              {/* {
                                         this.state.respo === 'no' ? <Modal backdrop="static" centered show={this.state.show} onHide={this.handleClose}>
                                             <Modal.Header closeButton>
                                                 <Modal.Title>Result</Modal.Title>

@@ -8,3 +8,4 @@ test('to check whether AllMovies component rendered',()=>{
         <director />
     </BrowserRouter>)
 })
+

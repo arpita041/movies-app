@@ -9,6 +9,7 @@ import Adapter from 'enzyme-adapter-react-16';
  
 Enzyme.configure({ adapter: new Adapter() });
 
+
 it('to check whether DeleteMovie component rendered',()=>{
     render(<BrowserRouter>
         <DeleteMovie />
@@ -24,27 +25,28 @@ it('Should capture moviename correctly onChange', function(){
         target: {value:'Jack'}
     });
     expect(component.state().movieName).toEqual('Jack');
+
 })
 
+it('Should validate moviename correctly onBlur', function(){
 
-// it("should create an entry in component state with the event value", () => {
-//     // given
-//     const component = shallow(<DeleteMovie />);
-//     const form = component.find('input');
-//     // when
-//     form.props().onChange({target: {
-//       movieName: 'myName',
-//       value: 'myValue'
-//     }});
-//     // then
-//     expect(component.state('input')).toEqual('myValue');
-//   });
+    const component = shallow(<DeleteMovie />);
+    let input = component.find('input');
+    input.simulate('blur' , {
+        target: {name:'movieName'}
+    });
+    expect(component.state().nameError).toEqual('Please enter a valid name');
+});
 
+it('Should validate moviename correctly onBlur', function(){
 
-// it("should create an entry in component state with the event value", () => {
-//     // given
-//     const component = mount(<DeleteMovie />);
-//     component.find('input').simulate('change', { target: { movieName: '1234567890!!!' } });
-//     expect(component.state().movieName).to.equal("1234567890");
-
-//   });
+    const component = shallow(<DeleteMovie />);
+    let input = component.find('input')
+    input.simulate('change' , {
+        target: {value:'Jack'}
+    });
+    input.simulate('blur' , {
+        target: {name:"movieName"}
+    });
+    expect(component.state().nameError).toEqual('');
+})

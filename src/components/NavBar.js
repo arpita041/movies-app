@@ -3,17 +3,6 @@ import "../css/NavBar.scss";
 import { NavLink } from "react-router-dom";
 function NavBar() {
   let a = window.location.pathname;
-  // console.log(a);
-  // let k = document.querySelector('.nav__dropbtn');
-  // if(a==='/deleteMovie' || a==='/update')
-  // {
-  //   console.log("true");
-  //   k.classList.add('active');
-  //   console.log(k);
-  // }
-  // else{
-  //   k.classList.remove('active');
-  // }
 
   return (
     <div>

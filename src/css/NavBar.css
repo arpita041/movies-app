@@ -1,0 +1,158 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.nav {
+  z-index: 9999;
+}
+
+.nav {
+  height: 60px;
+  width: 100%;
+  background-color: #292b2c;
+  position: relative;
+}
+
+.nav__header {
+  display: inline;
+}
+
+.nav__title {
+  display: inline-block;
+  font-size: 20px;
+  color: #fff;
+  padding: 10px 10px 10px 10px;
+}
+
+.nav__btn {
+  display: none;
+}
+
+.nav__links {
+  display: inline;
+  float: right;
+  font-size: 18px;
+}
+
+.nav__link {
+  display: inline-block;
+  padding: 13px 10px 13px 10px;
+  text-decoration: none;
+}
+
+.nav__link--color {
+  color: white;
+  font-weight: bold;
+}
+
+.nav__link--color:hover {
+  color: #3bb7c4;
+  text-decoration: none;
+}
+
+#nav-check {
+  display: none;
+}
+
+@media (max-width: 797px) {
+  .nav__btn {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .nav .nav__btn label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  }
+  .nav .nav__btn label:hover label,
+  .nav .nav__btn .nav #nav-check:checked ~ .nav__btn label {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .nav .nav__btn label span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
+  }
+  .nav__links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color: #292b2c;
+    height: 0px;
+    -webkit-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+  }
+  .nav__link {
+    display: block;
+    width: 100%;
+  }
+  .nav #nav-check:not(:checked) ~ .nav__links {
+    height: 0px;
+  }
+  .nav #nav-check:checked ~ .nav__links {
+    height: 300px;
+    overflow-y: auto;
+  }
+}
+
+.nav__link--active {
+  color: #3bb7c4;
+  font-weight: bold;
+}
+
+.nav__dropbtn {
+  background-color: transparent;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.nav__dropbtn:hover {
+  color: #3bb7c4;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #292b2c;
+  margin: 2px;
+  min-width: 160px;
+  -webkit-box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+
+.dropdown-content .dropdown__link {
+  padding: 5px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content .dropdown__link:hover ~ .nav__dropbtn {
+  color: #3bb7c4;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.nav__right {
+  text-align: center;
+  color: #fff;
+  float: right;
+}
+/*# sourceMappingURL=NavBar.css.map */

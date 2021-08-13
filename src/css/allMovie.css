@@ -33,3 +33,19 @@
  height: 29px;
  text-align: center;
 }
+.grid-cell-centered{
+    text-align: center;
+}
+.ag-header-cell-label {
+    justify-content: center;
+ }
+ @media only screen and (min-width: 600px){
+    .table-container{
+        margin: auto;
+        width: 70%;
+        background-color: transparent;
+        margin-top: 2%;
+     }
+ }
+ 
+ 

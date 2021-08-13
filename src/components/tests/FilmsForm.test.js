@@ -1,5 +1,6 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { getByText, render, screen, fireEvent,act, getByPlaceholderText } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import FilmsForm from '../FilmsForm';
 import { BrowserRouter } from 'react-router-dom';
 import { shallow } from 'enzyme';
@@ -18,6 +19,15 @@ const simulateChangeInput = (component, inputSelector, newValue) =>
     return component.find(inputSelector)
 }
 
+const simulateBlurInput = (component, inputSelector, newName) =>
+{
+    let input = component.find(inputSelector)
+    input.simulate('blur',{
+        target :{ name:newName},
+    } );
+    return component.find(inputSelector)
+}
+
 test('to check whether filmsform component rendered',()=>{
     render(<BrowserRouter>
         <FilmsForm />
@@ -29,8 +39,34 @@ it('Should capture movieName correctly onChange', function(){
 
     const component = shallow(<FilmsForm />);
  let nameInput=  simulateChangeInput(component,'#moviename','Random');
+
 expect(nameInput.props().value).toBe('Random');
 });
+
+it('Should validate movieName correctly onBlur', function(){
+
+    const component = shallow(<FilmsForm />);
+    component.setState({name:")*(&("});
+ let nameInput=  simulateBlurInput(component,'#moviename','movieName');
+expect(component.state().nameError).toBe('Please enter a valid name');
+});
+
+it('Should validate movieName correctly onBlur', function(){
+
+    const component = shallow(<FilmsForm />);
+    component.setState({name:"valid name"});
+ let nameInput=  simulateBlurInput(component,'#moviename','movieName');
+expect(component.state().nameError).toBe('');
+});
+
+it('Should validate movieName correctly onBlur', function(){
+
+    const component = shallow(<FilmsForm />);
+    component.setState({name:"    "});
+ let nameInput=  simulateBlurInput(component,'#moviename','movieName');
+expect(component.state().nameError).toBe('Please enter a valid name');
+});
+
 
 
 it('Should capture boxOfficeCollection correctly onChange', function(){
@@ -38,6 +74,22 @@ it('Should capture boxOfficeCollection correctly onChange', function(){
     const component = shallow(<FilmsForm />);
  let nameInput=  simulateChangeInput(component,'#boxOfficeCollection','414141');
 expect(nameInput.props().value).toBe('414141');
+});
+
+it('Should validate boxOfficeCollection correctly onBlur', function(){
+
+    const component = shallow(<FilmsForm />);
+    component.setState({boxOfficeCollection:"     "});
+ let nameInput=  simulateBlurInput(component,'#boxOfficeCollection','boxOfficeCollection');
+expect(component.state().boxOfficeError).toBe('Box Office Collection is required');
+});
+
+it('Should validate boxOfficeCollection correctly onBlur', function(){
+
+    const component = shallow(<FilmsForm />);
+    component.setState({boxOfficeCollection:"4783256385"});
+ let nameInput=  simulateBlurInput(component,'#boxOfficeCollection','boxOfficeCollection');
+expect(component.state().boxOfficeError).toBe('');
 });
 
 
@@ -48,6 +100,22 @@ it('Should capture rating correctly onChange', function(){
 expect(nameInput.props().value).toBe('10');
 });
 
+it('Should validate rating correctly onBlur', function(){
+
+    const component = shallow(<FilmsForm />);
+    component.setState({rating:"787876876"});
+ let nameInput=  simulateBlurInput(component,'#rating','rating');
+expect(component.state().ratingError).toBe('Rating should range between 0 to 10');
+});
+
+it('Should validate rating correctly onBlur', function(){
+
+    const component = shallow(<FilmsForm />);
+    component.setState({rating:"7"});
+ let nameInput=  simulateBlurInput(component,'#rating','rating');
+expect(component.state().ratingError).toBe('');
+});
+
 
 it('Should capture DirectorName correctly onChange', function(){
 
@@ -55,3 +123,43 @@ it('Should capture DirectorName correctly onChange', function(){
  let nameInput=  simulateChangeInput(component,'#directorName','Random');
 expect(nameInput.props().value).toBe('Random');
 });
+
+it('Should validate rating correctly onBlur', function(){
+
+    const component = shallow(<FilmsForm />);
+    component.setState({director:"787876876"});
+ let nameInput=  simulateBlurInput(component,'#directorName','directorName');
+expect(component.state().directorError).toBe('Please enter a valid name');
+});
+
+it('Should validate Director name correctly onBlur', function(){
+
+    const component = shallow(<FilmsForm />);
+    component.setState({director:"       "});
+ let nameInput=  simulateBlurInput(component,'#directorName','directorName');
+expect(component.state().directorError).toBe('Please enter a valid name');
+});
+
+it('Should validate Director name correctly onBlur', function(){
+
+    const component = shallow(<FilmsForm />);
+    component.setState({director:"Aditya"});
+ let nameInput=  simulateBlurInput(component,'#directorName','directorName');
+expect(component.state().directorError).toBe('');
+});
+
+it('renders the submit button', () =>
+{
+    const {getByText} =  render(<BrowserRouter>
+        <FilmsForm />
+    </BrowserRouter>);
+     expect(getByText('Add Film')).toBeInTheDocument();
+});
+
+it('should do something on submit ', function()
+{
+    
+    const component = shallow(<FilmsForm/>);
+   component.find('form').simulate('submit',{ preventDefault () {} });
+   
+})

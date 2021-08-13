@@ -111,51 +111,8 @@ class FilmsForm extends Component {
       return false;
     }
   }
-  // validate() {
-  //     let val = 0;
-  //     let pattern = /^[a-zA-Z ]{2,30}$/;
-  //     let rate = parseInt(this.state.rating);
-  //     if (this.state.name.trim() === '') {
-  //         this.setState({ nameError: "Name is required" });
-  //         val = 1;
-  //     }
-  //     if(!pattern.test(this.state.name))
-  //     {
-  //         this.setState({nameError:"Please enter a valid name"});
-  //         val=1;
-  //     }
-  //     if (this.state.boxOfficeCollection.trim() === '') {
-  //         this.setState({ boxOfficeError: "BoxOfficeCollection is required" })
-  //         val = 1;
-  //     }
-  //     if (this.state.rating.trim() === '') {
-  //         this.setState({ ratingError: "Rating is required" });
-  //         val = 1;
 
-  //     }
-  //     if (rate > 10 || rate < 0) {
-  //         this.setState({ ratingError: "Rating should range between 0 to 10" });
-  //         val = 1;
-  //     }
-
-  //     if (this.state.director.trim() === '') {
-  //         this.setState({ directorError: "Director name is required" });
-  //         val = 1;
-  //     }
-  //     if(!pattern.test(this.state.director))
-  //     {
-  //         this.setState({directorError:"Please enter a valid name"});
-  //         val=1;
-  //     }
-  //     if (val === 0) {
-  //         return true;
-  //     }
-  //     else {
-  //         return false;
-  //     }
-  // }
   handleSubmit = (event) => {
-    //   this.setState({ nameError: '', boxOfficeError: '', ratingError: '', directorError: '' })
     const isValid = this.validate();
     var res = "";
     if (isValid) {
@@ -181,7 +138,6 @@ class FilmsForm extends Component {
 
     return (
       <div>
-        {/* <NavBarrr></NavBarrr> */}
         <NavBar></NavBar>
         <div className="header">
           <h3 className="header__title">Add Movie Details</h3>
@@ -268,24 +224,6 @@ class FilmsForm extends Component {
                 </Link>
               </h6>
             </div>
-            {/* {
-                                        this.state.respo === 'yes' ? <Modal backdrop="static" centered show={this.state.show} onHide={this.handleClose}>
-                                            <Modal.Header closeButton>
-                                                <Modal.Title>Result</Modal.Title>
-                                            </Modal.Header>
-                                            <Modal.Body>Woohoo,  Movie data uploaded successfully!!</Modal.Body>
-
-                                        </Modal> : <b></b>
-                                    }
-                                    {
-                                        this.state.respo === 'no' ? <Modal backdrop="static" centered show={this.state.show} onHide={this.handleClose}>
-                                            <Modal.Header closeButton>
-                                                <Modal.Title>Result</Modal.Title>
-                                            </Modal.Header>
-                                            <Modal.Body>Woohoo,Something went wrong!!</Modal.Body>
-
-                                        </Modal> : <b></b>
-                                    } */}
           </form>
         </div>
       </div>

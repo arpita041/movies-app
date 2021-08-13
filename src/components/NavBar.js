@@ -3,17 +3,7 @@ import "../css/NavBar.scss";
 import { NavLink } from "react-router-dom";
 function NavBar() {
   let a = window.location.pathname;
-  // console.log(a);
-  // let k = document.querySelector('.nav__dropbtn');
-  // if(a==='/deleteMovie' || a==='/update')
-  // {
-  //   console.log("true");
-  //   k.classList.add('active');
-  //   console.log(k);
-  // }
-  // else{
-  //   k.classList.remove('active');
-  // }
+
 
   return (
     <div>
@@ -73,12 +63,11 @@ function NavBar() {
           </div>
           <div className="nav__link">
             <div class="dropdown">
-              <button className="nav__dropbtn">
- Other Options
-              </button>
+              <button className="nav__dropbtn">Other Options</button>
               <div className="dropdown-content">
-                <span className="dropdown__link"> 
-                  <NavLink className="nav__link--color"
+                <span className="dropdown__link">
+                  <NavLink
+                    className="nav__link--color"
                     to="/deleteMovie"
                     activeClassName="nav__link--active"
                   >
@@ -86,11 +75,16 @@ function NavBar() {
                   </NavLink>
                 </span>
                 <span className="dropdown__link">
-                  <NavLink to="/update" className="nav__link--color" activeClassName="nav__link--active">
+                  <NavLink
+                    to="/update"
+                    className="nav__link--color"
+                    activeClassName="nav__link--active"
+                  >
                     Update Details
                   </NavLink>
                 </span>
               </div>
+            
             </div>
           </div>
         </div>

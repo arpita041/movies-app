@@ -1,24 +1,20 @@
 import React from "react";
 import { AgGridReact } from "ag-grid-react";
-// import 'ag-grid-community/dist/styles/ag-grid.css';
-// import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
+
 import "../css/AllDirec.scss";
 import "../css/AllDirector.css";
 import axios from "axios";
-import '../css/Gridreact.scss'
-//import { GridApi } from 'ag-grid-community';
 
 function Gridreact(props) {
   let name;
   let nameArray = [];
   let dataArray = [];
 
-  //  let saveBtn;
-  const rowStyle = {
+  let rowStyle = {
     background: "transparent",
     color: "#3BB7C4",
   };
-  //let saveBtn;
+
   var c = document.querySelector("#uni");
   let data;
   let a = 0;
@@ -29,14 +25,6 @@ function Gridreact(props) {
       document.getElementById("myBtn").addEventListener("click", saveChanges);
       a = 1;
     }
-    //     if(a===0)
-    //     {
-    //         saveBtn =document.createElement('button');
-    //         saveBtn.innerText="save";
-    //           c.appendChild(saveBtn);
-    //     a=1;
-    //     }
-    //   saveBtn.addEventListener('click', saveChanges);
     name = res.data.name;
     nameArray.push(name);
   };
@@ -86,7 +74,6 @@ function Gridreact(props) {
       }
     }
     if (a === 1) {
-      // c.removeChild(saveBtn);
       document.getElementById("myBtn").disabled = true;
       a = 0;
     }
@@ -95,7 +82,7 @@ function Gridreact(props) {
   const paginationPageSize = 10;
   console.log(height);
   return (
-    <div>
+    <div className="container App">
       <div
         className="ag-theme-alpine"
         style={{ height: props.height, width: "100%" }}
@@ -109,12 +96,11 @@ function Gridreact(props) {
           onCellEditingStopped={secnd}
           pagination={true}
           paginationPageSize={paginationPageSize}
-          paginationAutoPageSize={true}
         ></AgGridReact>
       </div>{" "}
       <br />
       <div id="uni">
-        <button id="myBtn" className="btn btn-success" disabled={true}>
+        <button id="myBtn" className="btn btn-Success" disabled={true}>
           Save
         </button>
       </div>

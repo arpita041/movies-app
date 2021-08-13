@@ -22,7 +22,6 @@ function AllDirector() {
   const rowStyle = {
     background: "transparent",
     color: "#3BB7C4",
-    // margin:'0px auto'
   };
 
   const onGridReady = (params) => {
@@ -42,7 +41,6 @@ function AllDirector() {
         <AgGridReact
           rowStyle={rowStyle}
           columnDefs={columnDefs}
-          // rowData={rowData}
           defaultColDef={defaultColDef}
           onGridReady={onGridReady}
         ></AgGridReact>

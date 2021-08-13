@@ -43,27 +43,6 @@ class DeleteMovie extends Component {
       event.target.id = "inputtxt";
     }
   };
-  // validation()
-  // {
-  //     let val = 0;
-  //     let pattern = /^[a-zA-Z ]{2,30}$/;
-
-  //     if (this.state.movieName.trim() === '') {
-  //         val = 1;
-  //         this.setState({ nameError: "name is required" })
-  //     }
-  //     if(!pattern.test(this.state.movieName))
-  //     {
-  //         this.setState({nameError:"Please enter a valid name"});
-  //         val=1;
-  //     }
-  //     if (val === 0) {
-  //         return true;
-  //     }
-  //     else {
-  //         return false;
-  //     }
-  // }
   validation() {
     if (this.state.movieName !== "" && this.state.nameError === "") {
       return true;
@@ -73,9 +52,6 @@ class DeleteMovie extends Component {
   }
   handleSubmit = (e) => {
     var respo;
-    // this.setState({
-    //     nameError: ''
-    // })
     e.preventDefault();
     const valid = this.validation();
     if (valid) {
@@ -89,7 +65,6 @@ class DeleteMovie extends Component {
               respo: "yes",
             });
           } else {
-            //alert("Deleted successfully");
             this.setState({
               respo: "no",
             });
@@ -135,24 +110,6 @@ class DeleteMovie extends Component {
               </button>
             </div>
             <br />
-            {/* {
-                            this.state.respo === 'yes' ? <Modal backdrop="static" centered show={this.state.show} onHide={this.handleClose}>
-                                <Modal.Header closeButton>
-                                    <Modal.Title>Result</Modal.Title>
-                                </Modal.Header>
-                                <Modal.Body>Woohoo,  Movie deleted successfully !!</Modal.Body>
-
-                            </Modal> : <b></b>
-                        }
-                        {
-                            this.state.respo === 'no' ? <Modal backdrop="static" centered show={this.state.show} onHide={this.handleClose}>
-                                <Modal.Header closeButton>
-                                    <Modal.Title>Something went wrong !!</Modal.Title>
-                                </Modal.Header>
-                                <Modal.Body>You entered the wrong movie name</Modal.Body>
-
-                            </Modal> : <b></b>
-                        } */}
           </form>
         </div>
       </div>

@@ -23,14 +23,6 @@ const NavBarrr = (props) => {
       [name]: value,
     }));
   };
-  // var btns=document.getElementsByClassName('color')
-  // console.log(btns)
-  // for( var i=0;i<btns.length;i++){
-  //     btns[i].addEventListener('click',function(){
-  //         var curr=document.getElementsByClassName('active')
-  //         curr[0].class=curr[0].class.replace('active')
-  //     })
-  // }
 
   return (
     <div>

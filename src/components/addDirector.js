@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 import NavBarrr from "./NavBarrr";
 import NavBar from "./NavBar";
 import axios from "axios";
-// import '../css/directorcss.css'
 import "../css/forms.scss";
 class AddDirector extends Component {
   constructor(props) {
@@ -69,9 +68,7 @@ class AddDirector extends Component {
     }
   };
   validGender = (event) => {
-    //   console.log(this.state.gender);
     let a = this.state.gender.toLocaleLowerCase();
-    //  console.log(a);
     if (this.state.gender.trim() === "") {
       this.setState({ genderError: "Gender is required" });
       event.target.id = "danger-id";
@@ -87,53 +84,6 @@ class AddDirector extends Component {
     }
   };
 
-  // validate() {
-  //     let ageNum = parseInt(this.state.age);
-  //     let awardNum = parseInt(this.state.awardCount);
-  //     let pattern = /^[a-zA-Z ]{2,30}$/;
-  //     console.log(ageNum);
-  //     let val = 0;
-  //     if (this.state.name.trim() === '') {
-  //         val = 1;
-  //         this.setState({ nameError: "name is required" })
-  //     }
-  //     if(!pattern.test(this.state.name))
-  //     {
-  //         this.setState({nameError:"Please enter a valid name"});
-  //         val=1;
-  //     }
-  //     if (this.state.age.trim() === '') {
-  //         this.setState({ ageError: "age is required" });
-  //         val = 1;
-  //     }
-  //     if (ageNum > 80 || ageNum < 18) {
-  //         this.setState({ ageError: "age should range between 18 to 80" });
-  //         val = 1;
-  //     }
-  //     if (this.state.awardCount.trim() === '') {
-  //         val = 1;
-  //         this.setState({ awardCountError: "award Count is required" });
-  //     }
-  //     if (awardNum >= 100 || awardNum <= 1) {
-  //         val = 1;
-  //         this.setState({ awardCountError: "award count should be between 0 to 100" })
-  //     }
-  //     if (this.state.gender.trim() === '') {
-  //         val = 1;
-  //         this.setState({ genderError: "gender is required" });
-  //     }
-  //     // if(this.state.gender!=='male' || this.state.gender!=='female' || this.state.gender!=='other')
-  //     // {
-  //     //     val=1;
-  //     //     this.setState({genderError:'gender can be only male, female or other'})
-  //     // }
-  //     if (val === 0) {
-  //         return true;
-  //     }
-  //     else {
-  //         return false;
-  //     }
-  // }
   validate() {
     if (
       this.state.name !== "" &&
@@ -213,12 +163,12 @@ class AddDirector extends Component {
             autoComplete="off"
           >
             <div className="form__input">
-              <label className="form__input-label" for="name">
+              <label className="form__input-label" for="input-name">
                 Name
               </label>
               <input
                 className="form__input-field"
-                id="name"
+                id="input-name"
                 type="text"
                 placeholder="Name"
                 name="name"

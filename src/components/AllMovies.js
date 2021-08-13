@@ -15,28 +15,28 @@ class AllMovies extends Component {
           headerName: "NAME",
           field: "name",
           maxWidth: 250,
-          minWidth:160,
+          minWidth: 160,
           cellClass: "grid-cell-centered",
         },
         {
           headerName: "RATING",
           field: "rating",
           maxWidth: 130,
-          minWidth:250,
+          minWidth: 250,
           cellClass: "grid-cell-centered",
         },
         {
           headerName: "DIRECTOR",
           field: "director",
           maxWidth: 250,
-          minWidth:150,
+          minWidth: 150,
           cellClass: "grid-cell-centered",
         },
         {
           headerName: "COLLECTION",
           field: "boxOfficeCollection",
           maxWidth: 250,
-          minWidth:150,
+          minWidth: 150,
           cellClass: "grid-cell-centered",
         },
         {
@@ -45,7 +45,7 @@ class AllMovies extends Component {
           floatingFilter: false,
           cellClass: "grid-cell-centered",
           maxWidth: 160,
-          minWidth:110,
+          minWidth: 110,
           cellRendererFramework: (params) => (
             <div>
               {/* <button className="btnClass" onClick={() => this.saving(params)}>Save</button> */}
@@ -73,10 +73,6 @@ class AllMovies extends Component {
       onFirstDataRendered: this.onFirstDataRendered,
     };
   }
-  // saving = (params) => {
-  //     console.log(params);
-  //     alert("do you want to change it ?")
-  // }
   onFirstDataRendered = (params) => {
     params.api.sizeColumnsToFit();
   };
@@ -88,11 +84,9 @@ class AllMovies extends Component {
       params.api.applyTransaction({
         remove: [params.node.data],
       });
-      axios
-        .delete(`http://localhost:3500/deleteMovie/${name}`)
-        .then((res) => {
-          console.log(res);
-        });
+      axios.delete(`http://localhost:3500/deleteMovie/${name}`).then((res) => {
+        console.log(res);
+      });
     } else {
       console.log("no");
     }
@@ -100,10 +94,9 @@ class AllMovies extends Component {
 
   componentDidMount = () => {
     axios.get("http://localhost:3500/film").then((response) => {
-      console.log(response);
       this.setState({
-        allMovies: response.data,
-        rowData: response.data,
+        allMovies: response.data.forms,
+        rowData: response.data.forms,
       });
     });
     console.log(this.state.rowData);
@@ -113,21 +106,17 @@ class AllMovies extends Component {
     return (
       <div>
         <NavBar></NavBar>
-        <div className="header">
-          <h3 data-testid="header" className='header__title'>Movie Details</h3>
-          {/* <button className='btn' onClick={this.getAllMovies} >load all Movies</button> */}
+        <div className="heading">
+          <h3 data-testid="header">Movie Details</h3>
         </div>{" "}
         <br />
-        {/* <Table post={this.state.allMovies}></Table> */}
-        <div className="table-container">
-          <Gridreact
-            columnDefs={this.state.columnDefs}
-            defaultColDef={this.state.defaultColDef}
-            rowData={this.state.rowData}
-            height="357px"
-            apiValue="movie"
-          ></Gridreact>
-        </div>
+        <Gridreact
+          columnDefs={this.state.columnDefs}
+          defaultColDef={this.state.defaultColDef}
+          rowData={this.state.rowData}
+          height="350px"
+          apiValue="movie"
+        ></Gridreact>
       </div>
     );
   }

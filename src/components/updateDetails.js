@@ -111,7 +111,6 @@ class UpdateDetails extends Component {
     const valid = this.validation();
     e.preventDefault();
     if (valid) {
-      console.log(this.state)
       axios
         .put(
           `http://localhost:3500/updateDirect/${this.state.name}`,
@@ -160,6 +159,7 @@ class UpdateDetails extends Component {
               </label>
               <input
                 className="form__input-field"
+                data-testid="input-name"
                 id="name"
                 type="text"
                 name="name"

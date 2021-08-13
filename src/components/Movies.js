@@ -44,19 +44,17 @@ const Movies = (props) => {
 
   return (
     <div>
-                   <NavBarrr></NavBarrr>
-                <div className="heading">
-                    <h3>Movie Details</h3>
-        
-                </div> <br />
-                        <Gridreact
-                    columnDefs={columnDefs}
-                    rowData={post}
-                    defaultColDef={defaultColDef}
-                    height={height}
-                >
-
-                </Gridreact>
+      <NavBarrr></NavBarrr>
+      <div className="heading">
+        <h3>Movie Details</h3>
+      </div>{" "}
+      <br />
+      <Gridreact
+        columnDefs={columnDefs}
+        rowData={post}
+        defaultColDef={defaultColDef}
+        height={height}
+      ></Gridreact>
     </div>
   );
 };

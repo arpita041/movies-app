@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 function NavBar() {
   let a = window.location.pathname;
 
-
   return (
     <div>
       <div className="nav">

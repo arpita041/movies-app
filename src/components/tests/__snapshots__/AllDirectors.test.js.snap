@@ -137,7 +137,7 @@ exports[`should take a snapshot 1`] = `
     </div>
     <br />
     <div
-      class="container App"
+      class="App"
     >
       <div
         class="ag-theme-alpine"
@@ -1908,7 +1908,7 @@ exports[`should take a snapshot 1`] = `
         id="uni"
       >
         <button
-          class="btn btn-Success"
+          class="btn btn-success"
           disabled=""
           id="myBtn"
         >

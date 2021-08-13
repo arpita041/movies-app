@@ -15,28 +15,28 @@ class AllMovies extends Component {
           headerName: "NAME",
           field: "name",
           maxWidth: 250,
-          minWidth: 160,
+          minWidth:160,
           cellClass: "grid-cell-centered",
         },
         {
           headerName: "RATING",
           field: "rating",
-          maxWidth: 250,
-          minWidth: 130,
+          maxWidth: 130,
+          minWidth:250,
           cellClass: "grid-cell-centered",
         },
         {
           headerName: "DIRECTOR",
           field: "director",
           maxWidth: 250,
-          minWidth: 150,
+          minWidth:150,
           cellClass: "grid-cell-centered",
         },
         {
           headerName: "COLLECTION",
           field: "boxOfficeCollection",
           maxWidth: 250,
-          minWidth: 150,
+          minWidth:150,
           cellClass: "grid-cell-centered",
         },
         {
@@ -45,7 +45,7 @@ class AllMovies extends Component {
           floatingFilter: false,
           cellClass: "grid-cell-centered",
           maxWidth: 160,
-          minWidth: 110,
+          minWidth:110,
           cellRendererFramework: (params) => (
             <div>
               {/* <button className="btnClass" onClick={() => this.saving(params)}>Save</button> */}
@@ -84,9 +84,11 @@ class AllMovies extends Component {
       params.api.applyTransaction({
         remove: [params.node.data],
       });
-      axios.delete(`http://localhost:3500/deleteMovie/${name}`).then((res) => {
-        console.log(res);
-      });
+      axios
+        .delete(`http://localhost:3500/deleteMovie/${name}`)
+        .then((res) => {
+          console.log(res);
+        });
     } else {
       console.log("no");
     }
@@ -94,12 +96,13 @@ class AllMovies extends Component {
 
   componentDidMount = () => {
     axios.get("http://localhost:3500/film").then((response) => {
+      console.log(response);
       this.setState({
-        allMovies: response.data,
-        rowData: response.data,
-      });
+       allMovies:response.data.forms
+      }); 
+       console.log(this.state.allMovies);
     });
-    console.log(this.state.rowData);
+  
   };
 
   render() {

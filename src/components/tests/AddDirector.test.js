@@ -4,8 +4,8 @@ import AddDirector from '../AddDirector';
 import { shallow } from 'enzyme';
 import { BrowserRouter } from 'react-router-dom';
 import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
- 
+import Adapter from 'enzyme-adapter-react-16'; 
+
 Enzyme.configure({ adapter: new Adapter() });
 
 const simulateChangeInput = (component, inputSelector, newValue, newName) =>
@@ -17,15 +17,14 @@ const simulateChangeInput = (component, inputSelector, newValue, newName) =>
     return component.find(inputSelector)
 }
 
-const simulateBlurInput = (component, inputSelector, newValue, newName) =>
+const simulateBlurInput = (component, inputSelector, newName) =>
 {
     let input = component.find(inputSelector)
     input.simulate('blur',{
-        target :{ value: newValue, name:newName},
+        target :{ name:newName},
     } );
     return component.find(inputSelector)
 }
-
 
 it('to check whether AddDirector component rendered',()=>{
     render(<BrowserRouter>
@@ -75,27 +74,103 @@ expect(Input.props().value).toBe('10');
 it('should do the name validation properly' , function(){
 
     const component = shallow(<AddDirector />);
-simulateBlurInput(component,'#input-name','(*&','name');
+simulateBlurInput(component,'#input-name','name');
 expect(component.state().nameError).toBe('Please enter a valid name');
+});
+
+it('should do the name validation properly' , function(){
+
+    const component = shallow(<AddDirector />);
+    component.setState({name:"     "})
+simulateBlurInput(component,'#input-name','name');
+expect(component.state().nameError).toBe('Please enter a valid name');
+});
+
+it('should do the name validation properly' , function(){
+
+    const component = shallow(<AddDirector />);
+    component.setState({name:'coreect name'});
+simulateBlurInput(component,'#input-name','name');
+expect(component.state().nameError).toBe('');
 });
 
 it('should do the gender validation properly', function()
 {
     const component= shallow(<AddDirector />);
-    simulateBlurInput(component,'#gender','r394','gender');
+   component.setState({gender:"female"});
+    simulateBlurInput(component,'#gender','gender');
+    expect(component.state().genderError).toBe("");
+});
+it('should do the gender validation properly', function()
+{
+    const component= shallow(<AddDirector />);
+    component.setState({gender:"f78hih"});
+    simulateBlurInput(component,'#gender','gender');
     expect(component.state().genderError).toBe("Gender can be only male, female or other");
+});
+
+it('should do the gender validation properly', function()
+{
+    const component= shallow(<AddDirector />);
+    component.setState({gender:"   "});
+    simulateBlurInput(component,'#gender','gender');
+    expect(component.state().genderError).toBe("Gender is required");
 });
 
 it('should do the age validation properly', function()
 {
     const component= shallow(<AddDirector />);
-   simulateBlurInput(component,'#age','47924','age');
+    component.setState({age:'2189'});
+   simulateBlurInput(component,'#age','age');
    expect(component.state().ageError).toBe("Age should range between 18 to 80");
+});
+
+it('should do the age validation properly', function()
+{
+    const component= shallow(<AddDirector />);
+    component.setState({age:'21'});
+   simulateBlurInput(component,'#age','age');
+   expect(component.state().ageError).toBe("");
 });
 
 it('should do the award validation properly', function()
 {
     const component= shallow(<AddDirector />);
-   simulateBlurInput(component,'#awardCount','574805','awardCount');
+    component.setState({awardCount:'22898080'}); 
+   simulateBlurInput(component,'#awardCount','awardCount');
 expect(component.state().awardCountError).toBe("Award count should be between 0 to 100");
+});
+
+it('should do the award validation properly', function()
+{
+    const component= shallow(<AddDirector />); 
+    component.setState({awardCount:'22'});
+   simulateBlurInput(component,'#awardCount','awardCount');
+expect(component.state().awardCountError).toBe("");
+});
+
+it('should do something on submit ', function()
+{
+    
+    const component = shallow(<AddDirector/>);
+   component.find('form').simulate('submit',{ preventDefault () {} });
+   
+})
+
+it('should do something on submit ', function()
+{
+    
+    const component = shallow(<AddDirector/>);
+    component.setState({
+        name: "aditi",
+        age: "21",
+        gender: "female",
+        awardCount: "32",
+        nameError: "",
+        ageError: "",
+        genderError: "",
+        awardCountError: "",
+    })
+   component.find('form').simulate('submit',{ preventDefault () {} });
+   
 })

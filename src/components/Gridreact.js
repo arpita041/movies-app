@@ -82,7 +82,7 @@ function Gridreact(props) {
   const paginationPageSize = 10;
   console.log(height);
   return (
-    <div>
+    <div className="App">
       <div
         className="ag-theme-alpine"
         style={{ height: props.height, width: "100%" }}

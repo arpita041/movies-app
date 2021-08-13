@@ -15,13 +15,7 @@ class DeleteMovie extends Component {
       show: true,
     };
   }
-  handleClose = () => {
-    this.setState({ show: false });
-  };
-  handleShow = () => {
-    this.setState({ show: true });
-  };
-
+  
   handleChange = (event) => {
     this.setState({
       movieName: event.target.value,

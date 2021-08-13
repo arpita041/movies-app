@@ -112,7 +112,7 @@ it('should do the gender validation properly', function()
 it('should do the gender validation properly', function()
 {
     const component= shallow(<AddDirector />);
-    component.setState({gender:"         "});
+    component.setState({gender:"   "});
     simulateBlurInput(component,'#gender','gender');
     expect(component.state().genderError).toBe("Gender is required");
 });
@@ -153,6 +153,24 @@ it('should do something on submit ', function()
 {
     
     const component = shallow(<AddDirector/>);
+   component.find('form').simulate('submit',{ preventDefault () {} });
+   
+})
+
+it('should do something on submit ', function()
+{
+    
+    const component = shallow(<AddDirector/>);
+    component.setState({
+        name: "aditi",
+        age: "21",
+        gender: "female",
+        awardCount: "32",
+        nameError: "",
+        ageError: "",
+        genderError: "",
+        awardCountError: "",
+    })
    component.find('form').simulate('submit',{ preventDefault () {} });
    
 })

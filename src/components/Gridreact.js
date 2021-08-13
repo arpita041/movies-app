@@ -82,7 +82,7 @@ function Gridreact(props) {
   const paginationPageSize = 10;
   console.log(height);
   return (
-    <div className="container App">
+    <div>
       <div
         className="ag-theme-alpine"
         style={{ height: props.height, width: "100%" }}
@@ -100,7 +100,7 @@ function Gridreact(props) {
       </div>{" "}
       <br />
       <div id="uni">
-        <button id="myBtn" className="btn btn-Success" disabled={true}>
+        <button id="myBtn" className="btn btn-success" disabled={true}>
           Save
         </button>
       </div>

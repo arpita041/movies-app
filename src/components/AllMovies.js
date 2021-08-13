@@ -21,8 +21,8 @@ class AllMovies extends Component {
         {
           headerName: "RATING",
           field: "rating",
-          maxWidth: 130,
-          minWidth: 250,
+          maxWidth: 250,
+          minWidth: 130,
           cellClass: "grid-cell-centered",
         },
         {
@@ -95,8 +95,8 @@ class AllMovies extends Component {
   componentDidMount = () => {
     axios.get("http://localhost:3500/film").then((response) => {
       this.setState({
-        allMovies: response.data.forms,
-        rowData: response.data.forms,
+        allMovies: response.data,
+        rowData: response.data,
       });
     });
     console.log(this.state.rowData);
@@ -105,19 +105,23 @@ class AllMovies extends Component {
   render() {
     return (
       <div>
-        <NavBar></NavBar>
-        <div className="heading">
-          <h3 data-testid="header">Movie Details</h3>
-        </div>{" "}
-        <br />
+      <NavBar></NavBar>
+      <div className="header">
+        <h3 data-testid="header" className='header__title'>Movie Details</h3>
+        {/* <button className='btn' onClick={this.getAllMovies} >load all Movies</button> */}
+      </div>{" "}
+      <br />
+      {/* <Table post={this.state.allMovies}></Table> */}
+      <div className="table-container">
         <Gridreact
           columnDefs={this.state.columnDefs}
           defaultColDef={this.state.defaultColDef}
           rowData={this.state.rowData}
-          height="350px"
+          height="357px"
           apiValue="movie"
         ></Gridreact>
       </div>
+    </div>
     );
   }
 }

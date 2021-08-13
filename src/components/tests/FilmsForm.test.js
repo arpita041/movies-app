@@ -127,16 +127,23 @@ expect(nameInput.props().value).toBe('Random');
 it('Should validate rating correctly onBlur', function(){
 
     const component = shallow(<FilmsForm />);
-    component.setState({directorName:"787876876"});
+    component.setState({director:"787876876"});
  let nameInput=  simulateBlurInput(component,'#directorName','directorName');
 expect(component.state().directorError).toBe('Please enter a valid name');
 });
 
-
-it('Should validate rating correctly onBlur', function(){
+it('Should validate Director name correctly onBlur', function(){
 
     const component = shallow(<FilmsForm />);
-    component.setState({directorName:"Aditya Kashyap"});
+    component.setState({director:"       "});
+ let nameInput=  simulateBlurInput(component,'#directorName','directorName');
+expect(component.state().directorError).toBe('Please enter a valid name');
+});
+
+it('Should validate Director name correctly onBlur', function(){
+
+    const component = shallow(<FilmsForm />);
+    component.setState({director:"Aditya"});
  let nameInput=  simulateBlurInput(component,'#directorName','directorName');
 expect(component.state().directorError).toBe('');
 });
@@ -147,4 +154,12 @@ it('renders the submit button', () =>
         <FilmsForm />
     </BrowserRouter>);
      expect(getByText('Add Film')).toBeInTheDocument();
+});
+
+it('should do something on submit ', function()
+{
+    
+    const component = shallow(<FilmsForm/>);
+   component.find('form').simulate('submit',{ preventDefault () {} });
+   
 })

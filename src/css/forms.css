@@ -82,4 +82,7 @@
 .form__link--color {
   color: #3BB7C4;
 }
-/*# sourceMappingURL=forms.css.map */
+
+.content{
+  width: 50%;
+}

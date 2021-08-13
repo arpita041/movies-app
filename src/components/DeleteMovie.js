@@ -80,7 +80,7 @@ class DeleteMovie extends Component {
     const valid = this.validation();
     if (valid) {
       axios
-        .delete(`http://localhost:3500/deleteFilm/${this.state.movieName}`)
+        .delete(`http://localhost:3500/deleteMovie/${this.state.movieName}`)
         .then((response) => {
           console.log(response);
           if (response.data === "done") {

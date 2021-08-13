@@ -9,7 +9,7 @@ function AllDirectors() {
 
   useEffect(() => {
     axios.get("http://localhost:3500/direct").then((res) => {
-      setPost(res.data.forms);
+      setPost(res.data);
       console.log(res);
     });
   }, []);
@@ -23,7 +23,7 @@ function AllDirectors() {
         remove: [params.node.data],
       });
       axios
-        .delete(`http://localhost:3500/deleteDirectorRow/${name}`)
+        .delete(`http://localhost:3500/deleteDirect/${name}`)
         .then((res) => {
           console.log(res);
         });

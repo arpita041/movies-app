@@ -89,7 +89,7 @@ class AllMovies extends Component {
         remove: [params.node.data],
       });
       axios
-        .delete(`http://localhost:3500/deleteMovieRow/${name}`)
+        .delete(`http://localhost:3500/deleteMovie/${name}`)
         .then((res) => {
           console.log(res);
         });
@@ -100,10 +100,10 @@ class AllMovies extends Component {
 
   componentDidMount = () => {
     axios.get("http://localhost:3500/film").then((response) => {
-      // console.log(response);
+      console.log(response);
       this.setState({
-        allMovies: response.data.forms,
-        rowData: response.data.forms,
+        allMovies: response.data,
+        rowData: response.data,
       });
     });
     console.log(this.state.rowData);

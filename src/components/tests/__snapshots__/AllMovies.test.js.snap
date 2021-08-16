@@ -133,7 +133,7 @@ exports[`should take a snapshot of AllMovies  1`] = `
         class="header__title"
         data-testid="header"
       >
-        Movies Details
+        Movie Details
       </h3>
     </div>
      
@@ -141,9 +141,7 @@ exports[`should take a snapshot of AllMovies  1`] = `
     <div
       class="table-container"
     >
-      <div
-        class="App"
-      >
+      <div>
         <div
           class="ag-theme-alpine"
           style="height: 357px; width: 100%;"

@@ -114,7 +114,7 @@ it('should do the gender validation properly', function()
     const component= shallow(<AddDirector />);
     component.setState({gender:"   "});
     simulateBlurInput(component,'#gender','gender');
-    expect(component.state().genderError).toBe("Gender is required");
+    expect(component.state().genderError).toBe("Gender can be only male, female or other");
 });
 
 it('should do the age validation properly', function()

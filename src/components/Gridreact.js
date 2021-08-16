@@ -1,6 +1,5 @@
 import React from "react";
 import { AgGridReact } from "ag-grid-react";
-
 import "../css/AllDirec.scss";
 import "../css/AllDirector.css";
 import axios from "axios";
@@ -48,7 +47,7 @@ function Gridreact(props) {
           console.log("something wrong");
         } else {
           axios
-            .patch(
+            .put(
               `http://localhost:3500/updateDirect/${nameArray[i]}`,
               dataArray[i]
             )
@@ -63,7 +62,7 @@ function Gridreact(props) {
           console.log("something wrong");
         } else {
           axios
-            .patch(
+            .put(
               `http://localhost:3500/updateMovie/${nameArray[i]}`,
               dataArray[i]
             )
@@ -82,7 +81,7 @@ function Gridreact(props) {
   const paginationPageSize = 10;
   console.log(height);
   return (
-    <div className="App">
+    <div>
       <div
         className="ag-theme-alpine"
         style={{ height: props.height, width: "100%" }}
@@ -100,7 +99,7 @@ function Gridreact(props) {
       </div>{" "}
       <br />
       <div id="uni">
-        <button id="myBtn" className="btn btn-success" disabled={true}>
+        <button id="myBtn" class="btn btn-success" disabled={true}>
           Save
         </button>
       </div>

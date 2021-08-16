@@ -20,7 +20,7 @@ function NavBar() {
           </div>
         </div>
         <div className="nav__btn">
-          <label for="nav-check">
+          <label htmlFor="nav-check">
             <span>...</span>
             <span>...</span>
             <span>...</span>

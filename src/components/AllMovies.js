@@ -98,7 +98,7 @@ class AllMovies extends Component {
     axios.get("http://localhost:3500/film").then((response) => {
       console.log(response);
       this.setState({
-       allMovies:response.data.forms
+       allMovies:response.data
       }); 
        console.log(this.state.allMovies);
     });
@@ -119,7 +119,7 @@ class AllMovies extends Component {
         <Gridreact
           columnDefs={this.state.columnDefs}
           defaultColDef={this.state.defaultColDef}
-          rowData={this.state.rowData}
+          rowData={this.state.allMovies}
           height="357px"
           apiValue="movie"
         ></Gridreact>

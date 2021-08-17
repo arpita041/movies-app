@@ -1,8 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
 import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
-import { Alert, Form, Modal } from "react-bootstrap";
-import Home from "./Home";
+import { Alert, Form, Modal } from "react-bootstrap";;
 import NavBar from "./NavBar";
 import "../css/forms.scss";
 class UpdateDetails extends Component {
@@ -19,12 +18,6 @@ class UpdateDetails extends Component {
       show: true,
     };
   }
-  handleClose = () => {
-    this.setState({ show: false });
-  };
-  handleShow = () => {
-    this.setState({ show: true });
-  };
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
@@ -78,34 +71,6 @@ class UpdateDetails extends Component {
       return false;
     }
   }
-  // validation() {
-  //     let ageNum = parseInt(this.state.age);
-  //     let awardNum = parseInt(this.state.awardCount);
-  //     let val = 0;
-  //     let pattern = /^[a-zA-Z ]{2,30}$/;
-  //     if (this.state.name.trim() === '') {
-  //         val = 1;
-  //         this.setState({ nameError: "name is required" })
-  //     }
-  //     if (!pattern.test(this.state.name)) {
-  //         this.setState({ nameError: "Please enter a valid name" });
-  //         val = 1;
-  //     }
-  //     if (ageNum > 80 || ageNum < 18) {
-  //         val = 1;
-  //         this.setState({ ageError: "Age should be from 18 to 80" })
-  //     }
-  //     if (awardNum > 100 || awardNum < 1) {
-  //         val = 1;
-  //         this.setState({ awardError: "award can't be more than 100" })
-  //     }
-  //     if (val === 1) {
-  //         return false;
-  //     }
-  //     else {
-  //         return true;
-  //     }
-  // }
 
   handleSumbit = (e) => {
     const valid = this.validation();
@@ -214,25 +179,6 @@ class UpdateDetails extends Component {
                   <b className="form__link--color"> home</b>
                 </Link>
               </h6>
-
-              {/* {
-                                    this.state.respo === 'yes' ? <Modal backdrop="static" centered show={this.state.show} onHide={this.handleClose}>
-                                    <Modal.Header closeButton>
-                                      <Modal.Title>Result</Modal.Title>
-                                    </Modal.Header>
-                                    <Modal.Body>Woohoo,  Directors data updated successfully !!</Modal.Body>
-                                    
-                                  </Modal> : <b></b>
-                                }
-                                {
-                                    this.state.respo === 'no' ? <Modal backdrop="static" centered show={this.state.show} onHide={this.handleClose}>
-                                    <Modal.Header closeButton>
-                                      <Modal.Title>Result</Modal.Title>
-                                    </Modal.Header>
-                                    <Modal.Body>Something went wrong !!</Modal.Body>
-                                    
-                                  </Modal> : <b></b>
-                                } */}
             </div>
           </form>
         </div>

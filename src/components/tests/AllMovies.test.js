@@ -2,7 +2,6 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import AllMovies from '../AllMovies';
 import "@testing-library/jest-dom/extend-expect";
-import NavBarrr from '../NavBarrr'
 import { BrowserRouter } from 'react-router-dom';
 
 

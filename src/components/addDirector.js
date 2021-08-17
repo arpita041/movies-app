@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Modal, Button } from "react-bootstrap";
 import { BrowserRouter as Router, Link } from "react-router-dom";
-import NavBarrr from "./NavBarrr";
 import NavBar from "./NavBar";
 import axios from "axios";
 import "../css/forms.scss";

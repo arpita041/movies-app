@@ -8,6 +8,7 @@ import Adapter from 'enzyme-adapter-react-16';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+
 const simulateChangeInput = (component, inputSelector, newValue, newName) =>
 {
     let input = component.find(inputSelector)
@@ -38,6 +39,7 @@ it("header renders with correct text",()=>{
       <AddDirector />
   </BrowserRouter>
     );
+
     const headerEl= getByTestId("header");
 
     expect(headerEl.textContent).toBe("Add Directors Details")
@@ -112,11 +114,10 @@ it('should do the gender validation properly', function()
 it('should do the gender validation properly', function()
 {
     const component= shallow(<AddDirector />);
-    component.setState({gender:"   "});
+    component.setState({gender:"    "});
     simulateBlurInput(component,'#gender','gender');
-    expect(component.state().genderError).toBe("Gender is required");
+    expect(component.state().genderError).toBe("Gender can be only male, female or other");
 });
-
 it('should do the age validation properly', function()
 {
     const component= shallow(<AddDirector />);
@@ -173,4 +174,10 @@ it('should do something on submit ', function()
     })
    component.find('form').simulate('submit',{ preventDefault () {} });
    
-})
+});
+
+it('should show the modal properly', function()
+{
+    const component= shallow(<AddDirector />); 
+    component.setState({respo:'yes'});
+});

@@ -79,6 +79,7 @@ function AllDirectors() {
             className="btn btn-dark"
             aria-label="trash button"
             title="trash button"
+            id="dir-btn"
             onClick={() => actionButton(params)}
           >
             <IoIosTrash />

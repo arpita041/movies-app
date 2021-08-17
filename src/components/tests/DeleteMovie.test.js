@@ -50,3 +50,23 @@ it('Should validate moviename correctly onBlur', function(){
     });
     expect(component.state().nameError).toEqual('');
 })
+
+it('should do something on submit ', function()
+{
+    
+    const component = shallow(<DeleteMovie/>);
+   component.find('form').simulate('submit',{ preventDefault () {} });
+   
+});
+
+it('should do something on submit ', function()
+{
+    
+    const component = shallow(<DeleteMovie/>);
+    component.setState({
+       movieName:"valid",
+       nameError:""
+    })
+   component.find('form').simulate('submit',{ preventDefault () {} });
+   
+});

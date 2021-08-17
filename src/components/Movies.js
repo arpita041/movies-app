@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import NavBarrr from "./NavBarrr";
 import axios from "axios";
 import Gridreact from "./Gridreact";
+import NavBar from "./NavBar";
 const Movies = (props) => {
   const { searchVal } = (props.location && props.location.state) || {};
 
@@ -44,7 +44,7 @@ const Movies = (props) => {
 
   return (
     <div>
-      <NavBarrr></NavBarrr>
+<NavBar></NavBar>
       <div className="heading">
         <h3>Movie Details</h3>
       </div>{" "}

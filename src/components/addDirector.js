@@ -22,7 +22,7 @@ class AddDirector extends Component {
       value: "",
       show: true,
     };
-  }
+  } 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
@@ -103,10 +103,12 @@ class AddDirector extends Component {
           respo: "yes",
         });
         this.modalCode();
+        setInterval(()=>{this.props.history.push('/director');},4000)
       } else {
         this.setState({
           respo: "no",
         });
+        this.modalCode();
       }
     });
     //}
@@ -235,29 +237,33 @@ class AddDirector extends Component {
               </button>
 
               {this.state.respo === "yes" ? (
-                <div id="myModal" class="modal">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <span class="close">&times;</span>
+                <div id="myModal" className="modal">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <span className="close">&times;</span>
                     </div>
-                    <div class="modal-body">
-                      <p>Some text in the Modal Body</p>
-                      <p>Some other text...</p>
+                    <div className="modal-body">
+                      <p>Your data uploaded successfully !!</p>
                     </div>
                   </div>
                 </div>
               ) : (
                 <b></b>
               )}
-              {/* {
-                                        this.state.respo === 'no' ? <Modal backdrop="static" centered show={this.state.show} onHide={this.handleClose}>
-                                            <Modal.Header closeButton>
-                                                <Modal.Title>Result</Modal.Title>
-                                            </Modal.Header>
-                                            <Modal.Body>Woohoo,Something went wrong!!</Modal.Body>
-                                          
-                                        </Modal> : <b></b>
-                                    } */}
+              {this.state.respo === "no" ? (
+                <div id="myModal" class="modal">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <span className="close">&times;</span>
+                    </div>
+                    <div className="modal-body">
+                      <p>Something went wrong !!</p>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <b></b>
+              )}
 
               <h6>
                 Go back to

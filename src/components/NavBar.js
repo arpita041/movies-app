@@ -20,7 +20,7 @@ function NavBar() {
           </div>
         </div>
         <div className="nav__btn">
-          <label for="nav-check">
+          <label htmlFor="nav-check">
             <span>...</span>
             <span>...</span>
             <span>...</span>
@@ -61,7 +61,7 @@ function NavBar() {
             </NavLink>
           </div>
           <div className="nav__link">
-            <div class="dropdown">
+            <div className="dropdown">
               <button className="nav__dropbtn">Other Options</button>
               <div className="dropdown-content">
                 <span className="dropdown__link">

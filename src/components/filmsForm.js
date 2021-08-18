@@ -108,24 +108,48 @@ class FilmsForm extends Component {
 
   handleSubmit = (event) => {
     const isValid = this.validate();
-    var res = "";
-    if (isValid) {
+     if (isValid) {
       axios
         .post("http://localhost:3500/film", this.state) //posting movie data to backend
         .then((response) => {
           console.log(response);
-          if (response.statusText === "OK") {
+          if (response.statusText === "") {
             this.setState({
               respo: "yes",
             });
+            this.modalCode();
+            setInterval(()=>{this.props.history.push('/showMovies');},4000)
           } else {
             this.setState({ respo: "no" });
+            this.modalCode();
           }
         });
     } else {
       console.log(false);
     }
     event.preventDefault();
+  };
+
+  //for model
+  modalCode = () => {
+    var modal = document.getElementById("myModal");
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    modal.style.display = "block";
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+      
+    };
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
   };
   render() {
     const { name, boxOfficeCollection, rating, director } = this.state;
@@ -140,7 +164,7 @@ class FilmsForm extends Component {
           <form
             onSubmit={this.handleSubmit}
             className="form"
-            autocomplete="off"
+            autoComplete="off"
           >
             <div className="form__input">
               <label className="form__input-label" for="moviename">
@@ -212,9 +236,39 @@ class FilmsForm extends Component {
               <small className="text-danger">{this.state.directorError}</small>
             </div>
             <div className="form--center">
+           
               <button className="form__btn" type="submit">
                 Add Film
               </button>
+              
+              {this.state.respo === "yes" ? (
+                <div id="myModal" className="modal">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <span className="close">&times;</span>
+                    </div>
+                    <div className="modal-body">
+                      <p>Your data uploaded successfully !!</p>                     
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <b></b>
+              )}
+              {this.state.respo === "no" ? (
+                <div id="myModal" className="modal">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <span className="close">&times;</span>
+                    </div>
+                    <div className="modal-body">
+                      <p>Something went wrong !!</p>                     
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <b></b>
+              )}
               <h6>
                 Go back to
                 <Link to="/home">

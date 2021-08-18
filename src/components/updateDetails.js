@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { Component } from "react";
-import { Route, BrowserRouter as Router, Switch, Link } from "react-router-dom";
-import { Alert, Form, Modal } from "react-bootstrap";;
+import {  BrowserRouter as Router, Link } from "react-router-dom";
 import NavBar from "./NavBar";
 import "../css/forms.scss";
 class UpdateDetails extends Component {
@@ -88,17 +87,42 @@ class UpdateDetails extends Component {
             this.setState({
               respo: "yes",
             });
+            this.modalCode();
+            setInterval(()=>{this.props.history.push('/director');},4000)
           } else {
             //  alert('Details has been changed successfully');
             this.setState({
               respo: "no",
             });
+            this.modalCode();
           }
         });
       console.log("no error");
     }
     //   console.log(this.state);
   };
+
+  //for model
+  modalCode = () => {
+    var modal = document.getElementById("myModal");
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    modal.style.display = "block";
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+    };
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    };
+  };
+
   render() {
     const { name, age, awardCount } = this.state;
     return (
@@ -179,6 +203,37 @@ class UpdateDetails extends Component {
                   <b className="form__link--color"> home</b>
                 </Link>
               </h6>
+
+              {this.state.respo === "yes" ? (
+                <div className="table-container">
+                  <div id="myModal" className="modal">
+                    <div className="modal-content">
+                      <div className="modal-header">
+                        <span className="close">&times;</span>
+                      </div>
+                      <div className="modal-body">
+                        <p>Record updated successfully !!</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <b></b>
+              )}
+              {this.state.respo === "no" ? (
+                <div id="myModal" className="modal">
+                  <div className="modal-content">
+                    <div className="modal-header">
+                      <span className="close">&times;</span>
+                    </div>
+                    <div className="modal-body">
+                      <p>Something went wrong !!</p>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <b></b>
+              )}
             </div>
           </form>
         </div>

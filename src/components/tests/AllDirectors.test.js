@@ -44,6 +44,6 @@ test('should take a snapshot', () => {
 test('button should do the proper action', () =>
 {
     const component = shallow(<AllDirectors/>);
-    let btn = component.find('button');
-    btn.simulate('click');
+    let btn = component.find('Gridreact');
+    btn.find('dir-btn').simulate('click');
 })

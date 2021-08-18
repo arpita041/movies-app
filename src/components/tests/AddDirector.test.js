@@ -154,8 +154,7 @@ it('should do something on submit ', function()
 {
     
     const component = shallow(<AddDirector/>);
-   component.find('form').simulate('submit',{ preventDefault () {} });
-   
+     component.find('form').simulate('submit',{ preventDefault () {} },component.state());
 })
 
 it('should do something on submit ', function()

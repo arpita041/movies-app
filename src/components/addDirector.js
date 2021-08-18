@@ -96,7 +96,7 @@ class AddDirector extends Component {
   handleSubmit = (e) => {
     const valid = this.validate();
     // if (valid) {
-    axios.post("http://localhost:3500/direct", this.state).then((response) => {
+ axios.post("http://localhost:3500/direct", this.state).then((response) => {
       console.log(response);
       if (response.statusText === "") {
         this.setState({

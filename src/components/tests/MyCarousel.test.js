@@ -22,6 +22,6 @@ test('should take a snapshot', () => {
     
     expect(asFragment(  
     <BrowserRouter>
-        <AllDirectors />
+        <MyCarousel />
     </BrowserRouter>)).toMatchSnapshot()
    })

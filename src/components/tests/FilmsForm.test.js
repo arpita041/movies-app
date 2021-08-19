@@ -163,3 +163,21 @@ it('should do something on submit ', function()
    component.find('form').simulate('submit',{ preventDefault () {} });
    
 })
+
+it('should do something on submit ', function()
+{
+    
+    const component = shallow(<FilmsForm/>);
+    component.setState({
+        name:"valid",
+        boxOfficeCollection:"759375",
+        rating:'10',
+       director:'abcd',
+      nameError:'',
+      boxOfficeError:'',
+       ratingError:'',
+       directorError:''
+    })
+   component.find('form').simulate('submit',{ preventDefault () {} });
+   
+});

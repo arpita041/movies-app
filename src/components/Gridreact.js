@@ -22,7 +22,7 @@ function Gridreact(props) {
   const myFunction = (res) => {
     if (a == 0) {
       document.getElementById("myBtn").disabled = false;
-      document.getElementById("myBtn").addEventListener("click", saveChanges);
+     // document.getElementById("myBtn").addEventListener("click", saveChanges);
       a = 1;
     }
     name = res.data.name;
@@ -127,7 +127,7 @@ function Gridreact(props) {
       </div>{" "}
       <br />
       <div id="uni">
-        <button id="myBtn" class="btn btn-success" disabled={true}>
+        <button id="myBtn" class="btn btn-success" onClick={saveChanges}>
           Save
         </button>
       </div>

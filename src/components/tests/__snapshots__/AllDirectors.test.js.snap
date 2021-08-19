@@ -140,13 +140,7 @@ exports[`should take a snapshot 1`] = `
     <div
       class="table-container"
     >
-<<<<<<< HEAD
-      <div
-        class="App"
-      >
-=======
       <div>
->>>>>>> d813491f70837180ce7b95614e209f89d6988fe1
         <div
           class="ag-theme-alpine"
           style="height: 357px; width: 100%;"
@@ -528,7 +522,6 @@ exports[`should take a snapshot 1`] = `
                                   />
                                 </span>
                                 
-<<<<<<< HEAD
                 
                                 <span
                                   aria-hidden="true"
@@ -629,99 +622,10 @@ exports[`should take a snapshot 1`] = `
                                 ref="eLabel"
                                 role="presentation"
                                 unselectable="on"
-=======
-                
-                                <span
-                                  aria-hidden="true"
-                                  class="ag-header-icon ag-header-label-icon ag-sort-none-icon ag-hidden"
-                                  ref="eSortNone"
-                                >
-                                  <span
-                                    class="ag-icon ag-icon-none"
-                                    role="presentation"
-                                    unselectable="on"
-                                  />
-                                </span>
-                                
-            
-                              </div>
-                              
-        
-                            </div>
-                          </div>
-                          <div
-                            aria-colindex="3"
-                            aria-sort="none"
-                            class="ag-header-cell ag-focus-managed ag-header-cell-sortable"
-                            col-id="gender"
-                            role="columnheader"
-                            style="width: 200px; left: 400px;"
-                            tabindex="-1"
-                            unselectable="on"
-                          >
-                            
-            
-                            <div
-                              class="ag-header-cell-resize ag-hidden"
-                              ref="eResize"
-                              role="presentation"
-                            />
-                            
-            
-                            <!--AG-CHECKBOX-->
-                            <div
-                              class="ag-header-select-all ag-labeled ag-label-align-right ag-checkbox ag-input-field ag-hidden"
-                              ref="cbSelectAll"
-                              role="presentation"
-                            >
-                              
-                
-                              <div
-                                class="ag-input-field-label ag-label ag-hidden ag-checkbox-label"
-                                ref="eLabel"
-                                role="presentation"
-                              />
-                              
-                
-                              <div
-                                class="ag-wrapper ag-input-wrapper ag-checkbox-input-wrapper"
-                                ref="eWrapper"
-                                role="presentation"
-                              >
-                                
-                    
-                                <input
-                                  aria-label="Press Space to toggle all rows selection (unchecked)"
-                                  class="ag-input-field-input ag-checkbox-input"
-                                  id="ag-137-input"
-                                  ref="eInput"
-                                  tabindex="-1"
-                                  type="checkbox"
-                                />
-                                
-                
-                              </div>
-                              
-            
-                            </div>
-                            
-        
-                            <div
-                              class="ag-cell-label-container ag-header-cell-sorted-none"
-                              role="presentation"
-                            >
-                              
-            
-                              <span
-                                aria-hidden="true"
-                                class="ag-header-icon ag-header-cell-menu-button"
-                                ref="eMenu"
->>>>>>> d813491f70837180ce7b95614e209f89d6988fe1
                               >
                                 
                 
                                 <span
-<<<<<<< HEAD
                                   class="ag-header-cell-text"
                                   ref="eText"
                                   unselectable="on"
@@ -740,50 +644,11 @@ exports[`should take a snapshot 1`] = `
                                     role="presentation"
                                     unselectable="on"
                                   />
-=======
-                                  class="ag-icon ag-icon-menu"
-                                  role="presentation"
-                                  unselectable="on"
-                                />
-                              </span>
-                              
-            
-                              <div
-                                class="ag-header-cell-label"
-                                ref="eLabel"
-                                role="presentation"
-                                unselectable="on"
-                              >
-                                
-                
-                                <span
-                                  class="ag-header-cell-text"
-                                  ref="eText"
-                                  unselectable="on"
-                                >
-                                  GENDER
->>>>>>> d813491f70837180ce7b95614e209f89d6988fe1
                                 </span>
                                 
                 
                                 <span
                                   aria-hidden="true"
-<<<<<<< HEAD
-=======
-                                  class="ag-header-icon ag-header-label-icon ag-filter-icon ag-hidden"
-                                  ref="eFilter"
-                                >
-                                  <span
-                                    class="ag-icon ag-icon-filter"
-                                    role="presentation"
-                                    unselectable="on"
-                                  />
-                                </span>
-                                
-                
-                                <span
-                                  aria-hidden="true"
->>>>>>> d813491f70837180ce7b95614e209f89d6988fe1
                                   class="ag-header-icon ag-header-label-icon ag-sort-order ag-hidden"
                                   ref="eSortOrder"
                                 />
@@ -1617,7 +1482,6 @@ exports[`should take a snapshot 1`] = `
                       ref="topRightContainer"
                       role="presentation"
                       unselectable="on"
-<<<<<<< HEAD
                     />
                     
             
@@ -1630,20 +1494,6 @@ exports[`should take a snapshot 1`] = `
                       unselectable="on"
                     />
                     
-=======
-                    />
-                    
-            
-                    <!--AG-ROW-CONTAINER-->
-                    <div
-                      class="ag-floating-top-full-width-container"
-                      name="topFullWidth"
-                      ref="topFullWidthContainer"
-                      role="presentation"
-                      unselectable="on"
-                    />
-                    
->>>>>>> d813491f70837180ce7b95614e209f89d6988fe1
         
                   </div>
                   
@@ -1898,7 +1748,6 @@ exports[`should take a snapshot 1`] = `
                   </span>
                   
                     
-<<<<<<< HEAD
                   <span
                     id="ag-123-to"
                   >
@@ -1907,16 +1756,6 @@ exports[`should take a snapshot 1`] = `
                   
                     
                   <span
-=======
-                  <span
-                    id="ag-123-to"
-                  >
-                    to
-                  </span>
-                  
-                    
-                  <span
->>>>>>> d813491f70837180ce7b95614e209f89d6988fe1
                     class="ag-paging-row-summary-panel-number"
                     id="ag-123-last-row"
                     ref="lbLastRowOnPage"
@@ -2078,6 +1917,7 @@ exports[`should take a snapshot 1`] = `
             Save
           </button>
         </div>
+        <b />
       </div>
     </div>
   </div>

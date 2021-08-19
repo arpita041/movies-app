@@ -180,3 +180,8 @@ it('should show the modal properly', function()
     const component= shallow(<AddDirector />); 
     component.setState({respo:'yes'});
 });
+it('when response is no', function()
+{
+    const component = shallow(<AddDirector/>);
+    component.setState({respo:'no'});
+})

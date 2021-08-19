@@ -272,7 +272,7 @@ exports[`should take a snapshot of AllMovies  1`] = `
                                 <input
                                   aria-label="Press Space to toggle all rows selection (unchecked)"
                                   class="ag-input-field-input ag-checkbox-input"
-                                  id="ag-132-input"
+                                  id="ag-131-input"
                                   ref="eInput"
                                   tabindex="-1"
                                   type="checkbox"
@@ -429,7 +429,7 @@ exports[`should take a snapshot of AllMovies  1`] = `
                                 <input
                                   aria-label="Press Space to toggle all rows selection (unchecked)"
                                   class="ag-input-field-input ag-checkbox-input"
-                                  id="ag-135-input"
+                                  id="ag-134-input"
                                   ref="eInput"
                                   tabindex="-1"
                                   type="checkbox"
@@ -586,7 +586,7 @@ exports[`should take a snapshot of AllMovies  1`] = `
                                 <input
                                   aria-label="Press Space to toggle all rows selection (unchecked)"
                                   class="ag-input-field-input ag-checkbox-input"
-                                  id="ag-138-input"
+                                  id="ag-137-input"
                                   ref="eInput"
                                   tabindex="-1"
                                   type="checkbox"
@@ -743,7 +743,7 @@ exports[`should take a snapshot of AllMovies  1`] = `
                                 <input
                                   aria-label="Press Space to toggle all rows selection (unchecked)"
                                   class="ag-input-field-input ag-checkbox-input"
-                                  id="ag-141-input"
+                                  id="ag-140-input"
                                   ref="eInput"
                                   tabindex="-1"
                                   type="checkbox"
@@ -900,7 +900,7 @@ exports[`should take a snapshot of AllMovies  1`] = `
                                 <input
                                   aria-label="Press Space to toggle all rows selection (unchecked)"
                                   class="ag-input-field-input ag-checkbox-input"
-                                  id="ag-144-input"
+                                  id="ag-143-input"
                                   ref="eInput"
                                   tabindex="-1"
                                   type="checkbox"
@@ -1065,7 +1065,7 @@ exports[`should take a snapshot of AllMovies  1`] = `
                                     <input
                                       aria-label="NAME Filter Input"
                                       class="ag-input-field-input ag-text-field-input"
-                                      id="ag-148-input"
+                                      id="ag-147-input"
                                       ref="eInput"
                                       type="text"
                                     />
@@ -1152,7 +1152,7 @@ exports[`should take a snapshot of AllMovies  1`] = `
                                     <input
                                       aria-label="RATING Filter Input"
                                       class="ag-input-field-input ag-text-field-input"
-                                      id="ag-151-input"
+                                      id="ag-150-input"
                                       ref="eInput"
                                       type="text"
                                     />
@@ -1239,7 +1239,7 @@ exports[`should take a snapshot of AllMovies  1`] = `
                                     <input
                                       aria-label="DIRECTOR Filter Input"
                                       class="ag-input-field-input ag-text-field-input"
-                                      id="ag-154-input"
+                                      id="ag-153-input"
                                       ref="eInput"
                                       type="text"
                                     />
@@ -1326,7 +1326,7 @@ exports[`should take a snapshot of AllMovies  1`] = `
                                     <input
                                       aria-label="COLLECTION Filter Input"
                                       class="ag-input-field-input ag-text-field-input"
-                                      id="ag-157-input"
+                                      id="ag-156-input"
                                       ref="eInput"
                                       type="text"
                                     />
@@ -1695,13 +1695,13 @@ exports[`should take a snapshot of AllMovies  1`] = `
                       
                 
                       <div
-                        class="ag-overlay-wrapper ag-layout-normal ag-overlay-loading-wrapper"
+                        class="ag-overlay-wrapper ag-layout-normal ag-overlay-no-rows-wrapper"
                         ref="eOverlayWrapper"
                       >
                         <span
-                          class="ag-overlay-loading-center"
+                          class="ag-overlay-no-rows-center"
                         >
-                          Loading...
+                          No Rows To Show
                         </span>
                       </div>
                       
@@ -1727,10 +1727,10 @@ exports[`should take a snapshot of AllMovies  1`] = `
                 
               <!--AG-PAGINATION-->
               <div
-                aria-describedby="ag-124-start-page ag-124-start-page-number ag-124-of-page ag-124-of-page-number ag-124-first-row ag-124-to ag-124-last-row ag-124-of ag-124-row-count"
+                aria-describedby="ag-123-start-page ag-123-start-page-number ag-123-of-page ag-123-of-page-number ag-123-first-row ag-123-to ag-123-last-row ag-123-of ag-123-row-count"
                 aria-live="polite"
                 class="ag-paging-panel ag-unselectable"
-                id="ag-124"
+                id="ag-123"
               >
                 
                 
@@ -1742,7 +1742,7 @@ exports[`should take a snapshot of AllMovies  1`] = `
                     
                   <span
                     class="ag-paging-row-summary-panel-number"
-                    id="ag-124-first-row"
+                    id="ag-123-first-row"
                     ref="lbFirstRowOnPage"
                   >
                     0
@@ -1750,7 +1750,7 @@ exports[`should take a snapshot of AllMovies  1`] = `
                   
                     
                   <span
-                    id="ag-124-to"
+                    id="ag-123-to"
                   >
                     to
                   </span>
@@ -1758,7 +1758,7 @@ exports[`should take a snapshot of AllMovies  1`] = `
                     
                   <span
                     class="ag-paging-row-summary-panel-number"
-                    id="ag-124-last-row"
+                    id="ag-123-last-row"
                     ref="lbLastRowOnPage"
                   >
                     0
@@ -1766,7 +1766,7 @@ exports[`should take a snapshot of AllMovies  1`] = `
                   
                     
                   <span
-                    id="ag-124-of"
+                    id="ag-123-of"
                   >
                     of
                   </span>
@@ -1774,7 +1774,7 @@ exports[`should take a snapshot of AllMovies  1`] = `
                     
                   <span
                     class="ag-paging-row-summary-panel-number"
-                    id="ag-124-row-count"
+                    id="ag-123-row-count"
                     ref="lbRecordCount"
                   >
                     0
@@ -1829,7 +1829,7 @@ exports[`should take a snapshot of AllMovies  1`] = `
                     
                         
                     <span
-                      id="ag-124-start-page"
+                      id="ag-123-start-page"
                     >
                       Page
                     </span>
@@ -1837,7 +1837,7 @@ exports[`should take a snapshot of AllMovies  1`] = `
                         
                     <span
                       class="ag-paging-number"
-                      id="ag-124-start-page-number"
+                      id="ag-123-start-page-number"
                       ref="lbCurrent"
                     >
                       0
@@ -1845,7 +1845,7 @@ exports[`should take a snapshot of AllMovies  1`] = `
                     
                         
                     <span
-                      id="ag-124-of-page"
+                      id="ag-123-of-page"
                     >
                       of
                     </span>
@@ -1853,7 +1853,7 @@ exports[`should take a snapshot of AllMovies  1`] = `
                         
                     <span
                       class="ag-paging-number"
-                      id="ag-124-of-page-number"
+                      id="ag-123-of-page-number"
                       ref="lbTotal"
                     >
                       0
@@ -1918,6 +1918,7 @@ exports[`should take a snapshot of AllMovies  1`] = `
             Save
           </button>
         </div>
+        <b />
       </div>
     </div>
   </div>

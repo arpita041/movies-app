@@ -1912,7 +1912,6 @@ exports[`should take a snapshot of AllMovies  1`] = `
         >
           <button
             class="btn btn-success"
-            disabled=""
             id="myBtn"
           >
             Save

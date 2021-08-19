@@ -13,7 +13,7 @@ function Gridreact(props) {
     document.getElementById("myBtn").disabled = true;
   }
 
-  let rowStyle = {  
+  let rowStyle = {
     background: "transparent",
     color: "#3BB7C4",
   };
@@ -24,9 +24,12 @@ function Gridreact(props) {
 
   const myFunction = (res) => {
     if (a == 0) {
+      if(document.getElementById('myBtn'))
+      {
       document.getElementById("myBtn").disabled = false;
-    //  document.getElementById("myBtn").addEventListener("click", saveChanges);
+     // document.getElementById("myBtn").addEventListener("click", saveChanges);
       a = 1;
+      }
     }
     name = res.data.name;
     nameArray.push(name);
@@ -39,31 +42,34 @@ function Gridreact(props) {
     console.log("data", data);
     console.log(res);
     if (res.oldValue === res.value && a === 1) {
+      if(document.getElementById('myBtn'))
+      {
       document.getElementById("myBtn").disabled = true;
       a = 0;
+      }
     }
   };
 
   //for model
-  const modalCode = () => {
-    var modal = document.getElementById("myModal");
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
+  // const modalCode = () => {
+  //   var modal = document.getElementById("myModal");
+  //   // Get the <span> element that closes the modal
+  //   var span = document.getElementsByClassName("close")[0];
 
-    modal.style.display = "block";
+  //   modal.style.display = "block";
 
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-      modal.style.display = "none";
-    };
+  //   // When the user clicks on <span> (x), close the modal
+  //   span.onclick = function () {
+  //     modal.style.display = "none";
+  //   };
 
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    };
-  };
+  //   // When the user clicks anywhere outside of the modal, close it
+  //   window.onclick = function (event) {
+  //     if (event.target == modal) {
+  //       modal.style.display = "none";
+  //     }
+  //   };
+  // };
 
 
   const saveChanges = (res) => {
@@ -82,7 +88,8 @@ function Gridreact(props) {
               console.log("0000000000")
               console.log(res);
               setRespo("yes");
-              modalCode();
+             // modalCode();
+             alert("Data edited successfully...")
             });
         }
       }
@@ -99,7 +106,8 @@ function Gridreact(props) {
             .then((res) => {
               console.log(res);
               setRespo("yes");
-              modalCode();
+             // modalCode();
+             alert("Data edited successfully...")
             });
         }
       }
@@ -131,11 +139,11 @@ function Gridreact(props) {
       </div>{" "}
       <br />
       <div id="uni">
-        <button id="myBtn" onClick={saveChanges} class="btn btn-success" >
+        <button id="myBtn" class="btn btn-success" onClick={saveChanges}>
           Save
         </button>
       </div>
-      {respo === "yes" ? (
+      {/* {respo === "yes" ? (
                 <div id="myModal" className="modal">
                   <div className="modal-content">
                     <div className="modal-header">
@@ -148,7 +156,7 @@ function Gridreact(props) {
                 </div>
               ) : (
                 <b></b>
-              )}
+              )} */}
               
     </div>
   );

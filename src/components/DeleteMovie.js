@@ -56,13 +56,15 @@ class DeleteMovie extends Component {
             this.setState({
               respo: "yes",
             });
-            this.modalCode();
-            setInterval(()=>{this.props.history.push('/showMovies');},4000)
+            alert("Movie deleted successfully...")
+            //this.modalCode();
+            //setInterval(()=>{this.props.history.push('/showMovies');},4000)
           } else {
             this.setState({
               respo: "no",
             });
-            this.modalCode();
+            alert("Something went wrong...")
+            //this.modalCode();
           }
         });
       console.log(this.state.movieName);
@@ -70,25 +72,25 @@ class DeleteMovie extends Component {
   };
 
   //for model
-  modalCode = () => {
-    var modal = document.getElementById("myModal");
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
+  // modalCode = () => {
+  //   var modal = document.getElementById("myModal");
+  //   // Get the <span> element that closes the modal
+  //   var span = document.getElementsByClassName("close")[0];
 
-    modal.style.display = "block";
+  //   modal.style.display = "block";
 
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-      modal.style.display = "none";
-    };
+  //   // When the user clicks on <span> (x), close the modal
+  //   span.onclick = function () {
+  //     modal.style.display = "none";
+  //   };
 
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    };
-  };
+  //   // When the user clicks anywhere outside of the modal, close it
+  //   window.onclick = function (event) {
+  //     if (event.target == modal) {
+  //       modal.style.display = "none";
+  //     }
+  //   };
+  // };
   render() {
     const { movieName } = this.state;
     return (
@@ -125,7 +127,7 @@ class DeleteMovie extends Component {
                 Delete it
               </button>
             </div>
-            {this.state.respo === "yes" ? (
+            {/* {this.state.respo === "yes" ? (
                 <div id="myModal" className="modal">
                   <div className="modal-content">
                     <div className="modal-header">
@@ -152,7 +154,7 @@ class DeleteMovie extends Component {
                 </div>
               ) : (
                 <b></b>
-              )}
+              )} */}
             <br />
           </form>
         </div>

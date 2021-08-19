@@ -17,12 +17,6 @@ class UpdateDetails extends Component {
       show: true,
     };
   }
-  handleClose = () => {
-    this.setState({ show: false });
-  };
-  handleShow = () => {
-    this.setState({ show: true });
-  };
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
@@ -76,34 +70,6 @@ class UpdateDetails extends Component {
       return false;
     }
   }
-  // validation() {
-  //     let ageNum = parseInt(this.state.age);
-  //     let awardNum = parseInt(this.state.awardCount);
-  //     let val = 0;
-  //     let pattern = /^[a-zA-Z ]{2,30}$/;
-  //     if (this.state.name.trim() === '') {
-  //         val = 1;
-  //         this.setState({ nameError: "name is required" })
-  //     }
-  //     if (!pattern.test(this.state.name)) {
-  //         this.setState({ nameError: "Please enter a valid name" });
-  //         val = 1;
-  //     }
-  //     if (ageNum > 80 || ageNum < 18) {
-  //         val = 1;
-  //         this.setState({ ageError: "Age should be from 18 to 80" })
-  //     }
-  //     if (awardNum > 100 || awardNum < 1) {
-  //         val = 1;
-  //         this.setState({ awardError: "award can't be more than 100" })
-  //     }
-  //     if (val === 1) {
-  //         return false;
-  //     }
-  //     else {
-  //         return true;
-  //     }
-  // }
 
   handleSumbit = (e) => {
     const valid = this.validation();
@@ -121,14 +87,16 @@ class UpdateDetails extends Component {
             this.setState({
               respo: "yes",
             });
-            this.modalCode();
-            setInterval(()=>{this.props.history.push('/director');},4000)
+            alert("Director's data updated successfully...")
+            //this.modalCode();
+            //setInterval(()=>{this.props.history.push('/director');},4000)
           } else {
             //  alert('Details has been changed successfully');
             this.setState({
               respo: "no",
             });
-            this.modalCode();
+            alert("Something went wrong...")
+            //this.modalCode();
           }
         });
       console.log("no error");
@@ -137,25 +105,25 @@ class UpdateDetails extends Component {
   };
 
   //for model
-  modalCode = () => {
-    var modal = document.getElementById("myModal");
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
+  // modalCode = () => {
+  //   var modal = document.getElementById("myModal");
+  //   // Get the <span> element that closes the modal
+  //   var span = document.getElementsByClassName("close")[0];
 
-    modal.style.display = "block";
+  //   modal.style.display = "block";
 
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-      modal.style.display = "none";
-    };
+  //   // When the user clicks on <span> (x), close the modal
+  //   span.onclick = function () {
+  //     modal.style.display = "none";
+  //   };
 
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    };
-  };
+  //   // When the user clicks anywhere outside of the modal, close it
+  //   window.onclick = function (event) {
+  //     if (event.target == modal) {
+  //       modal.style.display = "none";
+  //     }
+  //   };
+  // };
 
   render() {
     const { name, age, awardCount } = this.state;
@@ -238,7 +206,7 @@ class UpdateDetails extends Component {
                 </Link>
               </h6>
 
-              {this.state.respo === "yes" ? (
+              {/* {this.state.respo === "yes" ? (
                 <div className="table-container">
                   <div id="myModal" className="modal">
                     <div className="modal-content">
@@ -267,7 +235,7 @@ class UpdateDetails extends Component {
                 </div>
               ) : (
                 <b></b>
-              )}
+              )} */}
             </div>
           </form>
         </div>

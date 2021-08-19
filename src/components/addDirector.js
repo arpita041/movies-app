@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Modal, Button } from "react-bootstrap";
 import { BrowserRouter as Router, Link } from "react-router-dom";
-import NavBarrr from "./NavBarrr";
 import NavBar from "./NavBar";
 import axios from "axios";
 import "../css/forms.scss";
@@ -96,19 +95,21 @@ class AddDirector extends Component {
   handleSubmit = (e) => {
     const valid = this.validate();
     // if (valid) {
-    axios.post("http://localhost:3500/direct", this.state).then((response) => {
+ axios.post("http://localhost:3500/direct", this.state).then((response) => {
       console.log(response);
       if (response.statusText === "") {
         this.setState({
           respo: "yes",
         });
-        this.modalCode();
-        setInterval(()=>{this.props.history.push('/director');},4000)
+      //  this.modalCode();
+      alert("Your data uploaded successfully...")
+      //  setInterval(()=>{this.props.history.push('/director');},4000)
       } else {
         this.setState({
           respo: "no",
         });
-        this.modalCode();
+        alert("something went wrong")
+      //  this.modalCode();
       }
     });
     //}
@@ -121,25 +122,25 @@ class AddDirector extends Component {
   };
 
   //for model
-  modalCode = () => {
-    var modal = document.getElementById("myModal");
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
+  // modalCode = () => {
+  //   var modal = document.getElementById("myModal");
+  //   // Get the <span> element that closes the modal
+  //   var span = document.getElementsByClassName("close")[0];
 
-    modal.style.display = "block";
+  //   modal.style.display = "block";
 
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-      modal.style.display = "none";
-    };
+  //   // When the user clicks on <span> (x), close the modal
+  //   span.onclick = function () {
+  //     modal.style.display = "none";
+  //   };
 
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    };
-  };
+  //   // When the user clicks anywhere outside of the modal, close it
+  //   window.onclick = function (event) {
+  //     if (event.target == modal) {
+  //       modal.style.display = "none";
+  //     }
+  //   };
+  // };
   render() {
     const { name, age, gender, awardCount } = this.state;
     return (
@@ -236,7 +237,7 @@ class AddDirector extends Component {
                 Add Director
               </button>
 
-              {this.state.respo === "yes" ? (
+              {/* {this.state.respo === "yes" ? (
                 <div id="myModal" className="modal">
                   <div className="modal-content">
                     <div className="modal-header">
@@ -263,7 +264,7 @@ class AddDirector extends Component {
                 </div>
               ) : (
                 <b></b>
-              )}
+              )} */}
 
               <h6>
                 Go back to

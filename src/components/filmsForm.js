@@ -117,11 +117,13 @@ class FilmsForm extends Component {
             this.setState({
               respo: "yes",
             });
-            this.modalCode();
-            setInterval(()=>{this.props.history.push('/showMovies');},4000)
+            alert("Your Data Uploaded Successfully...")
+           // this.modalCode();
+            //setInterval(()=>{this.props.history.push('/showMovies');},4000)
           } else {
             this.setState({ respo: "no" });
-            this.modalCode();
+            alert("something went wrong...")
+            //this.modalCode();
           }
         });
     } else {
@@ -131,26 +133,26 @@ class FilmsForm extends Component {
   };
 
   //for model
-  modalCode = () => {
-    var modal = document.getElementById("myModal");
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
+  // modalCode = () => {
+  //   var modal = document.getElementById("myModal");
+  //   // Get the <span> element that closes the modal
+  //   var span = document.getElementsByClassName("close")[0];
 
-    modal.style.display = "block";
+  //   modal.style.display = "block";
 
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-      modal.style.display = "none";
+  //   // When the user clicks on <span> (x), close the modal
+  //   span.onclick = function () {
+  //     modal.style.display = "none";
       
-    };
+  //   };
 
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    };
-  };
+  //   // When the user clicks anywhere outside of the modal, close it
+  //   window.onclick = function (event) {
+  //     if (event.target == modal) {
+  //       modal.style.display = "none";
+  //     }
+  //   };
+  // };
   render() {
     const { name, boxOfficeCollection, rating, director } = this.state;
 
@@ -241,7 +243,7 @@ class FilmsForm extends Component {
                 Add Film
               </button>
               
-              {this.state.respo === "yes" ? (
+              {/* {this.state.respo === "yes" ? (
                 <div id="myModal" className="modal">
                   <div className="modal-content">
                     <div className="modal-header">
@@ -268,7 +270,7 @@ class FilmsForm extends Component {
                 </div>
               ) : (
                 <b></b>
-              )}
+              )} */}
               <h6>
                 Go back to
                 <Link to="/home">

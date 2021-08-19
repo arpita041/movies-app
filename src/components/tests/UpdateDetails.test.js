@@ -17,17 +17,17 @@ const simulateChangeInput = (component, inputSelector, newValue, newName) =>
     return component.find(inputSelector)
 }
 
-const simulateBlurInput = (component, inputSelector, newValue, newName) =>
+const simulateBlurInput = (component, inputSelector, newName) =>
 {
     let input = component.find(inputSelector)
     input.simulate('blur',{
-        target :{ value: newValue, name:newName},
+        target :{ name:newName},
     } );
     return component.find(inputSelector)
 }
 
 
-it('to check whether AddDirector component rendered',()=>{
+it('to check whether the component rendered',()=>{
     render(<BrowserRouter>
         <UpdateDetails />
     </BrowserRouter>)
@@ -58,10 +58,47 @@ expect(Input.props().value).toBe('10');
 it('should do the validation properly' , function(){
 
     const component = shallow(<UpdateDetails />);
-simulateBlurInput(component,'#name','(*&','name');
-simulateBlurInput(component,'#age','47924','age');
-simulateBlurInput(component,'#awardCount','574805','awardCount');
+simulateBlurInput(component,'#name','name');
+simulateBlurInput(component,'#age','age');
+simulateBlurInput(component,'#awardCount','awardCount');
 expect(component.state().nameError).toBe('Please enter a valid name');
 expect(component.state().ageError).toBe("Age should range between 18 to 80");
 expect(component.state().awardError).toBe("Award count should be between 0 to 100");
+});
+
+it('should do the validation properly' , function(){
+
+    const component = shallow(<UpdateDetails />);
+    component.setState({
+        name:'valid',
+        age:'21',
+        awardCount:"32"
+    })
+simulateBlurInput(component,'#name','name');
+simulateBlurInput(component,'#age','age');
+simulateBlurInput(component,'#awardCount','awardCount');
+expect(component.state().nameError).toBe('');
+expect(component.state().ageError).toBe("");
+expect(component.state().awardError).toBe("");
+});
+
+it('should do something on submit ', function()
+{
+    
+    const component = shallow(<UpdateDetails/>);
+   component.find('form').simulate('submit',{ preventDefault () {} });
+   
+});
+
+it('should do something on submit ', function()
+{
+    
+    const component = shallow(<UpdateDetails/>);
+    component.setState({
+        name:'valid',
+        age:'21',
+        awardCount:"32"
+    })
+   component.find('form').simulate('submit',{ preventDefault () {} });
+   
 });

@@ -1,8 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import {BrowserRouter} from 'react-router-dom';
 import React from 'react';
 
-test('to check whether App component rendered',()=>{
-    render(
-        <App />)
-})
+test('renders component', () => {
+   render( <BrowserRouter>
+    <App />
+</BrowserRouter>);
+});

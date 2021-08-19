@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "",
+    "mappings": "AAAA,AAAA,IAAI,CAAC,WAAW,CAAA;EACZ,UAAU,EAAE,WAAW;CAC1B",
     "sources": [
         "Gridreact.scss"
     ],

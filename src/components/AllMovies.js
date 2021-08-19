@@ -98,7 +98,7 @@ class AllMovies extends Component {
     axios.get("http://localhost:3500/film").then((response) => {
       console.log(response);
       this.setState({
-       allMovies:response.data
+       allMovies:response.data.forms
       }); 
        console.log(this.state.allMovies);
     });

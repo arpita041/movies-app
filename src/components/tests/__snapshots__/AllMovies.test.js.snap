@@ -1918,6 +1918,7 @@ exports[`should take a snapshot of AllMovies  1`] = `
             Save
           </button>
         </div>
+        <b />
       </div>
     </div>
   </div>

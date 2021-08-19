@@ -9,7 +9,6 @@ import "../css/forms.scss";
 class AddDirector extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       name: "",
       age: "",

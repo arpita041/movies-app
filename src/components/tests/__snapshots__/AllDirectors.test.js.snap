@@ -1917,6 +1917,7 @@ exports[`should take a snapshot 1`] = `
             Save
           </button>
         </div>
+        <b />
       </div>
     </div>
   </div>

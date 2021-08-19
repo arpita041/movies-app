@@ -10,6 +10,11 @@ function Gridreact(props) {
   let nameArray = [];
   let dataArray = [];
 
+  if(  document.getElementById("myBtn"))
+  {
+    document.getElementById("myBtn").disabled = true;
+  }
+
   let rowStyle = {
     background: "transparent",
     color: "#3BB7C4",
@@ -21,9 +26,12 @@ function Gridreact(props) {
 
   const myFunction = (res) => {
     if (a == 0) {
+      if(document.getElementById('myBtn'))
+      {
       document.getElementById("myBtn").disabled = false;
      // document.getElementById("myBtn").addEventListener("click", saveChanges);
       a = 1;
+      }
     }
     name = res.data.name;
     nameArray.push(name);
@@ -36,8 +44,11 @@ function Gridreact(props) {
     console.log("data", data);
     console.log(res);
     if (res.oldValue === res.value && a === 1) {
+      if(document.getElementById('myBtn'))
+      {
       document.getElementById("myBtn").disabled = true;
       a = 0;
+      }
     }
   };
 

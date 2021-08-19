@@ -18,6 +18,8 @@ const simulateChangeInput = (component, inputSelector, newValue, newName) =>
     return component.find(inputSelector)
 }
 
+
+
 const simulateBlurInput = (component, inputSelector, newName) =>
 {
     let input = component.find(inputSelector)
@@ -44,6 +46,7 @@ it("header renders with correct text",()=>{
 
     expect(headerEl.textContent).toBe("Add Directors Details")
 }) ;
+
 
 it('Should capture gender correctly onChange', function(){
 
@@ -171,8 +174,7 @@ it('should do something on submit ', function()
         genderError: "",
         awardCountError: "",
     })
-   component.find('form').simulate('submit',{ preventDefault () {} });
-   
+ component.find('form').simulate('submit',{ preventDefault () {} },component.state());
 });
 
 it('should show the modal properly', function()
@@ -180,6 +182,7 @@ it('should show the modal properly', function()
     const component= shallow(<AddDirector />); 
     component.setState({respo:'yes'});
 });
+
 it('when response is no', function()
 {
     const component = shallow(<AddDirector/>);

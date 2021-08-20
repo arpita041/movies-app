@@ -5,9 +5,14 @@ import { BrowserRouter } from 'react-router-dom';
 import { shallow } from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16'; 
-
+const axios = require('axios');
+jest.mock('axios');
 Enzyme.configure({ adapter: new Adapter() });
 
+axios.get.mockResolvedValue({
+    res:
+    {}
+});
 
 test("header renders with correct text",()=>{
     const {getByTestId} =render(
@@ -40,10 +45,3 @@ test('should take a snapshot', () => {
     </BrowserRouter>)).toMatchSnapshot()
    });
 
-
-// test('button should do the proper action', () =>
-// {
-//     const component = shallow(<AllDirectors/>);
-//     let btn = component.find('Gridreact');
-//     btn.find('#dir-btn').simulate('click');
-// })

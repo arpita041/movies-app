@@ -79,7 +79,7 @@ class AllMovies extends Component {
   actionButton = (params) => {
     let saveIt = window.confirm("Do you want to delete the data?");
     if (saveIt === true) {
-      console.log(params);
+    //  console.log(params);
       const name = params.data.name;
       params.api.applyTransaction({
         remove: [params.node.data],
@@ -87,10 +87,10 @@ class AllMovies extends Component {
       axios
         .delete(`http://localhost:3500/deleteMovie/${name}`)
         .then((res) => {
-          console.log(res);
+      //    console.log(res);
         });
     } else {
-      console.log("no");
+      //console.log("no");
     }
   };
 
@@ -100,7 +100,6 @@ class AllMovies extends Component {
       this.setState({
        allMovies:response.data.forms
       }); 
-       console.log(this.state.allMovies);
     });
   
   };

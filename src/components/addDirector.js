@@ -96,8 +96,9 @@ class AddDirector extends Component {
     const valid = this.validate();
     // if (valid) {
  axios.post("http://localhost:3500/direct", this.state).then((response) => {
-      console.log(response);
-      if (response.statusText === "") {
+   console.log("resss",response);
+      console.log(response.statusText);
+      if (response.statusText === "OK") {
         this.setState({
           respo: "yes",
         });
@@ -266,7 +267,7 @@ class AddDirector extends Component {
                 <b></b>
               )} */}
 
-              <h6>
+       <h6>
                 Go back to
                 <Link to="/home">
                   <b className="form__link--color"> home</b>

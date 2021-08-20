@@ -7,6 +7,8 @@ import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16'; 
 
 Enzyme.configure({ adapter: new Adapter() });
+const axios = require('axios');
+jest.mock('axios');
 
 
 const simulateChangeInput = (component, inputSelector, newValue, newName) =>
@@ -174,7 +176,13 @@ it('should do something on submit ', function()
         genderError: "",
         awardCountError: "",
     })
- component.find('form').simulate('submit',{ preventDefault () {} },component.state());
+    axios.post.mockResolvedValue({
+        response:
+        {
+            statusText:'OK'
+        }
+    });
+ component.find('form').simulate('submit',{ preventDefault () {} });
 });
 
 it('should show the modal properly', function()

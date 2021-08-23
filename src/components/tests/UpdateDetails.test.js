@@ -8,6 +8,9 @@ import Adapter from 'enzyme-adapter-react-16';
  
 Enzyme.configure({ adapter: new Adapter() });
 
+const axios = require('axios');
+jest.mock('axios');
+
 const simulateChangeInput = (component, inputSelector, newValue, newName) =>
 {
     let input = component.find(inputSelector)
@@ -99,6 +102,11 @@ it('should do something on submit ', function()
         age:'21',
         awardCount:"32"
     })
+    axios.put.mockResolvedValue({
+        response:
+        {
+            statusText:'OK'
+        }
+    });
    component.find('form').simulate('submit',{ preventDefault () {} });
-   
 });

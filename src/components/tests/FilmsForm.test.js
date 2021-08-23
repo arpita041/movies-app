@@ -7,8 +7,10 @@ import { shallow } from 'enzyme';
 import { mount } from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
- 
-Enzyme.configure({ adapter: new Adapter() });
+ Enzyme.configure({ adapter: new Adapter() });
+
+ const axios = require('axios');
+ jest.mock('axios');
 
 const simulateChangeInput = (component, inputSelector, newValue) =>
 {
@@ -178,6 +180,12 @@ it('should do something on submit ', function()
        ratingError:'',
        directorError:''
     })
+    axios.post.mockResolvedValue({
+        response:
+        {
+            statusText:'OK'
+        }
+    });
    component.find('form').simulate('submit',{ preventDefault () {} });
    
 });

@@ -7,7 +7,8 @@ import { shallow } from 'enzyme';
 import { mount } from 'enzyme';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-
+const axios = require('axios');
+jest.mock('axios');
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -49,4 +50,31 @@ it('button should do something', ()=>
     const component = shallow(<Gridreact/>);
     let btn = component.find('button');
     btn.simulate('click');
+})
+
+it('button should do something', ()=>
+{
+    const component = shallow(<Gridreact apiValue="director"/>);
+    axios.put.mockResolvedValue({
+        res:
+        {
+            statusText:'OK'
+        }
+    })
+    let btn = component.find('button');
+    btn.simulate('click');
+})
+
+it('button should do something', ()=>
+{
+    const component = shallow(<Gridreact apiValue="movie"/>);
+    let nameArray =[1,2,3,4,5];
+    axios.put.mockResolvedValue({
+        res:
+        {
+            statusText:'OK'
+        }
+    })
+    let btn = component.find('button');
+    btn.simulate('click',{nameArray});
 })
